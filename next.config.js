@@ -1,4 +1,22 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+const million = require('million/compiler');
 
-module.exports = nextConfig
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
+    ],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+};
+
+module.exports = million.next(nextConfig, { auto: { rsc: true } });

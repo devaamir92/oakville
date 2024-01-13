@@ -1,0 +1,8 @@
+**/.pnpm
+**/.next
+**/*.yaml
+**/*.yml
+**/*.mjs
+**/*.js
+**/*.json
+**/node_modules

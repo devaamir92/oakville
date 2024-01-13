@@ -1,20 +1,28 @@
-import type { Config } from 'tailwindcss'
+import tailwindTints from 'tailwind-tints';
+import type { Config } from 'tailwindcss';
+
+const tints = tailwindTints({
+  primary: '#004348',
+  secondary: '#ECDBC7',
+});
 
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx,css}'],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        'border-color': '#e5e7eb',
+        'hover-color': '#f5f6f8',
+      },
+      container: {
+        center: true,
+      },
+      fontFamily: {
+        gilroy: 'var(--font-gilroy)',
+        playfair: 'var(--font-playfair)',
       },
     },
   },
-  plugins: [],
-}
-export default config
+  plugins: [tints],
+};
+export default config;

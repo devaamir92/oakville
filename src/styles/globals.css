@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hover-icon .fa-arrow-right {
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+}
+
+.hover-icon:hover .fa-arrow-right {
+  opacity: 1;
+  transform: translateX(0);
+}
