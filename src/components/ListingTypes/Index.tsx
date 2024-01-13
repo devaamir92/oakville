@@ -6,7 +6,7 @@ function ListingTypes() {
   return (
     <section className="px-4 py-10">
       <div className="container">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <div className="flex items-center justify-center rounded bg-gray-100 p-6">
             <div className="flex items-center gap-5 ">
               <Image

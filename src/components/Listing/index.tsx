@@ -24,7 +24,7 @@ function Listing() {
     <section className="bg-[#f3f4f6] px-4 py-10">
       <div className="container flex flex-col gap-10">
         <h2 className="text-center text-2xl font-semibold">Recent Listings</h2>
-        <div className="grid grid-cols-1 gap-6  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-3  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Array.from({ length: 12 }).map(index => (
             <div
               key={item.name + index}
@@ -43,15 +43,15 @@ function Listing() {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-col gap-1 p-3">
+              <div className="flex flex-col gap-4 p-3">
                 <div className="relative flex items-center gap-1 text-base font-medium text-gray-700">
                   <FaLocationDot size={16} className="mb-1" />
                   <span>{item.name}</span>
                 </div>
-                <div className="flex justify-between gap-4 text-center text-gray-500">
+                <div className="flex justify-between gap-1 text-center text-gray-500">
                   <div className="flex flex-1 items-center gap-1 border-r border-gray-300">
                     <SizeIcon className="fill-gray-500" />
-                    <span className="text-sm">{item.type}</span>
+                    <span className="text-sm">{item.sqft}</span>
                   </div>
                   <div className="flex flex-1 items-center gap-1 border-r border-gray-300">
                     <BedIcon className="mt-1 fill-gray-500" />

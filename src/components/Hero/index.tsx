@@ -9,15 +9,15 @@ function Hero() {
       <Image src="/jpg/cover.png" alt="banner" fill />
       <div className="container">
         <div className="relative">
-          <div className="absolute right-0 top-4  rounded-xl bg-black/50 p-8">
+          <div className="absolute right-0 top-4  rounded-xl">
             <Image src="/logo.svg" alt="hero" width={150} height={150} />
           </div>
         </div>
         <div className="absolute top-1/2 -translate-y-1/2 font-playfair">
-          <h1 className=" font-semibold text-secondary-600 shadow-black drop-shadow-2xl xl:text-[100px] 2xl:text-[160px]">
+          <h1 className=" text-secondary-600 shadow-black drop-shadow-2xl xl:text-[90px] 2xl:text-[150px]">
             hello!
           </h1>
-          <span className="absolute ml-[50%] text-right font-semibold text-secondary-600 xl:-bottom-5 xl:text-4xl 2xl:-bottom-3 2xl:text-6xl">
+          <span className="absolute ml-[50%] text-right font-semibold text-secondary-600 xl:-bottom-5 xl:text-4xl 2xl:-bottom-4 2xl:text-6xl">
             neighbour
           </span>
         </div>

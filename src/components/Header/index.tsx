@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
 
 import { Input } from '@components/ui/Input';
+import Image from 'next/image';
 
 const linkClass =
   'text-sm text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
@@ -12,7 +13,9 @@ export default function Header() {
       <div className="container flex items-center justify-between">
         <div className="flex flex-1 items-center space-x-6">
           <div>
-            <span className="text-2xl font-bold text-white">Logo</span>
+            <span className="text-2xl font-bold text-white">
+              <Image src="/logo-1.svg" alt="logo" width={40} height={40} />
+            </span>
           </div>
           <div className="flex h-[36px] w-1/2 items-center gap-2 rounded bg-primary-400 px-2">
             <Input
