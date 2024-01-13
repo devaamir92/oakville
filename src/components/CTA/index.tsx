@@ -20,7 +20,7 @@ function CTASection() {
           </p>
           <Button
             variant="outline"
-            className="text-white hover:bg-primary-400 md:w-1/3"
+            className="border-secondary-500 text-white hover:bg-primary-400 md:w-1/3"
           >
             Get Free Evaluation
           </Button>

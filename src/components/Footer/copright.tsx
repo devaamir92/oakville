@@ -22,7 +22,7 @@ const socials = [
 
 function Copright() {
   return (
-    <div className="flex items-center justify-between border-t py-5">
+    <div className="flex items-center justify-between border-t border-secondary-500 py-5">
       <div className="text-sm text-white">
         © {new Date().getFullYear()} Preserve Oakville. All rights reserved.
       </div>
