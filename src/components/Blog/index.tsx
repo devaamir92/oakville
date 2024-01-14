@@ -8,25 +8,25 @@ const Links = [
     name: 'Selling Your Real Home',
     url: '/',
     date: 'May 1, 2023',
-    Imageurl: '/jpg/blog/1.jpeg',
+    Imageurl: '/webp/blog/photo.webp',
   },
   {
     name: 'Buying a Home',
     url: '/',
     date: 'Jan 1, 2024',
-    Imageurl: '/jpg/blog/1.jpeg',
+    Imageurl: '/webp/blog/photo1.webp',
   },
   {
     name: 'Mortgage Rates',
     url: '/',
     date: 'Fab 1, 2024',
-    Imageurl: '/jpg/blog/1.jpeg',
+    Imageurl: '/webp/blog/photo2.webp',
   },
   {
     name: 'Real Estate Investing',
     url: '/',
     date: 'Mar 22, 2024',
-    Imageurl: '/jpg/blog/1.jpeg',
+    Imageurl: '/webp/blog/photo3.webp',
   },
 ];
 
