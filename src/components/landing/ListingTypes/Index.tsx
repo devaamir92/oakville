@@ -35,7 +35,9 @@ function ListingTypes() {
               key={listing.id}
               className="flex items-center justify-center rounded bg-secondary-400 px-6 py-3"
             >
-              <h3 className="mt-2 text-lg font-semibold">{listing.title}</h3>
+              <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
+                {listing.title}
+              </h3>
             </div>
           ))}
         </div>
