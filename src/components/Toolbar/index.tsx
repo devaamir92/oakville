@@ -37,7 +37,7 @@ const linkClass =
 
 function Toolbar() {
   return (
-    <div className="flex h-12 items-center justify-end bg-primary-400">
+    <div className="flex h-12 items-center justify-end bg-primary-400 px-4">
       <nav className="container flex items-center justify-end">
         <ul className="flex items-center gap-4 text-sm">
           {Links.map(link => (

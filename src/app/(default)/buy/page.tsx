@@ -118,7 +118,7 @@ function page() {
   return (
     <div>
       <Toolbar />
-      <div className="flex justify-between">
+      <div className="flex justify-between ">
         <div className="flex-1 bg-gray-200" />
         <div className="w-2/5 bg-white px-2">
           <h6 className="py-3 text-xl font-medium">
