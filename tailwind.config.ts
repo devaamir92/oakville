@@ -2,7 +2,7 @@ import tailwindTints from 'tailwind-tints';
 import type { Config } from 'tailwindcss';
 
 const tints = tailwindTints({
-  primary: '#3e5e2e',
+  primary: '#375329',
   secondary: '#ECDBC7',
 });
 
