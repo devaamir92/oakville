@@ -15,14 +15,14 @@ function page() {
       >
         <Image
           fill
-          src="/jpg/cta.jpeg"
+          src="/webp/mainEvalHeader.webp"
           alt="banner"
           style={{
             objectFit: 'cover',
-            objectPosition: 'bottom',
+            objectPosition: 'center',
           }}
         />
-        <div className="absolute inset-0 bg-black opacity-40" />
+        <div className="absolute inset-0 bg-black opacity-20" />
 
         <div className="absolute  left-1/2 top-1/2 w-full max-w-4xl -translate-x-1/2 -translate-y-1/2">
           <div className="flex flex-col gap-3">
