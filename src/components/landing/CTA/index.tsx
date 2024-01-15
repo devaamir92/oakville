@@ -10,7 +10,7 @@ function CTASection() {
           <h2 className="text-center text-2xl font-semibold text-white">
             Free Home Evaluation
           </h2>
-          <p className=" text-base text-gray-300 md:text-justify">
+          <p className=" text-base text-white md:text-justify">
             Being Certified Real Estate Professionals and having in-depth
             knowledge of the market, we can assist you to estimate the value of
             your condo. Our services will be free of cost and will assist you to
