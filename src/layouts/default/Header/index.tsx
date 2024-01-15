@@ -5,7 +5,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Input } from '@components/ui/Input';
 
 const linkClass =
-  'text-sm text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
+  'text-base text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
 
 export default function Header() {
   return (
@@ -26,7 +26,7 @@ export default function Header() {
             <FaSearch className="text-white" />
           </div>
         </div>
-        <nav className="hidden flex-1 items-center justify-end gap-14 lg:flex xl:text-sm">
+        <nav className="hidden flex-1 items-center justify-end gap-14 lg:flex xl:text-base">
           <Link href="/" className={linkClass}>
             Home
           </Link>
