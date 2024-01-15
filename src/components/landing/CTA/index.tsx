@@ -28,7 +28,7 @@ function CTASection() {
         <div className="lg:w-1/5" />
         <div className="flex flex-1">
           <div className="relative hidden aspect-square flex-1 overflow-hidden rounded sm:block sm:h-96">
-            <Image src="/jpg/cta.jpeg" fill alt="free home evaluation" />
+            <Image src="/jpg/cta-main.jpg" fill alt="free home evaluation" />
           </div>
         </div>
       </div>

@@ -26,7 +26,7 @@ export default function Header() {
             <FaSearch className="text-white" />
           </div>
         </div>
-        <nav className="hidden flex-1 items-center justify-end gap-14 text-sm lg:flex">
+        <nav className="hidden flex-1 items-center justify-end gap-14 lg:flex xl:text-sm">
           <Link href="/" className={linkClass}>
             Home
           </Link>

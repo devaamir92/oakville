@@ -5,8 +5,13 @@ import Image from 'next/image';
 
 function Hero() {
   return (
-    <section className="2x:h-[52vh]  relative px-4 md:h-[70vh] xl:h-[70vh]">
-      <Image src="/jpg/cover.png" alt="banner" fill />
+    <section className="relative  px-4 md:h-[70vh] xl:h-[77vh] 2xl:h-[81vh]">
+      <Image
+        src="/jpg/cover.jpg"
+        alt="banner"
+        fill
+        className="object-cover object-right"
+      />
       <div className="container">
         <div className="relative">
           <div className="absolute rounded-xl xl:right-16 xl:top-10 2xl:right-20  2xl:top-8">
@@ -21,12 +26,6 @@ function Hero() {
             neighbour
           </span>
         </div>
-        {/* <div className="absolute left-1/2 top-3/4 w-1/3 -translate-x-1/2 -translate-y-1/2 rounded bg-white p-3">
-          <div className="flex items-center gap-3">
-            <Input id="search" placeholder="Enter an Address" />
-            <FaSearch className="text-xl text-gray-400" />
-          </div>
-        </div> */}
       </div>
     </section>
   );

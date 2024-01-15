@@ -7,21 +7,17 @@ import type { VariantProps } from 'class-variance-authority';
 import cn from '@utils/cn';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-100 dark:focus:ring-slate-400 dark:focus:ring-offset-slate-900 dark:data-[state=open]:bg-slate-800',
+  'inline-flex items-center justify-center rounded text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-slate-100',
   {
     variants: {
       variant: {
-        default:
-          'bg-slate-900 text-white hover:bg-slate-700 dark:bg-slate-50 dark:text-slate-900',
-        destructive:
-          'bg-red-500 text-white hover:bg-red-600 dark:hover:bg-red-600',
-        outline:
-          'border border-slate-200 bg-transparent hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100',
-        subtle:
-          'bg-slate-100 text-slate-900 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100',
+        default: 'bg-primary-500 text-white hover:bg-primary-700 ',
+        destructive: 'bg-red-500 text-white hover:bg-red-600 ',
+        outline: 'border border-slate-200 bg-transparent hover:bg-slate-100  ',
+        subtle: 'bg-slate-100 text-slate-900 hover:bg-slate-200  ',
         ghost:
-          'bg-transparent hover:bg-slate-100 data-[state=open]:bg-transparent dark:bg-transparent dark:text-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-100 dark:data-[state=open]:bg-transparent',
-        link: 'bg-transparent text-slate-900 underline-offset-4 hover:bg-transparent hover:underline dark:bg-transparent dark:text-slate-300 dark:hover:bg-transparent',
+          ':bg-transparent bg-transparent hover:bg-slate-100 data-[state=open]:bg-transparent ',
+        link: 'bg-transparent text-slate-900 underline-offset-4 hover:bg-transparent hover:underline',
       },
       size: {
         default: 'h-10 px-4 py-2',
