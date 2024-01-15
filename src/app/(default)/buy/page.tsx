@@ -2,6 +2,7 @@ import React from 'react';
 
 import Card from '@components/PropertyCard';
 import Toolbar from '@components/Toolbar';
+import Pagination from '@components/ui/Pagination';
 
 const data = [
   {
@@ -120,7 +121,7 @@ function page() {
       <Toolbar />
       <div className="flex justify-between">
         <div className="flex-1 bg-gray-200" />
-        <div className="mb-2 w-2/5 bg-white px-2">
+        <div className="mb-2 bg-white px-2 xl:w-1/2 2xl:w-2/5">
           <h6 className="py-3 text-xl font-medium">
             Bungalows for sale in Mississauga , 126 Listings
           </h6>
@@ -138,6 +139,7 @@ function page() {
               />
             ))}
           </div>
+          {/* <Pagination /> */}
         </div>
       </div>
     </div>

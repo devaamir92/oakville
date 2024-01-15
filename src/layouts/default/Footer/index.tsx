@@ -20,12 +20,12 @@ const popularSearches = [
 ];
 
 const usefulLinks = [
-  { name: 'Home', href: '/' },
+  { name: 'Blog', href: '/' },
+  { name: 'Land Transfer Tax Calculator', href: '/' },
   { name: 'About Us', href: '/' },
   { name: 'Contact Us', href: '/' },
   { name: 'Privacy Policy', href: '/' },
   { name: 'Terms of Use', href: '/' },
-  { name: 'Blog', href: '/' },
 ];
 
 const linkClass =
