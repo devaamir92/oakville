@@ -15,6 +15,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^10.17.6",
+    "mapbox-gl": "^3.0.1",
     "million": "^2.6.4",
     "next": "14.0.4",
     "prettier-plugin-tailwindcss": "^0.5.10",
