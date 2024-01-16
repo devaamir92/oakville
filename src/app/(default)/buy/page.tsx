@@ -1,8 +1,7 @@
 import React from 'react';
 
-import Card from '@components/PropertyCard';
-import Toolbar from '@components/Toolbar';
 import Pagination from '@components/ui/Pagination';
+import Card from '@components/PropertyCard';
 
 const data = [
   {
@@ -117,32 +116,26 @@ const data = [
 
 function page() {
   return (
-    <div>
-      <Toolbar />
-      <div className="flex justify-between">
-        <div className="flex-1 bg-gray-200" />
-        <div className="mb-2 bg-white px-2 xl:w-1/2 2xl:w-2/5">
-          <h6 className="py-3 text-xl font-medium">
-            Bungalows for sale in Mississauga , 126 Listings
-          </h6>
-          <div className="grid grid-cols-2 gap-3">
-            {data.map(item => (
-              <Card
-                key={item.location}
-                bathrooms={item.bathrooms}
-                bedrooms={item.bedrooms}
-                imageUrl={item.imageUrl}
-                listingStatus={item.listingStatus}
-                location={item.location}
-                price={item.price}
-                propertyType={item.propertyType}
-              />
-            ))}
-          </div>
-          {/* <Pagination /> */}
-        </div>
+    <section className="mb-2 overflow-y-auto bg-white px-2 xl:w-1/2 2xl:w-2/5">
+      <h6 className="py-3 text-xl font-medium">
+        Bungalows for sale in Mississauga , 126 Listings
+      </h6>
+      <div className="mb-2 grid grid-cols-2 gap-3">
+        {data.map(item => (
+          <Card
+            key={item.location}
+            bathrooms={item.bathrooms}
+            bedrooms={item.bedrooms}
+            imageUrl={item.imageUrl}
+            listingStatus={item.listingStatus}
+            location={item.location}
+            price={item.price}
+            propertyType={item.propertyType}
+          />
+        ))}
       </div>
-    </div>
+      <Pagination totalPages={11} currentPage={3} />
+    </section>
   );
 }
 

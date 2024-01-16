@@ -15,7 +15,7 @@ function Hero() {
       <div className="container">
         <div className="relative">
           <div className="absolute rounded-xl xl:right-0 xl:top-16 2xl:top-16">
-            <Image src="/logo.svg" alt="hero" width={270} height={270} />
+            <Image src="/svg/logo.svg" alt="hero" width={270} height={270} />
           </div>
         </div>
         <div className="absolute left-32 top-[50%] -translate-y-1/2 font-playfair 2xl:left-64 ">

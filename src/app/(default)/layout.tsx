@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import fonts from '@fonts';
 
 import '@styles/globals.css';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 import DefaultLayout from '@layouts/default';
 
 export const metadata: Metadata = {

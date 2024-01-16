@@ -35,7 +35,7 @@ function BlogSection() {
     <section className="bg-[#f3f4f6] px-4 py-10">
       <div className="container flex flex-col gap-10">
         <h2 className="text-center text-2xl font-semibold">
-          Per-Con Assignment
+          Pre-Con Assignment
         </h2>
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Links.map(({ name, url, date, Imageurl }) => (
