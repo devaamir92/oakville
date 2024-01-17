@@ -13,19 +13,41 @@ import {
 import { FaTimes } from 'react-icons/fa';
 
 import { Button } from '@components/ui/Button';
+import cn from '@utils/cn';
 
-const Modal: React.FC = () => {
+interface ModalProps {
+  children: React.ReactNode;
+  title: string;
+  className?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const Modal: React.FC<ModalProps> = ({
+  children,
+  title,
+  className,
+  size = 'sm',
+}) => {
   const [open, setOpen] = useState(false);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <Root>
         <Trigger asChild>
-          <Button>Open</Button>
+          <button type="button" className={className}>
+            {title}
+          </button>
         </Trigger>
         <Portal>
           <Overlay className="fixed inset-0 bg-black opacity-20" />
-          <Content className="fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[450px] -translate-x-1/2 -translate-y-1/2 rounded bg-white p-6 focus:outline-none">
+          <Content
+            className={cn(
+              'fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] -translate-x-1/2 -translate-y-1/2 rounded bg-white p-6 focus:outline-none',
+              size === 'sm' && 'w-[400px]',
+              size === 'md' && 'w-[600px]',
+              size === 'lg' && 'w-[800px]'
+            )}
+          >
             <Close asChild>
               <button
                 type="button"
@@ -35,6 +57,7 @@ const Modal: React.FC = () => {
                 <FaTimes />
               </button>
             </Close>
+            {children}
           </Content>
         </Portal>
       </Root>

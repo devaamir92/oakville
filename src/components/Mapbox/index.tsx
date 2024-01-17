@@ -8,9 +8,9 @@ const MAPBOX_ACCESS_TOKEN =
 
 const App = () => {
   const [viewState, setViewState] = React.useState({
-    latitude: 43.44395902259572,
-    longitude: -79.65566297020888,
-    zoom: 12,
+    latitude: 43.48683277118204,
+    longitude: -79.7270483834316,
+    zoom: 12.83,
   });
 
   return (
@@ -24,11 +24,11 @@ const App = () => {
       mapStyle="mapbox://styles/mapbox/streets-v9"
       mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
     >
-      <div style={{ position: 'absolute', right: 0, top: 0 }}>
+      {/* <div style={{ position: 'absolute', right: 0, top: 0 }}>
         <div>Latitude: {viewState.latitude}</div>
         <div>Longitude: {viewState.longitude}</div>
         <div>Zoom: {viewState.zoom}</div>
-      </div>
+      </div> */}
     </MapGL>
   );
 };

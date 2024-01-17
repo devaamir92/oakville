@@ -4,6 +4,8 @@ import { FaSearch } from 'react-icons/fa';
 
 import { Input } from '@components/ui/Input';
 
+import Login from './Login';
+
 const linkClass =
   'text-base text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
 
@@ -48,12 +50,7 @@ export default function Header() {
             <Link href="/blog" className={linkClass}>
               Blog
             </Link>
-            <Link
-              href="/login"
-              className="rounded bg-primary-400 px-7 py-2 text-white"
-            >
-              Login
-            </Link>
+            <Login />
           </nav>
         </div>
       </header>
