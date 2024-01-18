@@ -7,21 +7,9 @@ import { FaBell, FaChevronDown, FaList, FaRepeat } from 'react-icons/fa6';
 import Dropdown from '@components/ui/Dropdown';
 import { Button } from '@components/ui/Button';
 
-import Styles from './Styles';
+import Types from './Types';
 import Price from './Price';
 import MoreFilters from './MoreFilters';
-
-const StylesData = [
-  'Bungalow',
-  'Bungaloft',
-  'Bungalow Raised',
-  'Backsplit 3',
-  'Backsplit 4',
-  'Backsplit 5',
-  'Sidesplit 3',
-  'Sidesplit 4',
-  'Sidesplit 5',
-];
 
 const Filters = {
   bedrooms: [
@@ -112,12 +100,10 @@ const Filters = {
 const TypeData = [
   'Condo Apt',
   'Condo Townhouse',
-  'Stacked Townhouse',
-  'Store W/Apt/Offc',
   'Att/Row/Townhouse',
   'Semi-Detached',
-  'Link',
   'Detached',
+  'Store W/Apt/Offc',
 ];
 
 function Toolbar() {
@@ -130,14 +116,9 @@ function Toolbar() {
     >
       <nav className="container flex items-center justify-end">
         <ul className="flex items-center gap-2 text-sm">
-          {/* <li>
-            <Dropdown label="Styles" icon={<FaChevronDown size={10} />}>
-              <Styles items={StylesData} />
-            </Dropdown>
-          </li> */}
           <li>
             <Dropdown label="Type" icon={<FaChevronDown size={10} />}>
-              <Styles items={TypeData} />
+              <Types items={TypeData} />
             </Dropdown>
           </li>
           <li>

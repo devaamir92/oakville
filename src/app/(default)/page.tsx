@@ -1,9 +1,10 @@
 import React from 'react';
 
 import Hero from '@components/landing/Hero';
-import CTASection from '@components/landing/CTA';
-import Listing from '@components/landing/Listing';
 import ListingTypes from '@components/landing/ListingTypes/Index';
+import DailyListing from '@components/landing/DailyListing';
+import JustSold from '@components/landing/JustSold';
+import CTASection from '@components/landing/CTA';
 import Card from '@components/PropertyCard';
 
 const data = [
@@ -50,13 +51,14 @@ function page() {
     <main>
       <Hero />
       <ListingTypes />
-      <Listing />
+      <DailyListing />
+      <JustSold />
       <CTASection />
 
       <section className="bg-[#f3f4f6] px-4 py-10">
         <div className="container flex flex-col gap-10">
           <h2 className="text-center text-2xl font-semibold">
-            Pre-Con Assignment
+            About the Neighborhood
           </h2>
           <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {data.map(item => (

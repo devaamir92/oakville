@@ -1,6 +1,5 @@
+import Link from 'next/link';
 import Image from 'next/image';
-
-import { Button } from '@components/ui/Button';
 
 function CTASection() {
   return (
@@ -18,12 +17,12 @@ function CTASection() {
             it at market. Condo evaluation is key to determine the best sales
             price.
           </p>
-          <Button
-            variant="outline"
-            className="border-secondary-500 text-white hover:bg-primary-400 md:w-1/3"
+          <Link
+            href="/sell"
+            className="rounded border border-secondary-500 px-4 py-2 text-center text-white hover:bg-primary-400 md:w-1/3"
           >
             Get Free Evaluation
-          </Button>
+          </Link>
         </div>
         <div className="lg:w-1/5" />
         <div className="flex flex-1">

@@ -37,7 +37,7 @@ const CheckboxItem = ({ item }: { item: string }) => {
   );
 };
 
-const Styles: React.FC<Props> = ({ items }) => {
+const Types: React.FC<Props> = ({ items }) => {
   return (
     <ul className="flex flex-col gap-2">
       {items.map(item => (
@@ -47,4 +47,4 @@ const Styles: React.FC<Props> = ({ items }) => {
   );
 };
 
-export default Styles;
+export default Types;

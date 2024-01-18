@@ -7,7 +7,7 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa6';
 import Copright from './copright';
 
 const popularNeighborhoods = [
-  { name: 'Properties in Urban Oakville', href: '/' },
+  { name: 'Properties in Iroquois Ridge North', href: '/' },
   { name: 'Properties in Rural Oakville', href: '/' },
   { name: 'Properties in Uptown Core', href: '/' },
 ];
@@ -20,12 +20,14 @@ const popularSearches = [
 ];
 
 const usefulLinks = [
-  { name: 'Blog', href: '/' },
-  { name: 'Land Transfer Tax Calculator', href: '/' },
-  { name: 'About Us', href: '/' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Calculator', href: '/calculators' },
+  {
+    name: 'Land Transfer Tax Calculator',
+    href: '/land-transfer-tax-calculator',
+  },
   { name: 'Contact Us', href: '/' },
-  { name: 'Privacy Policy', href: '/' },
-  { name: 'Terms of Use', href: '/' },
+  { name: 'Privacy Policy', href: '/privacy' },
 ];
 
 const linkClass =

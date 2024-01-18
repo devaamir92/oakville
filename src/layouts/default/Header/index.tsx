@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 
 import { Input } from '@components/ui/Input';
 
-import Login from './Login';
+import Auth from './auth';
 
 const linkClass =
   'text-base text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
@@ -16,14 +16,14 @@ export default function Header() {
         <div className="container flex items-center justify-between">
           <div className="flex flex-1 items-center space-x-6">
             <div>
-              <span className="text-2xl font-bold text-white">
+              <Link href="/" className="text-2xl font-bold text-white">
                 <Image
                   src="/svg/logo-1.svg"
                   alt="logo"
                   width={60}
                   height={60}
                 />
-              </span>
+              </Link>
             </div>
             <div className="flex h-[36px] w-1/2 items-center gap-2 rounded bg-primary-400 px-2">
               <Input
@@ -44,13 +44,13 @@ export default function Header() {
             <Link href="/buy" className={linkClass}>
               Buy
             </Link>
-            <Link href="/buy" className={linkClass}>
+            <Link href="/rent" className={linkClass}>
               Rent
             </Link>
             <Link href="/blog" className={linkClass}>
               Blog
             </Link>
-            <Login />
+            <Auth />
           </nav>
         </div>
       </header>
