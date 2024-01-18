@@ -83,16 +83,10 @@ const data = [
 
 function DailyListing() {
   return (
-    <section className="bg-[#f3f4f6] px-4 py-10">
+    <section className="bg-[#f3f4f6] px-4">
       <div className="container flex flex-col">
-        <div className="flex items-center justify-between">
-          <h2 className="mb-3  text-2xl font-semibold">Daily Listings</h2>
-          <Link
-            href="/"
-            className="inline-block rounded-md  text-center text-base font-medium text-primary-500 hover:text-primary-700"
-          >
-            See More
-          </Link>
+        <div className="flex items-center justify-center">
+          <h2 className="py-6  text-2xl font-semibold">Recent Listings</h2>
         </div>
         <div className="mb-2 h-[1px] bg-gray-300" />
         <div className="grid grid-cols-1 gap-3  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -108,6 +102,14 @@ function DailyListing() {
               propertyType={item.propertyType}
             />
           ))}
+        </div>
+        <div className="mt-3 flex justify-end">
+          <Link
+            href="/"
+            className="inline-block rounded-md  text-center text-base font-medium text-primary-500 hover:text-primary-700"
+          >
+            See More
+          </Link>
         </div>
       </div>
     </section>
