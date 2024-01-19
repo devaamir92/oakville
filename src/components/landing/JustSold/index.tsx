@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa';
 
 import Card from '@components/PropertyCard';
 
@@ -69,9 +70,9 @@ function JustSold() {
         <div className="mt-3 flex justify-end">
           <Link
             href="/"
-            className="inline-block rounded-md  text-center text-base font-medium text-primary-500 hover:text-primary-700"
+            className="inline-flex items-center justify-center gap-1 rounded bg-primary-200 px-3 py-1.5 text-center text-sm font-medium text-primary-700"
           >
-            See More
+            See More <FaArrowRight size={12} />
           </Link>
         </div>
       </div>

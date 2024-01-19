@@ -12,7 +12,7 @@ const Terms = () => {
           be heard at the courts located in Toronto, Ontario, Canada.
         </p>
         <br />
-        <h1>Privacy Policy</h1>
+        <h3 className="text-3xl font-semibold text-gray-700">Privacy Policy</h3>
         <p>At Bungalow Finder your privacy is always protected.</p>
         <p>
           At no time will we ask you for personal information unless we require

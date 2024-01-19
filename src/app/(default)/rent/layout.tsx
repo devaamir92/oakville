@@ -7,20 +7,12 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-const layout: React.FC<LayoutProps> = ({ children, map }) => {
+const layout = ({ children, map }: LayoutProps) => {
   return (
     <main className="flex flex-col">
       <Toolbar />
       <main className="relative flex flex-1">
-        <section
-          style={{
-            height: 'calc(100vh - 70px - 48px)',
-            top: 'calc(70px + 48px)',
-          }}
-          className="sticky left-0 flex-1"
-        >
-          {map}
-        </section>
+        {map}
         {children}
       </main>
     </main>

@@ -1,17 +1,18 @@
 'use client';
 
 import React from 'react';
-
-import { FaBell, FaChevronDown, FaList, FaRepeat } from 'react-icons/fa6';
+import { FaChevronDown, FaRepeat } from 'react-icons/fa6';
 
 import Dropdown from '@components/ui/Dropdown';
 import { Button } from '@components/ui/Button';
 
 import Types from './Types';
 import Price from './Price';
-import MoreFilters from './MoreFilters';
+import Filters from './Filters';
+import ListAlert from './ListAlert';
+import ViewChanger from './View';
 
-const Filters = {
+const FiltersData = {
   bedrooms: [
     {
       name: '1BD+',
@@ -115,7 +116,7 @@ function Toolbar() {
       className="sticky z-50 flex h-12 items-center justify-end bg-primary-400 px-4"
     >
       <nav className="container flex items-center justify-end">
-        <ul className="flex items-center gap-2 text-sm">
+        <ul className="flex items-center justify-center gap-6 text-sm">
           <li>
             <Dropdown label="Type" icon={<FaChevronDown size={10} />}>
               <Types items={TypeData} />
@@ -128,12 +129,12 @@ function Toolbar() {
           </li>
           <li>
             <Dropdown label="More Filters" icon={<FaChevronDown size={10} />}>
-              <MoreFilters data={Filters} />
+              <Filters data={FiltersData} />
             </Dropdown>
           </li>
           <li>
             <Button
-              className="flex items-center gap-2 px-2 text-sm text-white"
+              className="flex items-center gap-2 px-0 text-sm text-white"
               variant="ghost"
             >
               <FaRepeat size={14} />
@@ -141,22 +142,10 @@ function Toolbar() {
             </Button>
           </li>
           <li>
-            <Button
-              className="flex items-center gap-2 px-2 text-sm text-white"
-              variant="ghost"
-            >
-              <FaBell size={14} />
-              <span>Listing Alert</span>
-            </Button>
+            <ListAlert />
           </li>
           <li>
-            <Button
-              className="flex items-center gap-2 px-2 text-sm text-white"
-              variant="ghost"
-            >
-              <FaList size={14} />
-              <span>List View</span>
-            </Button>
+            <ViewChanger />
           </li>
         </ul>
       </nav>

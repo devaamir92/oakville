@@ -99,7 +99,7 @@ function BlogPage() {
                 <Image src={Imageurl} fill alt={name} />
               </div>
               <div className="flex flex-col gap-1 p-3">
-                <span className="text-base font-medium">{name}</span>
+                <span className="truncate text-base font-medium">{name}</span>
                 <div className="flex justify-between text-center">
                   <p className="text-sm text-gray-500">{date}</p>
                   <button

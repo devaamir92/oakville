@@ -1,7 +1,14 @@
 import React from 'react';
 
-import Pagination from '@components/ui/Pagination';
+import cn from '@utils/cn';
 import Card from '@components/PropertyCard';
+import Pagination from '@components/ui/Pagination';
+
+interface PageProps {
+  searchParams?: {
+    view?: 'list' | 'map';
+  };
+}
 
 const data = [
   {
@@ -10,7 +17,7 @@ const data = [
     bathrooms: '4',
     price: '600,000',
     imageUrl: '/jpg/listing/1.jpg',
-    listingStatus: 'For Rent',
+    listingStatus: 'For Sale',
     propertyType: 'Condo',
   },
   {
@@ -28,7 +35,7 @@ const data = [
     bathrooms: '3',
     price: '950,000',
     imageUrl: '/jpg/listing/3.jpg',
-    listingStatus: 'For Rent',
+    listingStatus: 'For Sale',
     propertyType: 'Detached',
   },
   {
@@ -46,7 +53,7 @@ const data = [
     bathrooms: '3',
     price: '800,000',
     imageUrl: '/jpg/listing/5.jpg',
-    listingStatus: 'For Rent',
+    listingStatus: 'For Sale',
     propertyType: 'Par',
   },
   {
@@ -55,7 +62,7 @@ const data = [
     bathrooms: '4',
     price: '1,200,000',
     imageUrl: '/jpg/listing/6.jpg',
-    listingStatus: 'For Rent',
+    listingStatus: 'For Sale',
     propertyType: 'Detached',
   },
   {
@@ -64,7 +71,7 @@ const data = [
     bathrooms: '2',
     price: '550,000',
     imageUrl: '/jpg/listing/7.jpg',
-    listingStatus: 'For Rent',
+    listingStatus: 'For Sale',
     propertyType: 'Condo',
   },
   {
@@ -82,7 +89,7 @@ const data = [
     bathrooms: '4',
     price: '1,100,000',
     imageUrl: '/jpg/listing/9.jpg',
-    listingStatus: 'For Rent',
+    listingStatus: 'For Sale',
     propertyType: 'Detached',
   },
   {
@@ -91,7 +98,7 @@ const data = [
     bathrooms: '2',
     price: '600,000',
     imageUrl: '/jpg/listing/10.jpg',
-    listingStatus: 'For Rent',
+    listingStatus: 'For Sale',
     propertyType: 'Condo',
   },
   {
@@ -100,7 +107,7 @@ const data = [
     bathrooms: '3',
     price: '850,000',
     imageUrl: '/jpg/listing/11.jpg',
-    listingStatus: 'For Rent',
+    listingStatus: 'For Sale',
     propertyType: 'Par',
   },
   {
@@ -114,11 +121,19 @@ const data = [
   },
 ];
 
-function page() {
+const Page: React.FC<PageProps> = ({ searchParams }) => {
   return (
-    <section className="mb-2 overflow-y-auto bg-white px-2 xl:w-1/2 2xl:w-2/5">
-      <h6 className="py-3 text-xl font-medium">Property for Rent</h6>
-      <div className="mb-2 grid grid-cols-2 gap-3">
+    <section
+      className={cn('mb-2 overflow-y-auto bg-white px-2 xl:w-1/2 2xl:w-2/5', {
+        'w-full xl:w-full 2xl:w-full': searchParams?.view === 'list',
+      })}
+    >
+      <h6 className="py-3 text-xl font-medium">Properties for Rent</h6>
+      <div
+        className={cn('mb-2 grid grid-cols-2 gap-3', {
+          'grid-cols-5': searchParams?.view === 'list',
+        })}
+      >
         {data.map(item => (
           <Card
             key={item.location}
@@ -135,6 +150,6 @@ function page() {
       <Pagination totalPages={11} currentPage={3} />
     </section>
   );
-}
+};
 
-export default page;
+export default Page;

@@ -1,7 +1,14 @@
 import React from 'react';
 
-import Pagination from '@components/ui/Pagination';
+import cn from '@utils/cn';
 import Card from '@components/PropertyCard';
+import Pagination from '@components/ui/Pagination';
+
+interface PageProps {
+  searchParams?: {
+    view?: 'list' | 'map';
+  };
+}
 
 const data = [
   {
@@ -114,13 +121,21 @@ const data = [
   },
 ];
 
-function page() {
+const page: React.FC<PageProps> = ({ searchParams }) => {
   return (
-    <section className="mb-2 overflow-y-auto bg-white px-2 xl:w-1/2 2xl:w-2/5">
+    <section
+      className={cn('mb-2 overflow-y-auto bg-white px-2 xl:w-1/2 2xl:w-2/5', {
+        'w-full xl:w-full 2xl:w-full': searchParams?.view === 'list',
+      })}
+    >
       <h6 className="py-3 text-xl font-medium">
         Bungalows for sale in Mississauga , 126 Listings
       </h6>
-      <div className="mb-2 grid grid-cols-2 gap-3">
+      <div
+        className={cn('mb-2 grid grid-cols-2 gap-3', {
+          'grid-cols-5': searchParams?.view === 'list',
+        })}
+      >
         {data.map(item => (
           <Card
             key={item.location}
@@ -137,6 +152,6 @@ function page() {
       <Pagination totalPages={11} currentPage={3} />
     </section>
   );
-}
+};
 
 export default page;

@@ -42,7 +42,7 @@ const CheckboxItem = ({ item }: { item: string }) => {
   );
 };
 
-const MoreFilters: React.FC<Props> = ({ data }) => {
+const Filters: React.FC<Props> = ({ data }) => {
   return (
     <div className="flex max-w-[378px] flex-col gap-4">
       {Object.keys(data).map(type => (
@@ -61,4 +61,4 @@ const MoreFilters: React.FC<Props> = ({ data }) => {
   );
 };
 
-export default MoreFilters;
+export default Filters;

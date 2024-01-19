@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   Content,
   DropdownMenu,
-  Item,
   Portal,
   Root,
   Trigger,
@@ -44,7 +43,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           <button
             type="button"
             className={cn(
-              'flex w-full items-center justify-between px-2 py-1.5 text-sm text-white focus:outline-none',
+              'flex w-full items-center justify-between  text-sm text-white focus:outline-none',
               className
             )}
           >

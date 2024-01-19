@@ -12,7 +12,6 @@ import {
 } from '@radix-ui/react-dialog';
 import { FaTimes } from 'react-icons/fa';
 
-import { Button } from '@components/ui/Button';
 import cn from '@utils/cn';
 
 interface ModalProps {
@@ -20,6 +19,7 @@ interface ModalProps {
   title: string;
   className?: string;
   size?: 'sm' | 'md' | 'lg';
+  icon?: React.ReactNode;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -27,6 +27,7 @@ const Modal: React.FC<ModalProps> = ({
   title,
   className,
   size = 'sm',
+  icon,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -34,7 +35,11 @@ const Modal: React.FC<ModalProps> = ({
     <Dialog open={open} onOpenChange={setOpen}>
       <Root>
         <Trigger asChild>
-          <button type="button" className={className}>
+          <button
+            type="button"
+            className={cn(className, 'flex items-center gap-2')}
+          >
+            {icon}
             {title}
           </button>
         </Trigger>
