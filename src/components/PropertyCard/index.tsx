@@ -66,12 +66,12 @@ const Card: React.FC<CardProps> = ({
               <span className="text-sm">{bathrooms}</span>
             </div>
           </div>
-          <div>
+          {/* <div>
             <div className="flex items-center gap-1 pl-4">
               <MdOutlineHomeWork className="fill-gray-500" size={20} />
               <span className="text-sm">{propertyType}</span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </Link>

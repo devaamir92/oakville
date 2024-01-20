@@ -124,8 +124,9 @@ const data = [
 const page: React.FC<PageProps> = ({ searchParams }) => {
   return (
     <section
-      className={cn('mb-2 overflow-y-auto bg-white px-4 xl:w-1/2 2xl:w-2/5', {
-        'w-full xl:w-full 2xl:w-full': searchParams?.view === 'list',
+      className={cn('mb-2 overflow-y-auto  bg-white px-4 xl:w-1/2 2xl:w-2/5', {
+        'w-full px-0 xl:w-full 2xl:w-full': searchParams?.view === 'list',
+        'container mx-auto': searchParams?.view === 'list',
       })}
     >
       <h6 className="py-4 text-xl font-medium">
@@ -133,7 +134,7 @@ const page: React.FC<PageProps> = ({ searchParams }) => {
       </h6>
       <div
         className={cn('mb-2 grid grid-cols-2 gap-4', {
-          'xl:grid-cols-4 2xl:grid-cols-5': searchParams?.view === 'list',
+          'xl:grid-cols-4': searchParams?.view === 'list',
         })}
       >
         {data.map(item => (
