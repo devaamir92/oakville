@@ -128,9 +128,9 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
         'w-full xl:w-full 2xl:w-full': searchParams?.view === 'list',
       })}
     >
-      <h6 className="py-3 text-xl font-medium">Properties for Rent</h6>
+      <h6 className="py-4 text-xl font-medium">Properties for Rent</h6>
       <div
-        className={cn('mb-2 grid grid-cols-2 gap-3', {
+        className={cn('mb-2 grid grid-cols-2 gap-4', {
           'xl:grid-cols-4 2xl:grid-cols-5': searchParams?.view === 'list',
         })}
       >

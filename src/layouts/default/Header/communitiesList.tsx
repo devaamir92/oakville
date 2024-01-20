@@ -4,8 +4,9 @@ import React from 'react';
 import Link from 'next/link';
 import { FaChevronDown } from 'react-icons/fa';
 
-import Dropdown from '@components/ui/Dropdown';
 import { Item } from '@radix-ui/react-dropdown-menu';
+
+import Dropdown from '@components/ui/Dropdown';
 
 type Props = {
   listData: {
