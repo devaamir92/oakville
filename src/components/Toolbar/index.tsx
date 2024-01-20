@@ -76,8 +76,8 @@ const FiltersData = {
       value: 'part-fin',
     },
     {
-      name: 'Full',
-      value: 'full',
+      name: 'W/O',
+      value: 'w-o',
     },
     {
       name: 'Fin W/O',
@@ -86,14 +86,6 @@ const FiltersData = {
     {
       name: 'Sep Entrance',
       value: 'sep-entrance',
-    },
-    {
-      name: 'W/O',
-      value: 'w-o',
-    },
-    {
-      name: 'Part Bsmt',
-      value: 'part-bsmt',
     },
   ],
 };
