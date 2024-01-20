@@ -19,7 +19,7 @@ function CTASection() {
           </p>
           <Link
             href="/sell"
-            className="rounded border border-secondary-500 px-4 py-2 text-center text-white hover:bg-primary-400 md:w-1/3"
+            className="rounded border border-secondary-500 px-4 py-2 text-center text-white hover:bg-primary-400"
           >
             Get Free Evaluation
           </Link>
