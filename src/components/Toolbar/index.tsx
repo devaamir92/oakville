@@ -116,7 +116,7 @@ function Toolbar() {
       className="sticky z-50 flex h-12 items-center justify-end bg-primary-400 px-4"
     >
       <nav className="container flex items-center justify-end">
-        <ul className="flex items-center justify-center gap-6 text-sm">
+        <ul className="flex items-center justify-center gap-4 text-sm xl:gap-9 2xl:gap-6">
           <li>
             <Dropdown label="Type" icon={<FaChevronDown size={10} />}>
               <Types items={TypeData} />

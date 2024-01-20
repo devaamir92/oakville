@@ -39,7 +39,7 @@ const CheckboxItem = ({ item }: { item: string }) => {
 
 const Types: React.FC<Props> = ({ items }) => {
   return (
-    <ul className="flex flex-col gap-2">
+    <ul className="flex flex-col gap-2.5">
       {items.map(item => (
         <CheckboxItem key={item} item={item} />
       ))}

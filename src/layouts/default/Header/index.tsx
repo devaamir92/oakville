@@ -38,17 +38,20 @@ export default function Header() {
             <Link href="/" className={linkClass}>
               Home
             </Link>
-            <Link href="/sell" className={linkClass}>
-              Sell
-            </Link>
             <Link href="/buy" className={linkClass}>
               Buy
+            </Link>
+            <Link href="/sell" className={linkClass}>
+              Sell
             </Link>
             <Link href="/rent" className={linkClass}>
               Rent
             </Link>
             <Link href="/rent" className={linkClass}>
               Sold
+            </Link>
+            <Link href="/rent" className={linkClass}>
+              Communities
             </Link>
             <Link href="/blog" className={linkClass}>
               Blog
