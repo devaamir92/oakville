@@ -87,8 +87,8 @@ function BlogPage() {
         <div className="flex items-center justify-between">
           <h2 className="mb-3  text-2xl font-semibold">Blogs</h2>
         </div>
-        <div className="mb-2 h-[1px] bg-gray-300" />
-        <div className="grid grid-cols-1 gap-4  pb-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mb-3 h-[1px] bg-gray-300" />
+        <div className="grid grid-cols-1 gap-3  pb-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Links.map(({ name, url, date, Imageurl }) => (
             <Link
               key={name}

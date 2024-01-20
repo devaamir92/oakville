@@ -14,7 +14,7 @@ function ListAlert() {
     >
       <h3 className="text-center text-xl">Create A Listing Alert</h3>
 
-      <form action="" className="flex flex-col gap-4 py-4">
+      <form action="" className="flex flex-col gap-3 py-4">
         <Input id="name" type="text" placeholder="Name" />
         <select className="flex h-9 w-full rounded border border-slate-300 bg-transparent px-2 py-1 text-sm focus:outline-none">
           <option>Select a Category</option>

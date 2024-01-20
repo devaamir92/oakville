@@ -44,7 +44,7 @@ const CheckboxItem = ({ item }: { item: string }) => {
 
 const Filters: React.FC<Props> = ({ data }) => {
   return (
-    <div className="flex max-w-[378px] flex-col gap-4">
+    <div className="flex max-w-[378px] flex-col gap-3">
       {Object.keys(data).map(type => (
         <div key={type}>
           <h3 className="mb-2 text-sm font-semibold capitalize text-gray-500">

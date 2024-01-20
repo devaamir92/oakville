@@ -5,6 +5,12 @@ import { FaSearch } from 'react-icons/fa';
 import { Input } from '@components/ui/Input';
 
 import Auth from './auth';
+import CommunitiesList from './communitiesList';
+
+const listData = [
+  { name: 'Parking Spaces', link: '/parking-spaces' },
+  { name: 'Others', link: '/others' },
+];
 
 const linkClass =
   'text-base text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
@@ -50,9 +56,10 @@ export default function Header() {
             <Link href="/rent" className={linkClass}>
               Sold
             </Link>
-            <Link href="/rent" className={linkClass}>
+            <CommunitiesList listData={listData} />
+            {/* <Link href="/rent" className={linkClass}>
               Communities
-            </Link>
+            </Link> */}
             <Link href="/blog" className={linkClass}>
               Blog
             </Link>

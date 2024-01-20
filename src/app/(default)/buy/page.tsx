@@ -124,7 +124,7 @@ const data = [
 const page: React.FC<PageProps> = ({ searchParams }) => {
   return (
     <section
-      className={cn('mb-2 overflow-y-auto bg-white px-2 xl:w-1/2 2xl:w-2/5', {
+      className={cn('mb-2 overflow-y-auto bg-white px-3 xl:w-1/2 2xl:w-2/5', {
         'w-full xl:w-full 2xl:w-full': searchParams?.view === 'list',
       })}
     >
