@@ -121,19 +121,22 @@ const data = [
   },
 ];
 
-const page: React.FC<PageProps> = ({ searchParams }) => {
+const Page: React.FC<PageProps> = ({ searchParams }) => {
   return (
     <section
-      className={cn('mb-2 overflow-y-auto  bg-white px-4 xl:w-1/2 2xl:w-2/5', {
-        'w-full px-0 xl:w-full 2xl:w-full': searchParams?.view === 'list',
-        'container mx-auto': searchParams?.view === 'list',
-      })}
+      className={cn(
+        'flex flex-col gap-4 overflow-y-auto bg-white px-4 py-4 xl:w-1/2 2xl:w-2/5',
+        {
+          'w-full px-0 xl:w-full 2xl:w-full': searchParams?.view === 'list',
+          'container mx-auto': searchParams?.view === 'list',
+        }
+      )}
     >
-      <h6 className="py-4 text-xl font-medium">
+      <h6 className="text-xl font-medium">
         Bungalows for sale in Mississauga , 126 Listings
       </h6>
       <div
-        className={cn('mb-2 grid grid-cols-2 gap-4', {
+        className={cn('grid grid-cols-2 gap-4', {
           'xl:grid-cols-4': searchParams?.view === 'list',
         })}
       >
@@ -155,4 +158,4 @@ const page: React.FC<PageProps> = ({ searchParams }) => {
   );
 };
 
-export default page;
+export default Page;
