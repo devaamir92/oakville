@@ -128,7 +128,7 @@ const page: React.FC<PageProps> = ({ searchParams }) => {
         'w-full xl:w-full 2xl:w-full': searchParams?.view === 'list',
       })}
     >
-      <h6 className="py-3 text-xl font-medium">
+      <h6 className="py-4 text-xl font-medium">
         Bungalows for sale in Mississauga , 126 Listings
       </h6>
       <div

@@ -8,7 +8,12 @@ import Auth from './auth';
 import CommunitiesList from './communitiesList';
 
 const listData = [
-  { name: 'Parking Spaces', link: '/parking-spaces' },
+  { name: 'Schools', link: '/schools' },
+  { name: 'Hospitals', link: '/hospitals' },
+  { name: 'Banks', link: '/banks' },
+  { name: 'Mosques', link: '/mosques' },
+  { name: 'Churches', link: '/churches' },
+  { name: 'Temples', link: '/temples' },
   { name: 'Others', link: '/others' },
 ];
 

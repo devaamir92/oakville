@@ -14,6 +14,7 @@ const config: Config = {
         'border-color': '#e5e7eb',
         'hover-color': '#f5f6f8',
       },
+
       container: {
         center: true,
       },
