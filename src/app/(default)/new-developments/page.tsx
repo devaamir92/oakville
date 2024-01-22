@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 import Pagination from '@components/ui/Pagination';
 
+import Toolbar from './_components/toolbar';
+
 const Property = [
   {
     Addr: 'Kilworth Heights West',
@@ -82,7 +84,9 @@ const Property = [
 const Developments = () => {
   return (
     <div className="flex flex-col gap-6 pb-6">
-      <div className="h-12  bg-primary-300" />
+      <div className="flex-1">
+        <Toolbar />
+      </div>
       <h2 className="text-center text-2xl font-semibold">
         The Preserve Oakville
       </h2>
