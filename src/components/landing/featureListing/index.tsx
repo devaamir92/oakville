@@ -6,24 +6,14 @@ import Card from '@components/PropertyCard';
 
 const data = [
   {
-    location: 'Oakville Ontario L6H 0V2',
-    bedrooms: '2 beds',
+    location: 'Oakville Ontario L6X 5A6',
+    bedrooms: '4 beds',
     bathrooms: '4 baths',
-    parking: '1 parking',
-    price: '600,000',
-    imageUrl: '/jpg/listing/1.jpg',
-    listingStatus: 'For Sale',
-  },
-  {
-    location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3 beds',
-    bathrooms: '2 baths',
-    parking: '1 parking',
-    price: '750,000',
-    imageUrl: '/jpg/listing/2.jpg',
+    parking: '0 parking',
+    price: '1,250,000',
+    imageUrl: '/jpg/listing/12.jpg',
     listingStatus: 'For Rent',
   },
-
   {
     location: 'Oakville Ontario L6L 2Y4',
     bedrooms: '2 beds',
@@ -52,42 +42,14 @@ const data = [
     imageUrl: '/jpg/listing/8.jpg',
     listingStatus: 'For Rent',
   },
-
-  {
-    location: 'Oakville Ontario L6V 4H6',
-    bedrooms: '2 beds',
-    bathrooms: '2 baths',
-    parking: '1 parking',
-    price: '600,000',
-    imageUrl: '/jpg/listing/10.jpg',
-    listingStatus: 'For Sale',
-  },
-  {
-    location: 'Oakville Ontario L6W 1M8',
-    bedrooms: '3 beds',
-    bathrooms: '3 baths',
-    parking: '1 parking',
-    price: '850,000',
-    imageUrl: '/jpg/listing/11.jpg',
-    listingStatus: 'For Sale',
-  },
-  {
-    location: 'Oakville Ontario L6X 5A6',
-    bedrooms: '4 beds',
-    bathrooms: '4 baths',
-    parking: '0 parking',
-    price: '1,250,000',
-    imageUrl: '/jpg/listing/12.jpg',
-    listingStatus: 'For Rent',
-  },
 ];
 
-function DailyListing() {
+function FeatureListing() {
   return (
     <section className="bg-[#f3f4f6] px-4">
       <div className="container flex flex-col">
         <div className="flex items-center justify-center">
-          <h2 className="py-6  text-2xl font-semibold">Recent Listing</h2>
+          <h2 className="py-6  text-2xl font-semibold">Feature Listing</h2>
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -118,4 +80,4 @@ function DailyListing() {
   );
 }
 
-export default DailyListing;
+export default FeatureListing;

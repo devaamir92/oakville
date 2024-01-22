@@ -16,26 +16,17 @@ const Listings = [
     title: 'Detached',
     href: '/detached',
   },
-  // {
-  //   id: 4,
-  //   title: 'Sold',
-  //   href: '/sold',
-  // },
+
   {
     id: 5,
     title: 'New Developments',
     href: '/new-developments',
   },
-  // {
-  //   id: 6,
-  //   title: 'Assignment Sale',
-  //   href: '/assignment-sale',
-  // },
 ];
 
 function ListingTypes() {
   return (
-    <section className="px-4 py-6">
+    <section className="bg-white px-4 py-6">
       <div className="container">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {Listings.map(listing => (

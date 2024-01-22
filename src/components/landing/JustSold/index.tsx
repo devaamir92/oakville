@@ -7,8 +7,9 @@ import Card from '@components/PropertyCard';
 const data = [
   {
     location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3',
-    bathrooms: '2',
+    bedrooms: '3 beds',
+    bathrooms: '2 baths',
+    parking: '1 parking',
     price: '750,000',
     imageUrl: '/jpg/listing/3.jpg',
     listingStatus: 'For Rent',
@@ -17,8 +18,9 @@ const data = [
 
   {
     location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2',
-    bathrooms: '2',
+    bedrooms: '2 beds',
+    bathrooms: '2 baths',
+    parking: '1 parking',
     price: '550,000',
     imageUrl: '/jpg/listing/5.jpg',
     listingStatus: 'For Rent',
@@ -26,8 +28,9 @@ const data = [
   },
   {
     location: 'Oakville Ontario L6P 1W1',
-    bedrooms: '4',
-    bathrooms: '4',
+    bedrooms: '4 beds',
+    bathrooms: '4 baths',
+    parking: '0 parking',
     price: '1,200,000',
     imageUrl: '/jpg/listing/7.jpg',
     listingStatus: 'For Sale',
@@ -36,8 +39,9 @@ const data = [
 
   {
     location: 'Oakville Ontario L6S 2G5',
-    bedrooms: '3',
-    bathrooms: '3',
+    bedrooms: '3 beds',
+    bathrooms: '3 baths',
+    parking: '1 parking',
     price: '750,000',
     imageUrl: '/jpg/listing/9.jpg',
     listingStatus: 'For Rent',
@@ -47,7 +51,7 @@ const data = [
 
 function JustSold() {
   return (
-    <section className="bg-[#f3f4f6] px-4 pb-10">
+    <section className="px-4 pb-10">
       <div className="container flex flex-col">
         <div className="flex items-center justify-center">
           <h2 className="py-6  text-2xl font-semibold">Just Sold</h2>
@@ -63,7 +67,8 @@ function JustSold() {
               listingStatus={item.listingStatus}
               location={item.location}
               price={item.price}
-              propertyType={item.propertyType}
+              parking={item.parking}
+              statusShow
             />
           ))}
         </div>

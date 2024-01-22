@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fonts}>
-      <body className="font-gilroy">
+      <body className="bg-[#f3f4f6] font-gilroy">
         <DefaultLayout>{children}</DefaultLayout>
       </body>
     </html>

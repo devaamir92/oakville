@@ -13,35 +13,36 @@ interface PageProps {
 const data = [
   {
     location: 'Oakville Ontario L6H 0V2',
-    bedrooms: '2',
-    bathrooms: '4',
+    bedrooms: '2 beds',
+    bathrooms: '4 baths',
+    parking: '1 parking',
     price: '600,000',
     imageUrl: '/jpg/listing/1.jpg',
     listingStatus: 'For Sale',
-    propertyType: 'Condo',
   },
   {
     location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3',
-    bathrooms: '2',
+    bedrooms: '3 beds',
+    bathrooms: '2 baths',
+    parking: '1 parking',
     price: '750,000',
     imageUrl: '/jpg/listing/2.jpg',
     listingStatus: 'For Rent',
-    propertyType: 'Detached',
   },
   {
     location: 'Oakville Ontario L6K 2H2',
-    bedrooms: '4',
-    bathrooms: '3',
+    bedrooms: '4 beds',
+    bathrooms: '3 baths',
+    parking: '0 parking',
     price: '950,000',
     imageUrl: '/jpg/listing/3.jpg',
     listingStatus: 'For Sale',
-    propertyType: 'Detached',
   },
   {
     location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2',
-    bathrooms: '2',
+    bedrooms: '2 beds',
+    bathrooms: '2 baths',
+    parking: '1 parking',
     price: '550,000',
     imageUrl: '/jpg/listing/4.jpg',
     listingStatus: 'For Rent',
@@ -49,62 +50,63 @@ const data = [
   },
   {
     location: 'Oakville Ontario L6M 4P1',
-    bedrooms: '3',
-    bathrooms: '3',
+    bedrooms: '3 beds',
+    bathrooms: '3 baths',
+    parking: '1 parking',
     price: '800,000',
     imageUrl: '/jpg/listing/5.jpg',
     listingStatus: 'For Sale',
-    propertyType: 'Par',
   },
   {
     location: 'Oakville Ontario L6P 1W1',
-    bedrooms: '4',
-    bathrooms: '4',
+    bedrooms: '4 beds',
+    bathrooms: '4 baths',
+    parking: '0 parking',
     price: '1,200,000',
     imageUrl: '/jpg/listing/6.jpg',
     listingStatus: 'For Sale',
-    propertyType: 'Detached',
   },
   {
     location: 'Oakville Ontario L6R 0R3',
-    bedrooms: '2',
-    bathrooms: '2',
+    bedrooms: '2 beds',
+    bathrooms: '2 baths',
+    parking: '1 parking',
     price: '550,000',
     imageUrl: '/jpg/listing/7.jpg',
     listingStatus: 'For Sale',
-    propertyType: 'Condo',
   },
   {
     location: 'Oakville Ontario L6S 2G5',
-    bedrooms: '3',
-    bathrooms: '3',
+    bedrooms: '3 beds',
+    bathrooms: '3 baths',
+    parking: '1 parking',
     price: '750,000',
     imageUrl: '/jpg/listing/8.jpg',
     listingStatus: 'For Rent',
-    propertyType: 'Par',
   },
   {
     location: 'Oakville Ontario L6T 3R5',
-    bedrooms: '4',
-    bathrooms: '4',
+    bedrooms: '4 beds',
+    bathrooms: '4 baths',
+    parking: '0 parking',
     price: '1,100,000',
     imageUrl: '/jpg/listing/9.jpg',
     listingStatus: 'For Sale',
-    propertyType: 'Detached',
   },
   {
     location: 'Oakville Ontario L6V 4H6',
-    bedrooms: '2',
-    bathrooms: '2',
+    bedrooms: '2 beds',
+    bathrooms: '2 baths',
+    parking: '1 parking',
     price: '600,000',
     imageUrl: '/jpg/listing/10.jpg',
     listingStatus: 'For Sale',
-    propertyType: 'Condo',
   },
   {
     location: 'Oakville Ontario L6W 1M8',
-    bedrooms: '3',
-    bathrooms: '3',
+    bedrooms: '3 beds',
+    bathrooms: '3 baths',
+    parking: '1 parking',
     price: '850,000',
     imageUrl: '/jpg/listing/11.jpg',
     listingStatus: 'For Sale',
@@ -112,12 +114,12 @@ const data = [
   },
   {
     location: 'Oakville Ontario L6X 5A6',
-    bedrooms: '4',
-    bathrooms: '4',
+    bedrooms: '4 beds',
+    bathrooms: '4 baths',
+    parking: '0 parking',
     price: '1,250,000',
     imageUrl: '/jpg/listing/12.jpg',
     listingStatus: 'For Rent',
-    propertyType: 'Detached',
   },
 ];
 
@@ -127,12 +129,17 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
       className={cn(
         'flex flex-col gap-4 overflow-y-auto bg-white px-4 py-4 xl:w-1/2 2xl:w-2/5',
         {
-          'w-full px-0 xl:w-full 2xl:w-full': searchParams?.view === 'list',
+          'w-full bg-transparent px-0 xl:w-full 2xl:w-full':
+            searchParams?.view === 'list',
           'container mx-auto': searchParams?.view === 'list',
         }
       )}
     >
-      <h6 className="text-xl font-medium">
+      <h6
+        className={cn('text-2xl font-semibold text-gray-800', {
+          'text-center': searchParams?.view === 'list',
+        })}
+      >
         Bungalows for sale in Mississauga , 126 Listings
       </h6>
       <div
@@ -149,7 +156,7 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
             listingStatus={item.listingStatus}
             location={item.location}
             price={item.price}
-            propertyType={item.propertyType}
+            parking={item.parking}
           />
         ))}
       </div>

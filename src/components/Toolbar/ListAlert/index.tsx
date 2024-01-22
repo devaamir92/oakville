@@ -18,8 +18,8 @@ function ListAlert() {
         <Input id="name" type="text" placeholder="Name" />
         <select className="flex h-9 w-full rounded border border-slate-300 bg-transparent px-2 py-1 text-sm focus:outline-none">
           <option>Select a Category</option>
-          <option>Never</option>
           <option>Daily</option>
+          <option>Weekly</option>
           <option>Monthly</option>
         </select>
         <Button type="submit" className="bg-primary">

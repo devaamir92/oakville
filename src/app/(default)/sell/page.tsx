@@ -5,7 +5,7 @@ import { Button } from '@components/ui/Button';
 
 function page() {
   return (
-    <div>
+    <div className="flex flex-col gap-10 bg-white">
       <section
         className="relative items-center justify-center"
         style={{
@@ -45,7 +45,7 @@ function page() {
           </div>
         </div>
       </section>
-      <div className="container px-4 py-10">
+      <div className="container px-4">
         <div className="flex flex-col gap-2">
           <h4 className="text-center text-2xl  font-semibold">
             Hire a Real Estate Professional who never gives up
@@ -66,8 +66,7 @@ function page() {
           </p>
         </div>
       </div>
-
-      <section className="relative overflow-hidden bg-black px-4 py-10 sm:py-16 lg:py-24 xl:py-32">
+      <section className="relative overflow-hidden bg-black px-4 sm:py-16 lg:py-24 xl:py-32">
         <div className="absolute inset-0">
           <Image
             src="/jpg/cta-banner.jpg"
@@ -98,11 +97,11 @@ function page() {
           </div>
         </div>
       </section>
-      <h2 className="mt-10 px-4 text-center text-2xl font-semibold">
+      <h2 className="px-4 text-center text-2xl font-semibold">
         How Do We Help You ?
       </h2>
-      <div className="container grid grid-cols-2 items-center gap-20 px-4">
-        <div className="relative mx-auto mt-10 aspect-video w-[100%]">
+      <div className="container grid grid-cols-2 items-center gap-20">
+        <div className="relative mx-auto aspect-video w-[100%]">
           <Image
             src="/jpg/listing/1.jpg"
             alt="banner"
@@ -136,7 +135,7 @@ function page() {
           </div>
         </div>
       </div>
-      <div className="container my-10 grid grid-cols-2 items-center gap-20 px-4">
+      <div className="container mb-10 grid grid-cols-2 items-center gap-20">
         <div className="flex flex-col gap-6">
           <div className="fle flex-col">
             <h4 className="mb-1 text-lg font-medium 2xl:text-xl">

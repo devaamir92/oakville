@@ -10,10 +10,7 @@ const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx,css}'],
   theme: {
     extend: {
-      colors: {
-        'border-color': '#e5e7eb',
-        'hover-color': '#f5f6f8',
-      },
+      colors: {},
 
       container: {
         center: true,
