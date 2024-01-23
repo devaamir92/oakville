@@ -53,9 +53,10 @@ const Dropdown: React.FC<DropdownProps> = ({
         </Trigger>
         <Portal>
           <Content
+            align="start"
             className="z-50  overflow-y-auto rounded-[3px] bg-white p-3 shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]"
             style={{
-              minWidth: width,
+              minWidth: width <= 160 ? '160px' : `${width}px`,
             }}
             sideOffset={2}
           >

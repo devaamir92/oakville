@@ -7,9 +7,9 @@ import Card from '@components/PropertyCard';
 const data = [
   {
     location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3 beds',
-    bathrooms: '2 baths',
-    parking: '1 parking',
+    bedrooms: '3 Beds',
+    bathrooms: '2 Baths',
+    parking: '1 Parking',
     price: '750,000',
     imageUrl: '/jpg/listing/3.jpg',
     listingStatus: 'For Rent',
@@ -18,9 +18,9 @@ const data = [
 
   {
     location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2 beds',
-    bathrooms: '2 baths',
-    parking: '1 parking',
+    bedrooms: '2 Beds',
+    bathrooms: '2 Baths',
+    parking: '1 Parking',
     price: '550,000',
     imageUrl: '/jpg/listing/5.jpg',
     listingStatus: 'For Rent',
@@ -28,9 +28,9 @@ const data = [
   },
   {
     location: 'Oakville Ontario L6P 1W1',
-    bedrooms: '4 beds',
-    bathrooms: '4 baths',
-    parking: '0 parking',
+    bedrooms: '4 Beds',
+    bathrooms: '4 Baths',
+    parking: '0 Parking',
     price: '1,200,000',
     imageUrl: '/jpg/listing/7.jpg',
     listingStatus: 'For Sale',
@@ -39,9 +39,9 @@ const data = [
 
   {
     location: 'Oakville Ontario L6S 2G5',
-    bedrooms: '3 beds',
-    bathrooms: '3 baths',
-    parking: '1 parking',
+    bedrooms: '3 Beds',
+    bathrooms: '3 Baths',
+    parking: '1 Parking',
     price: '750,000',
     imageUrl: '/jpg/listing/9.jpg',
     listingStatus: 'For Rent',
@@ -53,8 +53,12 @@ function JustSold() {
   return (
     <section className="px-4 pb-10">
       <div className="container flex flex-col">
-        <div className="flex items-center justify-center">
-          <h2 className="py-6  text-2xl font-semibold">Just Sold</h2>
+        <div className="flex flex-col items-center justify-center gap-1 py-6">
+          <h2 className="text-2xl font-semibold">Sold Prices</h2>
+          <p className="">
+            Real estate boards require you to be signed in to access sold prices
+            history.
+          </p>
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

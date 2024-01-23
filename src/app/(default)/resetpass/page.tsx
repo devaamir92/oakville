@@ -9,7 +9,7 @@ function ResetPage() {
       className="flex items-center justify-center"
       style={{
         backgroundColor: '#f3f4f6',
-        height: 'calc(100vh - 70px)',
+        height: 'calc(100vh - 56px)',
       }}
     >
       <div className="flex max-w-3xl flex-col justify-center gap-4 rounded bg-white p-8 shadow">

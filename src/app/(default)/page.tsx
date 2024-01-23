@@ -11,42 +11,42 @@ import FeatureListing from '@components/landing/featureListing';
 const data = [
   {
     location: 'Oakville Ontario L6H 0V2',
-    bedrooms: '2 beds',
-    bathrooms: '4 baths',
+    bedrooms: '2 Beds',
+    bathrooms: '4 Baths',
     price: '600,000',
     imageUrl: '/webp/photo1.webp',
     listingStatus: 'For Sale',
-    parking: '0 parking',
+    parking: '0 Parking',
     propertyType: 'Condo',
   },
   {
     location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3 beds',
-    bathrooms: '2 baths',
+    bedrooms: '3 Beds',
+    bathrooms: '2 Baths',
     price: '750,000',
     imageUrl: '/webp/photo.webp',
     listingStatus: 'For Sale',
-    parking: '1 parking',
+    parking: '1 Parking',
     propertyType: 'Townhouse',
   },
   {
     location: 'Oakville Ontario L6K 2H2',
-    bedrooms: '4 beds',
-    bathrooms: '3 baths',
+    bedrooms: '4 Beds',
+    bathrooms: '3 Baths',
     price: '950,000',
     imageUrl: '/webp/photo2.webp',
     listingStatus: 'For Sale',
-    parking: '2 parking',
+    parking: '2 Parking',
     propertyType: 'Detached',
   },
   {
     location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2 beds',
-    bathrooms: '2 baths',
+    bedrooms: '2 Beds',
+    bathrooms: '2 Baths',
     price: '550,000',
     imageUrl: '/webp/photo3.webp',
     listingStatus: 'For Sale',
-    parking: '1 parking',
+    parking: '1 Parking',
     propertyType: 'Condo',
   },
 ];
@@ -63,9 +63,14 @@ function page() {
 
       <section className="px-4 py-10">
         <div className="container flex flex-col gap-10">
-          <h2 className="text-center text-2xl font-semibold">
-            Neighborhood Guide
-          </h2>
+          <div className="flex flex-col gap-1">
+            <h2 className="text-center text-2xl font-semibold">
+              Neighborhood Guide
+            </h2>
+            <p className="text-center">
+              Browse our neighborhood guides to find the perfect place for you.
+            </p>
+          </div>
           <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {data.map(item => (
               <Card

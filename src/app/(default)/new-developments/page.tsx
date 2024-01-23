@@ -90,16 +90,16 @@ const Developments = () => {
       <h2 className="text-center text-2xl font-semibold">
         The Preserve Oakville
       </h2>
-      <div className="container grid grid-cols-3 gap-4">
+      <div className="container grid grid-cols-3 gap-8">
         {Property.map(item => (
           <Link href="/" key={item.Addr} className="flex flex-col">
             <div className="flex flex-col overflow-hidden rounded border border-gray-300 bg-white">
-              <div className="relative aspect-video flex-1">
+              <div className="relative h-[250px]">
                 <Image src={item.ImageUrl} alt={item.Addr} fill />
                 <div className="absolute right-3 top-3">
-                  <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold uppercase text-primary-500 shadow">
+                  {/* <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold uppercase text-primary-500 shadow">
                     {item.Status}
-                  </span>
+                  </span> */}
                 </div>
               </div>
 

@@ -7,27 +7,27 @@ import Card from '@components/PropertyCard';
 const data = [
   {
     location: 'Oakville Ontario L6X 5A6',
-    bedrooms: '4 beds',
-    bathrooms: '4 baths',
-    parking: '0 parking',
+    bedrooms: '4 Beds',
+    bathrooms: '4 Baths',
+    parking: '0 Parking',
     price: '1,250,000',
     imageUrl: '/jpg/listing/12.jpg',
     listingStatus: 'For Rent',
   },
   {
     location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2 beds',
-    bathrooms: '2 baths',
-    parking: '1 parking',
+    bedrooms: '2 Beds',
+    bathrooms: '2 Baths',
+    parking: '1 Parking',
     price: '550,000',
     imageUrl: '/jpg/listing/4.jpg',
     listingStatus: 'For Rent',
   },
   {
     location: 'Oakville Ontario L6P 1W1',
-    bedrooms: '4 beds',
-    bathrooms: '4 baths',
-    parking: '0 parking',
+    bedrooms: '4 Beds',
+    bathrooms: '4 Baths',
+    parking: '0 Parking',
     price: '1,200,000',
     imageUrl: '/jpg/listing/6.jpg',
     listingStatus: 'For Sale',
@@ -35,9 +35,9 @@ const data = [
 
   {
     location: 'Oakville Ontario L6S 2G5',
-    bedrooms: '3 beds',
-    bathrooms: '3 baths',
-    parking: '1 parking',
+    bedrooms: '3 Beds',
+    bathrooms: '3 Baths',
+    parking: '1 Parking',
     price: '750,000',
     imageUrl: '/jpg/listing/8.jpg',
     listingStatus: 'For Rent',
@@ -49,7 +49,7 @@ function FeatureListing() {
     <section className="bg-[#f3f4f6] px-4">
       <div className="container flex flex-col">
         <div className="flex items-center justify-center">
-          <h2 className="py-6  text-2xl font-semibold">Feature Listing</h2>
+          <h2 className="py-6  text-2xl font-semibold">Featured Listings</h2>
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

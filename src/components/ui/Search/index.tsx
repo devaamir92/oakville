@@ -15,6 +15,7 @@ import cn from '@utils/cn';
 
 interface Props {
   className?: string;
+  placeholder?: string;
 }
 
 type DataItem = {
@@ -45,7 +46,7 @@ const data: DataItem[] = [
   },
 ];
 
-const SearchComponent = ({ className }: Props) => {
+const SearchComponent: React.FC<Props> = ({ className, placeholder }) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [width, setWidth] = useState<number>(0);
@@ -78,7 +79,7 @@ const SearchComponent = ({ className }: Props) => {
               className="w-full bg-transparent outline-none placeholder:text-white "
               type="text"
               id="search"
-              placeholder="Search..."
+              placeholder={placeholder}
               value={searchTerm}
               onChange={handleSearch}
             />
@@ -87,7 +88,7 @@ const SearchComponent = ({ className }: Props) => {
         </Trigger>
         <Portal>
           <Content
-            className=" bg-white"
+            className=" z-50 bg-white"
             style={{
               minWidth: width,
             }}

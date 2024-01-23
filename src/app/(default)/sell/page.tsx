@@ -9,7 +9,7 @@ function page() {
       <section
         className="relative items-center justify-center"
         style={{
-          height: 'calc(100vh - 70px)',
+          height: 'calc(100vh - 56px)',
           minHeight: '500px',
         }}
       >
