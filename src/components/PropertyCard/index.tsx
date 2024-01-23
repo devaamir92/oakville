@@ -31,7 +31,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <Link
-      href="/"
+      href="/propertydetails"
       className="group flex flex-col overflow-hidden rounded border border-gray-300 bg-white  transition-all duration-200 ease-in-out hover:shadow-xl"
     >
       <div className="relative h-60">
