@@ -7,27 +7,27 @@ import Viewer from './viewer';
 
 const Images = [
   {
-    src: '/jpg/listing/1.jpg',
+    src: '/jpg/details/ad7d6_1.jpg',
     alt: 'Image 1',
   },
   {
-    src: '/jpg/listing/2.jpg',
+    src: '/jpg/details/ad7d6_2.jpg',
     alt: 'Image 2',
   },
   {
-    src: '/jpg/listing/3.jpg',
+    src: '/jpg/details/ad7d6_3.jpg',
     alt: 'Image 3',
   },
   {
-    src: '/jpg/listing/4.jpg',
+    src: '/jpg/details/ad7d6_4.jpg',
     alt: 'Image 4',
   },
   {
-    src: '/jpg/listing/5.jpg',
+    src: '/jpg/details/ad7d6_5.jpg',
     alt: 'Image 5',
   },
   {
-    src: '/jpg/listing/6.jpg',
+    src: '/jpg/details/ad7d6_6.jpg',
     alt: 'Image 6',
   },
   {
@@ -45,11 +45,11 @@ function LightBox() {
   const [currentImage, setCurrentImage] = useState(0);
 
   return (
-    <div className="relative flex h-[450px] gap-4 overflow-hidden rounded">
+    <div className="relative flex h-[470px] gap-2 overflow-hidden rounded">
       <div className="relative flex-1 shadow">
         <Image
-          className="cursor-pointer"
-          src={Images[0].src}
+          className="cursor-pointer object-cover"
+          src={Images[5].src}
           alt="Image 1"
           fill
           onClick={
@@ -62,11 +62,11 @@ function LightBox() {
           }
         />
       </div>
-      <div className="grid flex-1 grid-cols-2 items-center gap-4 shadow">
+      <div className="grid flex-1 grid-cols-2 items-center gap-2 shadow">
         {Images.slice(1, 5).map(image => (
           <div className="relative col-span-1 h-full w-full" key={image.alt}>
             <Image
-              className="cursor-pointer"
+              className="cursor-pointer object-cover"
               src={image.src}
               alt={image.alt}
               fill
