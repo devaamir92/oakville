@@ -68,7 +68,8 @@ function page() {
               Neighborhood Guide
             </h2>
             <p className="text-center">
-              Browse our neighborhood guides to find the perfect place for you.
+              Browse our neighborhood guides to learn about The Preserve
+              Oakville.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
