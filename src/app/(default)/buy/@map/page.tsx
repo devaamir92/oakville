@@ -12,8 +12,8 @@ const page: React.FC<PageProps> = ({ searchParams }) => {
   return (
     <section
       style={{
-        height: 'calc(100vh - 56px - 48px)',
-        top: 'calc(56px + 48px)',
+        height: 'calc(100vh - 70px - 48px)',
+        top: 'calc(70px + 48px)',
       }}
       className="sticky left-0 flex-1"
     >

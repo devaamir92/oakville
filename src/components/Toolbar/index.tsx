@@ -103,7 +103,7 @@ function Toolbar() {
   return (
     <div
       style={{
-        top: '56px',
+        top: '70px',
       }}
       className="sticky z-50 flex h-12 items-center justify-end bg-primary-400 px-4"
     >
