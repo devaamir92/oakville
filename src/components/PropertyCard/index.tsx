@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 import { MdLocationOn } from 'react-icons/md';
 
+import LikeToggle from './LikeToggle';
+
 interface CardProps {
   location: string;
   bedrooms: string;
@@ -36,6 +38,7 @@ const Card: React.FC<CardProps> = ({
           alt={location}
           className="h-full w-full  object-cover"
         />
+
         {/* {statusShow && (
           <div className="absolute right-3 top-3">
             <span className="rounded bg-primary-500 px-3 py-1.5 text-sm font-semibold uppercase text-white">
@@ -50,9 +53,12 @@ const Card: React.FC<CardProps> = ({
         </div>
       </div>
       <div className="flex flex-col gap-2 p-3">
-        <div className="relative flex items-center gap-1 text-base font-medium text-gray-700">
-          <MdLocationOn size={20} className="mb-1" />
-          <span className="w-full truncate">{location}</span>
+        <div className="flex items-center justify-between">
+          <div className="relative flex items-center gap-1 text-base font-medium text-gray-700">
+            <MdLocationOn size={20} className="mb-1" />
+            <span className="w-full truncate">{location}</span>
+          </div>
+          <LikeToggle />
         </div>
         <div className="flex justify-between gap-1 text-center text-gray-500">
           <div className="flex items-center gap-3">
