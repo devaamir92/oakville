@@ -21,7 +21,7 @@ const linkClass =
 
 export default function Header() {
   return (
-    <header className="sticky left-0 top-0 z-10 flex h-14 w-full flex-col bg-primary-500">
+    <header className="sticky left-0 top-0 z-10 flex h-14 h-[70px] w-full flex-col bg-primary-500">
       <div className="container grid h-full grid-cols-12 items-center ">
         <div className="col-span-4 flex items-center gap-6">
           <Link href="/">

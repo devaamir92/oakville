@@ -62,16 +62,16 @@ const Card: React.FC<CardProps> = ({
         <div className="flex justify-between gap-1 text-center text-gray-500">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1 border-r-2 border-gray-300 pr-2">
-              <MdOutlineBed className=" fill-gray-500" size={20} />
+              {/* <MdOutlineBed className=" fill-gray-500" size={20} /> */}
               <span className="text-sm">{bedrooms}</span>
             </div>
 
             <div className="flex items-center gap-1 border-r-2 border-gray-300 pr-2">
-              <MdOutlineBathtub className="fill-gray-500" size={20} />
+              {/* <MdOutlineBathtub className="fill-gray-500" size={20} /> */}
               <span className="text-sm">{bathrooms}</span>
             </div>
             <div className="flex items-center gap-1 border-gray-300 pr-2">
-              <MdOutlineGarage className="fill-gray-500" size={20} />
+              {/* <MdOutlineGarage className="fill-gray-500" size={20} /> */}
               <span className="text-sm">{parking}</span>
             </div>
           </div>
