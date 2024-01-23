@@ -1,12 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import {
-  MdLocationOn,
-  MdOutlineBathtub,
-  MdOutlineBed,
-  MdOutlineGarage,
-} from 'react-icons/md';
+import { MdLocationOn } from 'react-icons/md';
 
 interface CardProps {
   location: string;
@@ -41,13 +36,13 @@ const Card: React.FC<CardProps> = ({
           alt={location}
           className="h-full w-full  object-cover"
         />
-        {statusShow && (
+        {/* {statusShow && (
           <div className="absolute right-3 top-3">
             <span className="rounded bg-primary-500 px-3 py-1.5 text-sm font-semibold uppercase text-white">
               {listingStatus}
             </span>
           </div>
-        )}
+        )} */}
         <div className="absolute bottom-3 left-3">
           <span className="rounded bg-primary px-3 py-1.5 text-sm font-semibold uppercase text-white">
             $ {price}
