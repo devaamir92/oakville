@@ -45,7 +45,10 @@ function LightBox() {
   const [currentImage, setCurrentImage] = useState(0);
 
   return (
-    <div className="relative flex h-[470px] gap-2 overflow-hidden rounded">
+    <div
+      id="description"
+      className="relative mt-4 flex h-[470px] gap-4 overflow-hidden rounded"
+    >
       <div className="relative flex-1 shadow">
         <Image
           className="cursor-pointer object-cover"
@@ -62,7 +65,7 @@ function LightBox() {
           }
         />
       </div>
-      <div className="grid flex-1 grid-cols-2 items-center gap-2 shadow">
+      <div className="grid flex-1 grid-cols-2 items-center gap-4 shadow">
         {Images.slice(1, 5).map(image => (
           <div className="relative col-span-1 h-full w-full" key={image.alt}>
             <Image

@@ -3,7 +3,13 @@
 import React, { useState } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
-const LikeToggle: React.FC = () => {
+import cn from '@utils/cn';
+
+interface LikeToggleProps {
+  className?: string;
+}
+
+const LikeToggle: React.FC<LikeToggleProps> = ({ className }) => {
   const [like, setLike] = useState(false);
 
   const handleLike = (event: React.MouseEvent) => {
@@ -16,14 +22,12 @@ const LikeToggle: React.FC = () => {
     <div>
       {like ? (
         <FaHeart
-          size={20}
-          className="cursor-pointer text-primary-500"
+          className={cn('cursor-pointer text-primary-500', className)}
           onClick={handleLike}
         />
       ) : (
         <FaRegHeart
-          size={20}
-          className="cursor-pointer text-primary-500"
+          className={cn('cursor-pointer text-primary-500', className)}
           onClick={handleLike}
         />
       )}

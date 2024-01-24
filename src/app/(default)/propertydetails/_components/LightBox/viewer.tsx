@@ -13,6 +13,7 @@ import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 
 import { Button } from '@components/ui/Button';
+import { FaImages } from 'react-icons/fa6';
 
 interface Props {
   PropertyName?: string;
@@ -49,6 +50,7 @@ const Viewer: React.FC<Props> = ({
           <Button
             type="button"
             aria-label="close"
+            className="bg-black/60 text-xl"
             onClick={
               Images.length > 5
                 ? () => {
@@ -58,9 +60,8 @@ const Viewer: React.FC<Props> = ({
                 : undefined
             }
           >
-            See all
-            <span className="px-1">{Images.length}</span>
-            photos
+            <FaImages />
+            <span className="px-1">+ {Images.length}</span>
           </Button>
         </Trigger>
         <Portal>
