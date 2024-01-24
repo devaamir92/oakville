@@ -48,7 +48,7 @@ export default function Header() {
               Rent
             </Link>
             <Link href="/" className={linkClass}>
-              Sold Prices
+              Sold
             </Link>
             <Link href="/new-developments" className={linkClass}>
               New Developments

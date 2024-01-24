@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { Playfair_Display } from 'next/font/google';
+import { Playfair_Display, Poppins } from 'next/font/google';
 
 import cn from '@utils/cn';
 
@@ -46,4 +46,11 @@ const playfair = Playfair_Display({
   variable: '--font-playfair',
 });
 
-export default cn(gilroy.variable, playfair.variable);
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+  subsets: ['latin'],
+  variable: '--font-poppins',
+});
+
+export default cn(gilroy.variable, playfair.variable, poppins.variable);

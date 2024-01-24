@@ -87,7 +87,7 @@ function DailyListing() {
     <section className="bg-[#f3f4f6] px-4">
       <div className="container flex flex-col">
         <div className="flex items-center justify-center">
-          <h2 className="py-6  text-2xl font-semibold">Recent Listings</h2>
+          <h2 className="py-6  text-2xl font-semibold">New Listings</h2>
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

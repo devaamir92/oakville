@@ -17,6 +17,7 @@ const config: Config = {
       },
       fontFamily: {
         gilroy: 'var(--font-gilroy)',
+        poppins: 'var(--font-poppins)',
         playfair: 'var(--font-playfair)',
       },
     },

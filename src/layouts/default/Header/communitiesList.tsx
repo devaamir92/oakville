@@ -18,7 +18,7 @@ type Props = {
 const CommunitiesList: React.FC<Props> = ({ listData }) => {
   return (
     <Dropdown
-      label="Communities"
+      label="Community"
       icon={<FaChevronDown className="text-white" size={10} />}
       className="!w-fit !text-sm"
     >
