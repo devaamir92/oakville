@@ -11,8 +11,8 @@ function Discription() {
   return (
     <div className="flex flex-col gap-2 rounded border border-gray-300 bg-white p-4">
       <div className="flex items-center justify-between">
-        <p className="text-xl font-medium text-gray-800">3353 Liptay Ave</p>
-        <p className="text-xl font-medium text-gray-800">$1,200,000</p>
+        <h4 className="text-xl font-medium text-gray-800">3353 Liptay Ave</h4>
+        <h4 className="text-xl font-medium text-gray-800">$1,200,000</h4>
       </div>
       <div className="flex items-center justify-between">
         <p className="text-sm font-medium text-gray-500">

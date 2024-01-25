@@ -91,35 +91,42 @@ const Developments = () => {
         The Preserve Oakville
       </h2>
       <div className="container grid grid-cols-3 gap-8">
-        {Property.map(item => (
-          <Link href="/" key={item.Addr} className="flex flex-col">
-            <div className="flex flex-col overflow-hidden rounded border border-gray-300 bg-white">
-              <div className="relative h-[250px]">
-                <Image src={item.ImageUrl} alt={item.Addr} fill />
-                <div className="absolute right-3 top-3">
-                  {/* <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold uppercase text-primary-500 shadow">
+        {Property.map(item => {
+          const slug = item.Addr.toLowerCase().split(' ').join('-');
+          return (
+            <Link
+              href={`/new-developments/${slug}`}
+              key={slug}
+              className="flex flex-col"
+            >
+              <div className="flex flex-col overflow-hidden rounded border border-gray-300 bg-white">
+                <div className="relative h-[250px]">
+                  <Image src={item.ImageUrl} alt={item.Addr} fill />
+                  <div className="absolute right-3 top-3">
+                    {/* <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold uppercase text-primary-500 shadow">
                     {item.Status}
                   </span> */}
+                  </div>
+                </div>
+
+                <div className="flex flex-col items-center gap-1 py-1">
+                  <h6 className="text- font-medium text-primary-500">
+                    {item.Addr}
+                  </h6>
+
+                  <div className="flex items-center gap-1 text-sm font-normal">
+                    <p>Est. Completion: {item.EstCompletion}</p>
+                    <div className="flex h-4 w-[1px] bg-primary-500" />
+                    <p>Starting At: {item.StartingAt}</p>
+                  </div>
+                  <h6 className="text-base font-medium text-primary-500">
+                    {item.Location}
+                  </h6>
                 </div>
               </div>
-
-              <div className="flex flex-col items-center gap-1 py-1">
-                <h6 className="text- font-medium text-primary-500">
-                  {item.Addr}
-                </h6>
-
-                <div className="flex items-center gap-1 text-sm font-normal">
-                  <p>Est. Completion: {item.EstCompletion}</p>
-                  <div className="flex h-4 w-[1px] bg-primary-500" />
-                  <p>Starting At: {item.StartingAt}</p>
-                </div>
-                <h6 className="text-base font-medium text-primary-500">
-                  {item.Location}
-                </h6>
-              </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </div>
       <Pagination currentPage={1} totalPages={12} />
     </div>

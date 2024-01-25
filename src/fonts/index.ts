@@ -1,5 +1,5 @@
 import localFont from 'next/font/local';
-import { Playfair_Display, Poppins } from 'next/font/google';
+import { Open_Sans, Poppins } from 'next/font/google';
 
 import cn from '@utils/cn';
 
@@ -39,13 +39,6 @@ const gilroy = localFont({
   variable: '--font-gilroy',
 });
 
-const playfair = Playfair_Display({
-  weight: ['400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-  subsets: ['latin'],
-  variable: '--font-playfair',
-});
-
 const poppins = Poppins({
   weight: ['400', '500', '600', '700', '800', '900'],
   display: 'swap',
@@ -53,4 +46,11 @@ const poppins = Poppins({
   variable: '--font-poppins',
 });
 
-export default cn(gilroy.variable, playfair.variable, poppins.variable);
+const opensans = Open_Sans({
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  subsets: ['latin'],
+  variable: '--font-opensans',
+});
+
+export default cn(gilroy.variable, opensans.variable, poppins.variable);

@@ -25,9 +25,9 @@ function Hero() {
           {/* <h1 className="font-medium text-secondary-500 shadow-black drop-shadow-2xl xl:text-[195px] xl:leading-[195px]   2xl:text-[230px]  2xl:leading-[230px]">
             hello!
           </h1> */}
-          <span className="absolute top-[68%] font-semibold tracking-[12px] text-secondary-500 xl:ml-[58%] xl:text-5xl 2xl:ml-[61%] 2xl:text-7xl">
+          <h2 className="absolute top-[68%] font-semibold tracking-[12px] text-secondary-500 xl:ml-[58%] xl:text-5xl 2xl:ml-[61%] 2xl:text-7xl">
             neighbour
-          </span>
+          </h2>
         </div>
       </div>
     </section>

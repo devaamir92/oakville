@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fonts}>
-      <body className="bg-[#f3f4f6] font-gilroy">
+      <body className="font-opensans bg-[#f3f4f6]">
         <DefaultLayout>{children}</DefaultLayout>
       </body>
     </html>
