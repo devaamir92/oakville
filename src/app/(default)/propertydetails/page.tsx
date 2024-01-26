@@ -11,6 +11,7 @@ import Navbar from './_components/Navbar';
 import Map from './_components/map';
 import Discription from './_components/Discription';
 import Details from './_components/Details';
+import Demographics from './_components/Demographics';
 
 const data = [
   {
@@ -66,6 +67,7 @@ function PropertyDetails() {
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-9 flex flex-col gap-4">
             <Discription />
+            <Demographics />
             <Map />
             <Details />
           </div>

@@ -7,6 +7,7 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa6';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 import LightBox from '@app/(default)/propertydetails/_components/LightBox';
+import Slider from '../_components/Slider';
 
 function page() {
   return (
@@ -210,7 +211,7 @@ function page() {
             </div>
           </div>
         </div>
-        <LightBox />
+        <Slider />
       </div>
     </main>
   );
