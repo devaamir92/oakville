@@ -48,21 +48,20 @@ function page() {
       <div className="container px-4">
         <div className="flex flex-col gap-2">
           <h4 className="text-center text-2xl  font-semibold">
-            Hire a Real Estate Professional who never gives up
+            We Know The Neighbourhood Best, wen You Sell With Us You Get More!
           </h4>
           <p className="text-center text-sm 2xl:text-base">
-            Selling your home may seem overwhelming, but the Bungalow Finder
-            Team is here to ease the process. With a commitment to your
-            confidence and success, our experienced agents will support you at
-            every stage – from preparing your home for the market to negotiating
-            the sale. We strive to secure the best possible price for your
-            property, making the journey smooth and stress-free. Trust in
-            Bungalow Finder Team to guide you through the complexities of
-            selling your home. Contact us today to discover how we can help you
-            achieve a successful and confident sale. Whether buying or selling,
-            partnering with a dedicated and determined real estate professional
-            is crucial for securing the highest possible price for your
-            property.
+            Enjoy a seamless and beneficial selling experience when working with
+            us. Whether you&apos;re looking to sell your Condo, Townhouse,
+            Semi-Detached or Detached home in The Preserve Oakville, we are here
+            to make the process effortless and successful Selling your home can
+            be overwhelming, we help you simplify the process. Our dedicated
+            team supports you from paration to negotiations, ensures a
+            successful closing and are there to answer your questions or lend a
+            helping hand before, during and after the completion of the
+            transaction. Not to mention this is all while aiming for the best
+            possible price and terms that work for you. Wheer buying or selling,
+            rely on our committed professionals for top value.
           </p>
         </div>
       </div>
@@ -82,13 +81,17 @@ function page() {
         <div className="container relative">
           <div className="text-center md:w-2/3 md:text-left lg:w-1/2 xl:w-1/2">
             <h2 className="font-semibold leading-tight text-white lg:text-2xl">
-              Talk to Us for Real Estate
+              Hire A Real Estate Professional Who Never Gives Up
             </h2>
             <p className="mt-4 text-sm text-gray-200 2xl:text-base">
-              Stay ahead of the game by relying on our real estate insights. Our
-              team offers updated information to help guide you through the
-              process of buying and selling property and make informed
-              decisions.
+              Market conditions are always hanging and a successful sale takes
+              more than just putting a foreign sign up on the lawn The Preserve,
+              Oakville Real Estate team has the know and resources to ensure
+              your property sells ses for fop dolly We are the team that commits
+              and invests into you and the sale of your home. Our 20+ years of
+              combined market knowledge along with targeted neighbouthood
+              marketing, partnerships with local businesses in the neighborhood
+              id professional connections will the community
             </p>
 
             <Button className="mt-4" variant="default">
@@ -103,7 +106,7 @@ function page() {
       <div className="container grid grid-cols-2 items-center gap-20">
         <div className="relative mx-auto aspect-video w-[100%]">
           <Image
-            src="/jpg/listing/1.jpg"
+            src="/jpg/lawnSign.jpg"
             alt="banner"
             layout="fill"
             className="rounded object-cover"
