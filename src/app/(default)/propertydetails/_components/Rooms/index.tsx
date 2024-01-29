@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import cn from '@utils/cn';
 import { Button } from '@components/ui/Button';
+import SwitchInput from '@components/ui/Switch';
 
 const tableData = [
   {
@@ -85,7 +86,12 @@ function Rooms() {
           <thead className="">
             <tr>
               <th className="px-4 py-2 text-left">Room</th>
-              <th className="px-4 py-2 text-left">Dimensions</th>
+              <th className="px-4 py-2 text-left">
+                <div className="flex items-center justify-start gap-1">
+                  Dimensions
+                  <SwitchInput />
+                </div>
+              </th>
               <th className="px-4 py-2 text-left">Features</th>
             </tr>
           </thead>
