@@ -9,9 +9,9 @@ function Demographics() {
   return (
     <div className="flex flex-1 flex-col gap-4">
       <Population />
-      <Cultural />
+      {/* <Cultural />
       <SocioEconomic />
-      <HouseHolds />
+      <HouseHolds /> */}
     </div>
   );
 }

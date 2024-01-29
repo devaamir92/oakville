@@ -3,7 +3,7 @@ import React from 'react';
 
 function FamilyStatus() {
   return (
-    <div className="flex flex-1 flex-col border-gray-300 p-4">
+    <div className="flex flex-1 flex-col border-gray-300 px-4">
       <p className="mb-4 text-lg font-medium">Family Status</p>
       <div className="flex items-center justify-center gap-32">
         <div className="flex flex-col items-center gap-2">

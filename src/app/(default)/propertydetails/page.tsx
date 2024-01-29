@@ -1,30 +1,29 @@
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { Input } from '@components/ui/Input';
+import {
+  BsEnvelope,
+  BsFillEnvelopeFill,
+  BsFillTelephoneFill,
+  BsHeart,
+  BsPhone,
+  BsUpload,
+} from 'react-icons/bs';
+import { LuBath, LuBedDouble, LuHome, LuParkingCircle } from 'react-icons/lu';
+
 import { Button } from '@components/ui/Button';
 
+import LightBox from './_components/LightBox';
+import PriceHistory from './_components/PriceHistory';
+import Details from './_components/Details';
+import ProDetails from './_components/Pro-Details';
+import Rooms from './_components/Rooms';
+import Map from './_components/map';
+import Demographics from './_components/Demographics';
 import Card from '@components/PropertyCard';
 
-import LightBox from './_components/LightBox';
-import Navbar from './_components/Navbar';
-import Map from './_components/map';
-import Discription from './_components/Discription';
-import Details from './_components/Details';
-import Demographics from './_components/Demographics';
-
 const data = [
-  {
-    location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3 Beds',
-    bathrooms: '2 Baths',
-    parking: '1 Parking',
-    price: '750,000',
-    imageUrl: '/jpg/listing/3.jpg',
-    listingStatus: 'For Rent',
-    propertyType: 'Townhouse',
-  },
-
   {
     location: 'Oakville Ontario L6L 2Y4',
     bedrooms: '2 Beds',
@@ -60,80 +59,153 @@ const data = [
 
 function PropertyDetails() {
   return (
-    <main>
-      <Navbar />
-      <div className="container flex flex-col gap-4">
-        <LightBox />
-        <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-9 flex flex-col gap-4">
-            <Discription />
-            <Demographics />
-            <Map />
-            <Details />
-          </div>
-          <div className="sticky top-[134px] col-span-3 grid h-fit">
+    <main className="container flex max-w-[1140px] flex-col gap-3 bg-white py-3">
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-0">
+          <h3 className="text-xl font-medium text-gray-800">
+            402 - 18A Hazelton Ave
+          </h3>
+          <span className="text-xs text-gray-600">
+            Mimico, Etobicoke, Toronto
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button
+            className="gap-2 border-primary-300 text-primary-500"
+            variant="outline"
+          >
+            <BsHeart />
+            Favourite
+          </Button>
+          <Button
+            className="gap-2 border-primary-300 text-primary-500"
+            variant="outline"
+          >
+            <BsUpload />
+            Share
+          </Button>
+        </div>
+      </div>
+      <LightBox />
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-8">
+            <div className="flex flex-col items-center ">
+              <LuBedDouble className="text-gray-700" size={24} />
+              <span className="text-sm font-medium">3 bed</span>
+            </div>
+            <div className="flex flex-col items-center ">
+              <LuBath className="text-gray-700" size={24} />
+              <span className="text-sm font-medium">4 bath</span>
+            </div>
             <div>
-              <div className="flex flex-col gap-4 rounded border border-gray-300 bg-white p-4">
-                <Image
-                  className="self-center"
-                  src="/svg/logoblack.svg"
-                  alt="logo"
-                  width={140}
-                  height={50}
-                />
-                <div className="flex flex-col gap-1">
-                  <p className="flex gap-2 text-sm">
-                    <span className="font-medium">Mobile</span>
-                    <Link href="tel:416-123-4567" className="font-normal">
-                      416-123-1234
-                    </Link>
-                  </p>
-
-                  <p className="flex gap-2 text-sm">
-                    <span className="font-medium">Email</span>
-                    <Link href="mailto:abc@domain.com" className="font-normal">
-                      abc@domain.com
-                    </Link>
-                  </p>
-                </div>
-                <form action="" className="flex flex-col gap-3">
-                  <Input type="text" placeholder="First Name" id="firstname" />
-                  <Input type="text" placeholder="Last Name" id="lastname" />
-                  <Input type="email" placeholder="Your Email" id="email" />
-                  <Input type="text" placeholder="Phone" id="phone" />
-                  <Input type="date" placeholder="Date" id="date" />
-                  <Button type="submit" className="w-full">
-                    Book A Showing
-                  </Button>
-
-                  <p className="text-xs text-gray-600">
-                    By providing your contact information, you acknowledge and
-                    agree to our Privacy Policy.
-                  </p>
-                </form>
+              <div className="flex flex-col items-center ">
+                <LuHome className="text-gray-700" size={24} />
+                <span className="text-sm font-medium">2 parking</span>
               </div>
             </div>
+            <div className="flex flex-col items-center ">
+              <LuParkingCircle className="text-gray-700" size={24} />
+              <span className="text-sm font-medium">2 parking</span>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <span className="rounded bg-slate-300 px-2 py-0.5 text-xs font-medium">
+              For Sale
+            </span>
+            <span className="rounded bg-primary-200 px-2 py-0.5 text-xs font-medium text-primary-600">
+              24 days on market
+            </span>
           </div>
         </div>
-        <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          <div className="col-span-4">
-            <h4 className="text-2xl font-semibold">Similar Properties</h4>
-          </div>
+        <div className="">
+          <p className="text-3xl font-medium text-gray-800">$1,200,000</p>
+        </div>
+      </div>
 
-          {data.map(item => (
-            <Card
-              key={item.location}
-              bathrooms={item.bathrooms}
-              bedrooms={item.bedrooms}
-              imageUrl={item.imageUrl}
-              listingStatus={item.listingStatus}
-              location={item.location}
-              price={item.price}
-              parking={item.parking}
-              statusShow
-            />
-          ))}
+      <div className="flex gap-3">
+        <div className="sticky top-[82px] flex h-fit w-[360px] flex-col gap-3 bg-[#f8f8f8] pb-6 pt-4">
+          <div className="flex flex-col gap-3   py-3">
+            <div className="relative h-16 w-full">
+              <Image src="/svg/logoblack.svg" alt="logo" fill />
+            </div>
+            <hr className="my-4" />
+            <div className="flex flex-col items-center justify-center gap-2">
+              <Link
+                href="
+                tel:416-123-4567"
+                className="flex items-center gap-2 text-sm  text-gray-800"
+              >
+                <BsFillTelephoneFill className="inline-block" />
+                (416) 828 7773
+              </Link>
+              <Link
+                href="
+                    mailto:
+                    info@bungalowfinder.ca
+                    "
+                className="flex items-center gap-2 text-sm  text-gray-800"
+              >
+                <BsFillEnvelopeFill className="inline-block" />
+                info@bungalowfinder.ca
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-3   py-3">
+            <p>Ready to go See it?</p>
+            <Button
+              className="w-3/4 bg-primary-400 capitalize"
+              variant="default"
+            >
+              Book a showing
+            </Button>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-3   py-3">
+            <p>Looking to Sell Your Bungalow?</p>
+            <Button
+              className="w-3/4 bg-primary-400 capitalize"
+              variant="default"
+            >
+              Get free evaluation
+            </Button>
+          </div>
         </div>
+        <div className="flex flex-1 flex-col gap-6  bg-white p-3">
+          <PriceHistory />
+          <div className="flex flex-col gap-1">
+            <h3 className="flex items-center gap-1 text-xl font-medium text-gray-800">
+              Listing Details
+            </h3>
+            <span className="text-xs text-gray-500">
+              Learn about 5050 CAMBIE STREET
+            </span>
+          </div>
+          <Details />
+          <ProDetails />
+
+          <Rooms />
+          <Map />
+          <Demographics />
+        </div>
+      </div>
+      <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+        <div className="col-span-3">
+          <h4 className="text-2xl font-semibold">Similar Properties</h4>
+        </div>
+
+        {data.map(item => (
+          <Card
+            key={item.location}
+            bathrooms={item.bathrooms}
+            bedrooms={item.bedrooms}
+            imageUrl={item.imageUrl}
+            listingStatus={item.listingStatus}
+            location={item.location}
+            price={item.price}
+            parking={item.parking}
+            statusShow
+          />
+        ))}
       </div>
     </main>
   );

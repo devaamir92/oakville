@@ -14,12 +14,11 @@ const Map = () => {
   });
 
   return (
-    <div
-      id="map"
-      className="fle flex flex-col gap-4 rounded border border-gray-300 bg-white p-4"
-    >
-      <h4 className="text-lg font-medium text-black">Map</h4>
-      <div className="h-72 overflow-hidden rounded">
+    <div id="map" className="fle flex flex-col gap-5">
+      <h3 className="flex items-center gap-1 text-xl font-medium text-gray-800">
+        Neighbourhood Mimico
+      </h3>
+      <div className="h-56 overflow-hidden rounded">
         <MapGL
           style={{ width: '100%', height: '100%' }}
           {...viewState}

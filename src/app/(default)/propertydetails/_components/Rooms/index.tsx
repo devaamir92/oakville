@@ -1,4 +1,9 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+
+import cn from '@utils/cn';
+import { Button } from '@components/ui/Button';
 
 const tableData = [
   {
@@ -64,26 +69,48 @@ const tableData = [
 ];
 
 function Rooms() {
+  const [showMore, setShowMore] = useState(false);
+
   return (
-    <div className="mt-4 flex-1">
-      <table className="min-w-full border border-gray-300 bg-white text-sm">
-        <thead className="bg-[#f2f2f2]">
-          <tr>
-            <th className="border-b px-4 py-2 text-left">Room</th>
-            <th className="border-b px-4 py-2 text-left">Dimensions</th>
-            <th className="border-b px-4 py-2 text-left">Features</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tableData.map(item => (
-            <tr key={item.room} className="hover:bg-gray-100">
-              <td className="border-b px-4 py-2">{item.room}</td>
-              <td className="border-b px-4 py-2">{item.size}</td>
-              <td className="border-b px-4 py-2">{item.features.join(', ')}</td>
+    <div className="flex flex-col gap-1">
+      <p className="text-md font-medium">Rooms</p>
+
+      <div
+        className={cn(
+          'mt-3 flex-1',
+          showMore ? 'max-h-full overflow-auto' : 'max-h-36 overflow-hidden'
+        )}
+      >
+        <table className="min-w-full border-gray-300 bg-white text-sm">
+          <thead className="">
+            <tr>
+              <th className="px-4 py-2 text-left">Room</th>
+              <th className="px-4 py-2 text-left">Dimensions</th>
+              <th className="px-4 py-2 text-left">Features</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="">
+            {tableData.map((item, j) => (
+              <tr
+                key={item.room}
+                className={cn('', j % 2 === 0 ? 'bg-primary-100' : 'bg-white')}
+              >
+                <td className="px-4 py-2">{item.room}</td>
+                <td className="px-4 py-2">{item.size}</td>
+                <td className="px-4 py-2">{item.features.join(', ')}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <Button
+        className="w-fit p-0 text-blue-500 hover:no-underline"
+        variant="link"
+        onClick={() => setShowMore(!showMore)}
+      >
+        {showMore ? 'Show less' : 'Show all'}
+      </Button>
     </div>
   );
 }

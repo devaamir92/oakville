@@ -15,7 +15,7 @@ interface MaritalStatusProps {
   data: { name: string; value: number }[];
 }
 
-const barColors = ['#4f46e5', '#6366f1', '#818cf8', '#a5b4fc', '#4f46e5'];
+const barColors = ['#00BDDD', '#9C27B0', '#FF0000', '#324056', '#BCD530'];
 
 const renderLegend = ({ ...rest }) => {
   return (
@@ -51,8 +51,8 @@ const renderShape = function PieShape(props: any) {
       <Sector
         cx={cx}
         cy={cy}
-        innerRadius={30}
-        outerRadius={50}
+        innerRadius={50}
+        outerRadius={70}
         fill={fill}
         startAngle={0}
         endAngle={360}
@@ -63,14 +63,16 @@ const renderShape = function PieShape(props: any) {
 
 const MaritalStatus: React.FC<MaritalStatusProps> = ({ data }) => {
   return (
-    <ResponsiveContainer width="100%" height={150}>
-      <PieChart>
+    <ResponsiveContainer width="100%" height="100%">
+      <PieChart width={200} height={200}>
         <Pie
+          width="100%"
+          height="100%"
           data={data}
           cx="50%"
           cy="50%"
-          innerRadius={30}
-          outerRadius={50}
+          innerRadius={50}
+          outerRadius={70}
           fill="#8884d8"
           dataKey="value"
           activeIndex={0}

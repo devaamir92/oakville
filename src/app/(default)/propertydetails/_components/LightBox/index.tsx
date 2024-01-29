@@ -47,9 +47,9 @@ function LightBox() {
   return (
     <div
       id="description"
-      className="relative mt-4 flex h-[470px] gap-4 overflow-hidden rounded"
+      className="relative flex h-[420px] gap-2 overflow-hidden rounded"
     >
-      <div className="relative flex-1 shadow">
+      <div className="relative w-3/5 overflow-hidden ">
         <Image
           className="cursor-pointer object-cover"
           src={Images[5].src}
@@ -65,9 +65,12 @@ function LightBox() {
           }
         />
       </div>
-      <div className="grid flex-1 grid-cols-2 items-center gap-4 shadow">
-        {Images.slice(1, 5).map(image => (
-          <div className="relative col-span-1 h-full w-full" key={image.alt}>
+      <div className="grid flex-1 grid-cols-1 items-center gap-2 shadow">
+        {Images.slice(1, 3).map(image => (
+          <div
+            className="relative col-span-1 h-full w-full overflow-hidden "
+            key={image.alt}
+          >
             <Image
               className="cursor-pointer object-cover"
               src={image.src}

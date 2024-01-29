@@ -1,162 +1,53 @@
-import React from 'react';
+'use client';
 
-import Rooms from '../Rooms';
+import React, { useState } from 'react';
+
+import cn from '@utils/cn';
+import { Button } from '@components/ui/Button';
 
 function Details() {
+  const [showMore, setShowMore] = useState(false);
   return (
-    <div
-      id="details"
-      className="flex flex-col gap-2 rounded border border-gray-300 bg-white p-4"
-    >
-      <h4 className="text-lg font-medium">Property Details</h4>
-      <hr />
-      <div className="flex flex-col gap-2">
-        <div className="flex flex-wrap gap-5">
-          <div className="flex flex-col gap-2 md:w-1/5">
-            <h4 className="text-base font-medium">Property Type</h4>
-            <p className="text-sm">Att/Row/Twnhouse</p>
-          </div>
-          <div className="flex flex-col gap-2 md:w-1/5">
-            <h4 className="text-base font-medium">Neighbourhood</h4>
-            <p className="text-sm">Palermo West</p>
-          </div>
-          <div className="flex flex-col gap-2 md:w-1/5">
-            <h4 className="text-base font-medium">Garage Spaces</h4>
-            <p className="text-sm">5</p>
-          </div>
-          <div className="flex flex-col gap-2 md:w-1/5">
-            <h4 className="text-base font-medium">Property Taxes</h4>
-            <p className="text-sm">$ 9,000</p>
-          </div>
-          <div className="flex flex-col gap-2 md:w-1/5">
-            <h4 className="text-base font-medium">Area</h4>
-            <p className="text-sm">Halton</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h4 className="text-base font-medium">Drive</h4>
-            <p className="text-sm">Pvt Double</p>
-          </div>
+    <div className="flex flex-col gap-1">
+      <p className="text-md font-medium">Description</p>
+      <div
+        className={cn(
+          'text-justify text-sm',
+          showMore ? 'max-h-full overflow-auto' : 'max-h-16 overflow-hidden'
+        )}
+      >
+        <span>
+          The Cambie Collection by Pennyfarthing Homes continues its legacy on
+          Vancouver&apos;s West Side with Basalt, located on 35th Ave and Cambie
+          St. Boutique RARE half duplex townhome. Over 1500 sqft duplex style
+          townhome with 2 parking spaces. Large open and functional floor plan
+          with quality finishing, Bosch appliances, incl gas stove, modern high
+          gloss cabinets, quartz countertops and hardwood flooring. Powder room
+          on the main floor. This home features 2 large bedrooms up both with
+          walk in closets and 2 full baths up. Storage room down with easy
+          access. This home sits very close to QE Park and tennis courts.
+          Transit at your doorstep. Don&apos;t miss this great opportunity... Oh
+          BTW there is even A/C for those hot summers.
+        </span>
+        <div className="mt-5 flex flex-col gap-1">
+          <p className="text-md font-medium">Extras</p>
+          <span>
+            1 Fridge, 2 Stove, Washer, Dryer, CAC, CVAC & Accessories, Ceiling
+            Fan, All ELF&apos;s, Garden Shed (As-Is), GDO with one remote.
+            Kitchen table & chairs, Wall Unit in Living Room, All Sceneries.
+          </span>
         </div>
       </div>
-      <div className="flex flex-col gap-2">
-        <div className="flex w-full flex-wrap justify-between gap-5 md:w-1/3">
-          <div className="flex flex-col gap-2" />
-        </div>
-        <div>
-          <div className="flex flex-col gap-2">
-            <h4 className="text-lg font-medium">Building</h4>
-            <hr />
-            <div className="flex flex-wrap gap-5">
-              <div className="flex flex-col gap-2 md:w-1/5">
-                <h4 className="text-base font-medium">Bedrooms</h4>
-                <p className="text-sm">3 + 1</p>
-              </div>
-              <div className="flex flex-col gap-2 md:w-1/5">
-                <h4 className="text-base font-medium">Bathrooms</h4>
-                <p className="text-sm">4</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="flex flex-col flex-wrap gap-2">
-            <h4 className="text-lg font-medium">Utilities</h4>
-            <hr />
-            <div className="flex flex-wrap gap-5">
-              <div className="flex flex-col gap-2 md:w-1/5">
-                <h4 className="text-base font-medium">Water</h4>
-                <p className="text-sm">Municipal</p>
-              </div>
-              <div className="flex flex-col gap-2 md:w-1/5">
-                <h4 className="text-base font-medium">Sewer</h4>
-                <p className="text-sm">Sewers</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <h4 className="text-lg font-medium">Features</h4>
-          <hr />
-          <div className="flex flex-wrap gap-5">
-            <div className="flex flex-col gap-2 md:w-1/5">
-              <h4 className="text-base font-medium">Kitchen</h4>
-              <p className="text-sm">1</p>
-            </div>
-            <div className="flex flex-col gap-2 md:w-1/5">
-              <h4 className="text-base font-medium">Family Room</h4>
-              <p className="text-sm">Y</p>
-            </div>
-            <div className="flex flex-col gap-2 md:w-1/5">
-              <h4 className="text-base font-medium">Basement</h4>
-              <p className="text-sm">Finished</p>
-            </div>
-            <div className="flex flex-col gap-2 md:w-1/5">
-              <h4 className="text-base font-medium">Fireplace</h4>
-              <p className="text-sm">Y</p>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div className="flex flex-col flex-wrap gap-2">
-            <h4 className="text-lg font-medium">External Features</h4>
-            <hr />
-            <div className="flex gap-5">
-              <div className="flex flex-col gap-2 ">
-                <h4 className="text-base font-medium">External Finish</h4>
-                <p className="text-sm">Brick</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="flex flex-col flex-wrap gap-2">
-            <h4 className="text-lg font-medium">Property Features</h4>
-            <hr />
-            <div className="flex gap-5">
-              <div className="flex gap-2">
-                <span>Grnbelt/Conserv</span>
-                <span>Hospital</span>
-                <span>Park</span>
-                <span>Ravine</span>
-                <span>School</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="flex flex-col gap-2">
-            <h4 className="text-lg font-medium">Cooling And Heating</h4>
-            <hr />
-            <div className="flex w-full flex-wrap gap-2 md:gap-0 ">
-              <div className="flex w-full flex-col gap-2 md:w-1/5">
-                <h4 className="text-base font-medium">Cooling Type</h4>
-                <p className="text-sm">Central Air</p>
-              </div>
-              <div className="flex w-full flex-col gap-2 md:w-1/5">
-                <h4 className="text-base font-medium">Heating Type</h4>
-                <p className="text-sm">Forced Air</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="flex flex-col gap-2">
-            <h4 className="text-lg font-medium">Property Information</h4>
-            <hr />
-            <div className="flex flex-wrap gap-5">
-              <div className="flex flex-col gap-2">
-                <h4 className="text-base font-medium">Days On Market</h4>
-                <p className="text-sm">0{/* */} Days</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-1">
-        <Rooms />
+      <Button
+        className="w-fit p-0 text-blue-500 hover:no-underline"
+        variant="link"
+        onClick={() => setShowMore(!showMore)}
+      >
+        {showMore ? 'Show less' : 'Show more'}
+      </Button>
+      <div className="flex items-center justify-between text-sm">
+        <span>Broker: Coldwell Banker Marquise Realty</span>
+        <span>MLS®#: R2839028</span>
       </div>
     </div>
   );

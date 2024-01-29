@@ -37,31 +37,33 @@ const AgeData = [
 
 function Population() {
   return (
-    <div className="rounded border border-gray-300 bg-white ">
-      <div className="flex items-center justify-between px-4 py-2">
+    <div>
+      <div className="flex items-center justify-between">
         <h4 className="text-lg font-medium text-black">Population</h4>
-        <p className="text-xs">
-          Neighbourhood (NBH) | Community (COM) | City (CITY)
-        </p>
       </div>
-      <hr />
-      <TotalPopulation />
-      <hr />
-      <div className="flex">
-        <Gender data={PopulationData} />
-        <FamilyStatus />
-      </div>
-      <hr />
-      <div className="flex">
-        <div className="flex flex-1 flex-col border-r border-gray-300 p-4">
-          <p className="text-lg font-medium">Marital Status</p>
-          <MaritalStatus data={MaritalData} />
+      {/* <TotalPopulation /> */}
+      {/* <hr /> */}
+      <div className="flex divide-x-2 ">
+        <div className="flex-1">
+          <Gender data={PopulationData} />
         </div>
+        <div className="flex-1">
+          <FamilyStatus />
+        </div>
+        {/* <div className="flex-1"> */}
+        {/* <p className="text-lg font-medium">Marital Status</p> */}
+        {/* <MaritalStatus data={MaritalData} /> */}
+        {/* </div> */}
+      </div>
+      {/* <hr />
+      <div className="flex">
+        <div className="flex flex-1 flex-col border-r border-gray-300 p-4"></div>
         <div className="flex flex-1 flex-col border-gray-300 p-4">
           <p className="text-lg font-medium">Age Distibution</p>
           <AgeDistribution data={AgeData} />
         </div>
-      </div>
+        <div className="flex-1"></div>
+      </div> */}
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fonts}>
-      <body className="font-opensans bg-[#f3f4f6]">
+      <body className="bg-[#fff] font-opensans">
         <DefaultLayout>{children}</DefaultLayout>
       </body>
     </html>
