@@ -10,7 +10,27 @@ const PropertyDetails = [
   { key: 'Parking type', value: 'Owned' },
   { key: 'Style:', value: '2 Storey w/Bsmt' },
   { key: 'Listed on', value: 'Jan 4, 2024' },
+  { key: 'Listed on', value: 'Jan 4, 2024' },
+  { key: 'Parking', value: '2' },
+  { key: 'Property type', value: 'Condo Townhouse' },
   { key: 'Property Taxes', value: '$ 4,500' },
+  { key: 'Style:', value: '2 Storey w/Bsmt' },
+  { key: 'MLS Size', value: '1521 sqft' },
+  { key: 'Area', value: 'Peel' },
+  { key: 'Drive', value: 'Private' },
+  { key: 'Water', value: 'Municipal' },
+  { key: 'Sewer', value: 'Sewers' },
+  { key: 'Basement', value: 'Finished' },
+  { key: 'Exterior', value: 'Brick' },
+  { key: 'Garage', value: 'Attached' },
+  { key: 'Garage Spaces', value: '2.0' },
+  { key: 'Heat Source', value: 'Gas' },
+  { key: 'Heat Type', value: 'Forced Air' },
+  { key: 'Kitchens', value: '1' },
+  { key: 'Rooms', value: '6' },
+  { key: 'Washrooms', value: '3' },
+  { key: 'Air Conditioning', value: 'Central Air' },
+  { key: 'Fireplace Stove', value: 'Yes' },
 ];
 
 function ProDetails() {
@@ -21,7 +41,7 @@ function ProDetails() {
         <div className="flex-1">
           <table className="w-full">
             <tbody className="divide-y divide-gray-300 bg-white">
-              {PropertyDetails.slice(0, 5).map(item => (
+              {PropertyDetails.slice(0, 15).map(item => (
                 <tr key={item.key} className="text-sm">
                   <td className="px-4 py-1.5 font-medium text-gray-500">
                     {item.key}
@@ -37,7 +57,7 @@ function ProDetails() {
         <div className="flex-1">
           <table className="w-full">
             <tbody className="divide-y divide-gray-300 bg-white">
-              {PropertyDetails.slice(5, 10).map(item => (
+              {PropertyDetails.slice(15, 30).map(item => (
                 <tr key={item.key} className="text-sm">
                   <td className="px-4 py-1.5 font-medium text-gray-500">
                     {item.key}

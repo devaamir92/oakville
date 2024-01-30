@@ -133,8 +133,8 @@ function PropertyDetails() {
       </div>
 
       <div className="flex gap-3">
-        <div className="sticky top-[82px] flex h-fit w-[360px] flex-col gap-6 rounded bg-secondary-300 px-8 pb-8 pt-4">
-          <div className="flex flex-col gap-3 ">
+        <div className="sticky top-[100px] flex h-fit w-[360px] flex-col gap-10 rounded">
+          <div className="flex flex-col gap-3 bg-secondary-300 px-8 py-4 shadow">
             <h3 className="text-center text-2xl font-medium text-gray-800">
               The Preserve Oakville
             </h3>
@@ -159,9 +159,9 @@ function PropertyDetails() {
               </Link>
             </div>
           </div>
-          <hr className="border-primary-200" />
+          {/* <hr className="border-primary-200" /> */}
 
-          <div className="flex flex-col items-center justify-center gap-3">
+          <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 px-8 py-8 shadow">
             <p>Ready to go See it?</p>
             <Button
               className="w-full bg-primary-400 capitalize"
@@ -171,7 +171,7 @@ function PropertyDetails() {
             </Button>
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-3">
+          <div className="gap-3bg-secondary-300 flex flex-col items-center justify-center gap-3 bg-secondary-300 px-8 py-8 shadow">
             <p>Looking to Sell Your Bungalow?</p>
             <Button
               className="w-full bg-primary-400 capitalize"

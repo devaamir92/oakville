@@ -7,7 +7,7 @@ import Viewer from './viewer';
 
 const Images = [
   {
-    src: '/jpg/details/ad7d6_1.jpg',
+    src: '/jpg/listing/5.jpg',
     alt: 'Image 1',
   },
   {
@@ -52,7 +52,7 @@ function LightBox() {
       <div className="relative w-3/5 overflow-hidden ">
         <Image
           className="cursor-pointer object-cover"
-          src={Images[5].src}
+          src={Images[0].src}
           alt="Image 1"
           fill
           onClick={
