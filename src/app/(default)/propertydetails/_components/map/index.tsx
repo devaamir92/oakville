@@ -16,7 +16,7 @@ const Map = () => {
   return (
     <div id="map" className="fle flex flex-col gap-5">
       <h3 className="flex items-center gap-1 text-xl font-medium text-gray-800">
-        Neighbourhood Mimico
+        The Preserve Oakville Neighbourhood
       </h3>
       <div className="h-56 overflow-hidden rounded">
         <MapGL

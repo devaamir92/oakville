@@ -3,7 +3,6 @@ import FamilyStatus from './FamilyStatus';
 import Gender from './Gender';
 
 import MaritalStatus from './MaritalStatus';
-import TotalPopulation from './Total';
 
 const PopulationData = [
   {
@@ -41,29 +40,28 @@ function Population() {
       <div className="flex items-center justify-between">
         <h4 className="text-lg font-medium text-black">Population</h4>
       </div>
-      {/* <TotalPopulation /> */}
-      {/* <hr /> */}
-      <div className="flex divide-x-2 ">
+      <hr className="my-2" />
+      <div className="flex divide-x-[1px]">
         <div className="flex-1">
           <Gender data={PopulationData} />
         </div>
         <div className="flex-1">
           <FamilyStatus />
         </div>
-        {/* <div className="flex-1"> */}
-        {/* <p className="text-lg font-medium">Marital Status</p> */}
-        {/* <MaritalStatus data={MaritalData} /> */}
-        {/* </div> */}
       </div>
-      {/* <hr />
-      <div className="flex">
-        <div className="flex flex-1 flex-col border-r border-gray-300 p-4"></div>
-        <div className="flex flex-1 flex-col border-gray-300 p-4">
-          <p className="text-lg font-medium">Age Distibution</p>
+      <hr className="my-2" />
+
+      <div className="flex divide-x-[1px]">
+        <div className="flex flex-1 flex-col gap-4 border-gray-300">
+          <p className="text-md  font-medium">Marital Status</p>
+          <MaritalStatus data={MaritalData} />
+        </div>
+        <div className="flex flex-1 flex-col gap-4 ">
+          <p className="text-md ml-4 font-medium">Age Distibution</p>
           <AgeDistribution data={AgeData} />
         </div>
-        <div className="flex-1"></div>
-      </div> */}
+      </div>
+      <hr className="my-2" />
     </div>
   );
 }

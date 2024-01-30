@@ -7,7 +7,6 @@ import {
   BarChart,
   Cell,
   ResponsiveContainer,
-  Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
@@ -23,31 +22,32 @@ const barColors = ['#1d4ed8', '#6366f1', '#818cf8', '#a5b4fc', '#c7d2fe'];
 
 const StructureType: React.FC<StructureTypeProps> = ({ data }) => {
   return (
-    <ResponsiveContainer width="100%" height={150}>
+    <ResponsiveContainer width="100%" height={115}>
       <BarChart
         width={600}
-        height={200}
+        height={100}
         data={data}
         layout="vertical"
-        margin={{ top: 5, right: 10, left: -20, bottom: 5 }}
-        barGap={5}
+        margin={{ right: 10, left: -20 }}
+        barGap={3}
       >
         <XAxis type="number" hide />
         <YAxis
           dataKey="name"
           type="category"
           width={150}
+          height={100}
           fontWeight={600}
           fontSize={12}
           axisLine={false}
           tickLine={false}
           stroke="#000"
         />
-        <Tooltip />
+
         <Bar
           dataKey="value"
           fill="#1f77b4"
-          barSize={20}
+          barSize={12}
           label={{
             position: 'right',
             fill: '#000',

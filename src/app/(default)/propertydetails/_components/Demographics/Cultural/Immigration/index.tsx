@@ -4,6 +4,7 @@ import React from 'react';
 
 import {
   Cell,
+  Legend,
   Pie,
   PieChart,
   ResponsiveContainer,
@@ -18,36 +19,7 @@ interface ImmigrationProps {
   }[];
 }
 
-const pieColors = ['#1f77b4', '#a5c9e1'];
-
-const PieLabel = function PieLabel({
-  cx,
-  cy,
-  midAngle,
-  innerRadius,
-  outerRadius,
-  value,
-  ...rest
-}: any) {
-  const RADIAN = Math.PI / 180;
-  const radius = 25 + innerRadius + (outerRadius - innerRadius);
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-  return (
-    <text
-      x={x}
-      y={y}
-      fill="#000"
-      fontSize={12}
-      fontWeight={600}
-      textAnchor={x > cx ? 'start' : 'end'}
-      dominantBaseline="central"
-    >
-      {rest.name} {value}%
-    </text>
-  );
-};
+const pieColors = ['#144D75', '#1f77b4'];
 
 const PieShape = function PieShape(props: any) {
   const { cx, cy, fill } = props;
@@ -60,7 +32,7 @@ const PieShape = function PieShape(props: any) {
       <Sector
         cx={cx}
         cy={cy}
-        innerRadius={30}
+        innerRadius={35}
         outerRadius={50}
         fill={fill}
         startAngle={0}
@@ -72,18 +44,17 @@ const PieShape = function PieShape(props: any) {
 
 const Immigration: React.FC<ImmigrationProps> = ({ data }) => {
   return (
-    <ResponsiveContainer width="100%" height={180}>
+    <ResponsiveContainer width="100%" height={100}>
       <PieChart>
         <Pie
           data={data}
           cx="50%"
           cy="50%"
           outerRadius={50}
-          innerRadius={30}
+          innerRadius={35}
           fill="#8884d8"
           dataKey="value"
           labelLine={false}
-          label={PieLabel}
           activeIndex={0}
           activeShape={PieShape}
         >
@@ -91,7 +62,27 @@ const Immigration: React.FC<ImmigrationProps> = ({ data }) => {
             <Cell key={entry.name} fill={pieColors[index % pieColors.length]} />
           ))}
         </Pie>
-        <Tooltip />
+
+        <Legend
+          verticalAlign="middle"
+          layout="vertical"
+          align="right"
+          content={
+            <ul className="flex flex-col gap-2">
+              {data.map((entry, index) => (
+                <li key={`legend-${entry.name}`} className="flex items-center">
+                  <span
+                    className="mr-2 h-3 w-3 rounded-full"
+                    style={{ backgroundColor: pieColors[index] }}
+                  />
+                  <span className="text-sm">
+                    {entry.name} {entry.value}%
+                  </span>
+                </li>
+              ))}
+            </ul>
+          }
+        />
       </PieChart>
     </ResponsiveContainer>
   );

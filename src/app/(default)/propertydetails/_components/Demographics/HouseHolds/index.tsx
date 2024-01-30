@@ -14,11 +14,11 @@ const OwnershipData = [
 ];
 
 const StructuralTypes = [
-  { name: 'Apartment', value: 1 },
+  { name: 'Apartment', value: 2 },
   { name: 'Single Detached', value: 64 },
-  { name: 'Semi Detached', value: 4 },
-  { name: 'Moveable', value: 0 },
-  { name: 'Row House', value: 31 },
+  { name: 'Semi Detached', value: 8 },
+  { name: 'Moveable', value: 3 },
+  { name: 'Row House', value: 23 },
 ];
 
 const AgeHomes = [
@@ -30,29 +30,30 @@ const AgeHomes = [
 
 function HouseHolds() {
   return (
-    <div className="rounded border border-gray-300 bg-white ">
-      <div className="flex items-center justify-between px-4 py-2">
+    <div className=" ">
+      <hr className="my-2" />
+      <div className="flex items-center justify-between px-4">
         <h4 className="text-lg font-medium text-black">Households</h4>
       </div>
-      <hr />
+      <hr className="my-2" />
       <div className="flex">
         <div className="flex flex-1 flex-col border-r border-gray-300 p-4">
-          <p className="text-lg font-medium">Structural Details</p>
+          <p className="text-md font-medium">Structural Details</p>
           {/* <MaritalStatus data={MaritalData} /> */}
         </div>
-        <div className="flex flex-1 flex-col border-gray-300 p-4">
-          <p className="text-lg font-medium">Ownership</p>
+        <div className="flex flex-1 flex-col gap-4 border-gray-300 p-4">
+          <p className="text-md font-medium">Ownership</p>
           <Ownership data={OwnershipData} />
         </div>
       </div>
-      <hr />
+      <hr className="my-2" />
       <div className="flex">
-        <div className="flex flex-1 flex-col border-r border-gray-300 p-4">
-          <p className="text-lg font-medium">Age of Home (Years)</p>
+        <div className="flex flex-1 flex-col gap-4 border-r border-gray-300 p-4">
+          <p className="text-md font-medium">Age of Home (Years)</p>
           <HomeAge data={AgeHomes} />
         </div>
-        <div className="flex flex-1 flex-col border-gray-300 p-4">
-          <p className="text-lg font-medium">Structural Type</p>
+        <div className="flex flex-1 flex-col gap-4 border-gray-300 p-4">
+          <p className="text-md font-medium">Structural Type</p>
           <StructureType data={StructuralTypes} />
         </div>
       </div>

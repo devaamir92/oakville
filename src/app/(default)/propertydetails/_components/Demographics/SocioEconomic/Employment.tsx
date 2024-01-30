@@ -8,7 +8,6 @@ import {
   PieChart,
   ResponsiveContainer,
   Sector,
-  Tooltip,
 } from 'recharts';
 
 interface EmploymentProps {
@@ -23,55 +22,39 @@ const barColors = ['#059669', '#34d399'];
 const Employment: React.FC<EmploymentProps> = ({ data }) => {
   const renderLegend = () => {
     return (
-      <ul>
-        {data.map((entry, index) => (
-          <li
-            key={entry.name}
-            className="flex items-center gap-3 text-xs font-medium"
-          >
-            <div className="flex justify-between">
-              {entry.name === 'Employed' ? (
-                <div className="flex gap-2">
-                  <div className="border-r border-r-gray-300 pr-2">
-                    <h2
-                      className="text-xl font-bold"
-                      style={{
-                        color: barColors[index],
-                      }}
-                    >
-                      {entry.value}%
-                    </h2>
-                    <p className="text-xs">{entry.name}</p>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <div>
-                      <p className="text-sm">Dominant Profession #1</p>
-                      <p className="text-gray-500">
-                        Business Finance Administration
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm">Dominant Profession #2</p>
-                      <p className="text-xs text-gray-500">Management</p>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <h2
-                    className="text-xl font-bold"
-                    style={{
-                      color: barColors[index],
-                    }}
-                  >
-                    {entry.value}%
-                  </h2>
-                  <p className="text-xs">{entry.name}</p>
-                </div>
-              )}
+      <ul className="flex flex-col gap-2">
+        <li className="flex items-center gap-3 text-xs font-medium">
+          <div className="flex w-full gap-2">
+            {data.map((entry, index) => (
+              <div key={entry.name} className="pr-2">
+                <h2
+                  className="text-lg font-bold"
+                  style={{
+                    color: barColors[index],
+                  }}
+                >
+                  {entry.value}%
+                </h2>
+                <p className="text-xs">{entry.name}</p>
+              </div>
+            ))}
+          </div>
+        </li>
+        <hr />
+        <li>
+          <div className="flex flex-col gap-1">
+            <div>
+              <p className="text-xs">Dominant Profession #1</p>
+              <p className="text-xs text-gray-500">
+                Business Finance Administration
+              </p>
             </div>
-          </li>
-        ))}
+            <div>
+              <p className="text-xs">Dominant Profession #2</p>
+              <p className="text-xs text-gray-500">Management</p>
+            </div>
+          </div>
+        </li>
       </ul>
     );
   };
@@ -94,7 +77,7 @@ const Employment: React.FC<EmploymentProps> = ({ data }) => {
         <Sector
           cx={cx}
           cy={cy}
-          innerRadius={30}
+          innerRadius={35}
           outerRadius={50}
           fill={fill}
           startAngle={0}
@@ -106,13 +89,13 @@ const Employment: React.FC<EmploymentProps> = ({ data }) => {
 
   return (
     <div>
-      <ResponsiveContainer width="100%" height={150}>
+      <ResponsiveContainer width="100%" height={110}>
         <PieChart>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={30}
+            innerRadius={35}
             outerRadius={50}
             fill="#8884d8"
             dataKey="value"
@@ -123,7 +106,7 @@ const Employment: React.FC<EmploymentProps> = ({ data }) => {
               <Cell key={entry.name} fill={barColors[index]} />
             ))}
           </Pie>
-          <Tooltip />
+
           <Legend
             layout="vertical"
             align="right"

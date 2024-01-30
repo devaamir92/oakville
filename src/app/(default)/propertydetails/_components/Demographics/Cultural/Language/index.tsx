@@ -7,7 +7,6 @@ import {
   BarChart,
   Cell,
   ResponsiveContainer,
-  Tooltip,
   XAxis,
   YAxis,
 } from 'recharts';
@@ -19,18 +18,30 @@ interface LanguageProps {
   }[];
 }
 
-const barColors = ['#1f77b4', '#4c92c3', '#79add2', '#a5c9e1', '#1f77b4'];
-
 const Language: React.FC<LanguageProps> = ({ data }) => {
+  function hexToRgb(hex: string): number[] | null {
+    const match = hex.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
+    return match ? match.slice(1, 4).map(c => parseInt(c, 16)) : null;
+  }
+
+  function shade(value: number, baseColor: string): string {
+    const v = value / 100;
+    const rgb = hexToRgb(baseColor);
+    if (!rgb) {
+      return baseColor;
+    }
+    const shadedRgb = rgb.map(c => Math.round(c * (1 - v)));
+    return `rgb(${shadedRgb.join(',')})`;
+  }
+
   return (
-    <ResponsiveContainer width="100%" height={170}>
+    <ResponsiveContainer width="100%" height={115}>
       <BarChart
         width={600}
-        height={200}
+        height={104}
         data={data}
         layout="vertical"
-        margin={{ top: 5, right: 10, left: -20, bottom: 5 }}
-        barGap={5}
+        margin={{ right: 30, left: -20 }}
       >
         <XAxis type="number" hide />
         <YAxis
@@ -43,20 +54,21 @@ const Language: React.FC<LanguageProps> = ({ data }) => {
           tickLine={false}
           stroke="#000"
         />
-        <Tooltip />
+
         <Bar
           dataKey="value"
           fill="#1f77b4"
-          barSize={20}
+          barSize={12}
           label={{
             position: 'right',
             fill: '#000',
+
             formatter: (value: number) => `${value}%`,
             fontSize: 12,
           }}
         >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${entry}`} fill={barColors[index]} />
+          {data.map(entry => (
+            <Cell key={`cell-${entry}`} fill={shade(entry.value, '#1f77b4')} />
           ))}
         </Bar>
       </BarChart>

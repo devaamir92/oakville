@@ -8,14 +8,13 @@ import {
   PieChart,
   ResponsiveContainer,
   Sector,
-  Tooltip,
 } from 'recharts';
 
 interface MaritalStatusProps {
   data: { name: string; value: number }[];
 }
 
-const barColors = ['#00BDDD', '#9C27B0', '#FF0000', '#324056', '#BCD530'];
+const barColors = ['#d64933', '#5d4a66', '#93a3d1', '#324056', '#BCD530'];
 
 const renderLegend = ({ ...rest }) => {
   return (
@@ -51,8 +50,8 @@ const renderShape = function PieShape(props: any) {
       <Sector
         cx={cx}
         cy={cy}
-        innerRadius={50}
-        outerRadius={70}
+        innerRadius={35}
+        outerRadius={50}
         fill={fill}
         startAngle={0}
         endAngle={360}
@@ -63,7 +62,7 @@ const renderShape = function PieShape(props: any) {
 
 const MaritalStatus: React.FC<MaritalStatusProps> = ({ data }) => {
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="100%" height={100}>
       <PieChart width={200} height={200}>
         <Pie
           width="100%"
@@ -71,8 +70,8 @@ const MaritalStatus: React.FC<MaritalStatusProps> = ({ data }) => {
           data={data}
           cx="50%"
           cy="50%"
-          innerRadius={50}
-          outerRadius={70}
+          innerRadius={35}
+          outerRadius={50}
           fill="#8884d8"
           dataKey="value"
           activeIndex={0}
@@ -82,7 +81,7 @@ const MaritalStatus: React.FC<MaritalStatusProps> = ({ data }) => {
             <Cell key={entry.name} fill={barColors[index]} />
           ))}
         </Pie>
-        <Tooltip />
+
         <Legend
           layout="vertical"
           align="right"

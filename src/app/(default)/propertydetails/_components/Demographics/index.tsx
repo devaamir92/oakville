@@ -1,17 +1,19 @@
+'use client';
+
 import React from 'react';
 
-import Population from './Population';
 import Cultural from './Cultural';
-import SocioEconomic from './SocioEconomic';
 import HouseHolds from './HouseHolds';
+import Population from './Population';
+import SocioEconomic from './SocioEconomic';
 
 function Demographics() {
   return (
-    <div className="flex flex-1 flex-col gap-4">
+    <div className="flex flex-auto flex-col">
       <Population />
-      {/* <Cultural />
+      <Cultural />
       <SocioEconomic />
-      <HouseHolds /> */}
+      <HouseHolds />
     </div>
   );
 }

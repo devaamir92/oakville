@@ -45,10 +45,6 @@ function Details() {
       >
         {showMore ? 'Show less' : 'Show more'}
       </Button>
-      <div className="flex items-center justify-between text-sm">
-        <span>Broker: Coldwell Banker Marquise Realty</span>
-        <span>MLS®#: R2839028</span>
-      </div>
     </div>
   );
 }

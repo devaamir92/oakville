@@ -23,7 +23,7 @@ const barColors = ['#059669', '#22c55e', '#34d399', '#86efac', '#059669'];
 const EduLevel: React.FC<EduLevelProps> = ({ data }) => {
   const renderLegend = () => {
     return (
-      <ul>
+      <ul className="flex flex-col gap-1">
         {data.map((entry, index) => (
           <li
             key={entry.name}
@@ -62,7 +62,7 @@ const EduLevel: React.FC<EduLevelProps> = ({ data }) => {
         <Sector
           cx={cx}
           cy={cy}
-          innerRadius={30}
+          innerRadius={35}
           outerRadius={50}
           fill={fill}
           startAngle={0}
@@ -74,13 +74,13 @@ const EduLevel: React.FC<EduLevelProps> = ({ data }) => {
 
   return (
     <div>
-      <ResponsiveContainer width="100%" height={150}>
+      <ResponsiveContainer width="100%" height={110}>
         <PieChart>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={30}
+            innerRadius={35}
             outerRadius={50}
             fill="#8884d8"
             dataKey="value"

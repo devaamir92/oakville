@@ -87,7 +87,7 @@ function Rooms() {
             <tr>
               <th className="px-4 py-2 text-left">Room</th>
               <th className="px-4 py-2 text-left">
-                <div className="flex items-center justify-start gap-1">
+                <div className="flex items-center justify-between gap-1">
                   Dimensions
                   <SwitchInput />
                 </div>
@@ -117,6 +117,10 @@ function Rooms() {
       >
         {showMore ? 'Show less' : 'Show all'}
       </Button>
+      <div className="flex items-center justify-between text-sm">
+        <span>Broker: Coldwell Banker Marquise Realty</span>
+        <span>MLS®#: R2839028</span>
+      </div>
     </div>
   );
 }

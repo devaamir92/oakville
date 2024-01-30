@@ -1,17 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 import {
-  BsEnvelope,
   BsFillEnvelopeFill,
   BsFillTelephoneFill,
   BsHeart,
-  BsPhone,
   BsUpload,
 } from 'react-icons/bs';
-import { LuBath, LuBedDouble, LuHome, LuParkingCircle } from 'react-icons/lu';
+import { LuBath, LuBedDouble, LuParkingCircle, LuScan } from 'react-icons/lu';
 
+import Card from '@components/PropertyCard';
 import { Button } from '@components/ui/Button';
 
 import LightBox from './_components/LightBox';
@@ -21,7 +19,6 @@ import ProDetails from './_components/Pro-Details';
 import Rooms from './_components/Rooms';
 import Map from './_components/map';
 import Demographics from './_components/Demographics';
-import Card from '@components/PropertyCard';
 
 const data = [
   {
@@ -57,6 +54,18 @@ const data = [
   },
 ];
 
+const links = [
+  { name: 'Overview', id: '#overview' },
+  { name: 'Price History', id: '#price-history' },
+  { name: 'Key Facts', id: '#key-facts' },
+  { name: 'Listing Details', id: '#listing-details' },
+  { name: 'Explore Map', id: '#map' },
+  { name: 'Building Amenities', id: '#building-amenities' },
+  { name: 'Similar Listings', id: '#similar-listings' },
+  { name: 'Values and Trends', id: '#values-and-trends' },
+  { name: 'Similar Properties', id: '#nearby-listings' },
+];
+
 function PropertyDetails() {
   return (
     <main className="container flex max-w-[1140px] flex-col gap-3 bg-white py-3">
@@ -71,7 +80,7 @@ function PropertyDetails() {
         </div>
         <div className="flex items-center gap-2">
           <Button
-            className="gap-2 border-primary-300 text-primary-500"
+            className="gap-2 border-red-300 text-red-500"
             variant="outline"
           >
             <BsHeart />
@@ -98,15 +107,15 @@ function PropertyDetails() {
               <LuBath className="text-gray-700" size={24} />
               <span className="text-sm font-medium">4 bath</span>
             </div>
-            <div>
-              <div className="flex flex-col items-center ">
-                <LuHome className="text-gray-700" size={24} />
-                <span className="text-sm font-medium">2 parking</span>
-              </div>
-            </div>
             <div className="flex flex-col items-center ">
               <LuParkingCircle className="text-gray-700" size={24} />
               <span className="text-sm font-medium">2 parking</span>
+            </div>
+            <div>
+              <div className="flex flex-col items-center ">
+                <LuScan className="text-gray-700" size={24} />
+                <span className="text-sm font-medium">2590 sqft *</span>
+              </div>
             </div>
           </div>
           <div className="flex gap-2">
@@ -124,12 +133,11 @@ function PropertyDetails() {
       </div>
 
       <div className="flex gap-3">
-        <div className="sticky top-[82px] flex h-fit w-[360px] flex-col gap-3 bg-[#f8f8f8] pb-6 pt-4">
-          <div className="flex flex-col gap-3   py-3">
-            <div className="relative h-16 w-full">
-              <Image src="/svg/logoblack.svg" alt="logo" fill />
-            </div>
-            <hr className="my-4" />
+        <div className="sticky top-[82px] flex h-fit w-[360px] flex-col gap-6 rounded bg-secondary-300 px-8 pb-8 pt-4">
+          <div className="flex flex-col gap-3 ">
+            <h3 className="text-center text-2xl font-medium text-gray-800">
+              The Preserve Oakville
+            </h3>
             <div className="flex flex-col items-center justify-center gap-2">
               <Link
                 href="
@@ -151,22 +159,25 @@ function PropertyDetails() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-3   py-3">
+          <hr className="border-primary-200" />
+
+          <div className="flex flex-col items-center justify-center gap-3">
             <p>Ready to go See it?</p>
             <Button
-              className="w-3/4 bg-primary-400 capitalize"
+              className="w-full bg-primary-400 capitalize"
               variant="default"
             >
               Book a showing
             </Button>
           </div>
-          <div className="flex flex-col items-center justify-center gap-3   py-3">
+
+          <div className="flex flex-col items-center justify-center gap-3">
             <p>Looking to Sell Your Bungalow?</p>
             <Button
-              className="w-3/4 bg-primary-400 capitalize"
+              className="w-full bg-primary-400 capitalize"
               variant="default"
             >
-              Get free evaluation
+              Get Free Evaluation
             </Button>
           </div>
         </div>

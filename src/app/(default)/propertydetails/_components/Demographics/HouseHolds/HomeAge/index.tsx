@@ -9,23 +9,16 @@ interface HomeAgeProps {
 
 const HomeAge: React.FC<HomeAgeProps> = ({ data }) => {
   return (
-    <ResponsiveContainer
-      width="60%"
-      style={{
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        marginTop: '12px',
-      }}
-      height={150}
-    >
+    <ResponsiveContainer width="100%" height={120}>
       <BarChart
         width={400}
         height={200}
         data={data}
+        barGap={20}
         margin={{
-          top: 10,
-          left: 20,
-          right: 20,
+          top: 20,
+          right: 0,
+          left: 0,
           bottom: 0,
         }}
       >
@@ -37,7 +30,6 @@ const HomeAge: React.FC<HomeAgeProps> = ({ data }) => {
           dataKey="name"
         />
 
-        <Tooltip />
         <Bar
           dataKey="value"
           label={{
@@ -45,7 +37,7 @@ const HomeAge: React.FC<HomeAgeProps> = ({ data }) => {
             fill: '#000',
             fontSize: 12,
           }}
-          barSize={60}
+          barSize={50}
           fill="#1d4ed8"
         />
       </BarChart>

@@ -33,18 +33,18 @@ const EmploymentData = [
 
 function SocioEconomic() {
   return (
-    <div className="rounded border border-gray-300 bg-white ">
-      <div className="flex items-center justify-between px-4 py-2">
+    <div>
+      <div className="flex items-center justify-between px-4">
         <h4 className="text-lg font-medium text-black">Socio-Economic</h4>
       </div>
-      <hr />
+      <hr className="my-2" />
       <div className="flex">
         <div className="flex flex-1 flex-col gap-4 border-r border-gray-300 p-4">
-          <p className="text-lg font-medium">Employment</p>
+          <p className="text-md font-medium">Employment</p>
           <Employment data={EmploymentData} />
         </div>
         <div className="flex flex-1 flex-col gap-4 p-4">
-          <p className="text-lg font-medium">Highest Level of Education</p>
+          <p className="text-md font-medium">Highest Level of Education</p>
           <EduLevel data={EducationData} />
         </div>
       </div>

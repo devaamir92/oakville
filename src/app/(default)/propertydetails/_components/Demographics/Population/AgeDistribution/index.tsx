@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
+import { Bar, BarChart, ResponsiveContainer, XAxis } from 'recharts';
 
 interface AgeDistributionProps {
   data: { name: string; value: number }[];
@@ -9,15 +9,15 @@ interface AgeDistributionProps {
 
 const AgeDistribution: React.FC<AgeDistributionProps> = ({ data }) => {
   return (
-    <ResponsiveContainer width="100%" height={150}>
+    <ResponsiveContainer width="100%" height={100}>
       <BarChart
         width={400}
-        height={200}
+        height={100}
         data={data}
         margin={{
-          top: 10,
-          left: 20,
-          right: 20,
+          top: 15,
+          left: 10,
+          right: 10,
           bottom: 0,
         }}
       >
@@ -29,7 +29,6 @@ const AgeDistribution: React.FC<AgeDistributionProps> = ({ data }) => {
           dataKey="name"
         />
 
-        <Tooltip />
         <Bar
           dataKey="value"
           label={{
@@ -37,8 +36,8 @@ const AgeDistribution: React.FC<AgeDistributionProps> = ({ data }) => {
             fill: '#000',
             fontSize: 12,
           }}
-          barSize={30}
-          fill="#818cf8"
+          barSize={25}
+          fill="#7765e3"
         />
       </BarChart>
     </ResponsiveContainer>
