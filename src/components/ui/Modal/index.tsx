@@ -56,7 +56,7 @@ const Modal: React.FC<ModalProps> = ({
             <Close asChild>
               <button
                 type="button"
-                className="absolute right-2  top-2 inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full text-gray-500 hover:bg-primary-200 focus:outline-none"
+                className="absolute right-2  top-2 inline-flex size-6 appearance-none items-center justify-center rounded-full text-gray-500 hover:bg-primary-200 focus:outline-none"
                 aria-label="Close"
               >
                 <FaTimes />

@@ -11,9 +11,7 @@ interface CardProps {
   bathrooms: string;
   price: string;
   imageUrl: string;
-  listingStatus: string;
   parking: string;
-  statusShow?: boolean;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -22,8 +20,6 @@ const Card: React.FC<CardProps> = ({
   bathrooms,
   price,
   imageUrl,
-  listingStatus,
-  statusShow,
   parking,
 }) => {
   return (
@@ -36,7 +32,7 @@ const Card: React.FC<CardProps> = ({
           src={imageUrl}
           fill
           alt={location}
-          className="h-full w-full  object-cover"
+          className="size-full  object-cover"
         />
 
         {/* {statusShow && (

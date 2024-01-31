@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 import {
   Close,
@@ -9,12 +10,11 @@ import {
   Root,
   Trigger,
 } from '@radix-ui/react-dialog';
-import Image from 'next/image';
+import { BsImages } from 'react-icons/bs';
+
 import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 
 import { Button } from '@components/ui/Button';
-
-import { BsImages } from 'react-icons/bs';
 
 interface Props {
   PropertyName?: string;
@@ -67,8 +67,8 @@ const Viewer: React.FC<Props> = ({
         </Trigger>
         <Portal>
           <Overlay className="fixed inset-0 z-30 bg-black" />
-          <Content className="fixed left-1/2 top-1/2 z-50 h-full w-full -translate-x-1/2 -translate-y-1/2  focus:outline-none">
-            <div className="relative h-full w-full ">
+          <Content className="fixed left-1/2 top-1/2 z-50 size-full -translate-x-1/2 -translate-y-1/2  focus:outline-none">
+            <div className="relative size-full ">
               <p className="absolute left-5 top-5 text-2xl font-semibold text-white">
                 {PropertyName}
               </p>
@@ -77,11 +77,11 @@ const Viewer: React.FC<Props> = ({
                 aria-label="Close"
                 onClick={() => setOpen(false)}
               >
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-black">
+                <div className="flex size-6 items-center justify-center rounded-full bg-gray-200 text-black">
                   <FaTimes size={12} />
                 </div>
               </Close>
-              <div className="relative top-1/2 mx-auto h-full max-h-[80vh] w-full max-w-7xl -translate-y-1/2">
+              <div className="relative top-1/2 mx-auto size-full max-h-[80vh] max-w-7xl -translate-y-1/2">
                 <Image
                   src={Images[currentImage].src}
                   alt={Images[0].alt}
@@ -93,7 +93,7 @@ const Viewer: React.FC<Props> = ({
                 type="button"
                 title="previous"
                 aria-label="next"
-                className="absolute left-5 top-1/2 h-8 w-8 -translate-y-1/2 rounded-full bg-gray-200 p-0 text-black hover:text-white"
+                className="absolute left-5 top-1/2 size-8 -translate-y-1/2 rounded-full bg-gray-200 p-0 text-black hover:text-white"
                 onClick={handlePrev}
               >
                 <FaChevronLeft />
@@ -102,7 +102,7 @@ const Viewer: React.FC<Props> = ({
                 type="button"
                 title="next"
                 aria-label="next"
-                className="absolute right-5 top-1/2 h-8 w-8 -translate-y-1/2 rounded-full bg-gray-200 p-0 text-black hover:text-white"
+                className="absolute right-5 top-1/2 size-8 -translate-y-1/2 rounded-full bg-gray-200 p-0 text-black hover:text-white"
                 onClick={handleNext}
               >
                 <FaChevronRight />

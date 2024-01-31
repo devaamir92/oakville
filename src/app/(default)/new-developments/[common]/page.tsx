@@ -6,7 +6,7 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa6';
 
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
-import LightBox from '@app/(default)/propertydetails/_components/LightBox';
+
 import Slider from '../_components/Slider';
 
 function page() {
@@ -14,7 +14,7 @@ function page() {
     <main>
       <div className="relative flex h-[500px] w-full justify-center 2xl:h-[600px]">
         <Image src="/orignal.jpeg" className="object-cover" fill alt="banner" />
-        <div className="container absolute flex h-full  w-full items-center justify-end">
+        <div className="container absolute flex size-full items-center justify-end">
           <form
             action=""
             className=" flex h-[90%] w-96 flex-col justify-between gap-4 rounded bg-white px-4 py-6 2xl:h-3/4"
@@ -122,7 +122,7 @@ function page() {
               alt="logo"
               className="rounded object-cover"
             />
-            <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center">
+            <div className="absolute left-0 top-0 flex size-full items-center justify-center">
               <Button variant="default" className="gap-1 bg-black/70">
                 <BsZoomIn />
                 View Site Plan
@@ -201,10 +201,10 @@ function page() {
                     Discover country living at Clarehaven Estates - lush
                     landscapes, Bungalows, and two-story residences. Easy access
                     to golf, hikes, and city lights via Old Elm GO station.
-                    Superior construction, 10' ceilings, fireplaces, upgraded
-                    kitchens, and luxurious ensuites. Step outside to your
-                    private loggia and enjoy the charm of Clarehaven. Own your
-                    haven now!
+                    Superior construction, 10&apso; ceilings, fireplaces,
+                    upgraded kitchens, and luxurious ensuites. Step outside to
+                    your private loggia and enjoy the charm of Clarehaven. Own
+                    your haven now!
                   </p>
                 </div>
               </div>

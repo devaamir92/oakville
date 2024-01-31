@@ -68,7 +68,7 @@ function LightBox() {
       <div className="grid flex-1 grid-cols-1 items-center gap-2 shadow">
         {Images.slice(1, 3).map(image => (
           <div
-            className="relative col-span-1 h-full w-full overflow-hidden "
+            className="relative col-span-1 size-full overflow-hidden "
             key={image.alt}
           >
             <Image

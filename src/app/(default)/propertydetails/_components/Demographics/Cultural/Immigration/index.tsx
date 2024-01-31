@@ -9,7 +9,6 @@ import {
   PieChart,
   ResponsiveContainer,
   Sector,
-  Tooltip,
 } from 'recharts';
 
 interface ImmigrationProps {
@@ -72,7 +71,7 @@ const Immigration: React.FC<ImmigrationProps> = ({ data }) => {
               {data.map((entry, index) => (
                 <li key={`legend-${entry.name}`} className="flex items-center">
                   <span
-                    className="mr-2 h-3 w-3 rounded-full"
+                    className="mr-2 size-3 rounded-full"
                     style={{ backgroundColor: pieColors[index] }}
                   />
                   <span className="text-sm">

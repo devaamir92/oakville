@@ -15,7 +15,7 @@ const Gender: React.FC<GenderProps> = ({ data }) => {
             key={item.name}
             className="flex flex-1 flex-col items-center justify-center gap-2"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
+            <div className="flex size-12 items-center justify-center rounded-full bg-gray-100">
               {index === 0 ? (
                 <FaFemale className="text-[#c33149]" size={28} />
               ) : (

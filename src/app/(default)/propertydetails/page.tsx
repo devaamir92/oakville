@@ -54,18 +54,6 @@ const data = [
   },
 ];
 
-const links = [
-  { name: 'Overview', id: '#overview' },
-  { name: 'Price History', id: '#price-history' },
-  { name: 'Key Facts', id: '#key-facts' },
-  { name: 'Listing Details', id: '#listing-details' },
-  { name: 'Explore Map', id: '#map' },
-  { name: 'Building Amenities', id: '#building-amenities' },
-  { name: 'Similar Listings', id: '#similar-listings' },
-  { name: 'Values and Trends', id: '#values-and-trends' },
-  { name: 'Similar Properties', id: '#nearby-listings' },
-];
-
 function PropertyDetails() {
   return (
     <main className="container flex max-w-[1140px] flex-col gap-3 bg-white py-3">
@@ -161,7 +149,7 @@ function PropertyDetails() {
           </div>
           {/* <hr className="border-primary-200" /> */}
 
-          <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 px-8 py-8 shadow">
+          <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 p-8 shadow">
             <p>Ready to go See it?</p>
             <Button
               className="w-full bg-primary-400 capitalize"
@@ -171,7 +159,7 @@ function PropertyDetails() {
             </Button>
           </div>
 
-          <div className="gap-3bg-secondary-300 flex flex-col items-center justify-center gap-3 bg-secondary-300 px-8 py-8 shadow">
+          <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300  p-8 shadow">
             <p>Looking to Sell Your Bungalow?</p>
             <Button
               className="w-full bg-primary-400 capitalize"

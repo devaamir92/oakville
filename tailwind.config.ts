@@ -16,7 +16,6 @@ const config: Config = {
         center: true,
       },
       fontFamily: {
-        gilroy: 'var(--font-gilroy)',
         poppins: 'var(--font-poppins)',
         opensans: 'var(--font-opensans)',
       },

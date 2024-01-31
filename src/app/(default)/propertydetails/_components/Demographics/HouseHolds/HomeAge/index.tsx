@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
+import { Bar, BarChart, ResponsiveContainer, XAxis } from 'recharts';
 
 interface HomeAgeProps {
   data: { name: string; value: number }[];
