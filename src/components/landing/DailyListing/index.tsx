@@ -12,7 +12,6 @@ const data = [
     parking: '1 Parking',
     price: '600,000',
     imageUrl: '/jpg/listing/1.jpg',
-    listingStatus: 'For Sale',
   },
   {
     location: 'Oakville Ontario L8N 1E9',
@@ -21,7 +20,6 @@ const data = [
     parking: '1 Parking',
     price: '750,000',
     imageUrl: '/jpg/listing/2.jpg',
-    listingStatus: 'For Rent',
   },
 
   {
@@ -31,7 +29,6 @@ const data = [
     parking: '1 Parking',
     price: '550,000',
     imageUrl: '/jpg/listing/4.jpg',
-    listingStatus: 'For Rent',
   },
   {
     location: 'Oakville Ontario L6P 1W1',
@@ -40,7 +37,6 @@ const data = [
     parking: '0 Parking',
     price: '1,200,000',
     imageUrl: '/jpg/listing/6.jpg',
-    listingStatus: 'For Sale',
   },
 
   {
@@ -50,7 +46,6 @@ const data = [
     parking: '1 Parking',
     price: '750,000',
     imageUrl: '/jpg/listing/8.jpg',
-    listingStatus: 'For Rent',
   },
 
   {
@@ -60,7 +55,6 @@ const data = [
     parking: '1 Parking',
     price: '600,000',
     imageUrl: '/jpg/listing/10.jpg',
-    listingStatus: 'For Sale',
   },
   {
     location: 'Oakville Ontario L6W 1M8',
@@ -69,7 +63,6 @@ const data = [
     parking: '1 Parking',
     price: '850,000',
     imageUrl: '/jpg/listing/11.jpg',
-    listingStatus: 'For Sale',
   },
   {
     location: 'Oakville Ontario L6X 5A6',
@@ -78,7 +71,6 @@ const data = [
     parking: '0 Parking',
     price: '1,250,000',
     imageUrl: '/jpg/listing/12.jpg',
-    listingStatus: 'For Rent',
   },
 ];
 
