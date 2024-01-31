@@ -18,7 +18,7 @@ const data = [
   { key: 'Elevator', value: 'N' },
   { key: 'Laundry Level', value: 'Upper' },
   { key: 'Pool', value: 'Yes' },
-  // { key: 'Ensuite laundry', value: 'Yes' },
+  { key: 'Approx Age', value: '0-5' },
   // { key: 'MLS Size', value: '1521 sqft' },
   // { key: 'Parking', value: '2' },
   // { key: 'Property type', value: 'Condo Apt' },
@@ -44,17 +44,17 @@ const data = [
 function PropertyDetails() {
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-md font-medium">Property details</p>
-      <div className="flex gap-4">
+      <p className="text-md font-medium">Details</p>
+      <div className="flex gap-12">
         <div className="flex-1">
           <table className="w-full">
             <tbody className="divide-y divide-gray-300 bg-white">
               {data.slice(0, 9).map(item => (
                 <tr key={item.key} className="text-sm">
-                  <td className="px-4 py-1.5 font-medium text-gray-500">
+                  <td className="py-1.5 font-medium text-gray-500">
                     {item.key}
                   </td>
-                  <td className="px-4 py-1.5 font-medium text-gray-700">
+                  <td className="py-1.5 font-medium text-gray-700">
                     {item.value}
                   </td>
                 </tr>
@@ -65,12 +65,12 @@ function PropertyDetails() {
         <div className="flex-1">
           <table className="w-full">
             <tbody className="divide-y divide-gray-300 bg-white">
-              {data.slice(9, 20).map(item => (
+              {data.slice(9, 18).map(item => (
                 <tr key={item.key} className="text-sm">
-                  <td className="px-4 py-1.5 font-medium text-gray-500">
+                  <td className=" py-1.5 font-medium text-gray-500">
                     {item.key}
                   </td>
-                  <td className="px-4 py-1.5 font-medium text-gray-700">
+                  <td className=" py-1.5 font-medium text-gray-700">
                     {item.value}
                   </td>
                 </tr>

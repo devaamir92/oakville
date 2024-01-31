@@ -35,7 +35,7 @@ export default function Table() {
     <div className="flex flex-col gap-3">
       <div className="flex flex-col gap-1">
         <h3 className="flex items-center gap-1 text-xl font-medium text-gray-800">
-          Price History
+          Listing History
         </h3>
         <p className="text-xs text-gray-600">
           The property price history is available only to registered users.

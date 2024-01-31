@@ -25,9 +25,10 @@ function page() {
         <div className="absolute inset-0 bg-black opacity-20" />
 
         <div className="absolute  left-1/2 top-1/2 w-full max-w-4xl -translate-x-1/2 -translate-y-1/2">
-          <div className="flex flex-col gap-3">
-            <h3 className="text-center text-4xl font-medium text-white">
-              Sell Your Home with Ease!
+          <div className="flex flex-col items-center gap-3">
+            <h3 className="w-[90%] text-center text-4xl font-medium text-white">
+              Sell Your Home with The Local Preserve Oakville Real Estate
+              Experts
             </h3>
 
             <div className="mx-auto mt-4 flex w-full max-w-lg items-center">
@@ -46,11 +47,11 @@ function page() {
         </div>
       </section>
       <div className="container px-4">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col items-center gap-2">
           <h4 className="text-center text-2xl  font-semibold">
-            We Know The Neighbourhood Best, wen You Sell With Us You Get More!
+            We Know The Neighbourhood Best, when You Sell With Us You Get More!
           </h4>
-          <p className="text-center text-sm 2xl:text-base">
+          <p className="w-[80%] text-center text-sm xl:text-base">
             Enjoy a seamless and beneficial selling experience when working with
             us. Whether you&apos;re looking to sell your Condo, Townhouse,
             Semi-Detached or Detached home in The Preserve Oakville, we are here
@@ -108,32 +109,30 @@ function page() {
           <Image
             src="/jpg/lawnSign.jpg"
             alt="banner"
-            layout="fill"
+            fill
             className="rounded object-cover"
           />
         </div>
         <div className="flex flex-col gap-6">
           <div className="fle flex-col">
             <h4 className="mb-1 text-lg font-medium 2xl:text-xl">
-              We Always put You First
+              Expert Guidance
             </h4>
             <p className="text-justify text-sm 2xl:text-base">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              sapiente pariatur sunt voluptates laboriosam quod praesentium
-              totam ullam. Voluptate eveniet debitis odit explicabo optio!
-              Consectetur iure voluptatem commodi tenetur omnis.
+              Our experienced agents specialize in selling a variety of
+              properties, ensuring you receive expert guidance tailored to your
+              unique needs.
             </p>
           </div>
 
           <div className="fle flex-col">
             <h4 className="mb-1 text-lg font-medium 2xl:text-xl">
-              We Always put You First
+              Local Market Knowledge
             </h4>
             <p className="text-justify text-sm 2xl:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Veritatis tempore dolorem perspiciatis quas dolor neque similique,
-              aliquam voluptatum accusantium quasi beatae rerum rem molestiae
-              possimus? Accusamus quae vero illo natus.
+              Benefit from our in-depth understanding of The Preserve&apos;s
+              real estate market, showcasing your property&apos;s and
+              neighbourhood’s strengths to potential buyers.
             </p>
           </div>
         </div>
@@ -142,33 +141,30 @@ function page() {
         <div className="flex flex-col gap-6">
           <div className="fle flex-col">
             <h4 className="mb-1 text-lg font-medium 2xl:text-xl">
-              We Always put You First
+              Tailored Marketing Strategies
             </h4>
             <p className="text-justify text-sm 2xl:text-base">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
-              sapiente pariatur sunt voluptates laboriosam quod praesentium
-              totam ullam. Voluptate eveniet debitis odit explicabo optio!
-              Consectetur iure voluptatem commodi tenetur omnis.
+              We craft personalized marketing strategies; focused on the
+              distinct features of your property for maximum exposure.
             </p>
           </div>
 
           <div className="fle flex-col">
             <h4 className="mb-1 text-lg font-medium 2xl:text-xl">
-              We Always put You First
+              Negotiation Excellence
             </h4>
             <p className="text-justify text-sm 2xl:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Veritatis tempore dolorem perspiciatis quas dolor neque similique,
-              aliquam voluptatum accusantium quasi beatae rerum rem molestiae
-              possimus? Accusamus quae vero illo natus.
+              Our skilled negotiators work tirelessly to secure the best
+              possible price and terms for your property, maximizing your return
+              on investment.
             </p>
           </div>
         </div>
         <div className="relative mx-auto aspect-video w-[100%]">
           <Image
-            src="/jpg/listing/8.jpg"
+            src="/3258Preserve.jpg"
             alt="banner"
-            layout="fill"
+            fill
             className="rounded object-cover"
           />
         </div>

@@ -170,14 +170,14 @@ function Page() {
         <div className="flex flex-1 flex-col gap-6  bg-white p-3">
           <PriceHistory />
           <ListingHighlights />
-          <div className="flex flex-col gap-1">
+          {/* <div className="flex flex-col gap-1">
             <h3 className="flex items-center gap-1 text-xl font-medium text-gray-800">
               Listing Details
             </h3>
             <span className="text-xs text-gray-500">
               Learn about 5050 CAMBIE STREET
             </span>
-          </div>
+          </div> */}
           <ListingDetails />
           <PropertyDetails />
 
