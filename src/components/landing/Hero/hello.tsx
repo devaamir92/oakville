@@ -9,12 +9,12 @@ function HelloText() {
   return (
     <div>
       <Lottie
+        width={600}
         options={{
           animationData: hello,
           loop: true,
           autoplay: true,
         }}
-        style={{ width: 600 }}
       />
     </div>
   );

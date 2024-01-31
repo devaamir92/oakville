@@ -97,11 +97,9 @@ function DailyListing() {
               bathrooms={item.bathrooms}
               bedrooms={item.bedrooms}
               imageUrl={item.imageUrl}
-              listingStatus={item.listingStatus}
               location={item.location}
               price={item.price}
               parking={item.parking}
-              statusShow
             />
           ))}
         </div>
