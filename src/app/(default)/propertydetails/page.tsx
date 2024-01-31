@@ -9,16 +9,17 @@ import {
 } from 'react-icons/bs';
 import { LuBath, LuBedDouble, LuParkingCircle, LuScan } from 'react-icons/lu';
 
-import Card from '@components/PropertyCard';
+import Card from '@components/ListingCard';
 import { Button } from '@components/ui/Button';
 
 import LightBox from './_components/LightBox';
 import PriceHistory from './_components/PriceHistory';
-import Details from './_components/Details';
-import ProDetails from './_components/Pro-Details';
+import ListingDetails from './_components/ListingDetails';
+import PropertyDetails from './_components/PropertyDetails';
 import Rooms from './_components/Rooms';
 import Map from './_components/map';
 import Demographics from './_components/Demographics';
+import ListingHighlights from './_components/ListingHighlights';
 
 const data = [
   {
@@ -54,7 +55,7 @@ const data = [
   },
 ];
 
-function PropertyDetails() {
+function Page() {
   return (
     <main className="container flex max-w-[1140px] flex-col gap-3 bg-white py-3">
       <div className="flex items-center justify-between">
@@ -171,6 +172,7 @@ function PropertyDetails() {
         </div>
         <div className="flex flex-1 flex-col gap-6  bg-white p-3">
           <PriceHistory />
+          <ListingHighlights />
           <div className="flex flex-col gap-1">
             <h3 className="flex items-center gap-1 text-xl font-medium text-gray-800">
               Listing Details
@@ -179,8 +181,8 @@ function PropertyDetails() {
               Learn about 5050 CAMBIE STREET
             </span>
           </div>
-          <Details />
-          <ProDetails />
+          <ListingDetails />
+          <PropertyDetails />
 
           <Rooms />
           <Map />
@@ -198,11 +200,9 @@ function PropertyDetails() {
             bathrooms={item.bathrooms}
             bedrooms={item.bedrooms}
             imageUrl={item.imageUrl}
-            listingStatus={item.listingStatus}
             location={item.location}
             price={item.price}
             parking={item.parking}
-            statusShow
           />
         ))}
       </div>
@@ -210,4 +210,4 @@ function PropertyDetails() {
   );
 }
 
-export default PropertyDetails;
+export default Page;

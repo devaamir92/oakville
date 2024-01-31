@@ -1,7 +1,7 @@
 import React from 'react';
 
 import cn from '@utils/cn';
-import Card from '@components/PropertyCard';
+import Card from '@components/ListingCard';
 import Pagination from '@components/ui/Pagination';
 
 interface PageProps {

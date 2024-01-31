@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 
-import Card from '@components/PropertyCard';
+import Card from '@components/ListingCard';
 
 const data = [
   {
@@ -51,9 +51,9 @@ const data = [
 
 function JustSold() {
   return (
-    <section className="px-4 pb-10">
+    <section>
       <div className="container flex flex-col">
-        <div className="flex flex-col items-center justify-center gap-1 py-6">
+        <div className="flex flex-col items-center justify-center gap-1 pb-8">
           <h2 className="text-2xl font-semibold">Sold</h2>
           <p className="">
             Real estate boards require you to be signed in to access sold prices

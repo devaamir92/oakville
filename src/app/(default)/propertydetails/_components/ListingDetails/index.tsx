@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import cn from '@utils/cn';
 import { Button } from '@components/ui/Button';
 
-function Details() {
+function ListingDetails() {
   const [showMore, setShowMore] = useState(false);
   return (
     <div className="flex flex-col gap-1">
@@ -49,4 +49,4 @@ function Details() {
   );
 }
 
-export default Details;
+export default ListingDetails;

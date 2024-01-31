@@ -18,7 +18,7 @@ interface StructureTypeProps {
   }[];
 }
 
-const barColors = ['#1d4ed8', '#6366f1', '#818cf8', '#a5b4fc', '#c7d2fe'];
+const barColors = ['#114B5F', '#295d6f', '#416f7f', '#58818f', '#70939f'];
 
 const StructureType: React.FC<StructureTypeProps> = ({ data }) => {
   return (

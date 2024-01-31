@@ -14,7 +14,7 @@ interface CardProps {
   parking: string;
 }
 
-const Card: React.FC<CardProps> = ({
+const ListingCard: React.FC<CardProps> = ({
   location,
   bedrooms,
   bathrooms,
@@ -34,14 +34,6 @@ const Card: React.FC<CardProps> = ({
           alt={location}
           className="size-full  object-cover"
         />
-
-        {/* {statusShow && (
-          <div className="absolute right-3 top-3">
-            <span className="rounded bg-primary-500 px-3 py-1.5 text-sm font-semibold uppercase text-white">
-              {listingStatus}
-            </span>
-          </div>
-        )} */}
         <div className="absolute bottom-3 left-3">
           <span className="rounded bg-primary px-3 py-1.5 text-sm font-semibold uppercase text-white">
             $ {price}
@@ -57,18 +49,15 @@ const Card: React.FC<CardProps> = ({
           <LikeToggle />
         </div>
         <div className="flex justify-between gap-1 text-center text-gray-500">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1 border-r-2 border-gray-300 pr-2">
-              {/* <MdOutlineBed className=" fill-gray-500" size={20} /> */}
+          <div className="flex items-center divide-x-[1px]">
+            <div className="flex items-center pr-2">
               <span className="text-sm">{bedrooms}</span>
             </div>
 
-            <div className="flex items-center gap-1 border-r-2 border-gray-300 pr-2">
-              {/* <MdOutlineBathtub className="fill-gray-500" size={20} /> */}
+            <div className="flex items-center px-2">
               <span className="text-sm">{bathrooms}</span>
             </div>
-            <div className="flex items-center gap-1 border-gray-300 pr-2">
-              {/* <MdOutlineGarage className="fill-gray-500" size={20} /> */}
+            <div className="flex items-center pl-2">
               <span className="text-sm">{parking}</span>
             </div>
           </div>
@@ -78,4 +67,4 @@ const Card: React.FC<CardProps> = ({
   );
 };
 
-export default Card;
+export default ListingCard;

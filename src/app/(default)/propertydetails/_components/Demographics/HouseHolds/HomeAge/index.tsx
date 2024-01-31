@@ -38,7 +38,7 @@ const HomeAge: React.FC<HomeAgeProps> = ({ data }) => {
             fontSize: 12,
           }}
           barSize={50}
-          fill="#1d4ed8"
+          fill="#114B5F"
         />
       </BarChart>
     </ResponsiveContainer>

@@ -18,7 +18,7 @@ interface ImmigrationProps {
   }[];
 }
 
-const pieColors = ['#144D75', '#1f77b4'];
+const pieColors = ['#5d4a66', '#d64933'];
 
 const PieShape = function PieShape(props: any) {
   const { cx, cy, fill } = props;

@@ -7,7 +7,7 @@ import HelloText from './hello';
 
 function Hero() {
   return (
-    <section className="relative  px-4 md:h-[70vh] xl:h-[77vh] 2xl:h-[81vh]">
+    <section className="relative md:h-[70vh] xl:h-[77vh] 2xl:h-[81vh]">
       <Image
         src="/jpg/cover.jpg"
         alt="banner"

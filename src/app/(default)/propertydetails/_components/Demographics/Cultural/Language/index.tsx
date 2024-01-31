@@ -68,7 +68,7 @@ const Language: React.FC<LanguageProps> = ({ data }) => {
           }}
         >
           {data.map(entry => (
-            <Cell key={`cell-${entry}`} fill={shade(entry.value, '#1f77b4')} />
+            <Cell key={`cell-${entry}`} fill={shade(entry.value, '#d64933')} />
           ))}
         </Bar>
       </BarChart>

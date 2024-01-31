@@ -1,12 +1,12 @@
 import React from 'react';
 
+import Card from '@components/ListingCard';
 import Hero from '@components/landing/Hero';
-import ListingTypes from '@components/landing/ListingTypes/Index';
-import DailyListing from '@components/landing/DailyListing';
-import JustSold from '@components/landing/JustSold';
 import CTASection from '@components/landing/CTA';
-import Card from '@components/PropertyCard';
-import FeatureListing from '@components/landing/featureListing';
+import JustSold from '@components/landing/JustSold';
+import DailyListing from '@components/landing/DailyListing';
+import FeatureListing from '@components/landing/FeatureListing';
+import ListingTypes from '@components/landing/ListingTypes/Index';
 
 const data = [
   {
@@ -53,15 +53,17 @@ const data = [
 
 function page() {
   return (
-    <div>
+    <main className="flex flex-col gap-8 pb-8">
       <Hero />
       <ListingTypes />
-      <FeatureListing />
-      <DailyListing />
+      <div className="flex flex-col gap-8 bg-[#f3f4f6] py-8">
+        <FeatureListing />
+        <DailyListing />
+      </div>
       <JustSold />
       <CTASection />
 
-      <section className="px-4 py-10">
+      <section>
         <div className="container flex flex-col gap-10">
           <div className="flex flex-col gap-1">
             <h2 className="text-center text-2xl font-semibold">
@@ -79,17 +81,15 @@ function page() {
                 bathrooms={item.bathrooms}
                 bedrooms={item.bedrooms}
                 imageUrl={item.imageUrl}
-                listingStatus={item.listingStatus}
                 location={item.location}
                 price={item.price}
                 parking={item.parking}
-                statusShow
               />
             ))}
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }
 

@@ -37,7 +37,7 @@ const AgeDistribution: React.FC<AgeDistributionProps> = ({ data }) => {
             fontSize: 12,
           }}
           barSize={25}
-          fill="#7765e3"
+          fill="#c33149"
         />
       </BarChart>
     </ResponsiveContainer>
