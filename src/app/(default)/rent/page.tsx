@@ -153,7 +153,6 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
             bathrooms={item.bathrooms}
             bedrooms={item.bedrooms}
             imageUrl={item.imageUrl}
-            listingStatus={item.listingStatus}
             location={item.location}
             price={item.price}
             parking={item.parking}

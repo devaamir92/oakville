@@ -12,7 +12,6 @@ const data = [
     parking: '1 Parking',
     price: '750,000',
     imageUrl: '/jpg/listing/3.jpg',
-    listingStatus: 'For Rent',
     propertyType: 'Townhouse',
   },
 
@@ -23,7 +22,6 @@ const data = [
     parking: '1 Parking',
     price: '550,000',
     imageUrl: '/jpg/listing/5.jpg',
-    listingStatus: 'For Rent',
     propertyType: 'Condo',
   },
   {
@@ -33,7 +31,6 @@ const data = [
     parking: '0 Parking',
     price: '1,200,000',
     imageUrl: '/jpg/listing/7.jpg',
-    listingStatus: 'For Sale',
     propertyType: 'Townhouse',
   },
 
@@ -44,7 +41,6 @@ const data = [
     parking: '1 Parking',
     price: '750,000',
     imageUrl: '/jpg/listing/9.jpg',
-    listingStatus: 'For Rent',
     propertyType: 'Detached',
   },
 ];
