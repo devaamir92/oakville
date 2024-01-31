@@ -1,5 +1,6 @@
 import HomeAge from './HomeAge';
 import Ownership from './Ownership';
+import StructureDetails from './StructureDetails';
 import StructureType from './StructureType';
 
 const OwnershipData = [
@@ -39,7 +40,7 @@ function HouseHolds() {
       <div className="flex">
         <div className="flex flex-1 flex-col border-r border-gray-300 p-4">
           <p className="text-md font-medium">Structural Details</p>
-          {/* <MaritalStatus data={MaritalData} /> */}
+          <StructureDetails />
         </div>
         <div className="flex flex-1 flex-col gap-4 border-gray-300 p-4">
           <p className="text-md font-medium">Ownership</p>
