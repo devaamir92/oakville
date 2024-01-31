@@ -20,7 +20,7 @@ function Hero() {
             <Image src="/svg/logo.svg" alt="hero" width={270} height={270} />
           </div>
         </div>
-        <div className="absolute left-32 top-[50%] -translate-y-1/2 font-playfair 2xl:left-64 ">
+        <div className="absolute left-32 top-[50%] -translate-y-1/2 2xl:left-64 ">
           <HelloText />
           {/* <h1 className="font-medium text-secondary-500 shadow-black drop-shadow-2xl xl:text-[195px] xl:leading-[195px]   2xl:text-[230px]  2xl:leading-[230px]">
             hello!

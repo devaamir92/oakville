@@ -1,5 +1,3 @@
-const million = require('million/compiler');
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -19,4 +17,4 @@ const nextConfig = {
   },
 };
 
-module.exports = million.next(nextConfig, { auto: { rsc: true } });
+export default nextConfig;
