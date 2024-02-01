@@ -74,7 +74,7 @@ function page() {
 
         <div className="container relative">
           <div className="text-center md:w-2/3 md:text-left lg:w-1/2 xl:w-1/2">
-            <h2 className="font-semibold leading-tight text-white lg:text-2xl">
+            <h2 className="font-semibold leading-tight text-white lg:text-xl 2xl:text-2xl">
               Hire A Real Estate Professional Who Never Gives Up
             </h2>
             <p className="mt-4 text-sm text-gray-200 2xl:text-base">
