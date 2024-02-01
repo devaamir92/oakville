@@ -10,7 +10,7 @@ const Calculators = () => {
           <Image
             width={120}
             height={20}
-            src="/webp/cal.webp"
+            src="/images/webp/cal.webp"
             alt="ratehub logo"
           />
         </div>

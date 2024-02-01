@@ -17,7 +17,7 @@ const data = [
     bathrooms: '4 Baths',
     parking: '1 Parking',
     price: '600,000',
-    imageUrl: '/jpg/listing/1.jpg',
+    imageUrl: '/images/webp/listing/1.webp',
   },
   {
     location: 'Oakville Ontario L8N 1E9',
@@ -25,7 +25,7 @@ const data = [
     bathrooms: '2 Baths',
     parking: '1 Parking',
     price: '750,000',
-    imageUrl: '/jpg/listing/2.jpg',
+    imageUrl: '/images/webp/listing/2.webp',
   },
   {
     location: 'Oakville Ontario L6K 2H2',
@@ -33,7 +33,7 @@ const data = [
     bathrooms: '3 Baths',
     parking: '0 Parking',
     price: '950,000',
-    imageUrl: '/jpg/listing/3.jpg',
+    imageUrl: '/images/webp/listing/3.webp',
   },
   {
     location: 'Oakville Ontario L6L 2Y4',
@@ -41,7 +41,7 @@ const data = [
     bathrooms: '2 Baths',
     parking: '1 Parking',
     price: '550,000',
-    imageUrl: '/jpg/listing/4.jpg',
+    imageUrl: '/images/webp/listing/4.webp',
     propertyType: 'Condo',
   },
   {
@@ -50,7 +50,7 @@ const data = [
     bathrooms: '3 Baths',
     parking: '1 Parking',
     price: '800,000',
-    imageUrl: '/jpg/listing/5.jpg',
+    imageUrl: '/images/webp/listing/5.webp',
   },
   {
     location: 'Oakville Ontario L6P 1W1',
@@ -58,7 +58,7 @@ const data = [
     bathrooms: '4 Baths',
     parking: '0 Parking',
     price: '1,200,000',
-    imageUrl: '/jpg/listing/6.jpg',
+    imageUrl: '/images/webp/listing/6.webp',
   },
   {
     location: 'Oakville Ontario L6R 0R3',
@@ -66,7 +66,7 @@ const data = [
     bathrooms: '2 Baths',
     parking: '1 Parking',
     price: '550,000',
-    imageUrl: '/jpg/listing/7.jpg',
+    imageUrl: '/images/webp/listing/7.webp',
   },
   {
     location: 'Oakville Ontario L6S 2G5',
@@ -74,7 +74,7 @@ const data = [
     bathrooms: '3 Baths',
     parking: '1 Parking',
     price: '750,000',
-    imageUrl: '/jpg/listing/8.jpg',
+    imageUrl: '/images/webp/listing/8.webp',
   },
   {
     location: 'Oakville Ontario L6T 3R5',
@@ -82,7 +82,7 @@ const data = [
     bathrooms: '4 Baths',
     parking: '0 Parking',
     price: '1,100,000',
-    imageUrl: '/jpg/listing/9.jpg',
+    imageUrl: '/images/webp/listing/9.webp',
   },
   {
     location: 'Oakville Ontario L6V 4H6',
@@ -90,7 +90,7 @@ const data = [
     bathrooms: '2 Baths',
     parking: '1 Parking',
     price: '600,000',
-    imageUrl: '/jpg/listing/10.jpg',
+    imageUrl: '/images/webp/listing/10.webp',
   },
   {
     location: 'Oakville Ontario L6W 1M8',
@@ -98,7 +98,7 @@ const data = [
     bathrooms: '3 Baths',
     parking: '1 Parking',
     price: '850,000',
-    imageUrl: '/jpg/listing/11.jpg',
+    imageUrl: '/images/webp/listing/11.webp',
     propertyType: 'Par',
   },
   {
@@ -107,7 +107,7 @@ const data = [
     bathrooms: '4 Baths',
     parking: '0 Parking',
     price: '1,250,000',
-    imageUrl: '/jpg/listing/12.jpg',
+    imageUrl: '/images/webp/listing/12.webp',
   },
 ];
 

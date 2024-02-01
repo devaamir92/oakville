@@ -25,7 +25,12 @@ export default function Header() {
       <div className="container grid h-full grid-cols-12 items-center ">
         <div className="col-span-4 flex items-center gap-6">
           <Link href="/">
-            <Image src="/svg/logo-1.svg" alt="logo" width={55} height={55} />
+            <Image
+              src="/images/svg/logo-1.svg"
+              alt="logo"
+              width={55}
+              height={55}
+            />
           </Link>
 
           <SearchComponent
@@ -60,45 +65,6 @@ export default function Header() {
             <Auth />
           </nav>
         </div>
-
-        {/* <div className="flex h-full flex-1 items-center gap-8">
-          <Link href="/">
-            <Image src="/svg/logo-1.svg" alt="logo" width={60} height={60} />
-          </Link>
-          <div className="flex h-[36px] w-full items-center gap-2 rounded bg-primary-400 px-2">
-            <Input
-              id="search"
-              className="h-[34px] !border-none px-0 text-white placeholder:text-white"
-              placeholder="Enter an Address"
-            />
-            <FaSearch className="text-white" />
-          </div>
-        </div>
-        <nav className="hidden flex-1 items-center justify-end gap-8 lg:flex xl:text-base">
-          <Link href="/" className={linkClass}>
-            Home
-          </Link>
-          <Link href="/buy" className={linkClass}>
-            Buy
-          </Link>
-          <Link href="/sell" className={linkClass}>
-            Sell
-          </Link>
-          <Link href="/rent" className={linkClass}>
-            Rent
-          </Link>
-          <Link href="/rent" className={linkClass}>
-            Sold Prices
-          </Link>
-          <Link href="/rent" className={linkClass}>
-            New Developments
-          </Link>
-          <CommunitiesList listData={listData} />
-          <Link href="/blog" className={linkClass}>
-            Blog
-          </Link>
-          <Auth />
-        </nav> */}
       </div>
     </header>
   );

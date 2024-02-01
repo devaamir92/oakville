@@ -7,35 +7,35 @@ import Viewer from './viewer';
 
 const Images = [
   {
-    src: '/jpg/listing/5.jpg',
+    src: '/images/webp/listing/5.webp',
     alt: 'Image 1',
   },
   {
-    src: '/jpg/details/ad7d6_2.jpg',
+    src: '/images/webp/ad7d6_2.webp',
     alt: 'Image 2',
   },
   {
-    src: '/jpg/details/ad7d6_3.jpg',
+    src: '/images/webp/ad7d6_3.webp',
     alt: 'Image 3',
   },
   {
-    src: '/jpg/details/ad7d6_4.jpg',
+    src: '/images/webp/ad7d6_4.webp',
     alt: 'Image 4',
   },
   {
-    src: '/jpg/details/ad7d6_5.jpg',
+    src: '/images/webp/ad7d6_5.webp',
     alt: 'Image 5',
   },
   {
-    src: '/jpg/details/ad7d6_6.jpg',
+    src: '/images/webp/ad7d6_6.webp',
     alt: 'Image 6',
   },
   {
-    src: '/jpg/listing/7.jpg',
+    src: '/images/webp/listing/7.webp',
     alt: 'Image 7',
   },
   {
-    src: '/jpg/listing/8.jpg',
+    src: '/images/webp/listing/8.webp',
     alt: 'Image 8',
   },
 ];

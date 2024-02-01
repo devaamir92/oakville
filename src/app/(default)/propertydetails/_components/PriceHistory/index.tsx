@@ -8,7 +8,6 @@ const data = [
     status: 'Terminated',
     listedFor: '$1,870,000',
     listedOn: 'Aug 23, 2023',
-    image: '/path/to/your/image.jpg',
   },
   {
     address: '5050 CAMBIE STREET',
@@ -17,7 +16,6 @@ const data = [
     status: 'Expired',
     listedFor: '$2,096,000',
     listedOn: 'Apr 19, 2023',
-    image: '/path/to/your/image.jpg',
   },
   {
     address: '5050 CAMBIE STREET',
@@ -26,7 +24,6 @@ const data = [
     status: 'Terminated',
     listedFor: '$1,980,000',
     listedOn: 'Mar 29, 2023',
-    image: '/path/to/your/image.jpg',
   },
 ];
 

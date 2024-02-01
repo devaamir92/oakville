@@ -9,7 +9,7 @@ function FamilyStatus() {
         <div className="flex flex-col items-center gap-2">
           <div className="flex size-12 items-center justify-center rounded-full bg-gray-100">
             <Image
-              src="/svg/family.svg"
+              src="/images/svg/family.svg"
               alt="Parents With Children"
               width={28}
               height={28}
@@ -23,7 +23,7 @@ function FamilyStatus() {
           <div className="flex gap-2">
             <div className="flex size-12 items-center justify-center rounded-full bg-gray-100">
               <Image
-                src="/svg/SingleManWithChildren.svg"
+                src="/images/svg/SingleManWithChildren.svg"
                 alt="Single Parent With Children"
                 width={20}
                 height={20}
@@ -31,7 +31,7 @@ function FamilyStatus() {
             </div>
             <div className="flex size-12 items-center justify-center rounded-full bg-gray-100">
               <Image
-                src="/svg/SingleWomenWithChildren.svg"
+                src="/images/svg/SingleWomenWithChildren.svg"
                 alt="Parents With Children"
                 width={20}
                 height={20}

@@ -13,7 +13,13 @@ function page() {
   return (
     <main>
       <div className="relative flex h-[500px] w-full justify-center 2xl:h-[600px]">
-        <Image src="/orignal.jpeg" className="object-cover" fill alt="banner" />
+        <Image
+          src="/images/webp/new-development-banner.webp"
+          className="object-cover"
+          fill
+          alt="new development banner"
+        />
+        <div className="absolute size-full bg-black/40" />
         <div className="container absolute flex size-full items-center justify-end">
           <form
             action=""
@@ -59,7 +65,7 @@ function page() {
           <div className="flex items-center justify-between">
             <div className="">
               <Image
-                src="/webp/logo.webp"
+                src="/images/webp/logo.webp"
                 alt="logo"
                 width="170"
                 height="170"
@@ -117,7 +123,7 @@ function page() {
           </div>
           <div className="as relative aspect-video w-1/3">
             <Image
-              src="/webp/map.webp"
+              src="/images/webp/map.webp"
               fill
               alt="logo"
               className="rounded object-cover"

@@ -13,7 +13,7 @@ const Property = [
     EstCompletion: 'TBA',
     StartingAt: '$1,350,000',
     Location: 'Middlesex Centre',
-    ImageUrl: '/webp/newconstruction/medium.webp',
+    ImageUrl: '/images/webp/newconstruction/medium.webp',
   },
   {
     Addr: 'Clarehaven Estates',
@@ -21,7 +21,7 @@ const Property = [
     EstCompletion: 'NA',
     StartingAt: '$2,419,900',
     Location: 'Pickering',
-    ImageUrl: '/webp/newconstruction/medium2.webp',
+    ImageUrl: '/images/webp/newconstruction/medium2.webp',
   },
   {
     Addr: 'Embrun Central',
@@ -29,7 +29,7 @@ const Property = [
     EstCompletion: 'TBA',
     StartingAt: '$689,900',
     Location: 'Embrun',
-    ImageUrl: '/webp/newconstruction/medium3.webp',
+    ImageUrl: '/images/webp/newconstruction/medium3.webp',
   },
   {
     Addr: 'Mount Elgin Meadow Lands',
@@ -37,7 +37,7 @@ const Property = [
     EstCompletion: 'TBA',
     StartingAt: '$478,000',
     Location: 'Mount Elgin',
-    ImageUrl: '/webp/newconstruction/medium4.webp',
+    ImageUrl: '/images/webp/newconstruction/medium4.webp',
   },
   {
     Addr: 'South of Main',
@@ -45,7 +45,7 @@ const Property = [
     EstCompletion: 'O',
     StartingAt: '$733,800',
     Location: 'Lambton Shores',
-    ImageUrl: '/webp/newconstruction/medium5.webp',
+    ImageUrl: '/images/webp/newconstruction/medium5.webp',
   },
   {
     Addr: 'Creekside Valley',
@@ -53,7 +53,7 @@ const Property = [
     EstCompletion: '2024',
     StartingAt: '$959,900',
     Location: 'Kingston',
-    ImageUrl: '/webp/newconstruction/medium6.webp',
+    ImageUrl: '/images/webp/newconstruction/medium6.webp',
   },
   {
     Addr: 'The Preserve at Bancroft Ridge',
@@ -61,7 +61,7 @@ const Property = [
     EstCompletion: 'TBA',
     StartingAt: '$0',
     Location: 'Bancroft',
-    ImageUrl: '/webp/newconstruction/medium7.webp',
+    ImageUrl: '/images/webp/newconstruction/medium7.webp',
   },
   {
     Addr: 'The Residences at Watershore',
@@ -69,7 +69,7 @@ const Property = [
     EstCompletion: '2025',
     StartingAt: '$1,500,000',
     Location: 'Hamilton',
-    ImageUrl: '/webp/newconstruction/medium8.webp',
+    ImageUrl: '/images/webp/newconstruction/medium8.webp',
   },
   {
     Addr: 'Ashgrove Meadows - Phase 3',
@@ -77,7 +77,7 @@ const Property = [
     EstCompletion: 'TBA',
     StartingAt: '$0',
     Location: 'Ashgrove Meadows',
-    ImageUrl: '/webp/newconstruction/medium9.webp',
+    ImageUrl: '/images/webp/newconstruction/medium9.webp',
   },
 ];
 

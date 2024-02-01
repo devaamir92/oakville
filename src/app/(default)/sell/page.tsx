@@ -15,7 +15,7 @@ function page() {
       >
         <Image
           fill
-          src="/webp/mainEvalHeader.webp"
+          src="/images/webp/sell/mainEvalHeader.webp"
           alt="banner"
           style={{
             objectFit: 'cover',
@@ -69,7 +69,7 @@ function page() {
       <section className="relative overflow-hidden bg-black px-4 sm:py-16 lg:py-24 xl:py-32">
         <div className="absolute inset-0">
           <Image
-            src="/jpg/cta-banner.jpg"
+            src="/images/webp/sell/cta-banner.webp"
             alt="banner"
             fill
             className="object-cover object-right"
@@ -107,7 +107,7 @@ function page() {
       <div className="container grid grid-cols-2 items-center gap-20">
         <div className="relative mx-auto aspect-video w-[100%]">
           <Image
-            src="/jpg/lawnSign.jpg"
+            src="/images/webp/sell/lawnSign.webp"
             alt="banner"
             fill
             className="rounded object-cover"
@@ -162,8 +162,8 @@ function page() {
         </div>
         <div className="relative mx-auto aspect-video w-[100%]">
           <Image
-            src="/3258Preserve.jpg"
-            alt="banner"
+            src="/images/webp/sell/3258Preserve.webp"
+            alt="Tailored Marketing Strategies"
             fill
             className="rounded object-cover"
           />

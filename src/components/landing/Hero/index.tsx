@@ -9,8 +9,8 @@ function Hero() {
   return (
     <section className="relative h-96 md:h-[70vh] lg:h-[40vh] xl:h-[77vh] 2xl:h-[81vh]">
       <Image
-        src="/jpg/cover.jpg"
-        alt="banner"
+        src="/images/jpg/oakville-preserve-banner.jpg"
+        alt="oakville preserve banner"
         fill
         className="object-cover object-right"
       />
@@ -19,7 +19,11 @@ function Hero() {
           {/* Oakville Preserve logo */}
           <div className="flex justify-end">
             <div className="relative h-[74px] w-[135px] xl:mt-14 xl:h-[148px] xl:w-[270px]">
-              <Image src="/svg/logo.svg" alt="Oakville Preserve logo" fill />
+              <Image
+                src="/images/svg/logo.svg"
+                alt="Oakville Preserve logo"
+                fill
+              />
             </div>
           </div>
           {/* Oakville Preserve logo End */}
