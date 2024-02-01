@@ -53,16 +53,9 @@ function page() {
           </h4>
           <p className="w-[80%] text-center text-sm xl:text-base">
             Enjoy a seamless and beneficial selling experience when working with
-            us. Whether you&apos;re looking to sell your Condo, Townhouse,
+            us. Whether you're looking to sell your Condo, Townhouse,
             Semi-Detached or Detached home in The Preserve Oakville, we are here
-            to make the process effortless and successful Selling your home can
-            be overwhelming, we help you simplify the process. Our dedicated
-            team supports you from paration to negotiations, ensures a
-            successful closing and are there to answer your questions or lend a
-            helping hand before, during and after the completion of the
-            transaction. Not to mention this is all while aiming for the best
-            possible price and terms that work for you. Wheer buying or selling,
-            rely on our committed professionals for top value.
+            to make the process effortless and successful.
           </p>
         </div>
       </div>
@@ -85,18 +78,18 @@ function page() {
               Hire A Real Estate Professional Who Never Gives Up
             </h2>
             <p className="mt-4 text-sm text-gray-200 2xl:text-base">
-              Market conditions are always hanging and a successful sale takes
-              more than just putting a foreign sign up on the lawn The Preserve,
-              Oakville Real Estate team has the know and resources to ensure
-              your property sells ses for fop dolly We are the team that commits
-              and invests into you and the sale of your home. Our 20+ years of
-              combined market knowledge along with targeted neighbouthood
-              marketing, partnerships with local businesses in the neighborhood
-              id professional connections will the community
+              Selling your home can be overwhelming, we help you simplify the
+              process. Our dedicated team supports you from preparation to
+              negotiations, ensures a successful closing and are there to answer
+              your questions or lend a helping hand before, during and after the
+              completion of the transaction. Not to mention this is all while
+              aiming for the best possible price and terms that work for you.
+              Whether buying or selling, rely on our committed professionals for
+              top value.
             </p>
 
             <Button className="mt-4" variant="default">
-              Talk To Us
+              Contact Now
             </Button>
           </div>
         </div>
