@@ -7,9 +7,8 @@ import hello from '@assets/hello.json';
 
 function HelloText() {
   return (
-    <div>
+    <div className="flex-1">
       <Lottie
-        width={600}
         options={{
           animationData: hello,
           loop: true,

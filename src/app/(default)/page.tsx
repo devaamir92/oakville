@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Desktop, Mobile } from '@components/ua';
+
 import Card from '@components/ListingCard';
 import Hero from '@components/landing/Hero';
 import CTASection from '@components/landing/CTA';
@@ -7,6 +9,7 @@ import JustSold from '@components/landing/JustSold';
 import DailyListing from '@components/landing/DailyListing';
 import FeatureListing from '@components/landing/FeatureListing';
 import ListingTypes from '@components/landing/ListingTypes/Index';
+import HeroMobile from '@components/landing/Hero/Mobile';
 
 const data = [
   {
@@ -50,7 +53,12 @@ const data = [
 function page() {
   return (
     <main className="flex flex-col gap-8 pb-8">
-      <Hero />
+      <Desktop>
+        <Hero />
+      </Desktop>
+      <Mobile>
+        <HeroMobile />
+      </Mobile>
       <ListingTypes />
       <div className="flex flex-col gap-8 bg-[#f3f4f6] py-8">
         <FeatureListing />

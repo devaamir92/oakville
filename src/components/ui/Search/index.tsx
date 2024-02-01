@@ -71,12 +71,12 @@ const SearchComponent: React.FC<Props> = ({ className, placeholder }) => {
         <Trigger asChild ref={ref}>
           <div
             className={cn(
-              'flex max-w-96 items-center gap-4 rounded p-2 text-sm shadow-md',
+              'flex min-w-96 items-center gap-4 rounded px-2 text-sm shadow-md',
               className
             )}
           >
             <input
-              className="w-full bg-transparent outline-none placeholder:text-white "
+              className="size-full bg-transparent outline-none placeholder:text-white "
               type="text"
               id="search"
               placeholder={placeholder}

@@ -26,7 +26,7 @@ function page() {
 
         <div className="absolute  left-1/2 top-1/2 w-full max-w-4xl -translate-x-1/2 -translate-y-1/2">
           <div className="flex flex-col items-center gap-3">
-            <h3 className="w-[90%] text-center text-4xl font-medium text-white">
+            <h3 className="w-[70%] text-center text-3xl font-medium text-white">
               Sell Your Home with The Local Preserve Oakville Real Estate
               Experts
             </h3>
@@ -48,7 +48,7 @@ function page() {
       </section>
       <div className="container px-4">
         <div className="flex flex-col items-center gap-2">
-          <h4 className="text-center text-2xl  font-semibold">
+          <h4 className="w-[40%] text-center text-xl font-semibold 2xl:text-2xl">
             We Know The Neighbourhood Best, when You Sell With Us You Get More!
           </h4>
           <p className="w-[80%] text-center text-sm xl:text-base">
