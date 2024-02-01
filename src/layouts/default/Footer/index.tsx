@@ -52,20 +52,25 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="text-white">Broker</li>
-              <li className="text-white">
-                SUTTON Group - SUMMIT Realty Inc, Brokerage 33 Pearl Street,
-                Mississauga, On L5M1X1
+              <li className="text-sm text-white">
+                <address>
+                  SUTTON Group - SUMMIT Realty Inc, Brokerage 33 Pearl Street,
+                  Mississauga, On L5M1X1
+                </address>
               </li>
               <li>
                 <Link href="tel:905-257-3633" className={linkClass}>
                   <FaPhone size={14} className="mr-2 inline-block" />
-                  905-257-3633
+                  416-837-2000
                 </Link>
               </li>
               <li>
-                <Link href="mailto:info@abc.com" className={linkClass}>
+                <Link
+                  href="mailto:info@preserveoakville.ca"
+                  className={linkClass}
+                >
                   <FaEnvelope size={14} className="mr-2 inline-block" />
-                  info@abc.com
+                  info@preserveoakville.ca
                 </Link>
               </li>
             </ul>
