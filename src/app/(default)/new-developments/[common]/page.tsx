@@ -16,7 +16,7 @@ import FloorPlanTable from '../_components/FloorPlanTable';
 const data = [
   {
     name: 'Developer ',
-    value: 'Detached',
+    value: 'Geranium',
   },
   {
     name: 'Address',
@@ -24,7 +24,7 @@ const data = [
   },
   {
     name: 'Nearest Intersection',
-    value: 'NA',
+    value: 'Dundas St & Preserve Dr',
   },
   {
     name: 'Pricing',
@@ -38,10 +38,7 @@ const data = [
     name: 'Square Footage',
     value: '2034 - 3000 sq ft',
   },
-  {
-    name: 'Est. Occupancy',
-    value: 'Dundas St & Preserve Dr',
-  },
+
   {
     name: 'VIP Launch',
     value: '2025',
@@ -86,11 +83,11 @@ function Page() {
           <h4 className="text-2xl text-primary-500">Selling</h4>
         </div>
       </div>
-      <div className="flex gap-3">
+      <div className="flex gap-6">
         <div className="sticky top-[100px] h-fit w-[360px]">
           <form
             action=""
-            className="flex flex-col justify-between gap-6 rounded bg-secondary-300 px-6 pb-10 pt-6 2xl:h-3/4"
+            className="flex flex-col justify-between gap-6 rounded bg-secondary-300 px-6  2xl:h-3/4"
           >
             <h2 className="text-center text-lg font-medium">
               Register To Get Pricing & Floor Plans for Clarehaven Estates
