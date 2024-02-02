@@ -53,9 +53,14 @@ function page() {
           </h4>
           <p className="w-[80%] text-center text-sm xl:text-base">
             Enjoy a seamless and beneficial selling experience when working with
-            us. Whether you're looking to sell your Condo, Townhouse,
+            us. Whether you&apos;re looking to sell your Condo, Townhouse,
             Semi-Detached or Detached home in The Preserve Oakville, we are here
-            to make the process effortless and successful.
+            to make the process effortless and successful. Beyond transactions,
+            our ongoing support and local insights empower you to make informed
+            decisions, creating a stress-free journey. With our commitment to
+            efficiency, trust us to navigate the intricacies of The Preserve
+            Oakville&apos;s real estate market, allowing you to focus on the
+            exciting next chapter of your life with confidence.
           </p>
         </div>
       </div>
@@ -112,9 +117,12 @@ function page() {
               Expert Guidance
             </h4>
             <p className="text-justify text-sm 2xl:text-base">
-              Our experienced agents specialize in selling a variety of
-              properties, ensuring you receive expert guidance tailored to your
-              unique needs.
+              Our seasoned agents bring a wealth of experience in selling a
+              diverse range of properties, ensuring that you benefit from expert
+              guidance precisely tailored to meet your unique needs. With a deep
+              understanding of The Preserve&apos;s real estate landscape, our
+              team is well-equipped to navigate the intricacies of the market,
+              providing you with valuable insights every step of the way.
             </p>
           </div>
 
@@ -123,9 +131,13 @@ function page() {
               Local Market Knowledge
             </h4>
             <p className="text-justify text-sm 2xl:text-base">
-              Benefit from our in-depth understanding of The Preserve&apos;s
-              real estate market, showcasing your property&apos;s and
-              neighbourhood’s strengths to potential buyers.
+              Benefit from our in-depth knowledge of The Preserve&apos;s real
+              estate market to highlight your property&apos;s unique strengths
+              and showcase the charm of its neighborhood to potential buyers.
+              Our expertise extends beyond the basic features of a home; we
+              understand the nuances that make The Preserve in Oakville a
+              distinctive and desirable community, enhancing the attractiveness
+              of your property in the eyes of prospective purchasers.
             </p>
           </div>
         </div>
@@ -138,7 +150,10 @@ function page() {
             </h4>
             <p className="text-justify text-sm 2xl:text-base">
               We craft personalized marketing strategies; focused on the
-              distinct features of your property for maximum exposure.
+              distinct features of your property for maximum exposure. Through
+              targeted campaigns, we ensure maximum exposure for your home,
+              reaching the right audience and setting the stage for a successful
+              sale in The Preserve, Oakville.
             </p>
           </div>
 
@@ -147,9 +162,13 @@ function page() {
               Negotiation Excellence
             </h4>
             <p className="text-justify text-sm 2xl:text-base">
-              Our skilled negotiators work tirelessly to secure the best
-              possible price and terms for your property, maximizing your return
-              on investment.
+              Count on our team of skilled negotiators who work tirelessly to
+              secure the best possible price and terms for your property. With a
+              deep understanding of market dynamics and trends specific to The
+              Preserve, Oakville, we strive to maximize your return on
+              investment. Our negotiation excellence is geared towards ensuring
+              you not only achieve your financial goals but also experience a
+              seamless and profitable transaction.
             </p>
           </div>
         </div>
