@@ -3,7 +3,7 @@
 function Information() {
   return (
     <div className="flex flex-col gap-1">
-      <h3 className="text-xl font-medium">Project Description</h3>
+      <h3 className="text-lg font-medium 2xl:text-xl">Project Description</h3>
       <div className="max-h-full text-justify text-sm">
         <span>
           Welcome to South of Main, Ontario&apos;s West Coast idyllic coastal
@@ -17,7 +17,9 @@ function Information() {
           this unique beach town community.
         </span>
         <div className="mt-5 flex flex-col gap-1">
-          <h3 className="text-xl font-medium">Features & Finishes</h3>
+          <h3 className="text-lg font-medium 2xl:text-xl">
+            Features & Finishes
+          </h3>
           <span>
             South of Main by Medway Homes offers sun-kissed bungalow beach town
             villas in a beach community. Impressive exterior details, superior

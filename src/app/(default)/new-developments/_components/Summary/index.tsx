@@ -10,7 +10,7 @@ interface SummaryProps {
 const Summary: React.FC<SummaryProps> = ({ data }) => {
   return (
     <div className="flex flex-col gap-2">
-      <h3 className="flex items-center gap-1 text-lg font-medium text-gray-800 2xl:text-xl">
+      <h3 className="flex items-center gap-1 text-lg font-medium  2xl:text-xl">
         Project Facts
       </h3>
       <div className="flex gap-12">
