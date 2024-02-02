@@ -87,7 +87,7 @@ function Page() {
         <div className="sticky top-[100px] h-fit w-[360px]">
           <form
             action=""
-            className="flex flex-col justify-between gap-6 rounded bg-secondary-300 px-6  2xl:h-3/4"
+            className="flex flex-col justify-between gap-6 rounded bg-secondary-300 p-6  2xl:h-3/4"
           >
             <h2 className="text-center text-lg font-medium">
               Register To Get Pricing & Floor Plans for Clarehaven Estates
