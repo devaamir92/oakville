@@ -31,7 +31,7 @@ export default function Table() {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-col gap-1">
-        <h3 className="flex items-center gap-1 text-xl font-medium text-gray-800">
+        <h3 className="flex items-center gap-1 text-lg font-medium  2xl:text-xl">
           Listing History
         </h3>
         <p className="text-xs text-gray-600">

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Link from 'next/link';
-import { FaEnvelope, FaPhone } from 'react-icons/fa6';
+import { FaEnvelope, FaLocationDot, FaPhone } from 'react-icons/fa6';
 
 import LightBox from '@app/(default)/propertydetails/_components/LightBox';
 
@@ -53,12 +53,9 @@ function Page() {
     <main className="container flex max-w-[1140px] flex-col gap-3 py-3">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-0">
-          <h3 className="text-xl font-medium text-gray-800">
+          <h3 className="text-3xl  font-semibold text-gray-800">
             Clarehaven Estates
           </h3>
-          <span className="text-xs text-gray-600">
-            Pickering | Est Completion: NA
-          </span>
         </div>
         <div className="flex flex-col items-start gap-1">
           <Link
@@ -78,11 +75,22 @@ function Page() {
         </div>
       </div>
       <LightBox />
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-2">
+          <p className="flex items-center gap-1">
+            <FaLocationDot /> Lambton Shores, ON
+          </p>
+        </div>
+        <div className="flex flex-col items-end">
+          <p>Listing Status</p>
+          <h4 className="text-2xl text-primary-500">Selling</h4>
+        </div>
+      </div>
       <div className="flex gap-3">
         <div className="sticky top-[100px] h-fit w-[360px]">
           <form
             action=""
-            className="flex flex-col justify-between gap-4 rounded bg-secondary-300 px-4 pb-6 pt-4 2xl:h-3/4"
+            className="flex flex-col justify-between gap-6 rounded bg-secondary-300 px-6 pb-10 pt-6 2xl:h-3/4"
           >
             <h2 className="text-center text-lg font-medium">
               Register To Get Pricing & Floor Plans for Clarehaven Estates
@@ -91,12 +99,16 @@ function Page() {
               <Input
                 type="text"
                 placeholder="First Name"
-                className="bg-white"
+                className="bg-white py-1"
               />
-              <Input type="text" placeholder="Last Name" className="bg-white" />
+              <Input
+                type="text"
+                placeholder="Last Name"
+                className="bg-white py-1"
+              />
             </div>
-            <Input type="email" placeholder="Email" className="bg-white" />
-            <Input type="text" placeholder="Phone" className="bg-white" />
+            <Input type="email" placeholder="Email" className="bg-white py-1" />
+            <Input type="text" placeholder="Phone" className="bg-white py-1" />
             <div className="flex flex-col gap-2">
               <p className="text-sm">Are you a Realtor?</p>
               <div className="flex gap-2">
@@ -116,7 +128,11 @@ function Page() {
                 </label>
               </div>
             </div>
-            <Input type="text" placeholder="Message" className="bg-white" />
+            <Input
+              type="text"
+              placeholder="Message"
+              className="bg-white py-1"
+            />
 
             <Button variant="default" className="">
               Submit
