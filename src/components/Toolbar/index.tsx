@@ -96,7 +96,7 @@ const TypeData = [
   'Att/Row/Townhouse',
   'Semi-Detached',
   'Detached',
-  'Store W/Apt/Offc',
+  // 'Store W/Apt/Offc',
 ];
 
 function Toolbar() {

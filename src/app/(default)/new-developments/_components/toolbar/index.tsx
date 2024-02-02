@@ -33,7 +33,7 @@ function Toolbar() {
           </li>
           <li className="">
             <SearchComponent
-              className="w-96 bg-primary-500"
+              className="h-[36px] w-96 bg-primary-500"
               placeholder="
               Search by builder or project name...
             "
