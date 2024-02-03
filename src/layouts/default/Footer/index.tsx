@@ -16,7 +16,7 @@ const popularSearches = [
   { name: 'Properties for Sale', href: '/' },
   { name: 'Properties for Rent', href: '/' },
   { name: 'Condos Properties', href: '/' },
-  { name: 'Sold Properties', href: '/' },
+  { name: 'Sold Properties', href: '/sold' },
 ];
 
 const usefulLinks = [

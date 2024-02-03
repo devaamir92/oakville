@@ -5,18 +5,18 @@ import Lottie from 'react-lottie';
 
 import hello from '@assets/hello.json';
 
-function HelloText() {
+const HelloText: React.FC = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: hello,
+  };
+
   return (
     <div className="flex-1">
-      <Lottie
-        options={{
-          animationData: hello,
-          loop: true,
-          autoplay: true,
-        }}
-      />
+      <Lottie ariaLabel="Hello" options={defaultOptions} />
     </div>
   );
-}
+};
 
 export default HelloText;
