@@ -69,7 +69,9 @@ const SearchComponent: React.FC<Props> = ({ className, placeholder }) => {
     <DropdownMenu>
       <Root>
         <Trigger asChild ref={ref}>
-          <div
+          <label
+            htmlFor="search"
+            aria-label="Search for properties, agents, and more..."
             className={cn(
               'flex min-w-96 items-center gap-4 rounded px-2 text-sm shadow-md',
               className
@@ -84,7 +86,7 @@ const SearchComponent: React.FC<Props> = ({ className, placeholder }) => {
               onChange={handleSearch}
             />
             <FaSearch className="text-white" />
-          </div>
+          </label>
         </Trigger>
         <Portal>
           <Content
