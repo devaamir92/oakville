@@ -26,11 +26,13 @@ function CTASection() {
         </div>
         <div className="lg:w-1/5" />
         <div className="flex flex-1">
-          <div className="relative hidden aspect-square flex-1 overflow-hidden sm:block sm:h-96">
+          <div className="relative hidden size-96 flex-1 overflow-hidden sm:block sm:h-96">
             <Image
               src="/images/webp/cta-main.webp"
               fill
               alt="free home evaluation"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="size-full object-cover"
             />
           </div>
         </div>

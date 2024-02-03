@@ -23,13 +23,7 @@ const App = () => {
       onMove={evt => setViewState(evt.viewState)}
       mapStyle="mapbox://styles/mapbox/streets-v9"
       mapboxAccessToken={MAPBOX_ACCESS_TOKEN}
-    >
-      {/* <div style={{ position: 'absolute', right: 0, top: 0 }}>
-        <div>Latitude: {viewState.latitude}</div>
-        <div>Longitude: {viewState.longitude}</div>
-        <div>Zoom: {viewState.zoom}</div>
-      </div> */}
-    </MapGL>
+    />
   );
 };
 

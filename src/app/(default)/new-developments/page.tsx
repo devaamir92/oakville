@@ -101,7 +101,12 @@ const Developments = () => {
             >
               <div className="flex flex-col overflow-hidden rounded border border-gray-300 bg-white">
                 <div className="relative h-[250px]">
-                  <Image src={item.ImageUrl} alt={item.Addr} fill />
+                  <Image
+                    src={item.ImageUrl}
+                    alt={item.Addr}
+                    fill
+                    sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
+                  />
                   <div className="absolute right-3 top-3">
                     {/* <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold uppercase text-primary-500 shadow">
                     {item.Status}

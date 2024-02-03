@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const data = [
   {
-    address: '5050 CAMBIE STREET',
+    address: '5050 CAMBIE STREET 1',
     date: 'Sep 25, 2023',
     daysAgo: '4 months ago',
     status: 'Terminated',
@@ -10,7 +10,7 @@ const data = [
     listedOn: 'Aug 23, 2023',
   },
   {
-    address: '5050 CAMBIE STREET',
+    address: '5050 CAMBIE STREET 2',
     date: 'Jul 27, 2023',
     daysAgo: '6 months ago',
     status: 'Expired',
@@ -18,7 +18,7 @@ const data = [
     listedOn: 'Apr 19, 2023',
   },
   {
-    address: '5050 CAMBIE STREET',
+    address: '5050 CAMBIE STREET 3',
     date: 'Apr 19, 2023',
     daysAgo: '10 months ago',
     status: 'Terminated',

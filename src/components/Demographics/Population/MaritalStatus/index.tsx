@@ -21,7 +21,7 @@ const renderLegend = ({ ...rest }) => {
     <ul className="flex flex-col gap-1">
       {rest.payload.map((entry: any, index: any) => (
         <li
-          key={entry.name}
+          key={entry.value}
           className="flex items-center gap-3 text-xs font-medium"
         >
           <svg width="10" height="10" className="rounded-full">

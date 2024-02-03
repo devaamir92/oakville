@@ -5,42 +5,11 @@ import React, { useState } from 'react';
 
 import Viewer from './viewer';
 
-const Images = [
-  {
-    src: '/images/webp/listing/5.webp',
-    alt: 'Image 1',
-  },
-  {
-    src: '/images/webp/ad7d6_2.webp',
-    alt: 'Image 2',
-  },
-  {
-    src: '/images/webp/ad7d6_3.webp',
-    alt: 'Image 3',
-  },
-  {
-    src: '/images/webp/ad7d6_4.webp',
-    alt: 'Image 4',
-  },
-  {
-    src: '/images/webp/ad7d6_5.webp',
-    alt: 'Image 5',
-  },
-  {
-    src: '/images/webp/ad7d6_6.webp',
-    alt: 'Image 6',
-  },
-  {
-    src: '/images/webp/listing/7.webp',
-    alt: 'Image 7',
-  },
-  {
-    src: '/images/webp/listing/8.webp',
-    alt: 'Image 8',
-  },
-];
+interface Props {
+  Images: Array<{ src: string; alt: string }>;
+}
 
-function LightBox() {
+const LightBox: React.FC<Props> = ({ Images }) => {
   const [isopen, setIsopen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -55,6 +24,7 @@ function LightBox() {
           src={Images[0].src}
           alt="Image 1"
           fill
+          sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
           onClick={
             Images.length > 5
               ? () => {
@@ -76,6 +46,7 @@ function LightBox() {
               src={image.src}
               alt={image.alt}
               fill
+              sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
               onClick={
                 Images.length > 5
                   ? () => {
@@ -102,6 +73,6 @@ function LightBox() {
       )}
     </div>
   );
-}
+};
 
 export default LightBox;

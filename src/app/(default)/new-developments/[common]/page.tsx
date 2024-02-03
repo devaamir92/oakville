@@ -3,8 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FaEnvelope, FaLocationDot, FaPhone } from 'react-icons/fa6';
 
-import LightBox from '@app/(default)/propertydetails/_components/LightBox';
-
+import LightBox from '@components/LightBox';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 
@@ -12,6 +11,7 @@ import Summary from '../_components/Summary';
 import Information from '../_components/Information';
 import Neighbourhood from '../_components/Neighbourhood';
 import FloorPlanTable from '../_components/FloorPlanTable';
+import Demographics from '@components/Demographics';
 
 const data = [
   {
@@ -45,6 +45,41 @@ const data = [
   },
 ];
 
+const Images = [
+  {
+    src: '/images/webp/listing/5.webp',
+    alt: 'Image 1',
+  },
+  {
+    src: '/images/webp/ad7d6_2.webp',
+    alt: 'Image 2',
+  },
+  {
+    src: '/images/webp/ad7d6_3.webp',
+    alt: 'Image 3',
+  },
+  {
+    src: '/images/webp/ad7d6_4.webp',
+    alt: 'Image 4',
+  },
+  {
+    src: '/images/webp/ad7d6_5.webp',
+    alt: 'Image 5',
+  },
+  {
+    src: '/images/webp/ad7d6_6.webp',
+    alt: 'Image 6',
+  },
+  {
+    src: '/images/webp/listing/7.webp',
+    alt: 'Image 7',
+  },
+  {
+    src: '/images/webp/listing/8.webp',
+    alt: 'Image 8',
+  },
+];
+
 function Page() {
   return (
     <main className="container flex max-w-[1140px] flex-col gap-3 py-3">
@@ -71,7 +106,7 @@ function Page() {
           </Link>
         </div>
       </div>
-      <LightBox />
+      <LightBox Images={Images} />
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2">
           <p className="flex items-center gap-1">
@@ -84,7 +119,7 @@ function Page() {
         </div>
       </div>
       <div className="flex gap-6">
-        <div className="sticky top-[100px] h-fit w-[360px]">
+        <div className="sticky top-[94px] h-fit w-[360px]">
           <form
             action=""
             className="flex flex-col justify-between gap-6 rounded bg-secondary-300 p-6  2xl:h-3/4"
@@ -141,6 +176,7 @@ function Page() {
           <Information />
           <Neighbourhood />
           <FloorPlanTable />
+          <Demographics />
         </div>
       </div>
     </main>

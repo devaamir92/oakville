@@ -29,13 +29,8 @@ export default function Header() {
         <header className="sticky left-0 top-0 z-10 flex  h-[70px] w-full flex-col bg-primary-500">
           <div className="container flex h-full grid-cols-12 items-center ">
             <div className="flex w-[40%] items-center gap-6">
-              <Link href="/">
-                <Image
-                  src="/images/svg/logo-1.svg"
-                  alt="logo"
-                  width={55}
-                  height={55}
-                />
+              <Link href="/" className="relative size-[55px]">
+                <Image src="/images/svg/logo-1.svg" alt="logo" fill />
               </Link>
               <SearchComponent
                 className="h-[36px] w-96 bg-primary-400"
@@ -76,13 +71,8 @@ export default function Header() {
         <header className="bg-primary-500 py-2">
           <div className="container flex flex-col">
             <div className="flex flex-1 items-center justify-between">
-              <Link href="/">
-                <Image
-                  src="/images/svg/logo-1.svg"
-                  alt="logo"
-                  width={55}
-                  height={55}
-                />
+              <Link href="/" className="relative size-[55px]">
+                <Image src="/images/svg/logo-1.svg" alt="logo" fill />
               </Link>
               <Button
                 className="size-10 border-primary-400 p-0"

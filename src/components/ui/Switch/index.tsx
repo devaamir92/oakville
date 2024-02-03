@@ -1,17 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Root, Switch, Thumb } from '@radix-ui/react-switch';
 
 function SwitchInput() {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
 
   return (
     <div>
       <form>
         <div className="flex items-center">
-          <Switch id="airplane-mode">
+          <Switch asChild>
             <Root
               onCheckedChange={e => setChecked(e)}
               className="relative  h-[20px] w-[65px] cursor-default rounded-full border-none  bg-[#ccc]   focus:outline-none   data-[state=checked]:bg-primary-400"

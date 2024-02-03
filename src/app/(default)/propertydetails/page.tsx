@@ -7,19 +7,20 @@ import {
   BsHeart,
   BsUpload,
 } from 'react-icons/bs';
-import { LuBath, LuBedDouble, LuParkingCircle, LuScan } from 'react-icons/lu';
 
 import Card from '@components/ListingCard';
 import { Button } from '@components/ui/Button';
 
-import LightBox from './_components/LightBox';
+import LightBox from '@components/LightBox';
+import Demographics from '@components/Demographics';
+
 import PriceHistory from './_components/PriceHistory';
 import ListingDetails from './_components/ListingDetails';
 import PropertyDetails from './_components/PropertyDetails';
 import Rooms from './_components/Rooms';
 import Map from './_components/map';
-import Demographics from './_components/Demographics';
 import ListingHighlights from './_components/ListingHighlights';
+import ListingOverview from './_components/ListingOverview';
 
 const data = [
   {
@@ -52,6 +53,41 @@ const data = [
   },
 ];
 
+const Images = [
+  {
+    src: '/images/webp/listing/5.webp',
+    alt: 'Image 1',
+  },
+  {
+    src: '/images/webp/ad7d6_2.webp',
+    alt: 'Image 2',
+  },
+  {
+    src: '/images/webp/ad7d6_3.webp',
+    alt: 'Image 3',
+  },
+  {
+    src: '/images/webp/ad7d6_4.webp',
+    alt: 'Image 4',
+  },
+  {
+    src: '/images/webp/ad7d6_5.webp',
+    alt: 'Image 5',
+  },
+  {
+    src: '/images/webp/ad7d6_6.webp',
+    alt: 'Image 6',
+  },
+  {
+    src: '/images/webp/listing/7.webp',
+    alt: 'Image 7',
+  },
+  {
+    src: '/images/webp/listing/8.webp',
+    alt: 'Image 8',
+  },
+];
+
 function Page() {
   return (
     <main className="container flex max-w-[1140px] flex-col gap-3 bg-white py-3">
@@ -81,8 +117,9 @@ function Page() {
           </Button>
         </div>
       </div>
-      <LightBox />
-      <div className="flex items-center justify-between">
+      <LightBox Images={Images} />
+
+      {/* <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-8">
             <div className="flex flex-col items-center ">
@@ -116,7 +153,16 @@ function Page() {
         <div className="">
           <p className="text-3xl font-medium text-gray-800">$1,200,000</p>
         </div>
-      </div>
+      </div> */}
+      <ListingOverview
+        bathrooms={4}
+        bedrooms={3}
+        parkingSpaces={2}
+        squareFeet={2590}
+        price={1200000}
+        status="For Sale"
+        daysOnMarket={24}
+      />
 
       <div className="flex gap-3">
         <div className="sticky top-[100px] flex h-fit w-[360px] flex-col gap-10 rounded">
@@ -145,7 +191,6 @@ function Page() {
               </Link>
             </div>
           </div>
-          {/* <hr className="border-primary-200" /> */}
 
           <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 p-8 shadow">
             <p>Ready to go See it?</p>
@@ -170,14 +215,7 @@ function Page() {
         <div className="flex flex-1 flex-col gap-6  bg-white p-3">
           <PriceHistory />
           <ListingHighlights />
-          {/* <div className="flex flex-col gap-1">
-            <h3 className="flex items-center gap-1 text-xl font-medium text-gray-800">
-              Listing Details
-            </h3>
-            <span className="text-xs text-gray-500">
-              Learn about 5050 CAMBIE STREET
-            </span>
-          </div> */}
+
           <ListingDetails />
           <PropertyDetails />
 

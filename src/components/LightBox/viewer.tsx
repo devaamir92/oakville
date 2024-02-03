@@ -86,6 +86,7 @@ const Viewer: React.FC<Props> = ({
                   src={Images[currentImage].src}
                   alt={Images[0].alt}
                   fill
+                  sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
                   className="object-contain"
                 />
               </div>
