@@ -12,7 +12,7 @@ interface CardProps {
   price: string;
   imageUrl: string;
   parking: string;
-  slug: string;
+  slug?: string;
 }
 
 const ListingCard: React.FC<CardProps> = ({
