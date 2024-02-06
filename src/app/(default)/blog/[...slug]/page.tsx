@@ -77,7 +77,7 @@ function Page() {
             className="rounded object-cover object-center"
           />
           <div className="absolute left-4 top-4">
-            <div className="flex flex-wrap gap-1.5">
+            {/* <div className="flex flex-wrap gap-1.5">
               <Link
                 href="/"
                 className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
@@ -108,7 +108,7 @@ function Page() {
               >
                 Real Estate News
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="">
@@ -332,42 +332,87 @@ function Page() {
         </section> */}
       </div>
       <div className=" w-[450px] rounded bg-secondary-300 p-4">
-        <div className="flex flex-col gap-4">
-          <h4 className=" text-xl font-medium">Recent Blogs</h4>
-          <hr />
+        <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            {Links.map(({ name, date, Imageurl, categories }) => (
-              <Link
-                key={name}
-                href={`/blog/${name.toLowerCase().split(' ').join('-')}`}
-                className="group flex h-[300px] flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
-              >
-                <div className="relative h-60">
-                  <Image
-                    src={Imageurl}
-                    fill
-                    alt={name}
-                    className="object-cover"
-                    sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
-                  />
-                  <CategoryFilter categories={categories} />
-                </div>
-                <div className="flex flex-col gap-1 p-3">
-                  <span className="truncate text-base font-medium">{name}</span>
-                  <div className="flex justify-between text-center">
-                    <p className="text-sm text-gray-500">{date}</p>
-                    <button
-                      type="button"
-                      className="flex items-center gap-1 text-sm text-primary-500 transition-all duration-300 ease-in-out
-                      group-hover:font-semibold"
-                    >
-                      <span>Read More</span>
-                      <FaRegCircleRight />
-                    </button>
+            <h4 className=" text-xl font-medium">Tags</h4>
+            <hr className="border-gray-300" />
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-wrap gap-1.5">
+                <Link
+                  href="/"
+                  className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
+                >
+                  Home Sellers
+                </Link>
+                <Link
+                  href="/"
+                  className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
+                >
+                  Real Estate and Technology
+                </Link>
+                <Link
+                  href="/"
+                  className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
+                >
+                  Bungalows
+                </Link>
+                <Link
+                  href="/"
+                  className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
+                >
+                  Home Buyers
+                </Link>
+                <Link
+                  href="/"
+                  className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
+                >
+                  Real Estate News
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <hr className="border-gray-300" />
+              <h4 className=" text-xl font-medium">Recent Blogs</h4>
+              <hr className="border-gray-300" />
+            </div>
+            <div className="flex flex-col gap-4">
+              {Links.map(({ name, date, Imageurl, categories }) => (
+                <Link
+                  key={name}
+                  href={`/blog/${name.toLowerCase().split(' ').join('-')}`}
+                  className="group flex h-[300px] flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
+                >
+                  <div className="relative h-60">
+                    <Image
+                      src={Imageurl}
+                      fill
+                      alt={name}
+                      className="object-cover"
+                      sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
+                    />
+                    <CategoryFilter categories={categories} />
                   </div>
-                </div>
-              </Link>
-            ))}
+                  <div className="flex flex-col gap-1 p-3">
+                    <span className="truncate text-base font-medium">
+                      {name}
+                    </span>
+                    <div className="flex justify-between text-center">
+                      <p className="text-sm text-gray-500">{date}</p>
+                      <button
+                        type="button"
+                        className="flex items-center gap-1 text-sm text-primary-500 transition-all duration-300 ease-in-out
+                      group-hover:font-semibold"
+                      >
+                        <span>Read More</span>
+                        <FaRegCircleRight />
+                      </button>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
