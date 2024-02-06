@@ -11,7 +11,7 @@ import CommunitiesList from './communitiesList';
 
 const listData = [
   { name: 'Schools', link: '/schools' },
-  { name: 'stores', link: '/stores' },
+  { name: 'Stores', link: '/stores' },
   { name: 'Parks & Rec', link: '/parks-rec' },
   { name: 'Religious Places', link: '/religious-places' },
   {
