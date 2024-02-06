@@ -50,7 +50,7 @@ function JustSold() {
     <section>
       <div className="container flex flex-col">
         <div className="flex flex-col items-center justify-center gap-1 pb-8">
-          <h2 className="text-2xl font-semibold">Sold</h2>
+          <h2 className="text-2xl font-semibold">Recently Sold</h2>
           <p className="">
             Real estate boards require you to be signed in to access sold prices
             history.

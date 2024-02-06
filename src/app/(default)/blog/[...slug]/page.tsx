@@ -334,8 +334,10 @@ function Page() {
       <div className=" w-[450px] rounded bg-secondary-300 p-4">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            <h4 className=" text-xl font-medium">Tags</h4>
-            <hr className="border-gray-300" />
+            <div className="flex flex-col gap-2">
+              <h4 className=" text-xl font-medium">Tags</h4>
+              <hr className="border-gray-300" />
+            </div>
             <div className="flex flex-col gap-4">
               <div className="flex flex-wrap gap-1.5">
                 <Link

@@ -79,27 +79,6 @@ const Links = [
     categories: ['Home Decor', 'Home Styling', 'Real Estate News'],
     Imageurl: '/images/webp/listing/5.webp',
   },
-  {
-    name: 'Luxury Home Decor Trends',
-    url: '/',
-    date: 'Oct 1, 2024',
-    categories: ['Luxury Homes', 'Home Decor', 'Real Estate News'],
-    Imageurl: '/images/webp/listing/6.webp',
-  },
-  {
-    name: 'Fall-Inspired Home Decor Ideas',
-    url: '/',
-    date: 'Nov 1, 2024',
-    categories: ['Home Decor', 'Home Styling', 'Real Estate News'],
-    Imageurl: '/images/webp/listing/7.webp',
-  },
-  {
-    name: 'Winter Wonderland Home Decor',
-    url: '/',
-    date: 'Dec 1, 2024',
-    categories: ['Home Decor', 'Home Styling', 'Real Estate News'],
-    Imageurl: '/images/webp/listing/8.webp',
-  },
 ];
 
 function BlogPage() {
