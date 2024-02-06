@@ -44,13 +44,12 @@ const Links = [
 
 function Page() {
   return (
-    <main className="mx-auto max-w-[1140px] py-4">
+    <main className="container flex gap-4 py-4">
       <div className="flex flex-1 flex-col gap-4">
         <div className="flex  justify-between">
           <div className="flex flex-col gap-0">
             <h4 className="text-xl font-medium">
-              Are Bungalows Worth the Extra Cost Compared to Houses | Bungalows
-              For Sale
+              Are Bungalows Worth the Extra Cost Compared
             </h4>
             <p className="text-sm text-gray-500">December 1, 2023</p>
           </div>
@@ -291,7 +290,7 @@ function Page() {
             </p>
           </div>
         </div>
-        <section className="flex flex-col gap-4">
+        {/* <section className="flex flex-col gap-4">
           <div>
             <h4 className="mb-2 text-xl font-medium">Recent Blogs</h4>
             <hr />
@@ -330,7 +329,47 @@ function Page() {
               </Link>
             ))}
           </div>
-        </section>
+        </section> */}
+      </div>
+      <div className=" w-[450px] rounded bg-secondary-300 p-4">
+        <div className="flex flex-col gap-4">
+          <h4 className=" text-xl font-medium">Recent Blogs</h4>
+          <hr />
+          <div className="flex flex-col gap-4">
+            {Links.map(({ name, date, Imageurl, categories }) => (
+              <Link
+                key={name}
+                href={`/blog/${name.toLowerCase().split(' ').join('-')}`}
+                className="group flex h-[300px] flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
+              >
+                <div className="relative h-60">
+                  <Image
+                    src={Imageurl}
+                    fill
+                    alt={name}
+                    className="object-cover"
+                    sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
+                  />
+                  <CategoryFilter categories={categories} />
+                </div>
+                <div className="flex flex-col gap-1 p-3">
+                  <span className="truncate text-base font-medium">{name}</span>
+                  <div className="flex justify-between text-center">
+                    <p className="text-sm text-gray-500">{date}</p>
+                    <button
+                      type="button"
+                      className="flex items-center gap-1 text-sm text-primary-500 transition-all duration-300 ease-in-out
+                      group-hover:font-semibold"
+                    >
+                      <span>Read More</span>
+                      <FaRegCircleRight />
+                    </button>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   );
