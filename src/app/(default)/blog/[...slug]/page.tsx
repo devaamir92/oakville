@@ -20,14 +20,14 @@ const Links = [
     url: '/',
     date: 'June 15, 2023',
     categories: ['Real Estate', 'Home Sellers', 'Real Estate News'],
-    Imageurl: '/webp/photo.webp',
+    Imageurl: '/images/webp/photo.webp',
   },
   {
     name: 'Tips for Buying a Home',
     url: '/',
     date: 'Feb 15, 2024',
     categories: ['Real Estate', 'Home Buyers', 'Real Estate News'],
-    Imageurl: '/webp/photo1.webp',
+    Imageurl: '/images/webp/photo1.webp',
   },
   {
     name: 'Understanding Mortgage Rates',
@@ -38,7 +38,7 @@ const Links = [
       'Mortgage Rates',
       'Real Estate News',
     ],
-    Imageurl: '/webp/photo2.webp',
+    Imageurl: '/images/webp/photo2.webp',
   },
 ];
 
