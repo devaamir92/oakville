@@ -12,6 +12,7 @@ interface CardProps {
   price: string;
   imageUrl: string;
   parking: string;
+  slug: string;
 }
 
 const ListingCard: React.FC<CardProps> = ({
@@ -21,10 +22,11 @@ const ListingCard: React.FC<CardProps> = ({
   price,
   imageUrl,
   parking,
+  slug,
 }) => {
   return (
     <Link
-      href="/propertydetails"
+      href={slug ? `${slug}` : '/propertydetails'}
       className="group flex flex-col overflow-hidden rounded border border-gray-300 bg-white  transition-all duration-200 ease-in-out hover:shadow-xl"
     >
       <div className="relative h-60">

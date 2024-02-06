@@ -110,12 +110,12 @@ function BlogPage() {
           <h2 className="mb-3  text-2xl font-semibold">Blogs</h2>
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
-        <div className="grid grid-cols-1 gap-4  pb-10 md:grid-cols-2 lg:grid-cols-3 ">
-          {Links.map(({ name, url, date, Imageurl, categories }) => (
+        <div className="grid grid-cols-1 gap-8  pb-10 md:grid-cols-2 lg:grid-cols-3 ">
+          {Links.map(({ name, date, Imageurl, categories }) => (
             <Link
               key={name}
-              href={url}
-              className="group flex flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
+              href={`/blog/${name.toLowerCase().split(' ').join('-')}`}
+              className="group flex h-[300px] flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
             >
               <div className="relative h-60">
                 <Image

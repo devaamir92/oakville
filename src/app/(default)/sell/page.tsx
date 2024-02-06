@@ -64,25 +64,25 @@ function page() {
           </p>
         </div>
       </div>
-      <section className="relative overflow-hidden bg-black px-4 sm:py-16 lg:py-24 xl:py-32">
+      <section className="relative overflow-hidden py-12 ">
         <div className="absolute inset-0">
           <Image
-            src="/images/webp/sell/cta-banner.webp"
+            src="/images/webp/sell/cta-banner.jpg"
             alt="banner"
             fill
-            className="object-cover object-right"
+            className="h-full object-contain object-right"
           />
         </div>
 
-        <div className="absolute inset-0 hidden bg-gradient-to-r from-black to-transparent md:block" />
-        <div className="absolute inset-0 block bg-black/60 md:hidden" />
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-gray-100 via-transparent to-transparent md:block" />
+        {/* <div className="absolute inset-0 block bg-black/50 md:hidden" /> */}
 
         <div className="container relative">
           <div className="text-center md:w-2/3 md:text-left lg:w-1/2 xl:w-1/2">
-            <h2 className="font-semibold leading-tight text-white lg:text-xl 2xl:text-2xl">
+            <h2 className="font-semibold leading-tight text-black lg:text-xl 2xl:text-2xl">
               Hire A Real Estate Professional Who Never Gives Up
             </h2>
-            <p className="mt-4 text-sm text-gray-200 2xl:text-base">
+            <p className="mt-4 text-sm text-gray-800 2xl:text-base">
               Selling your home can be overwhelming, we help you simplify the
               process. Our dedicated team supports you from preparation to
               negotiations, ensures a successful closing and are there to answer

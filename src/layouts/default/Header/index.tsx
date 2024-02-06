@@ -11,12 +11,21 @@ import CommunitiesList from './communitiesList';
 
 const listData = [
   { name: 'Schools', link: '/schools' },
-  { name: 'Banks', link: '/banks' },
-  { name: 'Hospitals', link: '/hospitals' },
-  { name: 'Mosques', link: '/mosques' },
-  { name: 'Churches', link: '/churches' },
-  { name: 'Temples', link: '/temples' },
-  { name: 'Others', link: '/others' },
+  { name: 'stores', link: '/stores' },
+  { name: 'Parks & Rec', link: '/parks-rec' },
+  { name: 'Religious Places', link: '/religious-places' },
+  {
+    name: 'Hospitals / walk-in clinics / vets',
+    link: '/hospital-walk-in-clinic-vets',
+  },
+  {
+    name: 'Bank / Post Office / Service Ontario',
+    link: '/bank-post-office-service-ontario',
+  },
+  {
+    name: 'Public Trasportation',
+    link: '/public-trasportation',
+  },
 ];
 
 const linkClass =

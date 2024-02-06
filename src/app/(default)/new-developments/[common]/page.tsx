@@ -7,11 +7,13 @@ import LightBox from '@components/LightBox';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 
+import Demographics from '@components/Demographics';
+
 import Summary from '../_components/Summary';
 import Information from '../_components/Information';
 import Neighbourhood from '../_components/Neighbourhood';
 import FloorPlanTable from '../_components/FloorPlanTable';
-import Demographics from '@components/Demographics';
+import Image from 'next/image';
 
 const data = [
   {
@@ -106,7 +108,17 @@ function Page() {
           </Link>
         </div>
       </div>
-      <LightBox Images={Images} />
+      <div className="relative">
+        <LightBox Images={Images} />
+        <div className="absolute bottom-4 left-4 z-0 rounded border-2 border-gray-800">
+          <Image
+            src="/images/webp/logo.webp"
+            alt="Image 1"
+            width={120}
+            height={120}
+          />
+        </div>
+      </div>
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2">
           <p className="flex items-center gap-1">

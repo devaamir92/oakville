@@ -117,6 +117,7 @@ const Page: React.FC = () => {
             bathrooms={item.bathrooms}
             bedrooms={item.bedrooms}
             imageUrl={item.imageUrl}
+            slug={`/sold/${item.location.toLowerCase().split(' ').join('-')}`}
             location={item.location}
             price={item.price}
             parking={item.parking}
