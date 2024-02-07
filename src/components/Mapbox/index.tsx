@@ -6,7 +6,7 @@ import MapGL from 'react-map-gl';
 const MAPBOX_ACCESS_TOKEN =
   'pk.eyJ1IjoiaW1hdHRlaCIsImEiOiJja3J2dTZqamEwYTZpMnZsanUxcWhrcW9jIn0.c3dQrAz3T8LQNnfvP3z_Wg';
 
-const App = () => {
+const Map = () => {
   const [viewState, setViewState] = React.useState({
     latitude: 43.48683277118204,
     longitude: -79.7270483834316,
@@ -27,4 +27,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Map;
