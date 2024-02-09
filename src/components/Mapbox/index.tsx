@@ -8,8 +8,8 @@ const MAPBOX_ACCESS_TOKEN =
 
 const Map = () => {
   const [viewState, setViewState] = React.useState({
-    latitude: 43.48683277118204,
-    longitude: -79.7270483834316,
+    latitude: 43.48162606437566,
+    longitude: -79.71881522172734,
     zoom: 12.83,
   });
 

@@ -131,7 +131,7 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
         Bungalows for sale in Mississauga , 126 Listings
       </h6>
       <div
-        className={cn('grid grid-cols-2 gap-4', {
+        className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {
           'xl:grid-cols-4': searchParams?.view === 'list',
         })}
       >

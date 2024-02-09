@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { FaList, FaLocationDot } from 'react-icons/fa6';
@@ -23,7 +25,7 @@ export default function ViewChanger() {
 
   return (
     <Button
-      className="flex !h-auto items-center gap-2 rounded-none !py-0 px-0  text-sm text-white"
+      className="hidden !h-auto items-center gap-2 rounded-none !py-0 px-0  text-sm text-white lg:flex"
       variant="ghost"
       onClick={() => handleViewChange()}
     >

@@ -4,17 +4,17 @@ const Listings = [
   {
     id: 1,
     title: 'Condos',
-    href: '/condos',
+    href: '/buy',
   },
   {
     id: 2,
     title: 'Townhouses',
-    href: '/townhouses',
+    href: '/buy',
   },
   {
     id: 3,
     title: 'Detached',
-    href: '/detached',
+    href: '/buy',
   },
 
   {
