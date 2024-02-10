@@ -35,12 +35,12 @@ const linkClass =
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-500">
+    <footer className="bg-tertiary-500">
       <div className="container">
         <div className="grid grid-cols-1 gap-10 pb-5 pt-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <div>
             <h3 className="text-lg font-normal text-white">Contact Us</h3>
-            <hr className="border-secondary-500" />
+            <hr className="mt-1 border-gray-500" />
             <ul className="mt-4 flex flex-col gap-1">
               <li>
                 <Link
@@ -77,7 +77,7 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="text-lg font-normal text-white">Popular Searches</h3>
-            <hr className="border-secondary-500" />
+            <hr className="mt-1 border-gray-500" />
             <ul className="mt-4 flex flex-col gap-1">
               {popularSearches.map(search => (
                 <li key={search.name}>
@@ -92,7 +92,7 @@ const Footer = () => {
             <h3 className="text-lg font-normal text-white">
               Popular Neighborhoods
             </h3>
-            <hr className="border-secondary-500" />
+            <hr className="mt-1 border-gray-500" />
             <ul className="mt-4 flex flex-col gap-1">
               {popularNeighborhoods.map(item => (
                 <li key={item.name}>
@@ -105,7 +105,7 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="text-lg font-normal text-white">Useful Links</h3>
-            <hr className="border-secondary-500" />
+            <hr className="mt-1 border-gray-500" />
             <ul className="mt-4 flex flex-col gap-1">
               {usefulLinks.map(link => (
                 <li key={link.name}>

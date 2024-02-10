@@ -22,7 +22,7 @@ const socials = [
 
 function Copright() {
   return (
-    <div className="flex items-center justify-between border-t border-secondary-500 py-5">
+    <div className="flex items-center justify-between border-t border-gray-500 py-5">
       <div className="text-sm text-white">
         © {new Date().getFullYear()} Preserve Oakville. All rights reserved.
       </div>
@@ -33,7 +33,7 @@ function Copright() {
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex size-8 items-center justify-center rounded-full bg-primary-700 text-white transition-colors duration-200 ease-in-out hover:bg-primary-500 hover:text-white"
+            className="bg-tertiary-700 hover:bg-tertiary-500 flex size-8 items-center justify-center rounded-full text-white transition-colors duration-200 ease-in-out hover:text-white"
           >
             <span className="sr-only">{social.name}</span>
             {social.icon}

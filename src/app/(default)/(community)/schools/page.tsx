@@ -1,152 +1,322 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
+
 import dynamic from 'next/dynamic';
 
-import Map from '@components/Mapbox';
+import { FaGlobeAmericas, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 
 import { Button } from '@components/ui/Button';
+import Map from '@components/Mapbox';
 
-const Ranking = dynamic(() => import('./_components/Ranking'), { ssr: false });
+const RankingPie = dynamic(() => import('../_components/Ranking'), {
+  ssr: false,
+});
 
 const ElementarySchools = [
+  // {
+  //   name: 'Oakville Trafalgar High School',
+  //   website: 'https://oth.hdsb.ca/',
+  //   picture: '/images/webp/schools/oth.jpg',
+  //   address: '1460 Devon Rd, Oakville, ON L6J 3L6',
+  //   phone: '(905) 845-2877',
+  //   grades: '9-12',
+  //   beforeAfterPrograms: true,
+  //   frenchImersion: true,
+  //   fraserRanking: 8.5,
+  // },
+  // {
+  //   name: 'White Oaks Secondary School',
+  //   website: 'https://woh.hdsb.ca/',
+  //   picture: '/images/webp/schools/white-oaks.jpg',
+  //   address: '1330 Montclair Dr, Oakville, ON L6H 1Z5',
+  //   phone: '(905) 845-5200',
+  //   grades: '9-12',
+  //   beforeAfterPrograms: true,
+  //   frenchImersion: false,
+  //   fraserRanking: 7.8,
+  // },
+  // {
+  //   name: 'Abbey Park High School',
+  //   website: 'https://aph.hdsb.ca/',
+  //   picture: '/images/webp/schools/abbey-park.jpg',
+  //   address: '1455 Glen Abbey Gate, Oakville, ON L6M 2G5',
+  //   phone: '(905) 827-4101',
+  //   grades: '9-12',
+  //   beforeAfterPrograms: true,
+  //   frenchImersion: true,
+  //   fraserRanking: 8.2,
+  // },
+  // {
+  //   name: 'Garth Webb Secondary School',
+  //   website: 'https://gwh.hdsb.ca/',
+  //   picture: '/images/webp/schools/garth-webb.jpg',
+  //   address: '2820 Westoak Trails Blvd, Oakville, ON L6M 4W2',
+  //   phone: '(905) 847-6875',
+  //   grades: '9-12',
+  //   beforeAfterPrograms: true,
+  //   frenchImersion: true,
+  //   fraserRanking: 8.9,
+  // },
+  // {
+  //   name: 'St. Ignatius of Loyola Secondary School',
+  //   website: 'https://loy.hcdsb.org/',
+  //   picture: '/images/webp/schools/st-ignatius.jpg',
+  //   address: '1550 Nottinghill Gate, Oakville, ON L6M 1S2',
+  //   phone: '(905) 847-0595',
+  //   grades: '9-12',
+  //   beforeAfterPrograms: false,
+  //   frenchImersion: true,
+  //   fraserRanking: 8.7,
+  // },
   {
-    name: 'Oakville Trafalgar High School',
-    website: 'https://oth.hdsb.ca/',
-    picture: '/images/webp/schools/oth.jpg',
-    address: '1460 Devon Rd, Oakville, ON L6J 3L6',
-    phone: '(905) 845-2877',
+    name: "King's Christian Collegiate",
+    website: 'https://kingschristian.ca/',
+    picture: '/images/webp/schools/kings-christian.jpg',
+    address: '528 Burnhamthorpe Rd W, Oakville, ON L6M 4K6',
+    phone: '(905) 257-5464',
+    grades: '9-12',
+    beforeAfterPrograms: true,
+    frenchImersion: false,
+    fraserRanking: 0,
+  },
+  {
+    name: 'Our Lady of Peace Catholic Elementary School',
+    website: 'https://oplelementary.hcdsb.org/',
+    picture: '/images/webp/schools/our-lady-of-peace.jpg',
+    address: '391 River Glen Blvd, Oakville, ON L6H 5X5',
+    phone: '(905) 257-2791',
+    grades: 'JK-8',
+    beforeAfterPrograms: true,
+    frenchImersion: true,
+    fraserRanking: 7,
+  },
+  {
+    name: 'Oodenawi Public School',
+    website: 'https://ood.hdsb.ca/',
+    picture: '/images/webp/schools/Oodenawi-Public-School.png',
+    address: '385 Sixteen Mile Dr, Oakville, ON L6M 0Z4',
+    phone: '(905) 469-6098',
+    grades: 'JK-8',
+    beforeAfterPrograms: true,
+    frenchImersion: true,
+    fraserRanking: 8.2,
+  },
+  {
+    name: 'St. Gregory the Great Catholic Elementary School',
+    website: 'https://elem.hcdsb.org/stgregory/',
+    picture: '/images/webp/schools/st-gregory.png',
+    address: '138 Sixteen Mile Dr, Oakville, ON L6M 0Z4',
+    phone: '(905) 257-9432',
+    grades: 'JK-8',
+    beforeAfterPrograms: true,
+    frenchImersion: true,
+    fraserRanking: 7,
+  },
+  {
+    name: 'Dr. David R. Williams Public School',
+    website: 'https://ddw.hdsb.ca/',
+    picture: '/images/webp/schools/dr-david-r-williams.png',
+    address: '3199 Post Rd, Oakville, ON L6H 0V4, Canada',
+    phone: '(905) 257-4549',
+    grades: 'JK-Jk',
+    beforeAfterPrograms: true,
+    frenchImersion: true,
+    fraserRanking: 0,
+  },
+  {
+    name: 'Dearcroft Montessori School – Trafalgar Crossing',
+    website: 'https://dearcroftmontessori.com',
+    picture: '/images/webp/schools/dearcroft-montessori.png',
+    address: '297 Oak Walk Dr, Oakville, ON L6H 3R6, Canada',
+    phone: '(905) 257-3200',
+    grades: 'Montessori',
+    beforeAfterPrograms: true,
+    frenchImersion: false,
+    fraserRanking: 0,
+  },
+  {
+    name: 'River Oaks Public School',
+    website: 'https://rop.hdsb.ca/',
+    picture: '/images/webp/schools/river-oaks.png',
+    address: '2173 Munn’s Ave, Oakville, ON L6H 3S9, Canada',
+    phone: '(905) 842-7430',
+    grades: 'JK-8',
+    beforeAfterPrograms: true,
+    frenchImersion: true,
+    fraserRanking: 7.5,
+  },
+  {
+    name: 'White Oaks Secondary School',
+    website: 'https://wos.hdsb.ca/',
+    picture: '/images/webp/schools/white-oaks.png',
+    address: '1330 Montclair Dr, Oakville, ON L6H 1Z5, Canada',
+    phone: '(905) 845-5200',
+    grades: '9-12',
+    beforeAfterPrograms: true,
+    frenchImersion: false,
+    fraserRanking: 7.8,
+  },
+  {
+    name: 'Trafalgar Ridge Montessori School',
+    website: 'https://trms.ca/',
+    picture: '/images/webp/schools/trafalgar-ridge.png',
+    address: '2379 Trafalgar Rd, Oakville, ON L6H 6K7, Canada',
+    phone: '(905) 257-7700',
+    grades: 'Montessori',
+    beforeAfterPrograms: true,
+    frenchImersion: false,
+    fraserRanking: 0,
+  },
+  {
+    name: 'Palermo Public School',
+    website: 'https://pal.hdsb.ca/',
+    picture: '/images/webp/schools/palermo.png',
+    address: '2561 Valleyridge Dr, Oakville, ON L6M 5H4, Canada',
+    phone: '(905) 469-1138',
+    grades: 'JK-8',
+    beforeAfterPrograms: true,
+    frenchImersion: true,
+    fraserRanking: 7.5,
+  },
+  {
+    name: 'Holy Trinity Catholic Secondary School',
+    website: 'https://secondary.hcdsb.org/holytrinity/',
+    picture: '/images/webp/schools/holy-trinity.png',
+    address: '2420 Sixth Line, Oakville, ON L6H 3N8, Canada',
+    phone: '(905) 257-3534',
     grades: '9-12',
     beforeAfterPrograms: true,
     frenchImersion: true,
     fraserRanking: 8.5,
   },
   {
-    name: 'White Oaks Secondary School',
-    website: 'https://woh.hdsb.ca/',
-    picture: '/images/webp/schools/white-oaks.jpg',
-    address: '1330 Montclair Dr, Oakville, ON L6H 1Z5',
-    phone: '(905) 845-5200',
+    name: 'Iroquois Ridge High School',
+    website: 'https://irh.hdsb.ca/',
+    picture: '/images/webp/schools/iroquois-ridge.jpg',
+    address: '1123 Glenashton Dr, Oakville, ON L6H 4G1, Canada',
+    phone: '(905) 845-0012',
     grades: '9-12',
     beforeAfterPrograms: true,
     frenchImersion: true,
-    fraserRanking: 7.8,
+    fraserRanking: 8.5,
   },
   {
-    name: 'Abbey Park High School',
-    website: 'https://aph.hdsb.ca/',
-    picture: '/images/webp/schools/abbey-park.jpg',
-    address: '1455 Glen Abbey Gate, Oakville, ON L6M 2G5',
-    phone: '(905) 827-4101',
-    grades: '9-12',
+    name: 'Al-Falah Islamic School',
+    website: 'https://alfalahschool.ca',
+    picture: '/images/webp/schools/al-falah.png',
+    address: '391 Burnhamthorpe Rd E, Oakville, ON L6H 7B4, Canada',
+    phone: '(905) 257-6669',
+    grades: 'JK-8',
     beforeAfterPrograms: true,
-    frenchImersion: true,
-    fraserRanking: 8.2,
-  },
-  {
-    name: 'Garth Webb Secondary School',
-    website: 'https://gwh.hdsb.ca/',
-    picture: '/images/webp/schools/garth-webb.jpg',
-    address: '2820 Westoak Trails Blvd, Oakville, ON L6M 4W2',
-    phone: '(905) 847-6875',
-    grades: '9-12',
-    beforeAfterPrograms: true,
-    frenchImersion: true,
-    fraserRanking: 8.9,
-  },
-  {
-    name: 'St. Ignatius of Loyola Secondary School',
-    website: 'https://loy.hcdsb.org/',
-    picture: '/images/webp/schools/st-ignatius.jpg',
-    address: '1550 Nottinghill Gate, Oakville, ON L6M 1S2',
-    phone: '(905) 847-0595',
-    grades: '9-12',
-    beforeAfterPrograms: true,
-    frenchImersion: true,
-    fraserRanking: 8.7,
+    frenchImersion: false,
+    fraserRanking: 10,
   },
 ];
 
-const Schools = () => {
+function page() {
   return (
-    <main className="container flex h-full  gap-4 py-4">
-      <div className="flex flex-1 flex-col">
-        <h2 className="text-2xl font-semibold">Schools in the community</h2>
-        <hr className="my-2 border-gray-300" />
+    <main className=" mx-auto flex max-w-[1140px] flex-col gap-4 py-4">
+      <h3 className="text-center text-xl font-medium">
+        Schools at The Preserve Oakville
+      </h3>
 
-        <div className="flex items-start gap-4">
+      <section className="flex flex-col rounded bg-primary-400 p-1">
+        <div className="h-72 overflow-hidden rounded-sm">
+          <Map />
+        </div>
+        <div className="flex gap-4 px-3 pb-2 pt-3">
+          <Button className=" flex-1 items-center gap-2 bg-white font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+            <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
+            Montessori
+          </Button>
+          <Button className=" flex-1 items-center gap-2 bg-white font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+            <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
+            Public
+          </Button>
+          <Button className=" flex-1 items-center gap-2 bg-white font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+            <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
+            Primary
+          </Button>
+          <Button className=" flex-1 items-center gap-2 bg-white font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+            <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
+            Catholic
+          </Button>
+        </div>
+      </section>
+      <div className="grid grid-cols-2 gap-4">
+        {ElementarySchools.map(school => (
           <div
-            className="sticky top-[134px] flex-1 overflow-hidden rounded"
-            style={{
-              height: 'calc(100vh - 152px)',
-            }}
+            key={school.name}
+            className="relative flex flex-col gap-2 rounded border border-gray-300 p-2"
           >
-            <Map />
-          </div>
-          <div className="flex h-full w-2/5 flex-col gap-4">
-            <div className="flex items-center gap-4">
-              <select
-                name="school type"
-                id="schools"
-                className="h-[36px] flex-1 appearance-none rounded border border-gray-300 bg-transparent px-4 text-sm focus:border-primary-400 focus:outline-none"
-              >
-                <option value="montessori">Montessori</option>
-                <option value="public">Public</option>
-                <option value="private">Private</option>
-                <option value="catholic">Catholic</option>
-              </select>
-
-              <div className="flex h-[36px] gap-2 rounded bg-secondary-500 px-1.5 py-1">
-                <Button className="h-full">Elementary</Button>
-                <Button className="h-full bg-transparent" variant="ghost">
-                  Secondary
-                </Button>
+            <div className="relative h-60 w-full">
+              <Image
+                src={school.picture}
+                alt={school.name}
+                fill
+                className="rounded object-cover"
+              />
+              <div className="absolute left-2 top-2 flex gap-2">
+                {school.frenchImersion && (
+                  <div className="rounded-sm bg-white  px-2 py-1 text-sm font-semibold leading-4 shadow">
+                    <span>French Immersion</span>
+                  </div>
+                )}
+                <div className=" rounded-sm bg-white  px-2 py-1 text-sm font-semibold leading-4 shadow">
+                  <span>
+                    Grade {school.grades.split('-')[0]} -
+                    {school.grades.split('-')[1]}
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="flex flex-col gap-4">
-              {ElementarySchools.map(school => (
-                <div
-                  key={school.name}
-                  className="relative flex overflow-hidden rounded border"
-                >
-                  <div className="relative aspect-square h-40">
-                    <Image
-                      src={school.picture}
-                      alt={school.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex h-full flex-1 flex-col justify-between  px-2">
-                    <h3 className="line-clamp-1 w-full text-ellipsis pt-1 text-base font-medium">
-                      {school.name}
-                    </h3>
-                    <hr className="mb-1 mt-2" />
-                    <div className="flex h-full flex-col gap-1.5 py-1">
-                      <p className="text-xs text-gray-500">{school.address}</p>
-                      <p className="text-xs text-gray-500">{school.phone}</p>
-                      <p className="text-xs text-gray-500">
-                        Grades: {school.grades}
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        Before/After Programs: {school.beforeAfterPrograms}
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        French Imersion: {school.frenchImersion}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="absolute right-0">
-                    <Ranking ranking={school.fraserRanking} />
-                  </div>
-                </div>
-              ))}
+            <h5 className="text-base font-medium">{school.name}</h5>
+
+            <div className="flex flex-col gap-1 ">
+              <div className="flex items-center gap-1.5">
+                <FaMapMarkerAlt size={14} />
+                <p className="text-sm">{school.address}</p>
+              </div>
+              <Link
+                href={`tel:${school.phone}`}
+                className="flex items-center gap-1.5 text-sm"
+              >
+                <FaPhoneAlt size={14} />
+                {school.phone}
+              </Link>
+              <Link
+                href={school.website}
+                className="flex items-center gap-1.5 text-sm"
+              >
+                <FaGlobeAmericas size={14} />
+                {school.website}
+              </Link>
+
+              {/* <p className="text-sm">
+                French immersion:{' '}
+                <span className="font-semibold">
+                  {school.frenchImersion ? 'Yes' : 'No'}
+                </span>
+              </p> */}
+              <p className="text-sm">
+                Before and after school programs:{' '}
+                <span className="font-semibold">
+                  {school.beforeAfterPrograms ? 'Yes' : 'No'}
+                </span>
+              </p>
+            </div>
+            <div className="absolute bottom-4 right-0 ">
+              {school.fraserRanking > 0 && (
+                <RankingPie ranking={school.fraserRanking} />
+              )}
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </main>
   );
-};
+}
 
-export default Schools;
+export default page;
