@@ -221,30 +221,96 @@ function page() {
         Schools at The Preserve Oakville
       </h3>
 
-      <section className="flex flex-col rounded bg-primary-400 p-1">
-        <div className="h-72 overflow-hidden rounded-sm">
+      <section className="flex flex-col gap-4 rounded">
+        <div
+          className="overflow-hidden rounded"
+          style={{
+            height: 'calc(100vh - 204px)',
+          }}
+        >
           <Map />
         </div>
-        <div className="flex gap-4 px-3 pb-2 pt-3">
-          <Button className=" flex-1 items-center gap-2 bg-white font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+        <div className="flex gap-4">
+          <Button className=" flex-1 items-center gap-2 bg-primary-500 font-medium text-white transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
             <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
             Montessori
           </Button>
-          <Button className=" flex-1 items-center gap-2 bg-white font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+          <Button className=" flex-1 items-center gap-2 bg-primary-100 font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
             <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
             Public
           </Button>
-          <Button className=" flex-1 items-center gap-2 bg-white font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+          <Button className=" flex-1 items-center gap-2 bg-primary-100 font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
             <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
             Primary
           </Button>
-          <Button className=" flex-1 items-center gap-2 bg-white font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+          <Button className=" flex-1 items-center gap-2 bg-primary-100 font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
             <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
             Catholic
           </Button>
         </div>
       </section>
-      <div className="grid grid-cols-2 gap-4">
+
+      {ElementarySchools.map(school => (
+        <div
+          className="flex overflow-hidden rounded border border-gray-300"
+          key={school.name}
+        >
+          <div className="relative h-72 flex-1">
+            <Image
+              src={school.picture}
+              alt={school.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex-1">
+            <div className="flex flex-col gap-2 pt-2">
+              <h5 className="px-4 text-base font-medium">{school.name}</h5>
+              <hr />
+            </div>
+            <div className="flex flex-col gap-4 px-4 py-3">
+              <p className="text-sm">
+                Fraser Ranking:{' '}
+                <span className="font-semibold">
+                  {school.fraserRanking > 0 ? school.fraserRanking : 'N/A'}
+                </span>
+              </p>
+              <p className="text-sm">
+                French Immersion:{' '}
+                <span className="font-semibold">
+                  {school.frenchImersion ? 'Yes' : 'No'}
+                </span>
+              </p>
+              <p className="text-sm">
+                Before and after school programs:{' '}
+                <span className="font-semibold">
+                  {school.beforeAfterPrograms ? 'Yes' : 'No'}
+                </span>
+              </p>
+              <Link
+                href={`tel:${school.phone}`}
+                className="flex items-center gap-1.5 text-sm"
+              >
+                <FaPhoneAlt size={14} />
+                {school.phone}
+              </Link>
+              <Link
+                href={school.website}
+                className="flex items-center gap-1.5 text-sm"
+              >
+                <FaGlobeAmericas size={14} />
+                {school.website}
+              </Link>
+              <div className="flex items-center gap-1.5">
+                <FaMapMarkerAlt size={14} />
+                <p className="text-sm">{school.address}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+      {/* <div className="grid grid-cols-2 gap-4"> */}
+      {/* <div className="grid grid-cols-2 gap-4">
         {ElementarySchools.map(school => (
           <div
             key={school.name}
@@ -294,12 +360,6 @@ function page() {
                 {school.website}
               </Link>
 
-              {/* <p className="text-sm">
-                French immersion:{' '}
-                <span className="font-semibold">
-                  {school.frenchImersion ? 'Yes' : 'No'}
-                </span>
-              </p> */}
               <p className="text-sm">
                 Before and after school programs:{' '}
                 <span className="font-semibold">
@@ -314,7 +374,7 @@ function page() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </main>
   );
 }

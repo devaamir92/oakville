@@ -72,11 +72,11 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
   return (
     <div>
       <main className="mx-auto flex h-full max-w-[1140px] flex-col gap-4 py-4">
-        <div className="flex flex-col">
-          <h2 className="text-2xl font-semibold">Public schools</h2>
-          <hr className="my-2 border-gray-300" />
+        {/* <div className="flex flex-col"> */}
+        <h2 className="text-2xl font-semibold">Public schools</h2>
+        <hr className="my-2 border-gray-300" />
 
-          <section>
+        {/* <section>
             <div className="flex justify-center gap-4">
               <Link
                 href="/schools/public?grade=elementary"
@@ -99,9 +99,9 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
                 High School
               </Link>
             </div>
-          </section>
-        </div>
-        <div className="flex flex-col gap-2">
+          </section> */}
+        {/* </div> */}
+        {/* <div className="flex flex-col gap-2">
           <h5 className="text-xl font-semibold">Elementary</h5>
           <ul className="flex flex-col gap-1">
             {ElementarySchools.map(school => (
@@ -113,8 +113,8 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="flex flex-col gap-4">
+        </div> */}
+        {/* <div className="flex flex-col gap-4">
           {ElementarySchools.map((school, index) => (
             <>
               <h3 className="py-2 text-xl font-semibold">
@@ -171,7 +171,7 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
               </div>
             </>
           ))}
-        </div>
+        </div> */}
       </main>
     </div>
   );
