@@ -2,16 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import dynamic from 'next/dynamic';
-
 import { FaGlobeAmericas, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 
 import { Button } from '@components/ui/Button';
 import Map from '@components/Mapbox';
-
-const RankingPie = dynamic(() => import('../_components/Ranking'), {
-  ssr: false,
-});
 
 const ElementarySchools = [
   // {
@@ -216,34 +210,34 @@ const ElementarySchools = [
 
 function page() {
   return (
-    <main className=" mx-auto flex max-w-[1140px] flex-col gap-4 py-4">
+    <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
       <h3 className="text-center text-xl font-medium">
-        Schools at The Preserve Oakville
+        The Preserve Oakville Schools
       </h3>
 
-      <section className="flex flex-col gap-4 rounded">
+      <section className="-mt-4 flex flex-col   gap-8">
         <div
           className="overflow-hidden rounded"
           style={{
-            height: 'calc(100vh - 204px)',
+            height: 'calc(100vh - 252px)',
           }}
         >
           <Map />
         </div>
-        <div className="flex gap-4">
-          <Button className=" flex-1 items-center gap-2 bg-primary-500 font-medium text-white transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+        <div className="flex gap-8">
+          <Button className=" h-14 flex-1 items-center gap-2 bg-primary-500 px-6 py-3 font-medium text-white transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
             <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
             Montessori
           </Button>
-          <Button className=" flex-1 items-center gap-2 bg-primary-100 font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+          <Button className=" h-14 flex-1 items-center gap-2 bg-primary-100 px-6 py-3 font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
             <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
             Public
           </Button>
-          <Button className=" flex-1 items-center gap-2 bg-primary-100 font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+          <Button className=" h-14 flex-1 items-center gap-2 bg-primary-100 px-6 py-3 font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
             <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
             Primary
           </Button>
-          <Button className=" flex-1 items-center gap-2 bg-primary-100 font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
+          <Button className=" h-14 flex-1 items-center gap-2 bg-primary-100 px-6 py-3 font-medium text-primary-500 transition-all duration-300 ease-out hover:bg-primary-500 hover:text-white">
             <div className="size-2 rounded-full bg-primary-500 ring ring-gray-300 ring-offset-2 " />
             Catholic
           </Button>
