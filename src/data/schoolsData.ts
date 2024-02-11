@@ -1,0 +1,121 @@
+export const publicSchools = [
+  {
+    id: 1,
+    name: 'Oodenawi Public School',
+    address: '385 Sixteen Mile Dr, Oakville, L6M 0Z4',
+    phone_number: '(905) 257-6594',
+    school_year: '2023-2024',
+    grades: 'JK - GR08',
+    program: 'Regular Track',
+    website: 'https://ood.hdsb.ca/',
+  },
+  {
+    id: 2,
+    name: 'Dr. David R. Williams Public School',
+    address: '3199 Post Rd, Oakville, L6H 0V4',
+    phone_number: '(905) 257-4549',
+    school_year: '2023-2024',
+    grades: 'JK - GR08',
+    program: 'Regular Track',
+    website: 'https://ddw.hdsb.ca/',
+  },
+  {
+    id: 3,
+    name: 'White Oaks Secondary School',
+    address: '1330 Montclair Dr, Oakville, L6H 1Z5',
+    phone_number: '905-845-5200',
+    school_year: '2023-2024',
+    grades: 'GR09 - GR12',
+    program: 'Regular Track',
+    website: 'https://wos.hdsb.ca/',
+  },
+  {
+    id: 4,
+    name: 'Iroquois Ridge High School',
+    address: '11123 Glenashton Dr, Oakville, L6H 5M1',
+    phone_number: '905-845-0012',
+    school_year: '2023-2024',
+    grades: 'GR09 - GR12',
+    program: 'Regular Track',
+    website: 'https://irs.hdsb.ca/',
+  },
+];
+
+export const privateSchools = [
+  {
+    id: 1,
+    name: 'Al Falah Islamic School',
+    address: '391 Burnhamthorpe Rd E, Oakville, L6H 7B4',
+    phone_number: '905-257-5782 Ext 250',
+    program: [
+      'Casa Junior (4 year old)',
+      'Casa Senior (5 year old)',
+      'Grades 1 to 8',
+    ],
+    website: 'https://alfalahschool.ca',
+  },
+  {
+    id: 2,
+    name: "King's Christian Collegiate",
+    address: '528 Burnhamthorpe Rd W, Oakville, L6M 4K6',
+    phone_number: '905-257-5464',
+    program: ['Grades 9-12'],
+    website: 'https://kingschristian.ca',
+  },
+  {
+    id: 3,
+    name: 'Fern Hill School',
+    address: '3300 Ninth Line Oakville, L6H 7A8',
+    phone_number: '647-277-5135',
+    program: ['PS 1/2 Day', 'PS & JK Full Day', 'SK-Grade 2', 'Grade 3-8'],
+    website: 'https://www.fernhillschool.com',
+  },
+  {
+    id: 4,
+    name: 'MacLachlan College',
+    address: '337 Trafalgar Rd, Oakville, L6J 3H3',
+    phone_number: '905-844-0373',
+    program: ['IB PYP: K-6', 'Grade 7 - 8', 'Grade 9 - 12'],
+    website: 'https://www.maclachlan.ca',
+  },
+  {
+    id: 5,
+    name: 'Appleby College',
+    address: '540 Lakeshore Rd W, Oakville, L6K 3P1',
+    phone_number: '905-845-4681',
+    program: [
+      'Middle School (Grade 7&8)',
+      'Upper School (Grade 9&10)',
+      'Senior School (Grade 11&12)',
+    ],
+    website: 'https://www.appleby.on.ca',
+  },
+];
+
+export const montessoriSchools = [
+  {
+    id: 1,
+    name: 'Kendellhurst Academy Preschool',
+    program: 'Preschool | Daycare',
+    address: '2460 Neyagawa Blvd # 11 & 12, Oakville, L6H 7P4',
+    phone_number: '905-257-2030',
+    website: 'https://www.kendellhurst.com/',
+  },
+  {
+    id: 2,
+    name: 'Dearcroft Montessori School Trafalgar Crossing',
+    program:
+      'Toddler (18 months - 3 Years), Casa (2.5 Years - 5 Years), Elementary Grades 1-6',
+    address: '297 Oak Walk Drive, Oakville, L6H 6Z3',
+    phone_number: '905-257-3200',
+    website: 'https://dearcroftmontessori.com/',
+  },
+  {
+    id: 3,
+    name: 'Trafalgar Ridge Montessori School',
+    program: 'Casa Montessori, Lower Elementary, Summer Camp',
+    address: '2379 Trafalgar Rd, Oakville, L6H 6K7',
+    phone_number: '905-257-5955',
+    website: 'https://trms.ca',
+  },
+];

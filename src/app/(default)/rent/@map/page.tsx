@@ -17,7 +17,7 @@ const page: React.FC<PageProps> = ({ searchParams }) => {
       }}
       className="sticky left-0 flex-1"
     >
-      <Mapbox />;
+      <Mapbox lat={43.48162606437566} lng={79.71881522172734} zoom={12.83} />; ;
     </section>
   );
 };
