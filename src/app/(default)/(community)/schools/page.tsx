@@ -233,7 +233,7 @@ function page() {
         ))}
       </div>
       <div className="mt-4 flex flex-col justify-center gap-3">
-        <h2 className="text-center text-2xl font-medium">Montessori</h2>
+        <h2 className="text-center text-2xl font-medium">Montessori Schools</h2>
         <hr />
       </div>
       <div className="grid grid-cols-2  gap-16">
