@@ -2,8 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 // import dynamic from 'next/dynamic';
 
+import {
+  catholicSchools,
+  montessoriSchools,
+  privateSchools,
+  publicSchools,
+} from '@data/schoolsData';
+
 import Map from '@components/Mapbox';
-import { publicSchools } from '@data/schoolsData';
 
 // const RankingPie = dynamic(() => import('../_components/Ranking'), {
 //   ssr: false,
@@ -63,7 +69,11 @@ function page() {
         </div>
       </section>
 
-      <div className="grid grid-cols-2  gap-8">
+      <div className="mt-4 flex flex-col justify-center gap-3">
+        <h2 className="text-center text-2xl font-medium">Public Schools</h2>
+        <hr />
+      </div>
+      <div className="grid grid-cols-2  gap-16">
         {publicSchools.map(school => (
           <div className="flex flex-col gap-4" key={school.id}>
             <p className="text-md font-medium">{school.name}</p>
@@ -113,12 +123,218 @@ function page() {
                 </tr>
                 <tr className="flex text-sm">
                   <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    Fraser Ranking Score:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    {school.raking}
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
                     School Year:
                   </td>
                   <td className=" flex-1 py-1.5 font-medium text-gray-700">
                     {school.school_year}
                   </td>
                 </tr>
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    Program:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    {school.program}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-4 flex flex-col justify-center gap-3">
+        <h2 className="text-center text-2xl font-medium">Catholic Schools</h2>
+        <hr />
+      </div>
+      <div className="grid grid-cols-2  gap-16">
+        {catholicSchools.map(school => (
+          <div className="flex flex-col gap-4" key={school.id}>
+            <p className="text-md font-medium">{school.name}</p>
+            <table className="w-full">
+              <tbody className="divide-y divide-gray-300 bg-white">
+                <tr className="flex text-sm">
+                  <td className="flex-1  py-1.5 font-medium text-gray-500">
+                    Address:
+                  </td>
+                  <td className="flex-1  py-1.5 font-medium text-gray-700">
+                    {school.address}
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className="flex-1 py-1.5 font-medium text-gray-500">
+                    Phone:
+                  </td>
+                  <td className="flex-1 py-1.5 font-medium text-gray-700">
+                    <Link
+                      href={`tel:${school.phone_number}`}
+                      className="flex items-center gap-1"
+                    >
+                      <span>{school.phone_number}</span>
+                    </Link>
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    Website:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    <Link
+                      href={school.website}
+                      className="flex items-center gap-1"
+                    >
+                      <span>{school.website}</span>
+                    </Link>
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    Grades:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    {school.grades}
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    Fraser Ranking Score:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    {school.raking}
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    School Year:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    {school.school_year}
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    Program:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    {school.program}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex flex-col justify-center gap-3">
+        <h2 className="text-center text-2xl font-medium">Montessori</h2>
+        <hr />
+      </div>
+      <div className="grid grid-cols-2  gap-16">
+        {montessoriSchools.map(school => (
+          <div className="flex flex-col gap-4" key={school.id}>
+            <p className="text-md font-medium">{school.name}</p>
+            <table className="w-full">
+              <tbody className="divide-y divide-gray-300 bg-white">
+                <tr className="flex text-sm">
+                  <td className="flex-1  py-1.5 font-medium text-gray-500">
+                    Address:
+                  </td>
+                  <td className="flex-1  py-1.5 font-medium text-gray-700">
+                    {school.address}
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className="flex-1 py-1.5 font-medium text-gray-500">
+                    Phone:
+                  </td>
+                  <td className="flex-1 py-1.5 font-medium text-gray-700">
+                    <Link
+                      href={`tel:${school.phone_number}`}
+                      className="flex items-center gap-1"
+                    >
+                      <span>{school.phone_number}</span>
+                    </Link>
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    Website:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    <Link
+                      href={school.website}
+                      className="flex items-center gap-1"
+                    >
+                      <span>{school.website}</span>
+                    </Link>
+                  </td>
+                </tr>
+
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    Program:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    {school.program}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
+      <div className="mt-4 flex flex-col justify-center gap-3">
+        <h2 className="text-center text-2xl font-medium">Private Schools</h2>
+        <hr />
+      </div>
+      <div className="grid grid-cols-2  gap-16 pb-10">
+        {privateSchools.map(school => (
+          <div className="flex flex-col gap-4" key={school.id}>
+            <p className="text-md font-medium">{school.name}</p>
+            <table className="w-full">
+              <tbody className="divide-y divide-gray-300 bg-white">
+                <tr className="flex text-sm">
+                  <td className="flex-1  py-1.5 font-medium text-gray-500">
+                    Address:
+                  </td>
+                  <td className="flex-1  py-1.5 font-medium text-gray-700">
+                    {school.address}
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className="flex-1 py-1.5 font-medium text-gray-500">
+                    Phone:
+                  </td>
+                  <td className="flex-1 py-1.5 font-medium text-gray-700">
+                    <Link
+                      href={`tel:${school.phone_number}`}
+                      className="flex items-center gap-1"
+                    >
+                      <span>{school.phone_number}</span>
+                    </Link>
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                    Website:
+                  </td>
+                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                    <Link
+                      href={school.website}
+                      className="flex items-center gap-1"
+                    >
+                      <span>{school.website}</span>
+                    </Link>
+                  </td>
+                </tr>
+
                 <tr className="flex text-sm">
                   <td className=" flex-1 py-1.5 font-medium text-gray-500">
                     Program:
