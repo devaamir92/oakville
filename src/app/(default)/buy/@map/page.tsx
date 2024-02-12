@@ -1,3 +1,5 @@
+'use server';
+
 import { promises as fs } from 'fs';
 
 import Mapbox from '@components/Mapbox';
@@ -13,11 +15,6 @@ const getGeoJson = async () => {
     `${process.cwd()}/src/assets/map/map.json`,
     'utf-8'
   );
-
-  if (!geoJson) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
 
   return JSON.parse(geoJson);
 };
