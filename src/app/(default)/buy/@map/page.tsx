@@ -1,6 +1,6 @@
-'use server';
+// import { promises as fs } from 'fs';
 
-import { promises as fs } from 'fs';
+import geojsonData from '@assets/map/map.json';
 
 import Mapbox from '@components/Mapbox';
 
@@ -10,19 +10,19 @@ interface PageProps {
   };
 }
 
-const getGeoJson = async () => {
-  const geoJson = await fs.readFile(
-    `${process.cwd()}/src/assets/map/map.json`,
-    'utf-8'
-  );
+// const getGeoJson = async () => {
+//   const geoJson = await fs.readFile(
+//     `${process.cwd()}/src/assets/map/map.json`,
+//     'utf-8'
+//   );
 
-  return JSON.parse(geoJson);
-};
+//   return JSON.parse(geoJson);
+// };
 
 const page: React.FC<PageProps> = async ({ searchParams }) => {
   if (searchParams?.view === 'list') return null;
 
-  const geojsonData = await getGeoJson();
+  // const geojsonData = await getGeoJson();
 
   return (
     <section
