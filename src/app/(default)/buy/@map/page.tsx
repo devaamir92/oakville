@@ -1,3 +1,5 @@
+import { promises as fs } from 'fs';
+
 import Mapbox from '@components/Mapbox';
 
 interface PageProps {
@@ -6,8 +8,19 @@ interface PageProps {
   };
 }
 
-const page: React.FC<PageProps> = ({ searchParams }) => {
+const getGeoJson = async () => {
+  const geoJson = await fs.readFile(
+    `${process.cwd()}/src/assets/map/map.json`,
+    'utf-8'
+  );
+
+  return JSON.parse(geoJson);
+};
+
+const page: React.FC<PageProps> = async ({ searchParams }) => {
   if (searchParams?.view === 'list') return null;
+
+  const geojsonData = await getGeoJson();
 
   return (
     <section
@@ -17,7 +30,12 @@ const page: React.FC<PageProps> = ({ searchParams }) => {
       }}
       className="sticky left-0 flex-1"
     >
-      <Mapbox lat={43.48162606437566} lng={79.71881522172734} zoom={12.83} />;
+      <Mapbox
+        geojson={geojsonData}
+        lat={43.47151010338547}
+        lng={-79.74806084049912}
+        zoom={11.9}
+      />
     </section>
   );
 };

@@ -1,0 +1,173 @@
+{
+  "publicSchools": [
+    {
+      "id": 1,
+      "name": "Oodenawi Public School",
+      "address": "385 Sixteen Mile Dr, Oakville",
+      "phone_number": "(905) 257-6594",
+      "school_year": "2023-2024",
+      "grades": "JK - GR08",
+      "program": "Regular Track",
+      "website": "https://ood.hdsb.ca/",
+      "raking": 8.2
+    },
+    {
+      "id": 2,
+      "name": "Dr. David R. Williams Public School",
+      "address": "3199 Post Rd, Oakville",
+      "phone_number": "(905) 257-4549",
+      "school_year": "2023-2024",
+      "grades": "JK - GR08",
+      "program": "Regular Track",
+      "website": "https://ddw.hdsb.ca/",
+      "raking": ""
+    },
+    {
+      "id": 3,
+      "name": "White Oaks Secondary School",
+      "address": "1330 Montclair Dr, Oakville",
+      "phone_number": "905-845-5200",
+      "school_year": "2023-2024",
+      "grades": "GR09 - GR12",
+      "program": "Regular Track",
+      "website": "https://wos.hdsb.ca/",
+      "raking": 8.6
+    },
+    {
+      "id": 4,
+      "name": "Iroquois Ridge High School",
+      "address": "11123 Glenashton Dr, Oakville",
+      "phone_number": "905-845-0012",
+      "school_year": "2023-2024",
+      "grades": "GR09 - GR12",
+      "program": "Regular Track",
+      "website": "https://irs.hdsb.ca/",
+      "raking": 8.9
+    }
+  ],
+  "privateSchools": [
+    {
+      "id": 1,
+      "name": "Al Falah Islamic School",
+      "address": "391 Burnhamthorpe Rd E, Oakville",
+      "phone_number": "905-257-5782 Ext 250",
+      "program": [
+        "Casa Junior (4 year old)",
+        "Casa Senior (5 year old)",
+        "Grades 1 to 8"
+      ],
+      "website": "https://alfalahschool.ca"
+    },
+    {
+      "id": 2,
+      "name": "King's Christian Collegiate",
+      "address": "528 Burnhamthorpe Rd W, Oakville",
+      "phone_number": "905-257-5464",
+      "program": ["Grades 9-12"],
+      "website": "https://kingschristian.ca"
+    },
+    {
+      "id": 3,
+      "name": "Fern Hill School",
+      "address": "3300 Ninth Line Oakville",
+      "phone_number": "647-277-5135",
+      "program": "Pre-School to Grade 8",
+      "website": "https://www.fernhillschool.com"
+    },
+    {
+      "id": 4,
+      "name": "MacLachlan College",
+      "address": "337 Trafalgar Rd, Oakville",
+      "phone_number": "905-844-0373",
+      "program": "IB PYP: K to Grade 6, Grade 7-12",
+      "website": "https://www.maclachlan.ca"
+    },
+    {
+      "id": 5,
+      "name": "Appleby College",
+      "address": "540 Lakeshore Rd W, Oakville",
+      "phone_number": "905-845-4681",
+      "program": [
+        "Middle School Grade 7-8, Upper School Grade 9-10, Senior School Grade 11-12"
+      ],
+      "website": "https://www.appleby.on.ca"
+    },
+    {
+      "id": 6,
+      "name": "Linbrook School - All boys ",
+      "address": "1079 Linbrook Rd, Oakville",
+      "phone_number": "905-844-2697",
+      "program": "Grades 1-8",
+      "website": "https://www.linbrook.ca/"
+    }
+  ],
+  "montessoriSchools": [
+    {
+      "id": 1,
+      "name": "Kendellhurst Academy Preschool",
+      "program": "Preschool | Daycare",
+      "address": "2460 Neyagawa Blvd # 11 & 12, Oakville",
+      "phone_number": "905-257-2030",
+      "website": "https://www.kendellhurst.com/"
+    },
+    {
+      "id": 2,
+      "name": "Dearcroft Montessori School Trafalgar Crossing",
+      "program": "Toddler (18 months - 3 Years), Casa (2.5 Years - 5 Years), Elementary Grades 1-6",
+      "address": "297 Oak Walk Drive, Oakville",
+      "phone_number": "905-257-3200",
+      "website": "https://dearcroftmontessori.com/"
+    },
+    {
+      "id": 3,
+      "name": "Trafalgar Ridge Montessori School",
+      "program": "Casa Montessori, Lower Elementary, Summer Camp",
+      "address": "2379 Trafalgar Rd, Oakville",
+      "phone_number": "905-257-5955",
+      "website": "https://trms.ca"
+    },
+    {
+      "id": 4,
+      "name": "Peace of Mind Montessori School",
+      "program": "Toddler 15-30 months Casa 2.5- 6 Years",
+      "address": "1525 Litchfield Road, Oakville",
+      "phone_number": "905-842-4800",
+      "website": "https://www.pm-ms.ca/"
+    }
+  ],
+  "catholicSchools": [
+    {
+      "id": 1,
+      "name": "St. Gregory the Great CES",
+      "address": "138 Sixteen Mile Drive, Oakville",
+      "phone_number": "905-257-9432",
+      "school_year": "2023-2024",
+      "grades": "JK-8",
+      "program": "Regular Track",
+      "website": "https://elem.hcdsb.org/stgregory#",
+      "raking": 7.0
+    },
+    {
+      "id": 2,
+      "name": "St. Ignatius of Loyola CSS",
+      "address": "1550 Nottinghill Gate, Oakville",
+      "phone_number": "905-847-0595",
+      "school_year": "2023-2024",
+      "grades": "9-12",
+      "program": "Regular Track",
+      "website": "https://secondary.hcdsb.org/loyola/",
+      "raking": 7.9
+    },
+    {
+      "id": 3,
+      "name": "Holy Trinity CSS",
+      "address": "2420 Sixth Line, Oakville",
+      "phone_number": "905-257-3534",
+      "school_year": "2023-2024",
+      "grades": "9-12",
+      "program": "Regular Track",
+      "website": "https://secondary.hcdsb.org/holytrinity/",
+      "raking": 7.1
+    }
+  ]
+}
