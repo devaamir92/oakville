@@ -8,24 +8,24 @@ interface PageProps {
   };
 }
 
-export default async function Page({ searchParams }: PageProps) {
-  if (searchParams?.view === 'list') return null;
-
-  // const getGeoJson = async () => {
-  //   const geoJson = await fs.readFile(
-  //     `${process.cwd()}/src/assets/map/map.json`,
-  //     'utf-8'
-  //   );
-
-  //   return JSON.parse(geoJson);
-  // };
-
-  const file = await fs.readFile(
+const getGeoJson = async () => {
+  const geoJson = await fs.readFile(
     `${process.cwd()}/src/assets/map/map.json`,
     'utf-8'
   );
 
-  const geojsonData = JSON.parse(file);
+  if (!geoJson) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data');
+  }
+
+  return JSON.parse(geoJson);
+};
+
+const page: React.FC<PageProps> = async ({ searchParams }) => {
+  if (searchParams?.view === 'list') return null;
+
+  const geojsonData = await getGeoJson();
 
   return (
     <section
@@ -43,4 +43,6 @@ export default async function Page({ searchParams }: PageProps) {
       />
     </section>
   );
-}
+};
+
+export default page;
