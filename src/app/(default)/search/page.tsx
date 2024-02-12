@@ -77,29 +77,33 @@ const AdvancedSearch = () => {
               Recent Searches
             </h3>
 
-            <ul className="flex flex-col gap-1 py-2">
+            <div className="mt-4 flex w-full flex-wrap gap-2">
               {recentSearches.map(search => (
-                <li key={search.query} className="">
-                  <Link href={search.link} className="flex text-sm capitalize">
-                    {search.query}
-                  </Link>
-                </li>
+                <Link
+                  key={search.query}
+                  href={search.link}
+                  className="rounded bg-primary-400 px-2.5 py-0.5 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500"
+                >
+                  {search.query}
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
           <div className="flex-1 rounded bg-secondary-400 px-8 py-4">
             <h3 className="text-center text-xl font-medium text-gray-800">
               Popular Searches
             </h3>
-            <ul className="flex flex-col gap-1 py-2">
+            <div className="mt-4 flex w-full flex-wrap gap-2">
               {popularSearches.map(search => (
-                <li key={search.query} className="">
-                  <Link href={search.link} className="flex text-sm capitalize">
-                    {search.query}
-                  </Link>
-                </li>
+                <Link
+                  key={search.query}
+                  href={search.link}
+                  className="rounded bg-primary-400 px-2.5 py-0.5 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500"
+                >
+                  {search.query}
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
           <div className="flex-1 rounded bg-secondary-400 px-8 py-4">
             <h3 className="mb-2 text-center text-xl font-medium text-gray-800">
