@@ -8,19 +8,24 @@ interface PageProps {
   };
 }
 
-const getGeoJson = async () => {
-  const geoJson = await fs.readFile(
+export default async function Page({ searchParams }: PageProps) {
+  if (searchParams?.view === 'list') return null;
+
+  // const getGeoJson = async () => {
+  //   const geoJson = await fs.readFile(
+  //     `${process.cwd()}/src/assets/map/map.json`,
+  //     'utf-8'
+  //   );
+
+  //   return JSON.parse(geoJson);
+  // };
+
+  const file = await fs.readFile(
     `${process.cwd()}/src/assets/map/map.json`,
     'utf-8'
   );
 
-  return JSON.parse(geoJson);
-};
-
-const page: React.FC<PageProps> = async ({ searchParams }) => {
-  if (searchParams?.view === 'list') return null;
-
-  const geojsonData = await getGeoJson();
+  const geojsonData = JSON.parse(file);
 
   return (
     <section
@@ -38,6 +43,4 @@ const page: React.FC<PageProps> = async ({ searchParams }) => {
       />
     </section>
   );
-};
-
-export default page;
+}

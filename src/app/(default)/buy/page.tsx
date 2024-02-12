@@ -128,7 +128,7 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
           'text-center': searchParams?.view === 'list',
         })}
       >
-        Bungalows for sale in Mississauga , 126 Listings
+        Buy Properties in Oakville
       </h6>
       <div
         className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {
