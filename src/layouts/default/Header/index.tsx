@@ -11,16 +11,16 @@ import CommunitiesList from './communitiesList';
 
 const listData = [
   { name: 'Schools', link: '/schools' },
+  {
+    name: 'Banks',
+    link: '/banks',
+  },
   { name: 'Stores', link: '/stores' },
   { name: 'Parks & Rec', link: '/parks-rec' },
   { name: 'Religious Places', link: '/religious-places' },
   {
     name: 'Hospitals / walk-in clinics / vets',
     link: '/hospital-walk-in-clinic-vets',
-  },
-  {
-    name: 'Bank / Post Office / Service Ontario',
-    link: '/bank-post-office-service-ontario',
   },
   {
     name: 'Public Trasportation',

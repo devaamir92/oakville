@@ -29,7 +29,8 @@
     "react-phone-number-input": "^3.3.9",
     "recharts": "^2.11.0",
     "tailwind-merge": "^2.2.1",
-    "tailwind-tints": "^1.1.1"
+    "tailwind-tints": "^1.1.1",
+    "usehooks-ts": "^2.14.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.13",
