@@ -2,53 +2,10 @@
   "banks": [
     {
       "id": "1",
-      "name": "BMO Bank of Montreal",
-      "url": "https://branches.bmo.com/on/oakville/b3318/",
-      "address": "320 Dundas St E, Oakville",
-      "phone": "(905) 257-0904",
-      "hours": [
-        {
-          "day": "Monday",
-          "open": "9:30 AM",
-          "close": "5:00 PM"
-        },
-        {
-          "day": "Tuesday",
-          "open": "9:30 AM",
-          "close": "5:00 PM"
-        },
-        {
-          "day": "Wednesday",
-          "open": "9:30 AM",
-          "close": "5:00 PM"
-        },
-        {
-          "day": "Thursday",
-          "open": "9:30 AM",
-          "close": "7:00 PM"
-        },
-        {
-          "day": "Friday",
-          "open": "9:30 AM",
-          "close": "7:00 PM"
-        },
-        {
-          "day": "Saturday",
-          "open": "9:30 AM",
-          "close": "4:00 PM"
-        },
-        {
-          "day": "Sunday",
-          "open": "Closed",
-          "close": "Closed"
-        }
-      ]
-    },
-    {
-      "id": "2",
       "name": "CIBC Bank",
       "url": "https://www.cibc.com/en/personal-banking.html",
       "address": "271 Hays Blvd, Oakville",
+      "intersection": "Trafalgar Rd / Dundas St",
       "phone": "(905) 257-1040",
       "hours": [
         {
@@ -89,11 +46,12 @@
       ]
     },
     {
-      "id": "3",
-      "name": "HSBC Bank Canada",
-      "url": "https://www.hsbc.ca/",
-      "address": "275 Hays Blvd Unit G1, Oakville",
-      "phone": "(888) 310-4722",
+      "id": "2",
+      "name": "CIBC Bank",
+      "url": "https://www.cibc.com/en/personal-banking.html",
+      "address": "501 Dundas St W, Oakville",
+      "intersection": "Neyagawa Blvd / Dundas St",
+      "phone": "(289) 725-7233",
       "hours": [
         {
           "day": "Monday",
@@ -113,16 +71,16 @@
         {
           "day": "Thursday",
           "open": "9:30 AM",
-          "close": "5:00 PM"
+          "close": "6:00 PM"
         },
         {
           "day": "Friday",
           "open": "9:30 AM",
-          "close": "5:00 PM"
+          "close": "6:00 PM"
         },
         {
           "day": "Saturday",
-          "open": "10:00 AM",
+          "open": "9:30 AM",
           "close": "4:00 PM"
         },
         {
@@ -133,10 +91,11 @@
       ]
     },
     {
-      "id": "4",
+      "id": "3",
       "name": "RBC Royal Bank",
       "url": "https://maps.rbcroyalbank.com/ON-OAKVILLE-branch-1532",
       "address": "309 Hays Blvd, Oakville",
+      "intersection": "Trafalgar Rd / Dundas St",
       "phone": "(905) 338-2933",
       "hours": [
         {
@@ -177,10 +136,147 @@
       ]
     },
     {
+      "id": "4",
+      "name": "RBC Royal Bank",
+      "url": "https://maps.rbcroyalbank.com/ON-OAKVILLE-branch-2432",
+      "address": "483 Dundas St W, Oakville",
+      "intersection": "Neyagawa Blvd / Dundas St",
+      "phone": "(905) 842-4353",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:30 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:30 AM",
+          "close": "4:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
       "id": "5",
+      "name": "BMO Bank of Montreal",
+      "url": "https://branches.bmo.com/on/oakville/b3318/",
+      "address": "320 Dundas St E, Oakville",
+      "intersection": "Trafalgar Rd / Dundas St",
+      "phone": "(905) 257-0904",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:30 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:30 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:30 AM",
+          "close": "4:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "HSBC Bank Canada",
+      "url": "https://www.hsbc.ca/",
+      "intersection": "Trafalgar Rd / Dundas St",
+      "address": "275 Hays Blvd Unit G1, Oakville",
+      "phone": "(888) 310-4722",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "4:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+
+    {
+      "id": "7",
       "name": "Scotiabank",
       "url": "https://maps.scotiabank.com/locator",
       "address": "2391 Trafalgar Rd Unit 1, Oakville",
+      "intersection": "Trafalgar Rd / Postridge Dr",
       "phone": "(905) 257-4810",
       "hours": [
         {
@@ -222,10 +318,11 @@
     },
 
     {
-      "id": "6",
-      "name": "Tangerine Bank ABM Location",
+      "id": "8",
+      "name": "Tangerine Bank",
       "url": "https://www.tangerine.ca/",
       "address": "489 Dundas St W, Oakville",
+      "intersection": "Neyagawa Blvd / Dundas St",
       "phone": "(888) 826-4374",
       "hours": [
         {
@@ -266,10 +363,11 @@
       ]
     },
     {
-      "id": "7",
-      "name": "TD Canada Trust Branch and ATM",
+      "id": "9",
+      "name": "TD Canada Trust",
       "url": "https://www.td.com/ca/en/personal-banking/branch-locator/?y_source=1_Mjk0MjU4My03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D#/?id=564",
       "address": "2325 Trafalgar Rd, Oakville",
+      "intersection": "Trafalgar Rd / Postridge Dr",
       "phone": "(905) 257-0255",
       "hours": [
         {
@@ -310,10 +408,11 @@
       ]
     },
     {
-      "id": "8",
-      "name": "Presidents Choice Financial Pavilion and ATM",
+      "id": "10",
+      "name": "Presidents Choice Financial",
       "url": "https://www.pcfinancial.ca/en/contact-us/?utm_source=G&utm_medium=LPM&utm_campaign=PresidentsChoiceBank",
       "address": "201 Oak Park Blvd, Oakville",
+      "intersection": "Dundas St / Oak Park Blvd",
       "phone": "(888) 246-7262",
       "hours": [
         {
@@ -353,99 +452,13 @@
         }
       ]
     },
-    {
-      "id": "9",
-      "name": "RBC Royal Bank - Meeting Place (Cash at ATM only)",
-      "url": "https://maps.rbcroyalbank.com/ON-OAKVILLE-branch-2432",
-      "address": "483 Dundas St W, Oakville",
-      "phone": "(905) 842-4353",
-      "hours": [
-        {
-          "day": "Monday",
-          "open": "Closed",
-          "close": "Closed"
-        },
-        {
-          "day": "Tuesday",
-          "open": "9:30 AM",
-          "close": "5:00 PM"
-        },
-        {
-          "day": "Wednesday",
-          "open": "9:30 AM",
-          "close": "5:00 PM"
-        },
-        {
-          "day": "Thursday",
-          "open": "9:30 AM",
-          "close": "5:00 PM"
-        },
-        {
-          "day": "Friday",
-          "open": "9:30 AM",
-          "close": "6:00 PM"
-        },
-        {
-          "day": "Saturday",
-          "open": "9:30 AM",
-          "close": "4:00 PM"
-        },
-        {
-          "day": "Sunday",
-          "open": "Closed",
-          "close": "Closed"
-        }
-      ]
-    },
-    {
-      "id": "10",
-      "name": "CIBC Branch with ATM",
-      "url": "https://www.cibc.com/en/personal-banking.html",
-      "address": "501 Dundas St W, Oakville",
-      "phone": "(289) 725-7233",
-      "hours": [
-        {
-          "day": "Monday",
-          "open": "9:30 AM",
-          "close": "5:00 PM"
-        },
-        {
-          "day": "Tuesday",
-          "open": "9:30 AM",
-          "close": "5:00 PM"
-        },
-        {
-          "day": "Wednesday",
-          "open": "9:30 AM",
-          "close": "5:00 PM"
-        },
-        {
-          "day": "Thursday",
-          "open": "9:30 AM",
-          "close": "6:00 PM"
-        },
-        {
-          "day": "Friday",
-          "open": "9:30 AM",
-          "close": "6:00 PM"
-        },
-        {
-          "day": "Saturday",
-          "open": "9:30 AM",
-          "close": "4:00 PM"
-        },
-        {
-          "day": "Sunday",
-          "open": "Closed",
-          "close": "Closed"
-        }
-      ]
-    },
+
     {
       "id": "11",
-      "name": "FirstOntario Credit Union",
+      "name": "First Ontario Credit Union",
       "url": "https://www.firstontario.com/",
       "address": "505 Dundas St W, Oakville",
+      "intersection": "Neyagawa Blvd / Dundas St",
       "phone": "(800) 616-8878",
       "hours": [
         {

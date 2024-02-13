@@ -18,6 +18,14 @@ const BankCard: React.FC<BankCardProps> = ({ id, data }) => {
               <tbody className="divide-y divide-gray-300 bg-white">
                 <tr className="flex text-sm">
                   <td className="flex-1  py-1.5 font-medium text-gray-500">
+                    Intersection:
+                  </td>
+                  <td className="flex-1  py-1.5 font-medium text-gray-700">
+                    {bank.intersection}
+                  </td>
+                </tr>
+                <tr className="flex text-sm">
+                  <td className="flex-1  py-1.5 font-medium text-gray-500">
                     Address:
                   </td>
                   <td className="flex-1  py-1.5 font-medium text-gray-700">
