@@ -52,6 +52,7 @@ const BankCard: React.FC<BankCardProps> = ({ id, data }) => {
                   <td className=" flex-1 py-1.5 font-medium text-gray-700">
                     <Link
                       href={bank.url}
+                      target="_blank"
                       className="flex items-center gap-1 text-blue-500"
                     >
                       Link
