@@ -5,7 +5,7 @@
       "name": "BMO Bank of Montreal",
       "url": "https://branches.bmo.com/on/oakville/b3318/",
       "address": "320 Dundas St E, Oakville",
-      "phone": "(905)257-0904",
+      "phone": "(905) 257-0904",
       "hours": [
         {
           "day": "Monday",
@@ -49,7 +49,7 @@
       "name": "CIBC Branch with ATM",
       "url": "https://www.cibc.com/en/personal-banking.html",
       "address": "271 Hays Blvd, Oakville",
-      "phone": "(905)257-1040",
+      "phone": "(905) 257-1040",
       "hours": [
         {
           "day": "Monday",
@@ -93,7 +93,7 @@
       "name": "HSBC Bank Canada",
       "url": "https://www.hsbc.ca/",
       "address": "275 Hays Blvd Unit G1, Oakville",
-      "phone": "(888)310-4722",
+      "phone": "(888) 310-4722",
       "hours": [
         {
           "day": "Monday",
@@ -122,7 +122,7 @@
         },
         {
           "day": "Saturday",
-          "open": "10:00am",
+          "open": "10:00 AM",
           "close": "4:00 PM"
         },
         {
@@ -137,7 +137,7 @@
       "name": "RBC Royal Bank",
       "url": "https://maps.rbcroyalbank.com/ON-OAKVILLE-branch-1532",
       "address": "309 Hays Blvd, Oakville",
-      "phone": "(905)338-2933",
+      "phone": "(905) 338-2933",
       "hours": [
         {
           "day": "Monday",
@@ -181,7 +181,7 @@
       "name": "Scotiabank",
       "url": "https://maps.scotiabank.com/locator",
       "address": "2391 Trafalgar Rd Unit 1, Oakville",
-      "phone": "(905)257-4810",
+      "phone": "(905) 257-4810",
       "hours": [
         {
           "day": "Monday",
@@ -225,7 +225,7 @@
       "name": "CIBC Branch with ATM",
       "url": "https://www.cibc.com/en/personal-banking.html",
       "address": "501 Dundas St W, Oakville",
-      "phone": "(289)725-7233",
+      "phone": "(289) 725-7233",
       "hours": [
         {
           "day": "Monday",
@@ -269,7 +269,7 @@
       "name": "Tangerine Bank ABM Location",
       "url": "https://www.tangerine.ca/",
       "address": "489 Dundas St W, Oakville",
-      "phone": "(888)826-4374",
+      "phone": "(888) 826-4374",
       "hours": [
         {
           "day": "Monday",
@@ -313,7 +313,7 @@
       "name": "TD Canada Trust Branch and ATM",
       "url": "https://www.td.com/ca/en/personal-banking/branch-locator/?y_source=1_Mjk0MjU4My03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D#/?id=564",
       "address": "2325 Trafalgar Rd, Oakville",
-      "phone": "(905)257-0255",
+      "phone": "(905) 257-0255",
       "hours": [
         {
           "day": "Monday",
@@ -357,41 +357,41 @@
       "name": "Presidents Choice Financial Pavilion and ATM",
       "url": "https://www.pcfinancial.ca/en/contact-us/?utm_source=G&utm_medium=LPM&utm_campaign=PresidentsChoiceBank",
       "address": "201 Oak Park Blvd, Oakville",
-      "phone": "(888)246-7262",
+      "phone": "(888) 246-7262",
       "hours": [
         {
           "day": "Monday",
-          "open": "8:00am",
+          "open": "8:00 AM",
           "close": "8:00 PM"
         },
         {
           "day": "Tuesday",
-          "open": "8:00am",
+          "open": "8:00 AM",
           "close": "8:00 PM"
         },
         {
           "day": "Wednesday",
-          "open": "8:00am",
+          "open": "8:00 AM",
           "close": "8:00 PM"
         },
         {
           "day": "Thursday",
-          "open": "8:00am",
+          "open": "8:00 AM",
           "close": "8:00 PM"
         },
         {
           "day": "Friday",
-          "open": "8:00am",
+          "open": "8:00 AM",
           "close": "8:00 PM"
         },
         {
           "day": "Saturday",
-          "open": "8:00am",
+          "open": "8:00 AM",
           "close": "8:00 PM"
         },
         {
           "day": "Sunday",
-          "open": "8:00am",
+          "open": "8:00 AM",
           "close": "8:00 PM"
         }
       ]
@@ -401,7 +401,7 @@
       "name": "RBC Royal Bank - Meeting Place (Cash at ATM only)",
       "url": "https://maps.rbcroyalbank.com/ON-OAKVILLE-branch-2432",
       "address": "483 Dundas St W, Oakville",
-      "phone": "(905)842-4353",
+      "phone": "(905) 842-4353",
       "hours": [
         {
           "day": "Monday",
@@ -445,7 +445,7 @@
       "name": "CIBC Branch with ATM",
       "url": "https://www.cibc.com/en/personal-banking.html",
       "address": "501 Dundas St W, Oakville",
-      "phone": "(289)725-7233",
+      "phone": "(289) 725-7233",
       "hours": [
         {
           "day": "Monday",
@@ -533,7 +533,7 @@
       "name": "RBC Royal Bank",
       "url": "https://maps.rbcroyalbank.com/ON-OAKVILLE-branch-7412",
       "address": "2501 Third Line, Oakville",
-      "phone": "(905)469-8807",
+      "phone": "(905) 469-8807",
       "hours": [
         {
           "day": "Monday",
@@ -577,7 +577,7 @@
       "name": "BMO Bank of Montreal",
       "url": "https://branches.bmo.com/on/oakville/b3299/",
       "address": "2536 Third Line, Oakville",
-      "phone": "(905)847-5299",
+      "phone": "(905) 847-5299",
       "hours": [
         {
           "day": "Monday",
