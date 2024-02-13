@@ -13,9 +13,20 @@ interface Props {
 const BankStatus: React.FC<Props> = ({ hours }) => {
   const [status, setStatus] = useState('Closed');
   const [showHours, setShowHours] = useState(false);
+  const [alwaysOpen, setAlwaysOpen] = useState(false);
 
   const ref = useRef(null);
   useOnClickOutside(ref, () => setShowHours(false));
+
+  function getOpenStatus(hour: any) {
+    if (alwaysOpen) {
+      return '24 Hours';
+    }
+    if (hour.open === 'Closed' || hour.close === 'Closed') {
+      return 'Closed';
+    }
+    return `${hour.open} - ${hour.close}`;
+  }
 
   useEffect(() => {
     const getCurrentDayAndTime = () => {
@@ -44,10 +55,15 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
       const openTime = new Date(`${currentDate} ${open}`);
       const closeTime = new Date(`${currentDate} ${close}`);
       const currentDateTime = new Date(`${currentDate} ${currentTime}`);
+      const totalHours = closeTime.getHours() - openTime.getHours();
 
       if (open === 'Closed' || close === 'Closed') {
         setStatus('Closed');
       } else {
+        if (totalHours === 23) {
+          setAlwaysOpen(true);
+          setStatus('Open');
+        }
         setStatus(
           currentDateTime >= openTime && currentDateTime <= closeTime
             ? 'Open'
@@ -71,8 +87,9 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
             status === 'Open' ? 'text-green-500' : 'text-red-500'
           )}
         >
-          {status}
+          {status} {alwaysOpen && '24 Hours'}
         </span>
+
         {showHours ? (
           <FaAngleUp className="text-gray-500" />
         ) : (
@@ -85,11 +102,7 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
             {hours.map((hour: any) => (
               <li key={hour.day} className="flex justify-between py-1">
                 <span>{hour.day}</span>
-                <span className="text-gray-600">
-                  {hour.open === 'Closed'
-                    ? 'Closed'
-                    : `${hour.open} - ${hour.close}`}
-                </span>
+                <span className="text-gray-600">{getOpenStatus(hour)}</span>
               </li>
             ))}
           </ul>
