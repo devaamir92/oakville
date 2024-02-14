@@ -47,6 +47,21 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
     return `${hour.open} - ${hour.close}`;
   }
 
+  const formatClosedMessage = (availableDayOpenTime: Date): string => {
+    const nextAvailableDay = availableDayOpenTime.toLocaleDateString('en-US', {
+      weekday: 'short',
+    });
+    const nextAvailableTimeString = availableDayOpenTime.toLocaleTimeString(
+      'en-US',
+      {
+        hour: '2-digit',
+        minute: '2-digit',
+      }
+    );
+
+    return `Opens ${nextAvailableDay} ${nextAvailableTimeString}`;
+  };
+
   useEffect(() => {
     const getCurrentDayAndTime = () => {
       const now = new Date();
@@ -69,10 +84,10 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
 
     const getNextAvailableDayAndTime = () => {
       const now = new Date();
-      const tempCurrentDay = now.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+      const tempCurrentDay = now.getDay();
 
       let nextDay = tempCurrentDay + 1;
-      if (nextDay === 7) nextDay = 0; // Reset to Sunday if it's Saturday
+      if (nextDay === 7) nextDay = 0;
 
       const findNextDayHours = () => {
         return hours.find(hour => hour.day === days[nextDay]);
@@ -80,17 +95,17 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
 
       let nextDayHours = findNextDayHours();
       while (
-        !nextDayHours || // Added null check
+        !nextDayHours ||
         nextDayHours.open === 'Closed' ||
         nextDayHours.close === 'Closed'
       ) {
-        nextDay += 1; // Increment to the next day
-        if (nextDay === 7) nextDay = 0; // Reset to Sunday if it's Saturday
+        nextDay += 1;
+        if (nextDay === 7) nextDay = 0;
         nextDayHours = findNextDayHours();
       }
 
       const nextOpenTime = new Date();
-      nextOpenTime.setDate(now.getDate() + (nextDay - tempCurrentDay)); // Set date to the next available day
+      nextOpenTime.setDate(now.getDate() + (nextDay - tempCurrentDay));
       nextOpenTime.setHours(parseInt(nextDayHours.open.split(':')[0], 10));
       nextOpenTime.setMinutes(parseInt(nextDayHours.open.split(':')[1], 10));
 
@@ -136,26 +151,35 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
         type="button"
         onClick={() => setShowHours(!showHours)}
       >
-        <span
+        <div
           className={cn(
             'text-sm font-medium',
             status === 'Open' ? 'text-green-500' : 'text-red-500'
           )}
         >
-          {status === 'Open' &&
-            !alwaysOpen &&
-            `Open - Closes at ${closingTime.toLocaleTimeString('en-US', {
-              hour: '2-digit',
-              minute: '2-digit',
-            })}`}
+          {status === 'Open' && !alwaysOpen && (
+            <p className="flex gap-1 text-gray-700">
+              <span className="text-green-500">Open</span>
+              {' - '}
+              <span>
+                Closes{' '}
+                {closingTime.toLocaleTimeString('en-US', {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}
+              </span>
+            </p>
+          )}
+
           {status === 'Closed' && (
-            <span className="text-gray-600">
-              Next Available: {nextAvailableDayOpenTime.toLocaleDateString()}{' '}
-              {nextAvailableDayOpenTime.toLocaleTimeString()}
-            </span>
+            <p className="flex gap-1 text-gray-700">
+              <span className="text-red-500">Closed</span>
+              {' - '}
+              <span>{formatClosedMessage(nextAvailableDayOpenTime)} </span>
+            </p>
           )}
           {alwaysOpen && '24 Hours'}
-        </span>
+        </div>
 
         {showHours ? (
           <FaAngleUp className="text-gray-500" />
