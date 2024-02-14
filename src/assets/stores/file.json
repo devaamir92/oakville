@@ -2,7 +2,95 @@
   "stores": [
     {
       "id": 1,
-      "name": "The Market by Longo's",
+      "name": "Shoppers Drug Mart",
+      "address": "2525 Prince Michael Dr, Oakville",
+      "phone": "+19052573938",
+      "url": "https://stores.shoppersdrugmart.ca/en/store/1203/?utm_source=G&utm_medium=lpm&utm_campaign=LPM_SDM",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Sunday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Canadian Tire",
+      "address": "400 Dundas St E, Oakville",
+      "phone": "(905) 257-8473",
+      "url": "https://www.canadiantire.ca/en/store-details/on/oakville-north-on-429.html?utm_source=google&utm_medium=lss&utm_content=429",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Longo's",
       "address": "338 Dundas St E, Oakville",
       "phone": "(905) 257-5633",
       "url": "http://www.longos.com/",
@@ -45,7 +133,227 @@
       ]
     },
     {
-      "id": 2,
+      "id": 4,
+      "name": "Walmart",
+      "address": "234 Hays Blvd, Oakville",
+      "phone": "(905) 257-5740",
+      "url": "http://www.walmart.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Superstore",
+      "address": "201 Oak Park Blvd, Oakville",
+      "phone": "(905) 257-9099",
+      "url": "http://www.realcanadiansuperstore.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Food Basics",
+      "address": "478 Dundas St W, Oakville",
+      "phone": "(905) 257-2500",
+      "url": "http://www.foodbasics.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "FreshCo",
+      "address": "2501 Third Line, Oakville",
+      "phone": "(905) 827-6322",
+      "url": "http://www.freshco.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "7:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "7:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "7:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "7:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "7:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "7:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "7:00 AM",
+          "close": "10:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Shoppers Drug Mart",
+      "address": "2501 Third Line Building B, Oakville",
+      "phone": "(905) 465-3000",
+      "url": "https://stores.shoppersdrugmart.ca/en/store/1271/?utm_source=G&utm_medium=lpm&utm_campaign=LPM_SDM",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        }
+      ]
+    },
+    {
+      "id": 9,
       "name": "Winners & HomeSense",
       "address": "2431 Trafalgar Rd, Oakville",
       "phone": "(905) 257-2104",
@@ -89,7 +397,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 10,
       "name": "Oak Park Convenience",
       "address": "2333 Taunton Rd, Oakville",
       "phone": "(289) 725-1133",
@@ -133,7 +441,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 11,
       "name": "Bulk Barn",
       "address": "261 Oak Walk Dr, Oakville",
       "phone": "(905) 257-7987",
@@ -177,7 +485,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 12,
       "name": "LCBO",
       "address": "251 Oak Walk Dr, Oakville",
       "phone": "(905) 257-6300",
@@ -220,52 +528,9 @@
         }
       ]
     },
+
     {
-      "id": 7,
-      "name": "Walmart Supercentre",
-      "address": "234 Hays Blvd, Oakville",
-      "phone": "(905) 257-5740",
-      "url": "http://www.walmart.ca/",
-      "hours": [
-        {
-          "day": "Monday",
-          "open": "7:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Tuesday",
-          "open": "7:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Wednesday",
-          "open": "7:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Thursday",
-          "open": "7:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Friday",
-          "open": "7:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Saturday",
-          "open": "7:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Sunday",
-          "open": "7:00 AM",
-          "close": "11:00 PM"
-        }
-      ]
-    },
-    {
-      "id": 8,
+      "id": 13,
       "name": "Professional Herbal Microdose OnlineStore",
       "address": "231 Oak Park Blvd, Oakville",
       "phone": "",
@@ -309,7 +574,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": 14,
       "name": "Pro2Go propane kiosk",
       "address": "Oakville",
       "phone": "",
@@ -353,7 +618,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": 15,
       "name": "Wine Rack",
       "address": "201 Oak Park Blvd, Oakville",
       "phone": "(905) 257-9726",
@@ -397,7 +662,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": 16,
       "name": "Pull With Us INC.",
       "address": "301 Oak Park Blvd, Oakville",
       "phone": "",
@@ -441,7 +706,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": 17,
       "name": "Joe Fresh",
       "address": "201 Oak Park Blvd, Oakville",
       "phone": "(905) 257-9099",
@@ -484,52 +749,9 @@
         }
       ]
     },
+
     {
-      "id": 13,
-      "name": "Real Canadian Superstore",
-      "address": "201 Oak Park Blvd, Oakville",
-      "phone": "(905) 257-9099",
-      "url": "http://www.realcanadiansuperstore.ca/",
-      "hours": [
-        {
-          "day": "Monday",
-          "open": "07:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Tuesday",
-          "open": "07:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Wednesday",
-          "open": "07:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Thursday",
-          "open": "07:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Friday",
-          "open": "07:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Saturday",
-          "open": "07:00 AM",
-          "close": "11:00 PM"
-        },
-        {
-          "day": "Sunday",
-          "open": "07:00 AM",
-          "close": "11:00 PM"
-        }
-      ]
-    },
-    {
-      "id": 14,
+      "id": 18,
       "name": "Penningtons",
       "address": "202 Oak Walk Dr K3, Oakville",
       "phone": "",
@@ -573,7 +795,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": 19,
       "name": "Reitmans",
       "address": "202 Oak Walk Dr K1, Oakville",
       "phone": "(905) 257-7351",
@@ -617,7 +839,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": 20,
       "name": "Penningtons",
       "address": "Smart Centres, 202 Oak Walk Dr Unit K1-4, Oakville",
       "phone": "(365) 726-8814",
@@ -661,7 +883,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": 21,
       "name": "Dollarama",
       "address": "Smartcentres Oakville, 201 Hays Blvd, Oakville",
       "phone": "(356) 726-8123",
@@ -705,7 +927,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": 22,
       "name": "Urban Barn Oak Park Oakville",
       "address": "201 Hays Boulevard Unit K2-3, Oakville",
       "phone": "(905) 257-6620",
@@ -750,7 +972,7 @@
     },
 
     {
-      "id": 19,
+      "id": 23,
       "name": "Peaches-N-Plums",
       "address": "2488 Post Rd, Oakville",
       "phone": "(289) 300-1431",
@@ -794,7 +1016,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": 24,
       "name": "River Oaks Convenience Store",
       "address": "201 River Oaks Blvd W, Oakville",
       "phone": "(905) 338-6693",
@@ -839,7 +1061,7 @@
     },
 
     {
-      "id": 21,
+      "id": 25,
       "name": "Preserve Convenience",
       "address": "3022 Preserve Dr, Oakville",
       "phone": "(905) 257-7777",
@@ -883,7 +1105,7 @@
       ]
     },
     {
-      "id": 22,
+      "id": 26,
       "name": "Pyramids Variety",
       "address": "3290 Carding Mill Trail, Oakville",
       "phone": "(365) 726-9996",
@@ -927,7 +1149,7 @@
       ]
     },
     {
-      "id": 23,
+      "id": 27,
       "name": "Pit Stop Mart Grocery & Convenience",
       "address": "3089 George Savage Ave, Oakville",
       "phone": "(289) 725-1919",
@@ -971,7 +1193,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": 28,
       "name": "Neyagawa Convenience",
       "address": "478 Dundas St W, Oakville",
       "phone": "(905) 257-4099",
