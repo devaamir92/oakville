@@ -24,7 +24,6 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [width, setWidth] = useState<number>(0);
-  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (ref.current?.offsetWidth) {
@@ -34,11 +33,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <DropdownMenu>
-      <Root
-        onOpenChange={() => {
-          setOpen(!open);
-        }}
-      >
+      <Root>
         <Trigger ref={ref} asChild>
           <button
             type="button"

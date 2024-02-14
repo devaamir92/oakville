@@ -24,16 +24,15 @@ const CommunitiesList: React.FC<Props> = ({ listData }) => {
     >
       {listData.map((item, index) => (
         <Item
-          data-sate="closed"
+          asChild
+          data-state="closed"
           className="flex flex-col border-none outline-none"
           key={item.name}
         >
           <Link
             href={item.link}
-            className={cn(
-              'size-full min-w-40 rounded  px-3 py-1.5 text-sm text-black outline-none transition-colors duration-200 ease-in-out hover:bg-primary-200',
-              index < listData.length - 1 && 'border-b'
-            )}
+            className="
+              size-full min-w-40 rounded  px-3 py-1.5 text-sm text-black outline-none transition-colors duration-200 ease-in-out hover:bg-primary-200"
           >
             {item.name}
           </Link>
