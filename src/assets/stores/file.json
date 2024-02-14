@@ -2,50 +2,6 @@
   "stores": [
     {
       "id": 1,
-      "name": "Shoppers Drug Mart",
-      "address": "2525 Prince Michael Dr, Oakville",
-      "phone": "+19052573938",
-      "url": "https://stores.shoppersdrugmart.ca/en/store/1203/?utm_source=G&utm_medium=lpm&utm_campaign=LPM_SDM",
-      "hours": [
-        {
-          "day": "Monday",
-          "open": "8:00 AM",
-          "close": "12:00 AM"
-        },
-        {
-          "day": "Tuesday",
-          "open": "8:00 AM",
-          "close": "12:00 AM"
-        },
-        {
-          "day": "Wednesday",
-          "open": "8:00 AM",
-          "close": "12:00 AM"
-        },
-        {
-          "day": "Thursday",
-          "open": "8:00 AM",
-          "close": "12:00 AM"
-        },
-        {
-          "day": "Friday",
-          "open": "8:00 AM",
-          "close": "12:00 AM"
-        },
-        {
-          "day": "Saturday",
-          "open": "8:00 AM",
-          "close": "12:00 AM"
-        },
-        {
-          "day": "Sunday",
-          "open": "8:00 AM",
-          "close": "12:00 AM"
-        }
-      ]
-    },
-    {
-      "id": 2,
       "name": "Canadian Tire",
       "address": "400 Dundas St E, Oakville",
       "phone": "(905) 257-8473",
@@ -89,7 +45,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Longo's",
       "address": "338 Dundas St E, Oakville",
       "phone": "(905) 257-5633",
@@ -133,7 +89,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "Walmart",
       "address": "234 Hays Blvd, Oakville",
       "phone": "(905) 257-5740",
@@ -177,7 +133,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Superstore",
       "address": "201 Oak Park Blvd, Oakville",
       "phone": "(905) 257-9099",
@@ -221,7 +177,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 5,
       "name": "Food Basics",
       "address": "478 Dundas St W, Oakville",
       "phone": "(905) 257-2500",
@@ -265,7 +221,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 6,
       "name": "FreshCo",
       "address": "2501 Third Line, Oakville",
       "phone": "(905) 827-6322",
@@ -305,6 +261,50 @@
           "day": "Sunday",
           "open": "7:00 AM",
           "close": "10:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Shoppers Drug Mart",
+      "address": "2525 Prince Michael Dr, Oakville",
+      "phone": "+19052573938",
+      "url": "https://stores.shoppersdrugmart.ca/en/store/1203/?utm_source=G&utm_medium=lpm&utm_campaign=LPM_SDM",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Sunday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
         }
       ]
     },
