@@ -33,10 +33,10 @@ const SchoolTable: React.FC<SchoolTableProps> = ({ id, schoolType, data }) => {
                   </td>
                   <td className="flex-1 py-1.5 font-medium text-gray-700">
                     <Link
-                      href={`tel:${school.phone_number}`}
+                      href={`tel:${school.phone}`}
                       className="flex items-center gap-1"
                     >
-                      <span>{school.phone_number}</span>
+                      <span>{school.phone}</span>
                     </Link>
                   </td>
                 </tr>
@@ -46,10 +46,10 @@ const SchoolTable: React.FC<SchoolTableProps> = ({ id, schoolType, data }) => {
                   </td>
                   <td className=" flex-1 py-1.5 font-medium text-gray-700">
                     <Link
-                      href={school.website}
-                      className="flex items-center gap-1"
+                      href={school.url}
+                      className="flex items-center gap-1 text-blue-500"
                     >
-                      <span>{school.website}</span>
+                      Link
                     </Link>
                   </td>
                 </tr>

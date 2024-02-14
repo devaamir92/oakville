@@ -6,19 +6,38 @@ import { useOnClickOutside } from 'usehooks-ts';
 
 import cn from '@utils/cn';
 
-interface Props {
-  hours: any[];
+interface BankHour {
+  day: string;
+  open: string;
+  close: string;
 }
 
-const BankStatus: React.FC<Props> = ({ hours }) => {
-  const [status, setStatus] = useState('Closed');
-  const [showHours, setShowHours] = useState(false);
-  const [alwaysOpen, setAlwaysOpen] = useState(false);
+interface Props {
+  hours: BankHour[];
+}
 
-  const ref = useRef(null);
+const days = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+];
+
+const BankStatus: React.FC<Props> = ({ hours }) => {
+  const [status, setStatus] = useState<string>('Closed');
+  const [showHours, setShowHours] = useState<boolean>(false);
+  const [alwaysOpen, setAlwaysOpen] = useState<boolean>(false);
+  const [closingTime, setClosingTime] = useState<Date>(new Date());
+  const [nextAvailableDayOpenTime, setNextAvailableDayOpenTime] =
+    useState<Date>(new Date());
+
+  const ref = useRef<HTMLButtonElement>(null);
   useOnClickOutside(ref, () => setShowHours(false));
 
-  function getOpenStatus(hour: any) {
+  function getOpenStatus(hour: BankHour) {
     if (alwaysOpen) {
       return '24 Hours';
     }
@@ -48,7 +67,37 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
 
     const { currentDay, currentTime, currentDate } = getCurrentDayAndTime();
 
-    const bankHours = hours.find((hour: any) => hour.day === currentDay);
+    const getNextAvailableDayAndTime = () => {
+      const now = new Date();
+      const tempCurrentDay = now.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+
+      let nextDay = tempCurrentDay + 1;
+      if (nextDay === 7) nextDay = 0; // Reset to Sunday if it's Saturday
+
+      const findNextDayHours = () => {
+        return hours.find(hour => hour.day === days[nextDay]);
+      };
+
+      let nextDayHours = findNextDayHours();
+      while (
+        !nextDayHours || // Added null check
+        nextDayHours.open === 'Closed' ||
+        nextDayHours.close === 'Closed'
+      ) {
+        nextDay += 1; // Increment to the next day
+        if (nextDay === 7) nextDay = 0; // Reset to Sunday if it's Saturday
+        nextDayHours = findNextDayHours();
+      }
+
+      const nextOpenTime = new Date();
+      nextOpenTime.setDate(now.getDate() + (nextDay - tempCurrentDay)); // Set date to the next available day
+      nextOpenTime.setHours(parseInt(nextDayHours.open.split(':')[0], 10));
+      nextOpenTime.setMinutes(parseInt(nextDayHours.open.split(':')[1], 10));
+
+      return nextOpenTime;
+    };
+
+    const bankHours = hours.find(hour => hour.day === currentDay);
 
     if (bankHours) {
       const { open, close } = bankHours;
@@ -63,6 +112,8 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
         if (totalHours === 23) {
           setAlwaysOpen(true);
           setStatus('Open');
+        } else {
+          setClosingTime(closeTime);
         }
         setStatus(
           currentDateTime >= openTime && currentDateTime <= closeTime
@@ -71,7 +122,11 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
         );
       }
     }
-  }, [hours]);
+    if (status === 'Closed') {
+      const nextAvailableTime = getNextAvailableDayAndTime();
+      setNextAvailableDayOpenTime(nextAvailableTime);
+    }
+  }, [hours, status]);
 
   return (
     <div className="relative">
@@ -87,7 +142,19 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
             status === 'Open' ? 'text-green-500' : 'text-red-500'
           )}
         >
-          {status} {alwaysOpen && '24 Hours'}
+          {status === 'Open' &&
+            !alwaysOpen &&
+            `Open - Closes at ${closingTime.toLocaleTimeString('en-US', {
+              hour: '2-digit',
+              minute: '2-digit',
+            })}`}
+          {status === 'Closed' && (
+            <span className="text-gray-600">
+              Next Available: {nextAvailableDayOpenTime.toLocaleDateString()}{' '}
+              {nextAvailableDayOpenTime.toLocaleTimeString()}
+            </span>
+          )}
+          {alwaysOpen && '24 Hours'}
         </span>
 
         {showHours ? (
@@ -99,7 +166,7 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
       {showHours && (
         <div className="absolute top-6 z-10 h-[220px] w-full flex-1 rounded border bg-white px-4 py-2">
           <ul className="divide-y-[1px]">
-            {hours.map((hour: any) => (
+            {hours.map(hour => (
               <li key={hour.day} className="flex justify-between py-1">
                 <span>{hour.day}</span>
                 <span className="text-gray-600">{getOpenStatus(hour)}</span>

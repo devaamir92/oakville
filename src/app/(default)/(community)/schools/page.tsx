@@ -9,7 +9,7 @@ import SchoolsLinks from '../_components/SchoolsLinks';
 
 export default async function Page() {
   const file = await fs.readFile(
-    `${process.cwd()}/src/assets/schools/schools.json`,
+    `${process.cwd()}/src/assets/schools/file.json`,
     'utf8'
   );
   const data = JSON.parse(file);

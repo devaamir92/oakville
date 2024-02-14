@@ -1,0 +1,1018 @@
+{
+  "stores": [
+    {
+      "id": 1,
+      "name": "The Market by Longo's",
+      "address": "338 Dundas St E, Oakville",
+      "phone": "(905) 257-5633",
+      "url": "http://www.longos.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "7:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "7:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "7:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "7:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "7:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "7:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "7:00 AM",
+          "close": "9:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Winners & HomeSense",
+      "address": "2431 Trafalgar Rd, Oakville",
+      "phone": "(905) 257-2104",
+      "url": "http://www.winners.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "10:00 AM",
+          "close": "7:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Oak Park Convenience",
+      "address": "2333 Taunton Rd, Oakville",
+      "phone": "(289) 725-1133",
+      "url": "",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Bulk Barn",
+      "address": "261 Oak Walk Dr, Oakville",
+      "phone": "(905) 257-7987",
+      "url": "http://www.bulkbarn.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:30 AM",
+          "close": "8:30 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:30 AM",
+          "close": "8:30 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:30 AM",
+          "close": "8:30 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:30 AM",
+          "close": "8:30 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:30 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "10:00 AM",
+          "close": "5:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "LCBO",
+      "address": "251 Oak Walk Dr, Oakville",
+      "phone": "(905) 257-6300",
+      "url": "http://www.lcbo.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "10:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "10:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "10:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "10:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "10:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Walmart Supercentre",
+      "address": "234 Hays Blvd, Oakville",
+      "phone": "(905) 257-5740",
+      "url": "http://www.walmart.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "7:00 AM",
+          "close": "11:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Professional Herbal Microdose OnlineStore",
+      "address": "231 Oak Park Blvd, Oakville",
+      "phone": "",
+      "url": "",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Pro2Go propane kiosk",
+      "address": "Oakville",
+      "phone": "",
+      "url": "",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Wine Rack",
+      "address": "201 Oak Park Blvd, Oakville",
+      "phone": "(905) 257-9726",
+      "url": "http://www.winerack.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Pull With Us INC.",
+      "address": "301 Oak Park Blvd, Oakville",
+      "phone": "",
+      "url": "",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Joe Fresh",
+      "address": "201 Oak Park Blvd, Oakville",
+      "phone": "(905) 257-9099",
+      "url": "http://www.joefresh.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Real Canadian Superstore",
+      "address": "201 Oak Park Blvd, Oakville",
+      "phone": "(905) 257-9099",
+      "url": "http://www.realcanadiansuperstore.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "07:00 AM",
+          "close": "11:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Penningtons",
+      "address": "202 Oak Walk Dr K3, Oakville",
+      "phone": "",
+      "url": "http://www.penningtons.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "11:00 PM",
+          "close": "5:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Reitmans",
+      "address": "202 Oak Walk Dr K1, Oakville",
+      "phone": "(905) 257-7351",
+      "url": "http://www.reitmans.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "10:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "10:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "10:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "10:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "11:00 PM",
+          "close": "5:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Penningtons",
+      "address": "Smart Centres, 202 Oak Walk Dr Unit K1-4, Oakville",
+      "phone": "(365) 726-8814",
+      "url": "http://www.penningtons.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "10:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "11:00 PM",
+          "close": "5:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Dollarama",
+      "address": "Smartcentres Oakville, 201 Hays Blvd, Oakville",
+      "phone": "(356) 726-8123",
+      "url": "http://www.dollarama.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Urban Barn Oak Park Oakville",
+      "address": "201 Hays Boulevard Unit K2-3, Oakville",
+      "phone": "(905) 257-6620",
+      "url": "https://www.urbanbarn.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "11:00 AM",
+          "close": "6:00 PM"
+        }
+      ]
+    },
+
+    {
+      "id": 19,
+      "name": "Peaches-N-Plums",
+      "address": "2488 Post Rd, Oakville",
+      "phone": "(289) 300-1431",
+      "url": "http://www.peachesnplums.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "River Oaks Convenience Store",
+      "address": "201 River Oaks Blvd W, Oakville",
+      "phone": "(905) 338-6693",
+      "url": "",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        }
+      ]
+    },
+
+    {
+      "id": 21,
+      "name": "Preserve Convenience",
+      "address": "3022 Preserve Dr, Oakville",
+      "phone": "(905) 257-7777",
+      "url": "https://www.preserveconvenience.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "9:30 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "9:30 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "9:30 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "9:30 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "9:30 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "9:30 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "9:00 AM",
+          "close": "9:30 PM"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Pyramids Variety",
+      "address": "3290 Carding Mill Trail, Oakville",
+      "phone": "(365) 726-9996",
+      "url": "https://pyramidsvariety.wixsite.com/egyptiangrocer",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "PIT STOP MART Grocery&Convenience",
+      "address": "3089 George Savage Ave, Oakville",
+      "phone": "(289) 725-1919",
+      "url": "",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "10:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "10:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "10:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "10:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "10:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:30 AM",
+          "close": "9:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "10:30 AM",
+          "close": "9:00 PM"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "NEYAGAWA CONVENIENCE",
+      "address": "478 Dundas St W, Oakville",
+      "phone": "(905) 257-4099",
+      "url": "",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "7:30 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "7:30 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "7:30 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "7:30 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "7:30 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "8:00 AM",
+          "close": "10:00 PM"
+        }
+      ]
+    }
+  ]
+}
