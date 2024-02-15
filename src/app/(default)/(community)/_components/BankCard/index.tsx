@@ -66,8 +66,8 @@ const BankCard: React.FC<BankCardProps> = ({ id, data }) => {
                     <td className=" flex-1 py-1.5 font-medium text-gray-500">
                       Hours:
                     </td>
-                    <td className=" flex-1 py-1.5 font-medium text-gray-700">
-                      <BankStatus hours={bank.hours} />
+                    <td className="flex-1 py-1.5 font-medium text-gray-700">
+                      <BankStatus hours={bank.hours} aria-label="Show hours" />
                     </td>
                   </tr>
                 )}

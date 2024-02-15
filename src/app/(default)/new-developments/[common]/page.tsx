@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaEnvelope, FaLocationDot, FaPhone } from 'react-icons/fa6';
 
@@ -13,7 +14,6 @@ import Summary from '../_components/Summary';
 import Information from '../_components/Information';
 import Neighbourhood from '../_components/Neighbourhood';
 import FloorPlanTable from '../_components/FloorPlanTable';
-import Image from 'next/image';
 
 const data = [
   {

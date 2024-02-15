@@ -26,7 +26,7 @@ function Information() {
             electrical & mechanical elements, advanced thermal protection,
             upscale interior qualities, unique bathroom characteristics, gourmet
             kitchen essentials, and fabulous flooring highlights elevate the
-            living experience. Structural properties include 5/8" oriented
+            living experience. Structural properties include &quot; oriented
             strand board sub-flooring and 2x6 exterior wall construction. Enjoy
             an unparalleled lifestyle with breathtaking views and exceptional
             craftsmanship.

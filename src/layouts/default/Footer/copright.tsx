@@ -33,7 +33,7 @@ function Copright() {
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-tertiary-700 hover:bg-tertiary-500 flex size-8 items-center justify-center rounded-full text-white transition-colors duration-200 ease-in-out hover:text-white"
+            className="flex size-8 items-center justify-center rounded-full bg-tertiary-700 text-white transition-colors duration-200 ease-in-out hover:bg-tertiary-500 hover:text-white"
           >
             <span className="sr-only">{social.name}</span>
             {social.icon}

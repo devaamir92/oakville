@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
-
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { FaList, FaLocationDot } from 'react-icons/fa6';

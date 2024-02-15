@@ -7,7 +7,6 @@ import { FaChevronDown } from 'react-icons/fa';
 import { Item } from '@radix-ui/react-dropdown-menu';
 
 import Dropdown from '@components/ui/Dropdown';
-import cn from '@utils/cn';
 
 type Props = {
   listData: {
@@ -22,7 +21,7 @@ const CommunitiesList: React.FC<Props> = ({ listData }) => {
       icon={<FaChevronDown className="text-white" size={10} />}
       className="!w-fit !text-sm"
     >
-      {listData.map((item, index) => (
+      {listData.map(item => (
         <Item
           asChild
           data-state="closed"
