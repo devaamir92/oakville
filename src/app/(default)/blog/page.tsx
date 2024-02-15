@@ -83,7 +83,7 @@ const Links = [
 
 function BlogPage() {
   return (
-    <section className="px-4 py-10">
+    <section className="py-10">
       <div className="container flex flex-col">
         <div className="flex items-center justify-between">
           <h2 className="mb-3  text-2xl font-semibold">Blogs</h2>

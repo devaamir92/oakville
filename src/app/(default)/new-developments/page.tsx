@@ -87,10 +87,10 @@ const Developments = () => {
       <div className="flex-1">
         <Toolbar />
       </div>
-      <h2 className="text-center text-2xl font-semibold">
+      <h1 className="text-center text-2xl font-semibold">
         The Preserve Oakville
-      </h2>
-      <div className="container grid grid-cols-3 gap-8">
+      </h1>
+      <div className="container grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {Property.map(item => {
           const slug = item.Addr.toLowerCase().split(' ').join('-');
           return (

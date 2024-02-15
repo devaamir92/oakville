@@ -107,10 +107,10 @@ const data = [
 const Page: React.FC = () => {
   return (
     <section className="container flex flex-col gap-4 overflow-y-auto bg-white p-4">
-      <h6 className="text-center text-2xl font-semibold text-gray-800">
+      <h1 className="text-center text-2xl font-semibold text-gray-800">
         Sold Properties
-      </h6>
-      <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+      </h1>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {data.map(item => (
           <Card
             key={item.location}
