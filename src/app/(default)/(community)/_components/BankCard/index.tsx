@@ -61,14 +61,16 @@ const BankCard: React.FC<BankCardProps> = ({ id, data }) => {
                     </Link>
                   </td>
                 </tr>
-                <tr className="flex text-sm">
-                  <td className=" flex-1 py-1.5 font-medium text-gray-500">
-                    Hours:
-                  </td>
-                  <td className=" flex-1 py-1.5 font-medium text-gray-700">
-                    <BankStatus hours={bank.hours} />
-                  </td>
-                </tr>
+                {bank.hours && (
+                  <tr className="flex text-sm">
+                    <td className=" flex-1 py-1.5 font-medium text-gray-500">
+                      Hours:
+                    </td>
+                    <td className=" flex-1 py-1.5 font-medium text-gray-700">
+                      <BankStatus hours={bank.hours} />
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>

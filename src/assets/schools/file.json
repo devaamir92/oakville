@@ -24,6 +24,17 @@
     },
     {
       "id": 3,
+      "name": "Joshua Creek Public School",
+      "address": "1450 Arrowhead Rd, Oakville",
+      "phone": "(905) 257-7492",
+      "school_year": "",
+      "grades": "",
+      "program": "Regular Track",
+      "url": "http://jcp.hdsb.ca/",
+      "raking": ""
+    },
+    {
+      "id": 4,
       "name": "White Oaks Secondary School",
       "address": "1330 Montclair Dr, Oakville",
       "phone": "(905) 845-5200",
@@ -34,7 +45,7 @@
       "raking": 8.6
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "Iroquois Ridge High School",
       "address": "11123 Glenashton Dr, Oakville",
       "phone": "(905) 845-0012",
@@ -128,6 +139,14 @@
     },
     {
       "id": 4,
+      "name": "St. Marguerite d'Youville Catholic Elementary School",
+      "program": "",
+      "address": "1359 Bayshire Dr, Oakville",
+      "phone": "(905) 849-7772",
+      "url": "https://elem.hcdsb.org/stmarguerite/"
+    },
+    {
+      "id": 5,
       "name": "Peace of Mind Montessori School",
       "program": "Toddler 15-30 months Casa 2.5- 6 Years",
       "address": "1525 Litchfield Road, Oakville",

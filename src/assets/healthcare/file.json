@@ -1,0 +1,1368 @@
+{
+  "healthcare": [
+    {
+      "id": 1,
+      "name": "Oakville Trafalgar Memorial Hospital",
+      "address": "3001 Hospital Gate, Oakville",
+      "phone": "(905) 257-9432",
+      "url": "https://www.haltonhealthcare.on.ca/locations/oakville-trafalgar-memorial-hospital",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "12: 00 AM",
+          "close": "11:59 PM"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Natural Health Clinic of Halton",
+      "address": "3075 Hospital Gate Unit 109, Oakville",
+      "phone": "(905) 582-2360",
+      "url": "https://www.nhchalton.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb-website",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Peter Gilgan Patient Care Centre",
+      "address": "Oakville, ON L6M 4H6, Canada",
+      "phone": "",
+      "url": "",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Oakville Cosmetics Botox Dermal Fillers",
+      "address": "3075 Hospital Gate, Oakville",
+      "phone": "(647) 496-5713",
+      "url": "https://www.oakvillecosmetics.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "8:00 AM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "8:00 AM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "8:00 AM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "8:00 AM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "8:00 AM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "8:00 AM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Shoppers Drug Mart",
+      "address": "2525 Prince Michael Dr, Oakville",
+      "phone": "(905) 257-3938",
+      "url": "https://stores.shoppersdrugmart.ca/en/store/1203/?utm_source=G&utm_medium=lpm&utm_campaign=LPM_SDM",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        },
+        {
+          "day": "Sunday",
+          "open": "8:00 AM",
+          "close": "12:00 AM"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "White Oaks Pharmacy",
+      "address": "360 Dundas St E B6, Oakville",
+      "phone": "(905) 257-3611",
+      "url": "https://www.whiteoakspharmacy.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "7:30 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "7:30 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "7:30 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "7:30 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Oakpark Pet Hospital",
+      "address": "370 Dundas St E C1, Oakville",
+      "phone": "(905) 257-7387",
+      "url": "http://www.oakparkpethospital.com/?y_source=1_Nzk5NjI2NzEtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "7:30 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "7:30 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "7:30 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "7:30 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "7:30 AM",
+          "close": "4:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:00 AM",
+          "close": "4:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Oak City Pharmacy",
+      "address": "180 Oak Park Blvd #107, Oakville",
+      "phone": "(289) 725-0505",
+      "url": "http://www.oakcitypharmacy.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:30 AM",
+          "close": "2:30 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Trafalgar Pharmacy",
+      "address": "2200 Trafalgar Rd, Oakville",
+      "phone": "(289) 837-1612",
+      "url": "https://www.trafalgarpharmacy.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "10:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "10:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "10:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "10:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Palermo Pharmacy",
+      "address": "2525 Old Bronte Rd #240, Oakville",
+      "phone": "(905) 582-5520",
+      "url": "http://www.palermopharmacy.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Kingsridge Pharmacy",
+      "address": "2015 Kingsridge Dr #6, Oakville",
+      "phone": "(905) 467-3739",
+      "url": "https://kingsridge.princerx.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "3:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Origins Oakville Pharmacy & Compounding",
+      "address": "3075 Hospital Gate #108, Oakville",
+      "phone": "(905) 847-9696",
+      "url": "http://originspharmacy.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Shoppers Drug Mart",
+      "address": "2501 Third Line, Oakville",
+      "phone": "(905) 465-3000",
+      "url": "https://stores.shoppersdrugmart.ca/en/store/1271/?utm_source=G&utm_medium=lpm&utm_campaign=LPM_SDM",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Lifecare Rx Pharmacy Inc & Specialty Compounding Centre",
+      "address": "201 River Oaks Blvd W Unit 2& 3, Oakville",
+      "phone": "(905) 845-1945",
+      "url": "https://www.lifecarerx.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:30 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:30 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:30 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:30 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:30 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "3:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "River Oaks Medical Pharmacy",
+      "address": "2163 Sixth Line, Oakville",
+      "phone": "(905) 842-1113",
+      "url": "https://www.riveroaksmedicalpharmacy.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "10:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Postmaster Medical Clinic",
+      "address": "2540 Postmaster Dr, Oakville",
+      "phone": "(905) 844-1700",
+      "url": "http://postmasterclinic.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Kingsridge Medical Clinic & Walk in",
+      "address": "2015 Kingsridge Dr #6, Oakville",
+      "phone": "(905) 467-3878",
+      "url": "https://kingsridge.princerx.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "name": "Dundas Neyagawa Medical Centre and Pharmacy",
+      "address": "479 Dundas St W, Oakville",
+      "phone": "(905) 257-5779",
+      "url": "http://www.pharmasave.com/oakville-dundas",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "name": "Royal Oak Clinic",
+      "address": "2524 Third Line, Oakville",
+      "phone": "(905) 827-7000",
+      "url": "http://www.royaloakclinic.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "1:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Oak Park Medical Clinic",
+      "address": "2530 Sixth Line, Oakville",
+      "phone": "(905) 257-1006",
+      "url": "http://www.oakparkmedicalclinic.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:30 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:30 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:30 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:30 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:30 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "8:30 AM",
+          "close": "1:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "name": "Oak-Trafalgar Medical Clinic",
+      "address": "261 Oak Walk Dr Unit J6, Oakville",
+      "phone": "(289) 529-0540",
+      "url": "http://www.oaktrafalgarclinic.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "10:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "3:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "Id": "22",
+      "name": "Uptown Medical",
+      "address": "2423 Trafalgar Rd, Oakville",
+      "phone": "(289) 813-4402",
+      "url": "http://www.uptownmedical.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "2:00 PM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "1:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "name": "North Oakville Animal Hospital",
+      "address": "2520 Sixth Line, Oakville",
+      "phone": "(905) 257-3700",
+      "url": "http://www.northoakvilleanimalhospital.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "name": "Sixteen Mile Veterinary Clinic",
+      "address": "483 Dundas St W, Oakville",
+      "phone": "(289) 725-9988",
+      "url": "http://www.sixteenmilevet.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "name": "River Glen Veterinary Clinic",
+      "address": "575 River Glen Blvd #3, Oakville",
+      "phone": "(905) 257-4400",
+      "url": "http://www.riverglenvet.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Tuesday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "10:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "Closed",
+          "close": "Closed"
+        },
+        {
+          "day": "Saturday",
+          "open": "12:00 PM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "12:00 PM",
+          "close": "6:00 PM"
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "name": "Foxcreek Animal Hospital",
+      "address": "2501 Third Line, Oakville",
+      "phone": "(905) 469-0800",
+      "url": "http://www.foxcreekvet.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "1:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "name": "Westoak Animal Hospital",
+      "address": "3-2512 Old Bronte Rd, Oakville",
+      "phone": "(905) 469-2595",
+      "url": "http://www.westoakanimalhospital.com/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "2:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "name": "Peak Home Health Care Inc.",
+      "address": "2384 Dalebrook Dr, Oakville",
+      "phone": "(905) 582-7992",
+      "url": "https://www.peakhomehealthcare.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "12:00 AM",
+          "close": "11:59 PM"
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "name": "Glenashton Dental Centre",
+      "address": "333 Glenashton Dr, Oakville",
+      "phone": "(905) 842-5500",
+      "url": "http://www.glenashtondental.ca/",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "1:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "name": "I.D.A. - Medprohealth Pharmacy",
+      "address": "4903 Thomas Alton Blvd, Burlington",
+      "phone": "(905) 336-0999",
+      "url": "https://www.guardian-ida-remedysrx.ca/en/ontario/burlington/medprohealth-pharmacy-7021180?utm_source=google&utm_medium=maps&utm_campaign=local_presence",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "9:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "9:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "9:00 AM",
+          "close": "7:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "4:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "Closed",
+          "close": "Closed"
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "name": "Loblaw Pharmacy",
+      "address": "2515 Appleby Line, Burlington",
+      "phone": "(905) 319-0366",
+      "url": "https://www.fortinos.ca/pharmacy?storeId=1495&utm_source=G&utm_medium=LPM&utm_campaign=Loblaws",
+      "hours": [
+        {
+          "day": "Monday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Tuesday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Wednesday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Thursday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Friday",
+          "open": "8:00 AM",
+          "close": "8:00 PM"
+        },
+        {
+          "day": "Saturday",
+          "open": "9:00 AM",
+          "close": "6:00 PM"
+        },
+        {
+          "day": "Sunday",
+          "open": "9:00 AM",
+          "close": "5:00 PM"
+        }
+      ]
+    }
+  ]
+}

@@ -16,12 +16,12 @@ const listData = [
     link: '/banks',
   },
   { name: 'Stores', link: '/stores' },
-  { name: 'Parks & Rec', link: '/parks-rec' },
   { name: 'Religious Places', link: '/religious-places' },
   {
     name: 'Hospitals / walk-in clinics / vets',
     link: '/hospital-walk-in-clinic-vets',
   },
+  { name: 'Parks & Rec', link: '/parks-rec' },
   {
     name: 'Public Trasportation',
     link: '/public-trasportation',
