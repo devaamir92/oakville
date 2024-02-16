@@ -178,7 +178,7 @@ function Page() {
               className="bg-white py-1"
             />
 
-            <Button variant="default" className="">
+            <Button type="submit" title="submit" variant="default" className="">
               Submit
             </Button>
           </form>

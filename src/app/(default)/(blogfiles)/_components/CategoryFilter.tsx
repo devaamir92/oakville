@@ -29,6 +29,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories }) => {
             handleLinClick(e, category);
           }}
           variant="default"
+          title="category"
           key={category}
           className="h-auto !px-2 !py-1 text-sm text-white hover:underline"
         >

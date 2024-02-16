@@ -112,6 +112,7 @@ function BlogPage() {
                   <p className="text-sm text-gray-500">{date}</p>
                   <button
                     type="button"
+                    title="Read More"
                     className="flex items-center gap-1 text-sm text-primary-500 transition-all duration-300 ease-in-out
                       group-hover:font-semibold"
                   >

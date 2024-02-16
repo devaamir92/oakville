@@ -149,6 +149,7 @@ const BankStatus: React.FC<Props> = ({ hours }) => {
         ref={ref}
         className="flex size-full items-center justify-between"
         type="button"
+        title="Show Hours"
         onClick={() => setShowHours(!showHours)}
       >
         <div

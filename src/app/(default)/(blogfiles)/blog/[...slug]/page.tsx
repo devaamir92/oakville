@@ -55,16 +55,32 @@ function Page() {
           </div>
           <div className="flex items-center gap-1.5">
             <span className="text-sm font-medium">Share On:</span>
-            <Button className="flex size-7 items-center justify-center bg-blue-500 p-0">
+            <Button
+              type="button"
+              aria-label="Facebook"
+              className="flex size-7 items-center justify-center bg-blue-500 p-0"
+            >
               <FaFacebookF size={18} />
             </Button>
-            <Button className="flex size-7 items-center justify-center bg-black p-0">
+            <Button
+              type="button"
+              aria-label="Twitter"
+              className="flex size-7 items-center justify-center bg-black p-0"
+            >
               <FaXTwitter size={18} />
             </Button>
-            <Button className="flex size-7 items-center justify-center bg-red-500 p-0">
+            <Button
+              type="button"
+              aria-label="Pinterest"
+              className="flex size-7 items-center justify-center bg-red-500 p-0"
+            >
               <FaPinterest size={18} />
             </Button>
-            <Button className="flex size-7 items-center justify-center bg-blue-600 p-0">
+            <Button
+              type="button"
+              aria-label="LinkedIn"
+              className="flex size-7 items-center justify-center bg-blue-600 p-0"
+            >
               <FaLinkedinIn size={18} />
             </Button>
           </div>
