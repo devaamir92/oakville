@@ -12,7 +12,7 @@ import {
 
 import { Button } from '@components/ui/Button';
 
-import CategoryFilter from '../_components/CategoryFilter';
+import CategoryFilter from '@app/(default)/(blogfiles)/_components/CategoryFilter';
 
 const Links = [
   {

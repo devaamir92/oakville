@@ -5,7 +5,7 @@ import { FaRegCircleRight } from 'react-icons/fa6';
 
 import Pagination from '@components/ui/Pagination';
 
-import CategoryFilter from './_components/CategoryFilter';
+import CategoryFilter from '@app/(default)/(blogfiles)/_components/CategoryFilter';
 
 const Links = [
   {
@@ -83,7 +83,7 @@ const Links = [
 
 function BlogPage() {
   return (
-    <section className="py-10">
+    <section className="py-5">
       <div className="container flex flex-col">
         <div className="flex items-center justify-between">
           <h2 className="mb-3  text-2xl font-semibold">Blogs</h2>

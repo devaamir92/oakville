@@ -11,7 +11,7 @@ import cn from '@utils/cn';
 
 interface DropdownProps {
   icon?: React.ReactNode;
-  label: string;
+  label?: string;
   className?: string;
   children: React.ReactNode;
 }
@@ -37,12 +37,13 @@ const Dropdown: React.FC<DropdownProps> = ({
         <Trigger ref={ref} asChild>
           <button
             type="button"
+            area-label={label}
             className={cn(
               'flex w-full items-center justify-between  text-sm text-white focus:outline-none',
               className
             )}
           >
-            <span className="mr-2 truncate">{label}</span>
+            {label && <span className="mr-2 truncate">{label}</span>}
             {icon}
           </button>
         </Trigger>
