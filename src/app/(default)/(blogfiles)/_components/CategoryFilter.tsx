@@ -16,7 +16,9 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories }) => {
     category: string
   ) => {
     e.preventDefault();
-    router.push(`/blog/category/${category.toLowerCase().replace(' ', '-')}`);
+    e.stopPropagation();
+
+    router.push(`/category/${category.toLowerCase().replace(' ', '-')}`);
   };
 
   return (
@@ -28,7 +30,7 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories }) => {
           }}
           variant="default"
           key={category}
-          className="h-auto !px-2 !py-1 text-xs text-white hover:underline"
+          className="h-auto !px-2 !py-1 text-sm text-white hover:underline"
         >
           {category}
         </Button>

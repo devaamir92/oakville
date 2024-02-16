@@ -49,10 +49,10 @@ function BlogToolbar() {
         </Link>
 
         <DropdownList listData={Links} />
-        <form>
+        <form className="hidden md:block">
           <label
             htmlFor="searchblog"
-            className="flex h-[36px] min-w-96 items-center overflow-hidden rounded bg-primary-500 pl-2 text-sm transition-all duration-300 ease-in-out"
+            className="flex h-[36px] min-w-72 items-center overflow-hidden rounded bg-primary-500 pl-2 text-sm transition-all duration-300 ease-in-out lg:min-w-96"
           >
             <input
               type="text"

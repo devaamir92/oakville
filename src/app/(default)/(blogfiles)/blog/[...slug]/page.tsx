@@ -44,9 +44,9 @@ const Links = [
 
 function Page() {
   return (
-    <main className="container flex gap-4 py-4">
+    <main className="container flex flex-col gap-4 py-4 lg:flex-row">
       <div className="flex flex-1 flex-col gap-4">
-        <div className="flex  justify-between">
+        <div className="flex flex-col justify-between gap-2 md:flex-row">
           <div className="flex flex-col gap-0">
             <h4 className="text-xl font-medium">
               Are Bungalows Worth the Extra Cost Compared
@@ -331,7 +331,7 @@ function Page() {
           </div>
         </section> */}
       </div>
-      <div className=" w-[450px] rounded bg-secondary-300 p-4">
+      <div className="rounded bg-secondary-300 p-4 lg:w-[450px]">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
@@ -379,7 +379,7 @@ function Page() {
               <h4 className=" text-xl font-medium">Recent Blogs</h4>
               <hr className="border-gray-300" />
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
               {Links.map(({ name, date, Imageurl, categories }) => (
                 <Link
                   key={name}
