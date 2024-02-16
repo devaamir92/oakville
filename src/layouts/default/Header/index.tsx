@@ -8,6 +8,19 @@ import { Button } from '@components/ui/Button';
 
 import Auth from './auth';
 import CommunitiesList from './communitiesList';
+import MobileMenu from './mobileMenu';
+
+const navLinks = [
+  { name: 'Home', link: '/' },
+  { name: 'Buy', link: '/buy' },
+  { name: 'Sell', link: '/sell' },
+  { name: 'Rent', link: '/rent' },
+  { name: 'Sold', link: '/sold' },
+  { name: 'New Developments', link: '/new-developments' },
+  { name: 'Communities', link: '/communities' }, // or the appropriate link
+  { name: 'Blog', link: '/blog' },
+  { name: 'Auth', link: '/auth' },
+];
 
 const listData = [
   { name: 'Schools', link: '/schools' },
@@ -45,12 +58,7 @@ export default function Header() {
               className="object-contain"
             />
           </Link>
-          <Button
-            className="size-10 border-primary-400 p-0 lg:hidden"
-            variant="outline"
-          >
-            <BsList className="text-white" size={24} />
-          </Button>
+          <MobileMenu navLinks={navLinks} />
         </div>
         <div className="w-full lg:hidden">
           <hr className="border-primary-400" />
@@ -63,29 +71,23 @@ export default function Header() {
         </div>
         <div className="hidden w-full lg:flex lg:justify-end">
           <nav className="flex size-full items-center lg:justify-between xl:w-fit xl:gap-6 xl:text-sm 2xl:gap-10">
-            <Link href="/" className={linkClass}>
-              Home
-            </Link>
-            <Link href="/buy" className={linkClass}>
-              Buy
-            </Link>
-            <Link href="/sell" className={linkClass}>
-              Sell
-            </Link>
-            <Link href="/rent" className={linkClass}>
-              Rent
-            </Link>
-            <Link href="/sold" className={linkClass}>
-              Sold
-            </Link>
-            <Link href="/new-developments" className={linkClass}>
-              New Developments
-            </Link>
-            <CommunitiesList listData={listData} />
-            <Link href="/blog" className={linkClass}>
-              Blog
-            </Link>
-            <Auth />
+            {navLinks.map(({ name, link }) => {
+              let component;
+
+              if (name === 'Communities') {
+                component = <CommunitiesList key={name} listData={listData} />;
+              } else if (name === 'Auth') {
+                component = <Auth key={name} />;
+              } else {
+                component = (
+                  <Link key={name} href={link} className={linkClass}>
+                    {name}
+                  </Link>
+                );
+              }
+
+              return component;
+            })}
           </nav>
         </div>
       </div>
