@@ -22,7 +22,7 @@ function Hero() {
           <div className="flex justify-end">
             <div className="relative h-[74px] w-[135px] xl:mt-14 xl:h-[148px] xl:w-[270px]">
               <Image
-                src="/images/svg/logo.svg"
+                src="/images/svg/oakville-logo.svg"
                 alt="Oakville Preserve logo"
                 fill
               />

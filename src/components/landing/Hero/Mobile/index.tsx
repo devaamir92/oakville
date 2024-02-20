@@ -19,7 +19,7 @@ function HeroMobile() {
           <div className="flex justify-end">
             <div className="relative mt-2 h-[74px] w-[135px] md:mt-6 md:h-[100px] md:w-[200px]">
               <Image
-                src="/images/svg/logo.svg"
+                src="/images/svg/oakville-logo"
                 alt="Oakville Preserve logo"
                 fill
               />

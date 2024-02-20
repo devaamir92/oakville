@@ -48,7 +48,7 @@ export default function Header() {
         <div className="flex w-full items-center justify-between lg:w-[55px]">
           <Link href="/" className="relative size-[45px] lg:size-[55px]">
             <Image
-              src="/images/svg/logo-1.svg"
+              src="/images/svg/oakville-leaf.svg"
               alt="logo"
               fill
               sizes="(max-width: 767px) 100px, 150px"
@@ -62,7 +62,7 @@ export default function Header() {
         </div>
         <div className="ml-0 w-full lg:ml-4 lg:w-72 xl:w-96">
           <SearchComponent
-            className="h-[36px] min-w-72 bg-primary-400 text-white xl:w-96"
+            className="h-[36px] min-w-72  bg-primary-700 text-black xl:w-96"
             placeholder="Search by address, MLS #..."
           />
         </div>

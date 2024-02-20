@@ -21,7 +21,7 @@ function Auth() {
   return (
     <Modal
       title="Login"
-      className="rounded bg-primary-400 px-6 py-1.5 text-white lg:px-7 lg:py-2"
+      className="rounded bg-primary-700 px-6 py-1.5 text-white lg:px-7 lg:py-2"
     >
       {formState === 'SIGN_IN' && <Login switchForm={switchForm} />}
       {formState === 'SIGN_UP' && <Register switchForm={switchForm} />}
