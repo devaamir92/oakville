@@ -38,7 +38,7 @@ export default function Table() {
           The property price history is available only to registered users.
         </p>
       </div>
-      <div className="overflow-hidden rounded border">
+      <div className="overflow-hidden overflow-x-auto rounded border">
         <table className="min-w-full">
           <thead className="border-b bg-gray-50">
             <tr>

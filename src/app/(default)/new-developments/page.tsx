@@ -83,14 +83,18 @@ const Property = [
 
 const Developments = () => {
   return (
-    <div className="flex flex-col gap-6 pb-6">
+    <div className="flex flex-col pb-4">
       <div className="flex-1">
         <Toolbar />
       </div>
-      <h1 className="text-center text-2xl font-semibold">
-        The Preserve Oakville
-      </h1>
-      <div className="container grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container mt-4 flex flex-col">
+        <h1 className="mb-3 text-center text-2xl font-semibold">
+          The Preserve Oakville
+        </h1>
+        <div className="mb-4 h-[1px] bg-gray-300" />
+      </div>
+
+      <div className="container mb-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {Property.map(item => {
           const slug = item.Addr.toLowerCase().split(' ').join('-');
           return (

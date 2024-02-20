@@ -51,7 +51,7 @@ const Viewer: React.FC<Props> = ({
           <Button
             type="button"
             aria-label="close"
-            className="bg-black/60 text-lg font-normal text-white hover:bg-black/80"
+            className="bg-black/60 text-base font-normal text-white hover:bg-black/80 md:text-lg"
             onClick={
               Images.length > 5
                 ? () => {

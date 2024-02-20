@@ -16,9 +16,9 @@ const LightBox: React.FC<Props> = ({ Images }) => {
   return (
     <div
       id="description"
-      className="relative flex h-[420px] gap-2 overflow-hidden rounded"
+      className="relative flex h-60 gap-2 overflow-hidden rounded md:h-80 lg:h-[420px]"
     >
-      <div className="relative w-3/5 overflow-hidden ">
+      <div className="relative w-full overflow-hidden md:w-3/5 ">
         <Image
           className="cursor-pointer object-cover"
           src={Images[0].src}
@@ -35,7 +35,7 @@ const LightBox: React.FC<Props> = ({ Images }) => {
           }
         />
       </div>
-      <div className="grid flex-1 grid-cols-1 items-center gap-2 shadow">
+      <div className="hidden flex-1 grid-cols-1 items-center gap-2 shadow md:grid">
         {Images.slice(1, 3).map(image => (
           <div
             className="relative col-span-1 size-full overflow-hidden "

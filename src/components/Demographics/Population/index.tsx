@@ -41,7 +41,7 @@ function Population() {
         <h4 className="text-lg font-medium text-black">Population</h4>
       </div>
       <hr className="my-2" />
-      <div className="flex divide-x-[1px]">
+      <div className="flex flex-col gap-4 md:flex-row md:gap-0 md:divide-x-[1px]">
         <div className="flex-1">
           <Gender data={PopulationData} />
         </div>
@@ -51,7 +51,7 @@ function Population() {
       </div>
       <hr className="my-2" />
 
-      <div className="flex divide-x-[1px]">
+      <div className="flex flex-col gap-4 md:flex-row md:gap-0 md:divide-x-[1px]">
         <div className="flex flex-1 flex-col gap-4 border-gray-300">
           <p className="text-md  font-medium">Marital Status</p>
           <MaritalStatus data={MaritalData} />

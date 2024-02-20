@@ -37,8 +37,8 @@ function HouseHolds() {
         <h4 className="text-lg font-medium text-black">Households</h4>
       </div>
       <hr className="my-2" />
-      <div className="flex">
-        <div className="flex flex-1 flex-col border-r border-gray-300 p-4">
+      <div className="flex flex-col gap-4 md:flex-row md:gap-0 ">
+        <div className="flex flex-1 flex-col border-gray-300 p-4 md:border-r">
           <p className="text-md font-medium">Structural Details</p>
           <StructureDetails />
         </div>
@@ -48,8 +48,8 @@ function HouseHolds() {
         </div>
       </div>
       <hr className="my-2" />
-      <div className="flex">
-        <div className="flex flex-1 flex-col gap-4 border-r border-gray-300 p-4">
+      <div className="flex flex-col gap-4 md:flex-row md:gap-0">
+        <div className="flex flex-1 flex-col gap-4 border-gray-300 p-4 md:border-r">
           <p className="text-md font-medium">Age of Home (Years)</p>
           <HomeAge data={AgeHomes} />
         </div>

@@ -115,21 +115,24 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
   return (
     <section
       className={cn(
-        'flex flex-col gap-4 overflow-y-auto bg-white px-4 py-4 xl:w-1/2 2xl:w-2/5',
+        'container flex w-full flex-col gap-4 overflow-y-auto bg-white py-4 xl:w-1/2 2xl:w-2/5',
         {
-          'w-full bg-transparent px-0 xl:w-full 2xl:w-full':
+          'w-full  bg-transparent xl:w-full 2xl:w-full':
             searchParams?.view === 'list',
-          'container mx-auto': searchParams?.view === 'list',
+          'mx-auto': searchParams?.view === 'list',
         }
       )}
     >
-      <h6
-        className={cn('text-2xl font-semibold text-gray-800', {
-          'text-center': searchParams?.view === 'list',
-        })}
+      <h1
+        className={cn(
+          'text-center text-2xl font-semibold text-gray-800 lg:text-left',
+          {
+            'text-center': searchParams?.view === 'list',
+          }
+        )}
       >
         Buy Properties in Oakville
-      </h6>
+      </h1>
       <div
         className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {
           'xl:grid-cols-4': searchParams?.view === 'list',

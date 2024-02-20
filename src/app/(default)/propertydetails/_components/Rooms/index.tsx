@@ -78,8 +78,8 @@ function Rooms() {
 
       <div
         className={cn(
-          'mt-3 flex-1',
-          showMore ? 'max-h-full overflow-auto' : 'max-h-36 overflow-hidden'
+          'mt-3 flex-1 overflow-x-auto',
+          showMore ? 'max-h-full overflow-y-auto' : 'max-h-36 overflow-y-hidden'
         )}
       >
         <table className="min-w-full border-gray-300 bg-white text-sm">
@@ -95,15 +95,20 @@ function Rooms() {
               <th className="px-4 py-2 text-left">Features</th>
             </tr>
           </thead>
-          <tbody className="">
+          <tbody className="w-full">
             {tableData.map((item, j) => (
               <tr
                 key={item.room}
-                className={cn('', j % 2 === 0 ? 'bg-primary-100' : 'bg-white')}
+                className={cn(
+                  'w-full',
+                  j % 2 === 0 ? 'bg-primary-100' : 'bg-white'
+                )}
               >
-                <td className="px-4 py-2">{item.room}</td>
+                <td className="min-w-32 px-4 py-2">{item.room}</td>
                 <td className="px-4 py-2">{item.size}</td>
-                <td className="px-4 py-2">{item.features.join(', ')}</td>
+                <td className="flex min-w-96 px-4 py-2">
+                  {item.features.join(', ')}
+                </td>
               </tr>
             ))}
           </tbody>

@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import { BsHouseDoorFill } from 'react-icons/bs';
-import { FaSearch } from 'react-icons/fa';
 
 import DropdownList from './DropdownList';
+import Search from './Search';
 
 const Links = [
+  {
+    name: 'Home Buyers',
+    link: '/category/Home-Buyers',
+  },
   {
     name: 'Home improvement',
     link: '/category/home-improvement',
@@ -34,7 +38,7 @@ const Links = [
 function BlogToolbar() {
   return (
     <div className="flex h-12 items-center bg-primary-400">
-      <div className="container flex items-center justify-between">
+      <div className="container relative flex items-center justify-between">
         <Link href="/blog" className="text-lg text-white">
           <BsHouseDoorFill />
         </Link>
@@ -44,27 +48,9 @@ function BlogToolbar() {
         <Link href="/category/Real-Estate-News" className="text-sm text-white">
           Real Estate News
         </Link>
-        <Link href="/category/Home-Buyers" className="text-sm text-white">
-          Home Buyers
-        </Link>
 
         <DropdownList listData={Links} />
-        <form className="hidden md:block">
-          <label
-            htmlFor="searchblog"
-            className="flex h-[36px] min-w-72 items-center overflow-hidden rounded bg-primary-500 pl-2 text-sm transition-all duration-300 ease-in-out lg:min-w-96"
-          >
-            <input
-              type="text"
-              id="searchblog"
-              placeholder="Search Blog"
-              className="flex-1 bg-transparent text-white placeholder:text-gray-100 focus:outline-none"
-            />
-            <button type="button" aria-label="Search" className=" p-2">
-              <FaSearch className="text-white" />
-            </button>
-          </label>
-        </form>
+        <Search />
       </div>
     </div>
   );

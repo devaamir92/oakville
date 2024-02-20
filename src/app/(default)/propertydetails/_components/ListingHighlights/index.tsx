@@ -39,7 +39,7 @@ function ListingHighlights() {
   return (
     <div className="flex flex-col gap-4">
       <p className="text-md font-medium">Highlights</p>
-      <div className="flex gap-12">
+      <div className="flex flex-col gap-0 divide-y-[1px] divide-gray-300 md:flex-row md:gap-4 md:divide-y-0 lg:gap-12">
         <div className="flex-1">
           <table className="w-full">
             <tbody className="divide-y divide-gray-300 bg-white">
@@ -48,7 +48,7 @@ function ListingHighlights() {
                   <td className=" py-1.5 font-medium text-gray-500">
                     {item.name}
                   </td>
-                  <td className=" py-1.5 font-medium text-gray-700">
+                  <td className=" py-1.5 text-right font-medium text-gray-700 md:text-left">
                     {item.value}
                   </td>
                 </tr>
@@ -64,7 +64,7 @@ function ListingHighlights() {
                   <td className=" py-1.5 font-medium text-gray-500">
                     {item.name}
                   </td>
-                  <td className=" py-1.5 font-medium text-gray-700">
+                  <td className=" py-1.5 text-right font-medium text-gray-700 md:text-left">
                     {item.value}
                   </td>
                 </tr>

@@ -23,7 +23,7 @@ const LanguageData = [
 function SocioEconomic() {
   return (
     <>
-      <div className="flex divide-x-[1px]">
+      <div className="flex flex-col gap-4 md:flex-row md:gap-0 md:divide-x-[1px]">
         <div className="flex flex-1 flex-col gap-4 border-gray-300">
           <p className="text-md font-medium">Dominant Language</p>
           <Language data={LanguageData} />

@@ -86,10 +86,12 @@ function BlogPage() {
     <section className="py-5">
       <div className="container flex flex-col">
         <div className="flex items-center justify-between">
-          <h2 className="mb-3  text-2xl font-semibold">Blogs</h2>
+          <h1 className="mb-3 flex-1 text-center text-2xl font-semibold">
+            Blogs
+          </h1>
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
-        <div className="grid grid-cols-1 gap-8  pb-10 md:grid-cols-2 lg:grid-cols-3 ">
+        <div className="mb-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
           {Links.map(({ name, date, Imageurl, categories }) => (
             <Link
               key={name}

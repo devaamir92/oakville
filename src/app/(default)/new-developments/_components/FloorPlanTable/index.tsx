@@ -82,11 +82,11 @@ const FloorPlanTable: React.FC = () => {
       </h3>
       <div
         className={cn(
-          'flex-1',
-          showMore ? 'max-h-full overflow-auto' : 'max-h-36 overflow-hidden'
+          'flex-1 overflow-x-auto',
+          showMore ? 'max-h-full overflow-y-auto' : 'max-h-36 overflow-y-hidden'
         )}
       >
-        <table className="w-full table-fixed">
+        <table className="min-w-full table-fixed">
           <thead>
             <tr>
               <th className="px-4 py-2 text-left text-sm">Title</th>
@@ -94,17 +94,18 @@ const FloorPlanTable: React.FC = () => {
               <th className="px-4 py-2 text-left text-sm">Download</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="w-full">
             {floorPlans.map((floorPlan, index) => (
               <tr
                 key={floorPlan.title}
                 className={cn(
+                  'w-full',
                   index % 2 === 0 ? 'bg-primary-100' : 'bg-white',
                   'text-sm'
                 )}
               >
-                <td className="px-4 py-2">{floorPlan.title}</td>
-                <td className="px-4 py-2">
+                <td className="min-w-64 px-4 py-2">{floorPlan.title}</td>
+                <td className="min-w-28 px-4 py-2">
                   {floorPlan.area} <small>sq ft</small>
                 </td>
                 <td className="px-4 py-2">

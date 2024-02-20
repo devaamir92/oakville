@@ -21,27 +21,27 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({
   daysOnMarket,
 }) => {
   return (
-    <div className="flex flex-1 items-center justify-between">
+    <div className="flex flex-1 flex-col items-center justify-between gap-3 md:flex-row">
       <div className="flex flex-col gap-2">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col items-center gap-2 md:items-start">
           <div className="flex items-center gap-8">
             <div className="flex flex-col items-center">
-              <LuBedDouble className="text-gray-700" size={24} />
+              <LuBedDouble className="text-2xl text-gray-700" />
               <span className="text-sm font-medium">{bedrooms} bed</span>
             </div>
             <div className="flex flex-col items-center">
-              <LuBath className="text-gray-700" size={24} />
+              <LuBath className="text-2xl text-gray-700" />
               <span className="text-sm font-medium">{bathrooms} bath</span>
             </div>
             <div className="flex flex-col items-center">
-              <LuParkingCircle className="text-gray-700" size={24} />
+              <LuParkingCircle className="text-2xl text-gray-700" />
               <span className="text-sm font-medium">
                 {parkingSpaces} parking
               </span>
             </div>
             <div>
               <div className="flex flex-col items-center">
-                <LuScan className="text-gray-700" size={24} />
+                <LuScan className="text-2xl text-gray-700" />
                 <span className="text-sm font-medium">{squareFeet} sqft *</span>
               </div>
             </div>
@@ -57,7 +57,7 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({
         </div>
       </div>
       <div className="">
-        <p className="text-3xl font-medium text-gray-800">
+        <p className=" text-3xl font-medium text-gray-800">
           ${price.toLocaleString()}
         </p>
       </div>

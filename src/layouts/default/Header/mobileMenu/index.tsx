@@ -1,55 +1,93 @@
 'use client';
 
-import Link from 'next/link';
 import React, { useState } from 'react';
-import { BsList } from 'react-icons/bs';
+import { useRouter } from 'next/navigation';
 
-import { Button } from '@components/ui/Button';
+import { BsList } from 'react-icons/bs';
+import {
+  Content,
+  DropdownMenu,
+  Portal,
+  Root,
+  Trigger,
+} from '@radix-ui/react-dropdown-menu';
 
 import Auth from '../auth';
 
+import CollapsItems from './Collaps';
+
 interface MobileMenuProps {
   navLinks: { name: string; link: string }[];
-  //   listData?: { name: string; link: string }[];
+  listData: { name: string; link: string }[];
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks }) => {
-  const [show, setShow] = useState(false);
+const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks, listData }) => {
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
-      <Button
-        className="size-10 border-primary-400 p-0 hover:bg-primary-600 lg:hidden"
-        variant="outline"
-        onClick={() => setShow(!show)}
-      >
-        <BsList className="text-white" size={24} />
-      </Button>
-      {show && (
-        <div className="absolute inset-x-[2%] top-[60px]  w-[96%] border bg-white p-2">
-          <nav className="flex flex-col divide-y-[1px] divide-gray-300">
-            {navLinks.map(({ name, link }) => {
-              let component;
+    <div className="flex items-center gap-2 lg:hidden">
+      <Auth />
+      <DropdownMenu>
+        <Root
+          open={isOpen}
+          onOpenChange={() => {
+            setIsOpen(!isOpen);
+          }}
+        >
+          <Trigger asChild>
+            <button
+              type="button"
+              aria-label="mobile Menu"
+              onClick={() => setIsOpen(!isOpen)}
+              className="flex items-center justify-center rounded p-2 text-white outline-none hover:bg-primary-600"
+            >
+              <BsList className="text-xl" />
+            </button>
+          </Trigger>
+          <Portal>
+            <Content
+              className="z-50 min-w-80 rounded-md bg-white p-2"
+              sideOffset={5}
+              align="end"
+            >
+              <nav className="flex flex-col divide-y-[1px] divide-gray-300">
+                {navLinks.map(({ name, link }) => {
+                  let component;
 
-              if (name === 'Auth') {
-                component = <Auth />;
-              } else {
-                component = (
-                  <Link
-                    key={name}
-                    href={link}
-                    className="flex h-10 items-center px-2 text-lg text-primary-500 transition-colors duration-200 ease-in-out hover:bg-primary-500 hover:text-white"
-                  >
-                    {name}
-                  </Link>
-                );
-              }
+                  if (name === 'Communities') {
+                    component = (
+                      <CollapsItems
+                        key={name}
+                        setIsOpen={setIsOpen}
+                        listData={listData}
+                      />
+                    );
+                  } else if (name === 'Auth') {
+                    component = null;
+                  } else {
+                    component = (
+                      <button
+                        type="button"
+                        key={name}
+                        onClick={() => {
+                          router.push(link);
+                          setIsOpen(false);
+                        }}
+                        className="flex h-10 items-center px-2 text-lg text-primary-500"
+                      >
+                        {name}
+                      </button>
+                    );
+                  }
 
-              return component;
-            })}
-          </nav>
-        </div>
-      )}
+                  return component;
+                })}
+              </nav>
+            </Content>
+          </Portal>
+        </Root>
+      </DropdownMenu>
     </div>
   );
 };

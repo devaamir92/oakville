@@ -85,13 +85,13 @@ const Images = [
 function Page() {
   return (
     <main className="container flex max-w-[1140px] flex-col gap-3 py-3">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col items-center justify-between md:flex-row">
         <div className="flex flex-col gap-0">
           <h3 className="text-3xl  font-semibold text-gray-800">
             Clarehaven Estates
           </h3>
         </div>
-        <div className="flex flex-col items-start gap-1">
+        <div className="flex flex-col items-center gap-1 md:items-start">
           <Link
             href="tel:647-123-4567"
             className="flex items-center gap-2 text-sm"
@@ -111,12 +111,9 @@ function Page() {
       <div className="relative">
         <LightBox Images={Images} />
         <div className="absolute bottom-4 left-4 z-0 rounded border-2 border-gray-800">
-          <Image
-            src="/images/webp/logo.webp"
-            alt="Image 1"
-            width={120}
-            height={120}
-          />
+          <div className="relative size-20 md:size-28">
+            <Image src="/images/webp/logo.webp" alt="Image 1" fill />
+          </div>
         </div>
       </div>
       <div className="flex items-center justify-between">
@@ -127,14 +124,14 @@ function Page() {
         </div>
         <div className="flex flex-col items-end">
           <p>Listing Status</p>
-          <h4 className="text-2xl text-primary-500">Selling</h4>
+          <h4 className="text-xl text-primary-500 md:text-2xl">Selling</h4>
         </div>
       </div>
-      <div className="flex gap-6">
-        <div className="sticky top-[94px] h-fit w-[360px]">
+      <div className="flex flex-col gap-6 lg:flex-row">
+        <div className="order-2 h-fit lg:sticky lg:top-[94px] lg:order-1 lg:w-[360px]">
           <form
             action=""
-            className="flex flex-col justify-between gap-6 rounded bg-secondary-300 p-6  2xl:h-3/4"
+            className=" flex flex-col justify-between gap-6 rounded bg-secondary-300 p-6 2xl:h-3/4"
           >
             <h2 className="text-center text-lg font-medium">
               Register To Get Pricing & Floor Plans for Clarehaven Estates

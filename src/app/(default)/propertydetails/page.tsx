@@ -90,7 +90,7 @@ const Images = [
 
 function Page() {
   return (
-    <main className="container flex max-w-[1140px] flex-col gap-3 bg-white py-3">
+    <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-0">
           <h3 className="text-xl font-medium text-gray-800">
@@ -106,14 +106,14 @@ function Page() {
             variant="outline"
           >
             <BsHeart />
-            Favourite
+            <span className="hidden lg:block">Favourite</span>
           </Button>
           <Button
             className="gap-2 border-primary-300 text-primary-500"
             variant="outline"
           >
             <BsUpload />
-            Share
+            <span className="hidden lg:block">Share</span>
           </Button>
         </div>
       </div>
@@ -164,8 +164,8 @@ function Page() {
         daysOnMarket={24}
       />
 
-      <div className="flex gap-3">
-        <div className="sticky top-[100px] flex h-fit w-[360px] flex-col gap-10 rounded">
+      <div className="flex flex-col gap-3 lg:flex-row-reverse">
+        <div className="order-2 flex h-fit flex-col gap-10 rounded md:w-full lg:sticky lg:top-[100px] lg:order-1 lg:w-[360px]">
           <div className="flex flex-col gap-3 bg-secondary-300 px-8 py-4 shadow">
             <h3 className="text-center text-2xl font-medium text-gray-800">
               The Preserve Oakville
@@ -212,7 +212,7 @@ function Page() {
             </Button>
           </div>
         </div>
-        <div className="flex flex-1 flex-col gap-6  bg-white p-3">
+        <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
           <PriceHistory />
           <ListingHighlights />
 
@@ -224,8 +224,8 @@ function Page() {
           <Demographics />
         </div>
       </div>
-      <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-        <div className="col-span-3">
+      <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="col-span-1 md:col-span-2 lg:col-span-3">
           <h4 className="text-2xl font-semibold">Similar Properties</h4>
         </div>
 

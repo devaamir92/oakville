@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Toolbar from '@components/Toolbar';
+import { Desktop } from '@components/ua';
 
 interface LayoutProps {
   map: React.ReactNode;
@@ -12,7 +13,7 @@ const layout = ({ children, map }: LayoutProps) => {
     <main className="flex flex-col">
       <Toolbar />
       <main className="relative flex flex-1">
-        {map}
+        <Desktop>{map}</Desktop>
         {children}
       </main>
     </main>
