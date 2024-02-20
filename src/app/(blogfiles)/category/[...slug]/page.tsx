@@ -5,7 +5,7 @@ import { FaRegCircleRight } from 'react-icons/fa6';
 
 import Pagination from '@components/ui/Pagination';
 
-import CategoryFilter from '@app/(default)/(blogfiles)/_components/CategoryFilter';
+import CategoryFilter from '@app/(blogfiles)/_components/CategoryFilter';
 
 const Links = [
   {
