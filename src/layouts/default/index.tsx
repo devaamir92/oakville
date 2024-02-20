@@ -7,11 +7,13 @@ interface DefaultLayoutProps {
 
 const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
   return (
-    <div className="relative min-h-screen">
+    // <div className="relative min-h-screen">
+    <>
       <Header />
       {children}
       <Footer />
-    </div>
+    </>
+    // </div>
   );
 };
 

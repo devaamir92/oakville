@@ -11,8 +11,7 @@ import {
 } from 'react-icons/fa6';
 
 import { Button } from '@components/ui/Button';
-
-import CategoryFilter from '@app/(default)/(blogfiles)/_components/CategoryFilter';
+import CategoryFilter from '@app/(blogfiles)/_components/CategoryFilter';
 
 const Links = [
   {

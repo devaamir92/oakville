@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fonts}>
-      <body className="bg-[#fff] font-opensans">
+      <body className="relative min-h-screen bg-white font-opensans">
         <DefaultLayout>{children}</DefaultLayout>
       </body>
     </html>
