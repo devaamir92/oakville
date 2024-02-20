@@ -13,7 +13,7 @@ const SchoolTable: React.FC<SchoolTableProps> = ({ id, schoolType, data }) => {
         <h2 className="text-center text-2xl font-medium">{schoolType}</h2>
         <hr className="border-gray-300" />
       </div>
-      <div className="grid grid-cols-2  gap-16 pb-10">
+      <div className="grid gap-8 pb-10  md:grid-cols-2 lg:gap-16">
         {data.map((school: any) => (
           <div className="flex flex-col gap-4" key={school.id}>
             <p className="text-md font-medium">{school.name}</p>

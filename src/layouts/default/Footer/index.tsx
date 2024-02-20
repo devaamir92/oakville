@@ -21,12 +21,12 @@ const popularSearches = [
 
 const usefulLinks = [
   { name: 'Blog', href: '/blog' },
-  { name: 'Calculator', href: '/calculators' },
+  { name: 'Mortgage Calculators', href: '/calculators' },
   {
     name: 'Land Transfer Tax Calculator',
     href: '/land-transfer-tax-calculator',
   },
-  { name: 'Contact Us', href: '/' },
+  { name: 'Contact Us', href: '/contact-us' },
   { name: 'Privacy Policy', href: '/privacy' },
 ];
 

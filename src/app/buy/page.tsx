@@ -115,11 +115,11 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
   return (
     <section
       className={cn(
-        'container flex w-full flex-col gap-4 overflow-y-auto bg-white py-4 xl:w-1/2 2xl:w-2/5',
+        'container flex w-full flex-col gap-4 overflow-y-auto bg-white py-4 lg:w-1/2 2xl:w-2/5',
         {
-          'w-full bg-transparent xl:w-full 2xl:w-full':
+          'w-full  bg-transparent xl:w-full 2xl:w-full':
             searchParams?.view === 'list',
-          ' mx-auto': searchParams?.view === 'list',
+          'mx-auto': searchParams?.view === 'list',
         }
       )}
     >
@@ -131,7 +131,7 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
           }
         )}
       >
-        Properties for Rent
+        Buy Properties in Oakville
       </h1>
       <div
         className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {

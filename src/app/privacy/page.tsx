@@ -3,7 +3,7 @@ import React from 'react';
 const Terms = () => {
   return (
     <main>
-      <section className="container flex w-8/12 flex-col gap-5 py-10 text-justify text-base ">
+      <section className="container flex  flex-col gap-5 py-10 text-justify text-base ">
         <p>
           This Agreement, and all matters related to your use of the Website
           shall be governed by and construed in accordance with the laws of the

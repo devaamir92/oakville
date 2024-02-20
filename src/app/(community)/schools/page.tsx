@@ -15,18 +15,13 @@ export default async function Page() {
   const data = JSON.parse(file);
 
   return (
-    <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
+    <main className="container mx-auto flex flex-col gap-8 py-4 lg:max-w-[1140px]">
       <h3 className="text-center text-xl font-medium">
         The Preserve Oakville Schools
       </h3>
 
       <section className="-mt-4 flex flex-col gap-8">
-        <div
-          className="overflow-hidden rounded"
-          style={{
-            height: 'calc(100vh - 252px)',
-          }}
-        >
+        <div className="h-96 overflow-hidden rounded lg:h-[calc(100vh-252px)]">
           <Map lat={43.487113} lng={-79.720562} zoom={12.27} />
         </div>
       </section>

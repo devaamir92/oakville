@@ -11,6 +11,11 @@ import FeatureListing from '@components/landing/FeatureListing';
 import ListingTypes from '@components/landing/ListingTypes/Index';
 import HeroMobile from '@components/landing/Hero/Mobile';
 
+export const metadata = {
+  title: 'The Oakville Preserve',
+  description: 'The Oakville Preserve is a real estate website.',
+};
+
 const data = [
   {
     location: 'Oakville Ontario L6H 0V2',

@@ -22,12 +22,12 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ className }) => {
     <div>
       {like ? (
         <FaHeart
-          className={cn('cursor-pointer text-red-500', className)}
+          className={cn('cursor-pointer text-2xl text-red-500', className)}
           onClick={handleLike}
         />
       ) : (
         <FaRegHeart
-          className={cn('cursor-pointer text-red-500', className)}
+          className={cn('cursor-pointer text-2xl text-red-500', className)}
           onClick={handleLike}
         />
       )}
