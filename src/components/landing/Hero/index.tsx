@@ -3,17 +3,21 @@
 import React from 'react';
 import Image from 'next/image';
 
+import oakvilleHero from '../../../../public/images/jpg/oakville-preserve-banner.jpg';
+
 import HelloText from './hello';
 
 function Hero() {
   return (
     <section className="relative w-full lg:h-[40vh] xl:h-[77vh] 2xl:h-[81vh]">
       <Image
-        src="/images/jpg/oakville-preserve-banner.jpg"
+        src={oakvilleHero}
+        // src="/images/jpg/oakville-preserve-banner.jpg"
         alt="oakville preserve banner"
         fill
-        priority={false}
-        sizes="(max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
+        placeholder="blur"
+        priority
+        // sizes="(max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
         className="object-cover object-right"
       />
       <div className="absolute inset-x-0 h-full">
