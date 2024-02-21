@@ -16,23 +16,40 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages }) => {
 
   return (
     <div className="flex justify-center gap-2">
-      <Link href={`/${currentPage - 1}`} className={defaultClass}>
+      <Link
+        aria-label={`Previous Page ${currentPage + 1}`}
+        href={`/${currentPage - 1}`}
+        className={defaultClass}
+      >
         <FaChevronLeft size={10} />
       </Link>
 
       {pages.slice(0, pagesToShow).map(page => (
-        <Link key={page} href={`/${page}`} className={defaultClass}>
+        <Link
+          aria-label={`Page Number ${page}`}
+          key={page}
+          href={`/${page}`}
+          className={defaultClass}
+        >
           {page}
         </Link>
       ))}
 
       <div className={defaultClass}>...</div>
 
-      <Link href={`/${totalPages}`} className={defaultClass}>
+      <Link
+        aria-label={`Page Number ${totalPages}`}
+        href={`/${totalPages}`}
+        className={defaultClass}
+      >
         {totalPages}
       </Link>
 
-      <Link href={`/${currentPage + 1}`} className={defaultClass}>
+      <Link
+        aria-label={`Next Page ${currentPage + 1}`}
+        href={`/${currentPage + 1}`}
+        className={defaultClass}
+      >
         <FaChevronRight size={10} />
       </Link>
     </div>

@@ -101,7 +101,7 @@ const TypeData = [
 
 function Toolbar() {
   return (
-    <div className="sticky top-[113px] z-50 flex h-12 items-center justify-end bg-primary-400 px-4 lg:top-[70px]">
+    <div className="sticky top-[113px] z-50 flex h-12 items-center justify-end bg-tertiary-500 px-4 lg:top-[70px]">
       <nav className="container flex items-center overflow-x-auto md:justify-end">
         <ul className="flex min-w-[500px] items-center justify-center gap-4 text-sm xl:gap-9 2xl:gap-6">
           <li>
