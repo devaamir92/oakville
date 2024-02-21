@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function CTASection() {
   return (
-    <section className="bg-primary-400 pt-8 sm:pt-0">
+    <section className="bg-primary-500 pt-8 sm:pt-0">
       <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
         <div className="flex flex-1 flex-col items-center gap-4 md:items-start lg:w-2/5">
           <h2 className="text-center text-2xl font-semibold text-white">
@@ -19,7 +19,7 @@ function CTASection() {
           </p>
           <Link
             href="/sell"
-            className="min-w-fit rounded border border-secondary-500 px-3 py-1.5 text-center text-sm text-white hover:bg-primary-400"
+            className="flex h-[36px] min-w-fit  items-center justify-center rounded bg-tertiary-500 px-3 text-center text-sm text-white hover:bg-primary-400"
           >
             Get Free Evaluation
           </Link>
