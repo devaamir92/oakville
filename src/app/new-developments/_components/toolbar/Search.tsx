@@ -13,14 +13,14 @@ function Search() {
       <form className="">
         <label
           htmlFor="search"
-          className="flex h-[36px] items-center overflow-hidden  bg-primary-500 px-1.5 text-sm transition-all duration-300 ease-in-out lg:min-w-96"
+          className="flex h-[36px] items-center overflow-hidden  bg-white px-1.5 text-sm transition-all duration-300 ease-in-out lg:min-w-96"
         >
           <input
             type="text"
             id="search"
             placeholder="Search..."
             className={cn(
-              'full absolute right-[58px] h-[36px] w-[calc(100%-72px)] bg-primary-500 pl-2 text-white placeholder:text-gray-100 focus:outline-none  lg:relative lg:right-0 lg:flex-1',
+              'full bg-white-500 absolute right-[58px] h-[36px] w-[calc(100%-72px)] pl-2 text-black placeholder:text-gray-700 focus:outline-none  lg:relative lg:right-0 lg:flex-1',
               show ? 'block' : 'hidden lg:block'
             )}
           />
@@ -30,7 +30,7 @@ function Search() {
             className=" p-2"
             onClick={() => setShow(!show)}
           >
-            <FaSearch className="text-white" />
+            <FaSearch className="text-tertiary-500" />
           </button>
         </label>
       </form>

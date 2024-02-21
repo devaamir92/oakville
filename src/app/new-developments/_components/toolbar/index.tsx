@@ -13,7 +13,7 @@ const Status = ['Coming Soon', 'Selling Now', 'Sold Out'];
 const Occupancy = ['2024', '2025', '2026', '2027', '2028', '2029', '2030'];
 function Toolbar() {
   return (
-    <div className="flex w-full items-center justify-end bg-primary-400 py-1.5">
+    <div className="flex w-full items-center justify-end bg-tertiary-500 py-1.5">
       <nav className="container relative flex w-full items-center">
         <ul className="flex flex-1 items-center justify-between gap-4  text-sm">
           <li className="">
@@ -32,7 +32,9 @@ function Toolbar() {
               <Types items={Occupancy} />
             </Dropdown>
           </li>
-          <Search />
+          <li>
+            <Search />
+          </li>
         </ul>
       </nav>
     </div>

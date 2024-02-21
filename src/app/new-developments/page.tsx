@@ -104,12 +104,13 @@ const Developments = () => {
               className="flex flex-col"
             >
               <div className="flex flex-col overflow-hidden rounded border border-gray-300 bg-white">
-                <div className="relative h-[250px]">
+                <div className="relative h-[250px] w-full">
                   <Image
                     src={item.ImageUrl}
                     alt={item.Addr}
                     fill
-                    sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
+                    sizes="100vw, (min-width: 768px) 50vw"
+                    className="size-full object-cover"
                   />
                   <div className="absolute right-3 top-3">
                     {/* <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold uppercase text-primary-500 shadow">
@@ -119,18 +120,18 @@ const Developments = () => {
                 </div>
 
                 <div className="flex flex-col items-center gap-1 py-1">
-                  <h6 className="text- font-medium text-primary-500">
+                  <h2 className="text-lg font-medium text-primary-500">
                     {item.Addr}
-                  </h6>
+                  </h2>
 
                   <div className="flex items-center gap-1 text-sm font-normal">
                     <p>Est. Completion: {item.EstCompletion}</p>
                     <div className="flex h-4 w-[1px] bg-primary-500" />
                     <p>Starting At: {item.StartingAt}</p>
                   </div>
-                  <h6 className="text-base font-medium text-primary-500">
+                  <h3 className="text-base font-medium text-primary-500">
                     {item.Location}
-                  </h6>
+                  </h3>
                 </div>
               </div>
             </Link>
