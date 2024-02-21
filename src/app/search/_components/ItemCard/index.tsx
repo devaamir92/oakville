@@ -14,9 +14,9 @@ function ItemCard() {
       </div>
       <div className="flex flex-1 flex-col gap-2">
         <div className="flex items-center justify-between">
-          <h6 className="text-xl font-semibold text-primary-500">
+          <h5 className="text-xl font-semibold text-primary-500">
             Oakville Ontario L6X 5A6
-          </h6>
+          </h5>
           <span className="text-sm text-gray-500">Sold Out</span>
         </div>
         <div className="flex items-center gap-2 text-gray-500">
