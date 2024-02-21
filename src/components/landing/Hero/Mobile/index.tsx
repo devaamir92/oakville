@@ -5,12 +5,13 @@ import HelloText from '../hello';
 
 function HeroMobile() {
   return (
-    <section className="relative h-[40vh] w-full xl:h-[77vh] 2xl:h-[81vh]">
+    <section className="relative h-[35vh]">
       <Image
         src="/images/jpg/oakville-preserve-banner.jpg"
         alt="oakville preserve banner"
         fill
-        sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w"
+        priority
+        sizes="100vw"
         className="object-cover object-right"
       />
       <div className="absolute inset-x-0 h-full">
