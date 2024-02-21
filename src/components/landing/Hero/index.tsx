@@ -15,7 +15,7 @@ function Hero() {
         // src="/images/jpg/oakville-preserve-banner.jpg"
         alt="oakville preserve banner"
         fill
-        placeholder="blur"
+        // placeholder="blur"
         priority
         // sizes="(max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
         className="object-cover object-right"
