@@ -75,7 +75,7 @@ const SearchComponent: React.FC<Props> = ({ className, placeholder }) => {
             role="search"
             aria-label="search"
             className={cn(
-              'flex min-w-96 items-center gap-4 rounded px-2 text-sm',
+              'flex min-w-96 items-center gap-4 rounded px-2 text-lg font-semibold lg:text-sm lg:font-normal',
               className
             )}
           >
