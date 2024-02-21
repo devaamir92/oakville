@@ -72,8 +72,8 @@ const SearchComponent: React.FC<Props> = ({ className, placeholder }) => {
         <Trigger asChild ref={ref}>
           <label
             htmlFor="search"
-            role="form"
-            aria-label="Search for properties, agents, and more..."
+            role="search"
+            aria-label="search"
             className={cn(
               'flex min-w-96 items-center gap-4 rounded px-2 text-sm',
               className
