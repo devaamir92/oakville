@@ -37,9 +37,9 @@ const Links = [
 
 function BlogToolbar() {
   return (
-    <div className="flex h-12 items-center bg-primary-400">
+    <div className="flex h-12 items-center bg-tertiary-500">
       <div className="container relative flex items-center justify-between">
-        <Link href="/blog" className="text-lg text-white">
+        <Link href="/blog" aria-label="Blogs" className="text-lg text-white">
           <BsHouseDoorFill />
         </Link>
         <Link href="/category/Market-Insights" className="text-sm text-white">

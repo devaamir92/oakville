@@ -104,7 +104,7 @@ function BlogPage() {
                   fill
                   alt={name}
                   className="object-cover"
-                  sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
+                  sizes="100vw, (min-width: 768px) 50vw, (min-width: 1024px) 33.333vw"
                 />
                 <CategoryFilter categories={categories} />
               </div>

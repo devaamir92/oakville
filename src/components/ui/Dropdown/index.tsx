@@ -12,6 +12,8 @@ import cn from '@utils/cn';
 interface DropdownProps {
   icon?: React.ReactNode;
   label?: string;
+  title?: string;
+  ariaLabel?: string;
   className?: string;
   children: React.ReactNode;
 }
@@ -21,6 +23,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   icon,
   label,
   className,
+  ariaLabel,
+  title,
 }) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [width, setWidth] = useState<number>(0);
@@ -37,7 +41,8 @@ const Dropdown: React.FC<DropdownProps> = ({
         <Trigger ref={ref} asChild>
           <button
             type="button"
-            area-label={label}
+            title={title}
+            area-label={ariaLabel}
             className={cn(
               'flex w-full items-center justify-between  text-sm text-white focus:outline-none',
               className

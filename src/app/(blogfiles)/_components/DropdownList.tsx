@@ -19,6 +19,8 @@ const DropdownList: React.FC<Props> = ({ listData }) => {
     <Dropdown
       icon={<BsThreeDotsVertical className="text-white" size={14} />}
       className="!w-fit !text-sm"
+      ariaLabel="Categories"
+      title="Categories"
     >
       {listData.map(item => (
         <Item
