@@ -80,7 +80,7 @@ const SearchComponent: React.FC<Props> = ({ className, placeholder }) => {
             )}
           >
             <input
-              className="size-full bg-transparent outline-none placeholder:text-black"
+              className="size-full bg-transparent outline-none placeholder:text-white"
               type="text"
               id="search"
               placeholder={placeholder}
