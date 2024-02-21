@@ -31,7 +31,7 @@ function CTASection() {
               src="/images/webp/cta-main.webp"
               fill
               alt="free home evaluation"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="33vw"
               className="size-full object-cover"
             />
           </div>

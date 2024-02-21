@@ -34,7 +34,7 @@ const ListingCard: React.FC<CardProps> = ({
           src={imageUrl}
           fill
           alt={location}
-          sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
+          sizes="33vw"
           className="object-cover"
         />
         <div className="absolute bottom-3 left-3">
