@@ -29,24 +29,14 @@ const popularSearches = [
 
 const AdvancedSearch = () => {
   return (
-    <main className="mx-auto flex max-w-[1140px] flex-col gap-6 py-4">
-      <div className="relative h-80 w-full overflow-hidden rounded">
-        <Image
-          src="/images/francesca-tosolini-tHkJAMcO3QE-unsplash.jpg"
-          className="z-0 object-cover"
-          alt="banner"
-          fill
-        />
-        <div className="absolute inset-0 bg-black opacity-60" />
+    <main className="container mx-auto flex flex-col gap-6 py-4 lg:max-w-[1140px]">
+      <div className="relative h-40 w-full overflow-hidden rounded">
+        <div className="absolute inset-0 bg-tertiary-500 opacity-80" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-          <h1 className="text-3xl font-medium text-white">
+          <h1 className="text-2xl font-medium text-white">
             Explore, Discover, Own
           </h1>
-          <p className="text-lg font-medium text-white">
-            Navigate the world of real estate with our comprehensive advanced
-            search tool.
-          </p>
-          <div className="mt-4 flex h-10 w-2/5 gap-2 overflow-hidden rounded bg-white">
+          <div className="mt-4 flex h-10 w-[90%] gap-2 overflow-hidden rounded bg-white lg:w-1/2">
             <label
               htmlFor="search"
               className="flex flex-1 items-center gap-2 p-1"
@@ -70,19 +60,19 @@ const AdvancedSearch = () => {
         </div>
       </div>
 
-      <div className="flex gap-6">
-        <div className="flex h-fit w-[360px] flex-col gap-6">
+      <div className="flex  flex-col-reverse gap-6 lg:flex-row">
+        <div className="flex h-fit flex-col gap-6 lg:w-[360px]">
           <div className="flex-1 rounded bg-secondary-400 px-8 py-4">
-            <h3 className="text-center text-xl font-medium text-gray-800">
+            <h2 className="text-center text-xl font-medium text-gray-800">
               Recent Searches
-            </h3>
+            </h2>
 
             <div className="mt-4 flex w-full flex-wrap gap-2">
               {recentSearches.map(search => (
                 <Link
                   key={search.query}
                   href={search.link}
-                  className="rounded bg-primary-400 px-2.5 py-0.5 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500"
+                  className="rounded bg-primary-800 px-3 py-2 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500 lg:px-2.5 lg:py-0.5"
                 >
                   {search.query}
                 </Link>
@@ -98,7 +88,7 @@ const AdvancedSearch = () => {
                 <Link
                   key={search.query}
                   href={search.link}
-                  className="rounded bg-primary-400 px-2.5 py-0.5 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500"
+                  className="rounded bg-primary-800 px-3 py-2 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500 lg:px-2.5 lg:py-0.5"
                 >
                   {search.query}
                 </Link>
@@ -106,9 +96,9 @@ const AdvancedSearch = () => {
             </div>
           </div>
           <div className="flex-1 rounded bg-secondary-400 px-8 py-4">
-            <h3 className="mb-2 text-center text-xl font-medium text-gray-800">
+            <h4 className="mb-2 text-center text-xl font-medium text-gray-800">
               Recently Viewed Property
-            </h3>
+            </h4>
             <div className="flex flex-col divide-y-[1px] divide-gray-300">
               <div className="flex gap-2 py-3">
                 <div className="relative size-16">
@@ -225,7 +215,7 @@ const AdvancedSearch = () => {
         </div>
         <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-1 flex-col gap-1">
-            <p className="text-xl font-semibold">
+            <p className="text-base font-semibold md:text-xl">
               9 Developments, 56 Available Floor Plans
             </p>
             <hr className="border-gray-300" />

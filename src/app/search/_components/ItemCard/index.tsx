@@ -4,7 +4,7 @@ import Image from 'next/image';
 function ItemCard() {
   return (
     <Link href="/" className="flex gap-4 py-4">
-      <div className="relative h-[150px] w-[250px] overflow-hidden rounded">
+      <div className="relative overflow-hidden rounded md:h-[150px] md:w-[250px]">
         <Image
           src="/images/webp/listing/1.webp"
           alt="listing-1"
