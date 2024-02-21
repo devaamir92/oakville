@@ -10,6 +10,8 @@ function page() {
         <Image
           fill
           src="/images/webp/sell/mainEvalHeader.webp"
+          priority
+          sizes="100vw"
           alt="banner"
           style={{
             objectFit: 'cover',
@@ -64,6 +66,7 @@ function page() {
             src="/images/webp/sell/homeEvalBanner.webp"
             alt="banner"
             fill
+            sizes="100vw"
             className="object-cover"
           />
         </div>
@@ -100,6 +103,7 @@ function page() {
             src="/images/webp/sell/lawnSign.webp"
             alt="banner"
             fill
+            sizes="100vw, (max-width: 768px) 50vw"
             className="rounded object-cover"
           />
         </div>
@@ -169,6 +173,7 @@ function page() {
             src="/images/webp/sell/3258Preserve.webp"
             alt="Tailored Marketing Strategies"
             fill
+            sizes="100vw, (max-width: 768px) 50vw"
             className="rounded object-cover"
           />
         </div>
