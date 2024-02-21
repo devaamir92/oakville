@@ -5,17 +5,17 @@ import { FaFacebookF, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 const socials = [
   {
     name: 'Facebook',
-    icon: <FaFacebookF size={18} />,
+    icon: <FaFacebookF className="text-2xl lg:text-lg" />,
     href: 'https://www.facebook.com/PreserveOakville/',
   },
   {
     name: 'Twitter',
-    icon: <FaXTwitter size={18} />,
+    icon: <FaXTwitter className="text-2xl lg:text-lg" />,
     href: 'https://twitter.com/PreserveOak',
   },
   {
     name: 'Instagram',
-    icon: <FaInstagram size={18} />,
+    icon: <FaInstagram className="text-2xl lg:text-lg" />,
     href: 'https://www.instagram.com/preserveoakville/',
   },
 ];
@@ -33,7 +33,7 @@ function Copright() {
             href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex size-8 items-center justify-center rounded-full bg-tertiary-700 text-white transition-colors duration-200 ease-in-out hover:bg-tertiary-500 hover:text-white"
+            className="flex size-12 items-center justify-center rounded-full bg-tertiary-700 text-white transition-colors duration-200 ease-in-out hover:bg-tertiary-500 hover:text-white lg:size-8"
           >
             <span className="sr-only">{social.name}</span>
             {social.icon}

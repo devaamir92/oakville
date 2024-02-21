@@ -31,7 +31,7 @@ const usefulLinks = [
 ];
 
 const linkClass =
-  'text-sm text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
+  'text-lg py-3 lg:py-0 lg:text-sm text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
 
 const Footer = () => {
   return (
@@ -41,7 +41,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-normal text-white">Contact Us</h3>
             <hr className="mt-1 border-gray-500" />
-            <ul className="mt-4 flex flex-col gap-1">
+            <ul className="mt-4 flex flex-col gap-4 lg:gap-1">
               <li>
                 <Link
                   target="_blank"
@@ -78,7 +78,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-normal text-white">Popular Searches</h3>
             <hr className="mt-1 border-gray-500" />
-            <ul className="mt-4 flex flex-col gap-1">
+            <ul className="mt-4 flex flex-col gap-4 lg:gap-1">
               {popularSearches.map(search => (
                 <li key={search.name}>
                   <Link href={search.href} className={linkClass}>
@@ -93,7 +93,7 @@ const Footer = () => {
               Popular Neighborhoods
             </h3>
             <hr className="mt-1 border-gray-500" />
-            <ul className="mt-4 flex flex-col gap-1">
+            <ul className="mt-4 flex flex-col gap-4 lg:gap-1">
               {popularNeighborhoods.map(item => (
                 <li key={item.name}>
                   <Link href={item.href} className={linkClass}>
@@ -106,7 +106,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-normal text-white">Useful Links</h3>
             <hr className="mt-1 border-gray-500" />
-            <ul className="mt-4 flex flex-col gap-1">
+            <ul className="mt-4 flex flex-col gap-4 lg:gap-1">
               {usefulLinks.map(link => (
                 <li key={link.name}>
                   <Link href={link.href} className={linkClass}>
