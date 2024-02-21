@@ -100,7 +100,7 @@ function DailyListing() {
             href="/buy"
             className="inline-flex items-center justify-center gap-1 rounded bg-primary-200 px-3 py-1.5 text-center text-sm font-medium text-primary-700"
           >
-            See More <FaArrowRight size={12} />
+            View all latest listings <FaArrowRight size={12} />
           </Link>
         </div>
       </div>
