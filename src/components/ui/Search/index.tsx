@@ -72,8 +72,7 @@ const SearchComponent: React.FC<Props> = ({ className, placeholder }) => {
         <Trigger asChild ref={ref}>
           <label
             htmlFor="search"
-            role="search"
-            aria-label="search"
+            aria-label="Search Bar"
             className={cn(
               'flex min-w-96 items-center gap-4 rounded px-2 text-lg lg:text-sm lg:font-normal',
               className
@@ -81,7 +80,7 @@ const SearchComponent: React.FC<Props> = ({ className, placeholder }) => {
           >
             <input
               className="size-full bg-transparent outline-none placeholder:text-white"
-              type="text"
+              type="search"
               id="search"
               placeholder={placeholder}
               value={searchTerm}

@@ -19,7 +19,7 @@ function CTASection() {
           </p>
           <Link
             href="/sell"
-            className="flex h-[36px] min-w-fit  items-center justify-center rounded bg-tertiary-500 px-3 text-center text-sm text-white hover:bg-primary-400"
+            className="flex h-[36px] min-w-fit  items-center justify-center rounded bg-primary-800 px-3 text-center text-sm text-white transition-all duration-300 ease-in-out hover:bg-primary-400"
           >
             Get Free Evaluation
           </Link>
