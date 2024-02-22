@@ -1,17 +1,22 @@
 'use client';
 
-import Image from 'next/image';
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 import Viewer from './viewer';
 
 interface Props {
-  Images: Array<{ src: string; alt: string }>;
+  Images: string[];
+  mls: string;
+  address: string;
 }
 
-const LightBox: React.FC<Props> = ({ Images }) => {
+const LightBox: React.FC<Props> = ({ Images, mls, address }) => {
+  const [currentImage, setCurrentImage] = useState<{
+    index: number;
+    image: string;
+  }>({ index: 0, image: Images[0] });
   const [isopen, setIsopen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
 
   return (
     <div
@@ -21,15 +26,15 @@ const LightBox: React.FC<Props> = ({ Images }) => {
       <div className="relative w-full overflow-hidden md:w-3/5 ">
         <Image
           className="cursor-pointer object-cover"
-          src={Images[0].src}
-          alt="Image 1"
+          src={`https://api.preserveoakville.ca/api/v1/stream/${mls}/${Images[0]}`}
+          alt={Images[0]}
           fill
           sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
           onClick={
             Images.length > 5
               ? () => {
                   setIsopen(true);
-                  setCurrentImage(0);
+                  setCurrentImage({ index: 0, image: Images[0] });
                 }
               : undefined
           }
@@ -39,19 +44,22 @@ const LightBox: React.FC<Props> = ({ Images }) => {
         {Images.slice(1, 3).map(image => (
           <div
             className="relative col-span-1 size-full overflow-hidden "
-            key={image.alt}
+            key={image}
           >
             <Image
               className="cursor-pointer object-cover"
-              src={image.src}
-              alt={image.alt}
+              src={`https://api.preserveoakville.ca/api/v1/stream/${mls}/${image}`}
+              alt={image}
               fill
               sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
               onClick={
                 Images.length > 5
                   ? () => {
                       setIsopen(true);
-                      setCurrentImage(Images.indexOf(image));
+                      setCurrentImage({
+                        index: Images.indexOf(image),
+                        image: Images[Images.indexOf(image)],
+                      });
                     }
                   : undefined
               }
@@ -62,7 +70,8 @@ const LightBox: React.FC<Props> = ({ Images }) => {
       {Images.length > 5 && (
         <div className="absolute bottom-5 right-5">
           <Viewer
-            PropertyName="Property Name"
+            mls={mls}
+            PropertyName={address}
             Images={Images}
             open={isopen}
             setOpen={setIsopen}

@@ -1,5 +1,5 @@
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
 
 import {
   Close,
@@ -19,13 +19,13 @@ import { Button } from '@components/ui/Button';
 interface Props {
   PropertyName?: string;
   open?: boolean;
-  currentImage: number;
-  setCurrentImage: React.Dispatch<React.SetStateAction<number>>;
+  currentImage: { index: number; image: string };
+  setCurrentImage: React.Dispatch<
+    React.SetStateAction<{ index: number; image: string }>
+  >;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  Images: Array<{
-    src: string;
-    alt: string;
-  }>;
+  Images: string[];
+  mls: string;
 }
 
 const Viewer: React.FC<Props> = ({
@@ -35,13 +35,24 @@ const Viewer: React.FC<Props> = ({
   setOpen,
   currentImage,
   setCurrentImage,
+  mls,
 }) => {
   const handleNext = () => {
-    setCurrentImage(prev => (prev + 1) % Images.length);
+    setCurrentImage(prev => {
+      return {
+        index: (prev.index + 1) % Images.length,
+        image: Images[prev.index],
+      };
+    });
   };
 
   const handlePrev = () => {
-    setCurrentImage(prev => (prev - 1 + Images.length) % Images.length);
+    setCurrentImage(prev => {
+      return {
+        index: prev.index === 0 ? Images.length - 1 : prev.index - 1,
+        image: Images[prev.index],
+      };
+    });
   };
 
   return (
@@ -56,7 +67,10 @@ const Viewer: React.FC<Props> = ({
               Images.length > 5
                 ? () => {
                     setOpen(true);
-                    setCurrentImage(0);
+                    setCurrentImage({
+                      index: 0,
+                      image: Images[0],
+                    });
                   }
                 : undefined
             }
@@ -83,8 +97,8 @@ const Viewer: React.FC<Props> = ({
               </Close>
               <div className="relative top-1/2 mx-auto size-full max-h-[80vh] max-w-7xl -translate-y-1/2">
                 <Image
-                  src={Images[currentImage].src}
-                  alt={Images[0].alt}
+                  src={`https://api.preserveoakville.ca/api/v1/stream/${mls}/${currentImage.image}`}
+                  alt={currentImage.toString()}
                   fill
                   sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
                   className="object-contain"

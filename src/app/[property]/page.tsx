@@ -8,7 +8,7 @@ import {
   BsUpload,
 } from 'react-icons/bs';
 
-import Card from '@components/ListingCard';
+// import Card from '@components/ListingCard';
 import { Button } from '@components/ui/Button';
 
 import LightBox from '@components/LightBox';
@@ -22,82 +22,81 @@ import Map from './_components/map';
 import ListingHighlights from './_components/ListingHighlights';
 import ListingOverview from './_components/ListingOverview';
 
-const data = [
-  {
-    location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2 Beds',
-    bathrooms: '2 Baths',
-    parking: '1 Parking',
-    price: '550,000',
-    imageUrl: '/images/webp/listing/5.webp',
-    propertyType: 'Condo',
-  },
-  {
-    location: 'Oakville Ontario L6P 1W1',
-    bedrooms: '4 Beds',
-    bathrooms: '4 Baths',
-    parking: '0 Parking',
-    price: '1,200,000',
-    imageUrl: '/images/webp/listing/7.webp',
-    propertyType: 'Townhouse',
-  },
+// const data = [
+//   {
+//     location: 'Oakville Ontario L6L 2Y4',
+//     bedrooms: '2 Beds',
+//     bathrooms: '2 Baths',
+//     parking: '1 Parking',
+//     price: '550,000',
+//     imageUrl: '/images/webp/listing/5.webp',
+//     propertyType: 'Condo',
+//   },
+//   {
+//     location: 'Oakville Ontario L6P 1W1',
+//     bedrooms: '4 Beds',
+//     bathrooms: '4 Baths',
+//     parking: '0 Parking',
+//     price: '1,200,000',
+//     imageUrl: '/images/webp/listing/7.webp',
+//     propertyType: 'Townhouse',
+//   },
 
-  {
-    location: 'Oakville Ontario L6S 2G5',
-    bedrooms: '3 Beds',
-    bathrooms: '3 Baths',
-    parking: '1 Parking',
-    price: '750,000',
-    imageUrl: '/images/webp/listing/9.webp',
-    propertyType: 'Detached',
-  },
-];
+//   {
+//     location: 'Oakville Ontario L6S 2G5',
+//     bedrooms: '3 Beds',
+//     bathrooms: '3 Baths',
+//     parking: '1 Parking',
+//     price: '750,000',
+//     imageUrl: '/images/webp/listing/9.webp',
+//     propertyType: 'Detached',
+//   },
+// ];
 
-const Images = [
-  {
-    src: '/images/webp/listing/5.webp',
-    alt: 'Image 1',
-  },
-  {
-    src: '/images/webp/ad7d6_2.webp',
-    alt: 'Image 2',
-  },
-  {
-    src: '/images/webp/ad7d6_3.webp',
-    alt: 'Image 3',
-  },
-  {
-    src: '/images/webp/ad7d6_4.webp',
-    alt: 'Image 4',
-  },
-  {
-    src: '/images/webp/ad7d6_5.webp',
-    alt: 'Image 5',
-  },
-  {
-    src: '/images/webp/ad7d6_6.webp',
-    alt: 'Image 6',
-  },
-  {
-    src: '/images/webp/listing/7.webp',
-    alt: 'Image 7',
-  },
-  {
-    src: '/images/webp/listing/8.webp',
-    alt: 'Image 8',
-  },
-];
+interface PageProps {
+  params: {
+    property: string;
+  };
+}
 
-function Page() {
+const getProperty = async (slug: string) => {
+  const res = await fetch(
+    `${process.env.API_HOST}/api/v1/property/slug/${slug}`,
+    {
+      method: 'GET',
+      next: {
+        tags: [slug],
+      },
+      cache: 'no-cache',
+    }
+  );
+  return res.json();
+};
+
+const getImages = async (mls: string) => {
+  const res = await fetch(`${process.env.API_HOST}/api/v1/stream/${mls}`, {
+    method: 'GET',
+    next: {
+      tags: [mls],
+    },
+    cache: 'no-cache',
+  });
+  return res.json();
+};
+
+async function Page({ params }: PageProps) {
+  const property = await getProperty(params.property);
+  const images: string[] = await getImages(property.Ml_num);
+
   return (
     <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-0">
           <h3 className="text-xl font-medium text-gray-800">
-            402 - 18A Hazelton Ave
+            {property.Apt_num ? `${property.Apt_num} - ` : ''} {property.Addr}
           </h3>
           <span className="text-xs text-gray-600">
-            Mimico, Etobicoke, Toronto
+            {property.Municipality}, {property.Community}, {property.Zip}
           </span>
         </div>
         <div className="flex items-center gap-2">
@@ -117,7 +116,14 @@ function Page() {
           </Button>
         </div>
       </div>
-      <LightBox Images={Images} />
+
+      <LightBox
+        Images={images.slice(1)}
+        mls={property.Ml_num}
+        address={`${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+          property.Addr
+        }`}
+      />
 
       {/* <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2">
@@ -155,13 +161,13 @@ function Page() {
         </div>
       </div> */}
       <ListingOverview
-        bathrooms={4}
-        bedrooms={3}
-        parkingSpaces={2}
-        squareFeet={2590}
-        price={1200000}
-        status="For Sale"
-        daysOnMarket={24}
+        bathrooms={property.Bath_tot}
+        bedrooms={property.Br}
+        parkingSpaces={property.Park_spcs}
+        squareFeet={property.Sqft}
+        price={Number(property.Lp_dol).toLocaleString()}
+        status={property.S_r === 'Sale' ? 'For Sale' : 'For Rent'}
+        daysOnMarket={property.Dom}
       />
 
       <div className="flex flex-col gap-3 lg:flex-row-reverse">
@@ -203,7 +209,7 @@ function Page() {
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300  p-8 shadow">
-            <p>Looking to Sell Your Bungalow?</p>
+            <p>Looking to Sell Your {property.Class_type} ?</p>
             <Button
               className="w-full bg-primary-400 capitalize"
               variant="default"
@@ -216,11 +222,11 @@ function Page() {
           <PriceHistory />
           <ListingHighlights />
 
-          <ListingDetails />
+          <ListingDetails Ad_text={property.Ad_text} />
           <PropertyDetails />
 
-          <Rooms />
-          <Map />
+          <Rooms Ml_num={property.Ml_num} />
+          <Map latitude={property.Lat} longitude={property.Lng} />
           <Demographics />
         </div>
       </div>
@@ -228,7 +234,7 @@ function Page() {
         <div className="col-span-1 md:col-span-2 lg:col-span-3">
           <h4 className="text-2xl font-semibold">Similar Properties</h4>
         </div>
-
+        {/* 
         {data.map(item => (
           <Card
             key={item.location}
@@ -239,7 +245,7 @@ function Page() {
             price={item.price}
             parking={item.parking}
           />
-        ))}
+        ))} */}
       </div>
     </main>
   );

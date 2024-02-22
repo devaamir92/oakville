@@ -7,12 +7,12 @@ import LikeToggle from './LikeToggle';
 
 interface CardProps {
   location: string;
-  bedrooms: string;
-  bathrooms: string;
+  bedrooms?: string;
+  bathrooms?: string;
   price: string;
   imageUrl: string;
-  parking: string;
-  slug?: string;
+  parking?: string;
+  slug: string;
 }
 
 const ListingCard: React.FC<CardProps> = ({
@@ -22,11 +22,11 @@ const ListingCard: React.FC<CardProps> = ({
   price,
   imageUrl,
   parking,
-  slug,
+  slug = '/',
 }) => {
   return (
     <Link
-      href={slug ? `${slug}` : '/propertydetails'}
+      href={slug}
       className="group flex flex-col overflow-hidden rounded border border-gray-300 bg-white  transition-all duration-200 ease-in-out hover:shadow-xl"
     >
       <div className="relative h-60">
@@ -53,15 +53,18 @@ const ListingCard: React.FC<CardProps> = ({
         </div>
         <div className="flex justify-between gap-1 text-center text-gray-500">
           <div className="flex items-center divide-x-[1px]">
-            <div className="flex items-center pr-2">
+            <div className="flex items-center gap-1">
               <span className="text-sm">{bedrooms}</span>
+              <span className="text-sm">Beds</span>
             </div>
 
-            <div className="flex items-center px-2">
+            <div className="flex items-center gap-1 px-2">
               <span className="text-sm">{bathrooms}</span>
+              <span className="text-sm">Baths</span>
             </div>
-            <div className="flex items-center pl-2">
+            <div className="flex items-center gap-1 pl-2">
               <span className="text-sm">{parking}</span>
+              <span className="text-sm">Parking</span>
             </div>
           </div>
         </div>

@@ -4,7 +4,8 @@ const getPost = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'GET',
   });
-  return response.json();
+  const data = await response.json();
+  return data.splice(0, 4);
 };
 
 const Page = async () => {

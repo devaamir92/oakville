@@ -6,7 +6,7 @@ interface ListingOverviewProps {
   bathrooms: number;
   parkingSpaces: number;
   squareFeet: number;
-  price: number;
+  price: string;
   status: string;
   daysOnMarket: number;
 }

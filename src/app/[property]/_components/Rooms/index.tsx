@@ -69,7 +69,7 @@ const tableData = [
   },
 ];
 
-function Rooms() {
+function Rooms({ Ml_num }: { Ml_num: string }) {
   const [showMore, setShowMore] = useState(false);
 
   return (
@@ -124,7 +124,7 @@ function Rooms() {
       </Button>
       <div className="flex items-center justify-between text-sm">
         <span>Broker: Coldwell Banker Marquise Realty</span>
-        <span>MLS®#: R2839028</span>
+        <span>MLS®#: {Ml_num}</span>
       </div>
     </div>
   );
