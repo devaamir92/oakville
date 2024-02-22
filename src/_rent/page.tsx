@@ -150,7 +150,7 @@ const Page: React.FC<PageProps> = ({ searchParams }) => {
           />
         ))}
       </div>
-      <Pagination totalPages={11} currentPage={3} />
+      {/* <Pagination totalPages={11} currentPage={3} /> */}
     </section>
   );
 };

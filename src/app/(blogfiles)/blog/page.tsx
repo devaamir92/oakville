@@ -126,7 +126,7 @@ function BlogPage() {
             </Link>
           ))}
         </div>
-        <Pagination currentPage={1} totalPages={12} />
+        {/* <Pagination currentPage={1} totalPages={12} /> */}
       </div>
     </section>
   );
