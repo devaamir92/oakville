@@ -12,11 +12,17 @@ interface PropertyProps {
 const getProperties = async (page: number) => {
   const queryBuilder = RequestQueryBuilder.create();
 
-  queryBuilder.setFilter({
-    field: 'Status',
-    operator: '$eq',
-    value: 'A',
-  });
+  queryBuilder
+    .setFilter({
+      field: 'Status',
+      operator: '$eq',
+      value: 'A',
+    })
+    .setFilter({
+      field: 'S_r',
+      operator: '$eq',
+      value: 'Lease',
+    });
 
   queryBuilder.select([
     'Ml_num',
@@ -54,13 +60,13 @@ const Property: React.FC<PropertyProps> = async ({ page, view }) => {
     <div className="flex flex-col gap-4">
       <h1
         className={cn(
-          'text-center text-2xl font-semibold text-gray-800 lg:text-left',
+          'text-center text-xl font-semibold text-gray-800 lg:text-left',
           {
             'text-center': view === 'list',
           }
         )}
       >
-        Buy Properties in Oakville - ({rows?.total.toLocaleString()} Results)
+        {rows?.total.toLocaleString()} Properties for Rent in Oakville
       </h1>
       <div
         className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {
@@ -87,7 +93,7 @@ const Property: React.FC<PropertyProps> = async ({ page, view }) => {
       <Pagination
         totalPages={rows.pageCount}
         currentPage={rows.page}
-        location="/buy"
+        location="/property-for-rent"
       />
     </div>
   );

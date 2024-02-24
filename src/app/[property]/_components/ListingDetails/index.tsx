@@ -5,7 +5,12 @@ import React, { useState } from 'react';
 import { Button } from '@components/ui/Button';
 import cn from '@utils/cn';
 
-function ListingDetails({ Ad_text }: { Ad_text: string }) {
+interface ListingDetailsProps {
+  Ad_text: string;
+  Extras: string;
+}
+
+const ListingDetails: React.FC<ListingDetailsProps> = ({ Ad_text, Extras }) => {
   const [showMore, setShowMore] = useState(false);
   return (
     <div className="flex flex-col gap-1">
@@ -19,11 +24,7 @@ function ListingDetails({ Ad_text }: { Ad_text: string }) {
         <span>{Ad_text}</span>
         <div className="mt-5 flex flex-col gap-1">
           <p className="text-md font-medium">Extras</p>
-          <span>
-            1 Fridge, 2 Stove, Washer, Dryer, CAC, CVAC & Accessories, Ceiling
-            Fan, All ELF&apos;s, Garden Shed (As-Is), GDO with one remote.
-            Kitchen table & chairs, Wall Unit in Living Room, All Sceneries.
-          </span>
+          {Extras && <span>{Extras}</span>}
         </div>
       </div>
       <Button
@@ -35,6 +36,6 @@ function ListingDetails({ Ad_text }: { Ad_text: string }) {
       </Button>
     </div>
   );
-}
+};
 
 export default ListingDetails;

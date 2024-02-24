@@ -1,31 +1,35 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Root, Switch, Thumb } from '@radix-ui/react-switch';
 
-function SwitchInput() {
-  const [checked, setChecked] = useState(false);
+interface SwitchInputProps {
+  checked: boolean;
+  onChange: (e: boolean) => void;
+}
 
+const SwitchInput: React.FC<SwitchInputProps> = ({ checked, onChange }) => {
   return (
     <div>
       <form>
         <div className="flex items-center">
           <Switch asChild>
             <Root
-              onCheckedChange={e => setChecked(e)}
+              checked={checked}
+              onCheckedChange={e => onChange(e)}
               className="relative  h-[20px] w-[65px] cursor-default rounded-full border-none  bg-[#ccc]   focus:outline-none   data-[state=checked]:bg-primary-400"
               style={{
                 WebkitTapHighlightColor: 'rgba(0,0,0,0)',
               }}
             >
               {checked ? (
-                <span className="absolute left-2 top-1/2 -translate-y-1/2 text-xs text-white">
-                  Feet
+                <span className="absolute left-1.5 top-1/2 -translate-y-1/2 text-xs text-gray-700">
+                  Meter
                 </span>
               ) : (
-                <span className="absolute right-1.5 top-1/2 -translate-y-1/2 text-xs">
-                  Meter
+                <span className="right-1.2 absolute top-1/2 -translate-y-1/2 text-xs">
+                  Feet
                 </span>
               )}
 
@@ -36,6 +40,6 @@ function SwitchInput() {
       </form>
     </div>
   );
-}
+};
 
 export default SwitchInput;

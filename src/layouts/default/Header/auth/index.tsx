@@ -13,19 +13,45 @@ type FormState = 'SIGN_IN' | 'SIGN_UP' | 'FINAL_STEP';
 
 function Auth() {
   const [formState, setFormState] = useState<FormState>('SIGN_IN');
+  const [showModal, setShowModal] = useState(false);
+  const [state, setState] = useState({
+    email: '',
+    firstName: '',
+    lastName: '',
+    phone: '',
+    password: '',
+  });
 
   const switchForm = (step: string) => {
     setFormState(step as FormState);
+  };
+
+  const onClose = () => {
+    setShowModal(false);
+    setFormState('SIGN_IN');
+    setState({
+      email: '',
+      firstName: '',
+      lastName: '',
+      phone: '',
+      password: '',
+    });
   };
 
   return (
     <Modal
       title="Login"
       className="rounded bg-primary-800 px-6 py-1.5 text-white lg:px-7 lg:py-2"
+      show={showModal}
+      OnClose={onClose}
     >
       {formState === 'SIGN_IN' && <Login switchForm={switchForm} />}
-      {formState === 'SIGN_UP' && <Register switchForm={switchForm} />}
-      {formState === 'FINAL_STEP' && <FinalStep switchForm={switchForm} />}
+      {formState === 'SIGN_UP' && (
+        <Register switchForm={switchForm} setState={setState} state={state} />
+      )}
+      {formState === 'FINAL_STEP' && (
+        <FinalStep switchForm={switchForm} setState={setState} state={state} />
+      )}
 
       <p className="mt-2 text-center text-sm font-light text-gray-600">
         By creating an account, you acknowledge that you have read and agreed to

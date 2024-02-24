@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { RequestQueryBuilder } from '@nestjsx/crud-request';
+
 import { Desktop, Mobile } from '@components/ua';
 
 import Card from '@components/ListingCard';
@@ -55,7 +57,108 @@ const data = [
   },
 ];
 
-function page() {
+const getProperties = async () => {
+  const queryBuilder = RequestQueryBuilder.create();
+
+  queryBuilder
+    .setFilter({
+      field: 'Status',
+      operator: '$eq',
+      value: 'A',
+    })
+    .setFilter({
+      field: 'S_r',
+      operator: '$eq',
+      value: 'Sale',
+    });
+
+  queryBuilder.select([
+    'Ml_num',
+    'Addr',
+    'Unit_num',
+    'Apt_num',
+    'Lp_dol',
+    'Br',
+    'Bath_tot',
+    'Park_spcs',
+    'Rooms_plus',
+    'Status',
+    'Is_locked',
+    'Slug',
+    'Dom',
+  ]);
+
+  const res = await fetch(
+    `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
+    {
+      method: 'GET',
+      next: {
+        tags: ['property'],
+      },
+      cache: 'no-cache',
+    }
+  );
+
+  const responce = await res.json();
+  const shortData = responce.data
+    .sort((a: any, b: any) => a.Dom - b.Dom)
+    .slice(0, 8);
+  return shortData;
+};
+const getSoldProperties = async () => {
+  const queryBuilder = RequestQueryBuilder.create();
+
+  queryBuilder
+    .setFilter({
+      field: 'Status',
+      operator: '$eq',
+      value: 'U',
+    })
+    .setFilter({
+      field: 'Lsc',
+      operator: '$eq',
+      value: 'Sld',
+    });
+
+  queryBuilder.select([
+    'Ml_num',
+    'Addr',
+    'Unit_num',
+    'Apt_num',
+    'Lp_dol',
+    'Lsc',
+    'Br',
+    'Bath_tot',
+    'Park_spcs',
+    'Rooms_plus',
+    'Status',
+    'Is_locked',
+    'Slug',
+    'Dom',
+  ]);
+
+  const res = await fetch(
+    `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
+    {
+      method: 'GET',
+      next: {
+        tags: ['property'],
+      },
+      cache: 'no-cache',
+    }
+  );
+
+  const responce = await res.json();
+  const shortData = responce.data.slice(0, 4);
+  return shortData;
+};
+
+const page = async () => {
+  const [newData, soldData] = await Promise.all([
+    getProperties(),
+    getSoldProperties(),
+  ]);
+
   return (
     <main className="flex flex-col gap-8 pb-8">
       <Desktop>
@@ -67,9 +170,9 @@ function page() {
       <ListingTypes />
       <div className="flex flex-col gap-8 bg-[#f3f4f6] py-8">
         <FeatureListing />
-        <DailyListing />
+        <DailyListing rows={newData} />
       </div>
-      <JustSold />
+      <JustSold rows={soldData} />
       <CTASection />
 
       <section>
@@ -100,6 +203,6 @@ function page() {
       </section>
     </main>
   );
-}
+};
 
 export default page;

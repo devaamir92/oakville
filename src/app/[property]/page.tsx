@@ -8,6 +8,8 @@ import {
   BsUpload,
 } from 'react-icons/bs';
 
+import { RequestQueryBuilder } from '@nestjsx/crud-request';
+
 // import Card from '@components/ListingCard';
 import { Button } from '@components/ui/Button';
 
@@ -22,43 +24,62 @@ import Map from './_components/map';
 import ListingHighlights from './_components/ListingHighlights';
 import ListingOverview from './_components/ListingOverview';
 
-// const data = [
-//   {
-//     location: 'Oakville Ontario L6L 2Y4',
-//     bedrooms: '2 Beds',
-//     bathrooms: '2 Baths',
-//     parking: '1 Parking',
-//     price: '550,000',
-//     imageUrl: '/images/webp/listing/5.webp',
-//     propertyType: 'Condo',
-//   },
-//   {
-//     location: 'Oakville Ontario L6P 1W1',
-//     bedrooms: '4 Beds',
-//     bathrooms: '4 Baths',
-//     parking: '0 Parking',
-//     price: '1,200,000',
-//     imageUrl: '/images/webp/listing/7.webp',
-//     propertyType: 'Townhouse',
-//   },
-
-//   {
-//     location: 'Oakville Ontario L6S 2G5',
-//     bedrooms: '3 Beds',
-//     bathrooms: '3 Baths',
-//     parking: '1 Parking',
-//     price: '750,000',
-//     imageUrl: '/images/webp/listing/9.webp',
-//     propertyType: 'Detached',
-//   },
-// ];
-
 interface PageProps {
   params: {
     property: string;
   };
 }
+const getSoldHistory = async (addr: string, unit: number, Apt_num: number) => {
+  const queryBuilder = RequestQueryBuilder.create();
 
+  queryBuilder.select([
+    'Lsc',
+    'Pr_Lsc',
+    'Cndsold_xd',
+    'Cd',
+    'Xdtd',
+    'Xd',
+    'Unavail_dt',
+    'Td',
+    'Dt_sus',
+    'Dt_ter',
+    'id',
+    'Ml_num',
+    'Sp_dol',
+    'Unit_num',
+    'Apt_num',
+    'Slug',
+    'Status',
+  ]);
+
+  queryBuilder.search({
+    $and: [
+      {
+        Status: {
+          $eq: 'U',
+        },
+        Addr: {
+          $eq: addr,
+        },
+        Unit_num: {
+          $eq: unit,
+        },
+        Apt_num: {
+          $eq: Apt_num,
+        },
+      },
+    ],
+  });
+
+  const res = await fetch(
+    `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
+    {
+      method: 'GET',
+      cache: 'no-cache',
+    }
+  );
+  return res.json();
+};
 const getProperty = async (slug: string) => {
   const res = await fetch(
     `${process.env.API_HOST}/api/v1/property/slug/${slug}`,
@@ -70,7 +91,14 @@ const getProperty = async (slug: string) => {
       cache: 'no-cache',
     }
   );
-  return res.json();
+  const property = await res.json();
+
+  const soldHistory = await getSoldHistory(
+    property.Addr,
+    property.Unit_num,
+    property.Apt_num
+  );
+  return { property, soldHistory };
 };
 
 const getImages = async (mls: string) => {
@@ -85,9 +113,8 @@ const getImages = async (mls: string) => {
 };
 
 async function Page({ params }: PageProps) {
-  const property = await getProperty(params.property);
+  const { property, soldHistory } = await getProperty(params.property);
   const images: string[] = await getImages(property.Ml_num);
-
   return (
     <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       <div className="flex items-center justify-between">
@@ -124,7 +151,6 @@ async function Page({ params }: PageProps) {
           property.Addr
         }`}
       />
-
       {/* <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-8">
@@ -219,13 +245,13 @@ async function Page({ params }: PageProps) {
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
-          <PriceHistory />
-          <ListingHighlights />
+          <PriceHistory data={soldHistory.data} />
+          <ListingHighlights data={property} />
 
-          <ListingDetails Ad_text={property.Ad_text} />
-          <PropertyDetails />
+          <ListingDetails Ad_text={property.Ad_text} Extras={property.Extras} />
+          <PropertyDetails data={property} />
 
-          <Rooms Ml_num={property.Ml_num} />
+          <Rooms data={property} />
           <Map latitude={property.Lat} longitude={property.Lng} />
           <Demographics />
         </div>

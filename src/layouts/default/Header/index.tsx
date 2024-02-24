@@ -9,10 +9,10 @@ import MobileMenu from './mobileMenu';
 
 const navLinks = [
   { name: 'Home', link: '/' },
-  { name: 'Buy', link: '/buy' },
+  { name: 'Buy', link: '/property-for-sale' },
   { name: 'Sell', link: '/sell' },
-  { name: 'Rent', link: '/rent' },
-  { name: 'Sold', link: '/sold' },
+  { name: 'Rent', link: '/property-for-rent' },
+  { name: 'Sold', link: '/sold-properties' },
   { name: 'New Developments', link: '/new-developments' },
   { name: 'Communities', link: '/communities' }, // or the appropriate link
   { name: 'Blog', link: '/blog' },

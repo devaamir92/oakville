@@ -20,6 +20,8 @@ interface ModalProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
   icon?: React.ReactNode;
+  show: boolean;
+  OnClose: () => void;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -28,11 +30,11 @@ const Modal: React.FC<ModalProps> = ({
   className,
   size = 'sm',
   icon,
+  show,
+  OnClose,
 }) => {
-  const [open, setOpen] = useState(false);
-
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={show} onOpenChange={OnClose} onE>
       <Root>
         <Trigger asChild>
           <button
@@ -46,6 +48,7 @@ const Modal: React.FC<ModalProps> = ({
         <Portal>
           <Overlay className="fixed inset-0 bg-black opacity-20" />
           <Content
+            onEscapeKeyDown={OnClose}
             className={cn(
               'fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] -translate-x-1/2 -translate-y-1/2 rounded bg-white p-6 focus:outline-none',
               size === 'sm' && 'w-[400px]',
@@ -58,6 +61,7 @@ const Modal: React.FC<ModalProps> = ({
                 type="button"
                 className="absolute right-2  top-2 inline-flex size-6 appearance-none items-center justify-center rounded-full text-gray-500 hover:bg-primary-200 focus:outline-none"
                 aria-label="Close"
+                onClick={OnClose}
               >
                 <FaTimes />
               </button>

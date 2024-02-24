@@ -18,6 +18,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  env: {
+    API_HOST: process.env.API_HOST,
+  },
 };
 
 export default nextConfig;

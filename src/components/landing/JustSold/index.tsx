@@ -4,48 +4,11 @@ import { FaArrowRight } from 'react-icons/fa';
 
 import Card from '@components/ListingCard';
 
-const data = [
-  {
-    location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3 Beds',
-    bathrooms: '2 Baths',
-    parking: '1 Parking',
-    price: '750,000',
-    imageUrl: '/images/webp/listing/3.webp',
-    propertyType: 'Townhouse',
-  },
+interface JustSoldProps {
+  rows: any;
+}
 
-  {
-    location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2 Beds',
-    bathrooms: '2 Baths',
-    parking: '1 Parking',
-    price: '550,000',
-    imageUrl: '/images/webp/listing/5.webp',
-    propertyType: 'Condo',
-  },
-  {
-    location: 'Oakville Ontario L6P 1W1',
-    bedrooms: '4 Beds',
-    bathrooms: '4 Baths',
-    parking: '0 Parking',
-    price: '1,200,000',
-    imageUrl: '/images/webp/listing/7.webp',
-    propertyType: 'Townhouse',
-  },
-
-  {
-    location: 'Oakville Ontario L6S 2G5',
-    bedrooms: '3 Beds',
-    bathrooms: '3 Baths',
-    parking: '1 Parking',
-    price: '750,000',
-    imageUrl: '/images/webp/listing/9.webp',
-    propertyType: 'Detached',
-  },
-];
-
-function JustSold() {
+const JustSold: React.FC<JustSoldProps> = ({ rows }) => {
   return (
     <section>
       <div className="container flex flex-col">
@@ -58,21 +21,26 @@ function JustSold() {
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {data.map(item => (
+          {rows?.map((item: any) => (
             <Card
-              key={item.location}
-              bathrooms={item.bathrooms}
-              bedrooms={item.bedrooms}
-              imageUrl={item.imageUrl}
-              location={item.location}
-              price={item.price}
-              parking={item.parking}
+              key={item.id}
+              bathrooms={item.Bath_tot ?? 0}
+              bedrooms={
+                Number(
+                  Number(item.Br) + Number(item.Rooms_plus)
+                ).toLocaleString() ?? '0'
+              }
+              imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
+              location={item.Addr}
+              price={Number(item.Lp_dol).toLocaleString() ?? '0'}
+              parking={item.Park_spcs ?? '0'}
+              slug={item.Slug}
             />
           ))}
         </div>
         <div className="mt-3 flex justify-end">
           <Link
-            href="/sold"
+            href="/sold-properties"
             className="inline-flex items-center justify-center gap-1 rounded bg-primary-200 px-3 py-1.5 text-center text-sm font-medium text-primary-700"
           >
             View all sold listings <FaArrowRight size={12} />
@@ -81,6 +49,6 @@ function JustSold() {
       </div>
     </section>
   );
-}
+};
 
 export default JustSold;

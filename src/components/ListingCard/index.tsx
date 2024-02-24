@@ -52,13 +52,13 @@ const ListingCard: React.FC<CardProps> = ({
           <LikeToggle />
         </div>
         <div className="flex justify-between gap-1 text-center text-gray-500">
-          <div className="flex items-center divide-x-[1px]">
+          <div className="flex items-center gap-2 divide-x-[1px]">
             <div className="flex items-center gap-1">
               <span className="text-sm">{bedrooms}</span>
               <span className="text-sm">Beds</span>
             </div>
 
-            <div className="flex items-center gap-1 px-2">
+            <div className="flex items-center gap-1 pl-2">
               <span className="text-sm">{bathrooms}</span>
               <span className="text-sm">Baths</span>
             </div>
