@@ -12,12 +12,16 @@ interface PaginationProps {
   currentPage: number;
   totalPages: number;
   location: string;
+  otherQueryParams?: {
+    [key: string]: string | number | boolean | undefined;
+  };
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   location,
+  otherQueryParams,
 }) => {
   let pagesToShow = 5;
 
@@ -33,11 +37,20 @@ const Pagination: React.FC<PaginationProps> = ({
     (_, i) => startPage + i
   );
 
+  const getQuery = (page: number) => {
+    const query = new URLSearchParams({
+      ...otherQueryParams,
+      page: page.toString(),
+    });
+
+    return query.toString();
+  };
+
   return (
     <div className="flex justify-center gap-2">
       <Link
         aria-label={`Previous Page ${currentPage - 1}`}
-        href={`${location}?page=${currentPage - 1}`}
+        href={`${location}?${getQuery(currentPage - 1)}`}
         className={defaultClass}
       >
         <FaChevronLeft size={10} />
@@ -46,7 +59,7 @@ const Pagination: React.FC<PaginationProps> = ({
         <>
           <Link
             aria-label={`Page Number ${1}`}
-            href={`${location}?page=${1}`}
+            href={`${location}?${getQuery(1)}`}
             className={defaultClass}
           >
             1
@@ -59,7 +72,7 @@ const Pagination: React.FC<PaginationProps> = ({
           aria-disabled={page === currentPage}
           aria-label={`Page Number ${page}`}
           key={page}
-          href={`${location}?page=${page}`}
+          href={`${location}?${getQuery(page)}`}
           className={cn(defaultClass, {
             'pointer-events-none border-primary': page === currentPage,
           })}
@@ -73,7 +86,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <div className={defaultClass}>...</div>
           <Link
             aria-label={`Page Number ${totalPages}`}
-            href={`${location}?page=${totalPages}`}
+            href={`${location}?${getQuery(totalPages)}`}
             className={defaultClass}
           >
             {totalPages}
@@ -84,7 +97,7 @@ const Pagination: React.FC<PaginationProps> = ({
       {!pages.includes(totalPages) && !(currentPage <= totalPages - 4) && (
         <Link
           aria-label={`Page Number ${totalPages}`}
-          href={`${location}?page=${totalPages}`}
+          href={`${location}?${getQuery(totalPages)}`}
           className={defaultClass}
         >
           {totalPages}
@@ -92,7 +105,7 @@ const Pagination: React.FC<PaginationProps> = ({
       )}
       <Link
         aria-label={`Next Page ${currentPage + 1}`}
-        href={`${location}?page=${currentPage + 1}`}
+        href={`${location}?${getQuery(currentPage + 1)}`}
         className={defaultClass}
       >
         <FaChevronRight size={10} />

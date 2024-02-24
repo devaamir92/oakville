@@ -91,6 +91,7 @@ const Property: React.FC<PropertyProps> = async ({ page, view }) => {
         ))}
       </div>
       <Pagination
+        otherQueryParams={{ view }}
         totalPages={rows.pageCount}
         currentPage={rows.page}
         location="/property-for-sale"
