@@ -1,15 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
-import {
-  BsEnvelopeFill,
-  BsKey,
-  BsPencil,
-  BsTelephoneFill,
-} from 'react-icons/bs';
-
-import { Button } from '@components/ui/Button';
+import { redirect } from 'next/navigation';
+import { getServerSession } from 'next-auth';
+import { BsEnvelopeFill, BsTelephoneFill } from 'react-icons/bs';
 
 import Card from '@components/ListingCard';
+
+import EditProfile from './_components/editProfile';
+import ResetPassword from './_components/resetPassword';
 
 const data = [
   {
@@ -50,38 +48,37 @@ const data = [
   },
 ];
 
-const Page = () => {
+const Page = async () => {
+  const session = await getServerSession();
+  if (!session) {
+    redirect('/');
+  }
+
   return (
     <main className="container flex flex-col gap-6 py-10">
       <section className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="relative aspect-square size-32">
             <Image
-              src="/images/webp/user.webp"
+              src={session.user?.image || '/images/webp/user.webp'}
               alt="Profile"
               fill
               className="object-fill"
             />
           </div>
           <div className="flex flex-col gap-1">
-            <h1 className="text-2xl font-medium">User Name</h1>
+            <h1 className="text-2xl font-medium">{session.user?.name}</h1>
             <p className="flex items-center gap-1 text-gray-500">
-              <BsEnvelopeFill /> user.text@gmail.com
+              <BsEnvelopeFill /> {session.user?.email}
             </p>
             <p className="flex items-center gap-1 text-gray-500">
-              <BsTelephoneFill /> 905-884-8800
+              <BsTelephoneFill /> {session.user?.phone || 'Not Provided'}
             </p>
           </div>
         </div>
         <div className="flex gap-2">
-          <Button variant="default" size="sm" className="gap-2">
-            <BsPencil />
-            Edit Profile
-          </Button>
-          <Button variant="default" size="sm" className="gap-2 bg-primary-400">
-            <BsKey />
-            Reset Password
-          </Button>
+          <EditProfile />
+          <ResetPassword />
         </div>
       </section>
       <div className="flex flex-1 flex-col gap-2">

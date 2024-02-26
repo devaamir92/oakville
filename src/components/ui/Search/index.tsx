@@ -12,7 +12,6 @@ import {
 } from '@radix-ui/react-dropdown-menu';
 
 import cn from '@utils/cn';
-import { BsSearch } from 'react-icons/bs';
 
 interface Props {
   className?: string;

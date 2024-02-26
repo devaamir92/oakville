@@ -1,11 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { getServerSession } from 'next-auth';
+
 import SearchComponent from '@components/ui/Search';
 
 import Auth from './auth';
 import CommunitiesList from './communitiesList';
 import MobileMenu from './mobileMenu';
+
+import SignOut from './auth/signOut';
 
 const navLinks = [
   { name: 'Home', link: '/' },
@@ -41,7 +45,9 @@ const listData = [
 const linkClass =
   'text-sm text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
 
-export default function Header() {
+export default async function Header() {
+  const session = await getServerSession();
+
   return (
     <header className="sticky top-0 z-30 bg-primary-500 py-2 shadow lg:h-[70px] lg:py-0">
       <div className="container flex h-full flex-col items-center gap-2 lg:flex-row">
@@ -74,7 +80,11 @@ export default function Header() {
               if (name === 'Communities') {
                 component = <CommunitiesList key={name} listData={listData} />;
               } else if (name === 'Auth') {
-                component = <Auth key={name} />;
+                component = !session?.user ? (
+                  <Auth key={name} />
+                ) : (
+                  <SignOut key={name} />
+                );
               } else {
                 component = (
                   <Link key={name} href={link} className={linkClass}>

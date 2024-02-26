@@ -87,6 +87,7 @@ const Property: React.FC<PropertyProps> = async ({ page, view }) => {
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}
             parking={item.Park_spcs ?? '0'}
             slug={item.Slug}
+            isLocked={item.Is_locked}
           />
         ))}
       </div>

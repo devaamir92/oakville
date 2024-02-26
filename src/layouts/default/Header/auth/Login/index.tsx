@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
 import Link from 'next/link';
 import { z } from 'zod';
+import { signIn } from 'next-auth/react';
+import React, { useState } from 'react';
 
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
@@ -18,30 +19,19 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
 
   const handleRegister = async () => {
     try {
-      const response = await fetch(
-        `${process.env.API_HOST}/api/v1/auth/login`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: state.email,
-            password: state.password,
-          }),
-        }
-      );
-      const responceData = await response.json();
-      if (responceData.errors) {
-        const roors = Object.values(responceData.errors).map(message => ({
-          message,
-        }));
-        setErrors(roors);
-      } else {
-        switchForm('SIGN_IN');
+      const user = await signIn('credentials', {
+        redirect: false,
+        email: state.email,
+        password: state.password,
+      });
+      if (user?.ok) {
+        window.location.reload();
+      }
+      if (user?.error) {
+        setErrors([{ message: user.error }]);
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -115,7 +105,11 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
           </div>
         </div>
         <div className="mt-2">
-          <Button className="w-full" variant="default" onClick={handleSubmit}>
+          <Button
+            className="w-full"
+            variant="default"
+            onClick={e => handleSubmit(e)}
+          >
             Login
           </Button>
         </div>

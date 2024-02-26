@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
 import { z } from 'zod';
+import React, { useState } from 'react';
+import { signIn } from 'next-auth/react';
 
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
@@ -33,6 +34,22 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
     }),
   });
 
+  const handleLogin = async () => {
+    try {
+      const user = await signIn('credentials', {
+        redirect: true,
+        email: state.email,
+        password: state.password,
+      });
+
+      if (user?.error) {
+        setErrors([{ message: user.error }]);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleRegister = async () => {
     try {
       const response = await fetch(
@@ -57,9 +74,11 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
         }));
         setErrors(roors);
       } else {
-        switchForm('SIGN_IN');
+        handleLogin();
       }
-    } catch (err) {}
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const handleSubmit = () => {

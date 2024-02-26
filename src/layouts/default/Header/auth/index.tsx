@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import cn from '@utils/cn';
 import Modal from '@components/ui/Modal';
 
 import Login from './Login';
@@ -11,7 +12,12 @@ import FinalStep from './Final';
 
 type FormState = 'SIGN_IN' | 'SIGN_UP' | 'FINAL_STEP';
 
-function Auth() {
+interface AuthProps {
+  className?: string;
+  isLocked?: boolean;
+}
+
+const Auth: React.FC<AuthProps> = ({ className, isLocked }) => {
   const [formState, setFormState] = useState<FormState>('SIGN_IN');
   const [showModal, setShowModal] = useState(false);
   const [state, setState] = useState({
@@ -40,8 +46,11 @@ function Auth() {
 
   return (
     <Modal
-      title="Login"
-      className="rounded bg-primary-800 px-6 py-1.5 text-white lg:px-7 lg:py-2"
+      title={isLocked ? 'Login Required' : 'Login'}
+      className={cn(
+        'rounded bg-primary-800 px-6 py-1.5 text-white lg:px-7 lg:py-2',
+        className
+      )}
       show={showModal}
       OnClose={onClose}
     >
@@ -65,6 +74,6 @@ function Auth() {
       </p>
     </Modal>
   );
-}
+};
 
 export default Auth;

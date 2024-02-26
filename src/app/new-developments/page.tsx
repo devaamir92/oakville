@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Pagination from '@components/ui/Pagination';
+// import Pagination from '@components/ui/Pagination';
 
 import Toolbar from './_components/toolbar';
 

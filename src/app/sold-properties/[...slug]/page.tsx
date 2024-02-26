@@ -9,13 +9,13 @@ import { Button } from '@components/ui/Button';
 import LightBox from '@components/LightBox';
 import Demographics from '@components/Demographics';
 
-import ListingOverview from '@app/propertydetails/_components/ListingOverview';
-import ListingHighlights from '@app/propertydetails/_components/ListingHighlights';
-import ListingDetails from '@app/propertydetails/_components/ListingDetails';
-import PropertyDetails from '@app/propertydetails/_components/PropertyDetails';
-import Rooms from '@app/propertydetails/_components/Rooms';
-import PriceHistory from '@app/propertydetails/_components/PriceHistory';
-import Map from '@app/propertydetails/_components/map';
+import ListingOverview from '@app/property/_components/ListingOverview';
+import ListingHighlights from '@app/property/_components/ListingHighlights';
+import ListingDetails from '@app/property/_components/ListingDetails';
+import PropertyDetails from '@app/property/_components/PropertyDetails';
+import Rooms from '@app/property/_components/Rooms';
+import PriceHistory from '@app/property/_components/PriceHistory';
+import Map from '@app/property/_components/map';
 
 const data = [
   {

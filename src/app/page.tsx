@@ -149,6 +149,7 @@ const getSoldProperties = async () => {
   );
 
   const responce = await res.json();
+
   const shortData = responce.data.slice(0, 4);
   return shortData;
 };
@@ -187,7 +188,7 @@ const page = async () => {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {data.map(item => (
+            {data.map((item: any) => (
               <Card
                 key={item.location}
                 bathrooms={item.bathrooms}
@@ -196,6 +197,7 @@ const page = async () => {
                 location={item.location}
                 price={item.price}
                 parking={item.parking}
+                isLocked={item.Is_locked}
               />
             ))}
           </div>
