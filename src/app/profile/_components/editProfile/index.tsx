@@ -38,7 +38,7 @@ const EditProfile: React.FC = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${session?.accessToken}`,
+          Authorization: `Bearer ${session?.user?.token}`,
         },
         body: JSON.stringify({
           name: `${state.firstName} ${state.lastName}`,
@@ -57,8 +57,8 @@ const EditProfile: React.FC = () => {
             phone: state.phone,
           },
         });
-        // window.location.reload();
-        // onClose();
+        window.location.reload();
+        onClose();
       }
     } catch (error) {
       console.error(error);

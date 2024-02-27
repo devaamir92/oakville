@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({
   OnClose,
 }) => {
   return (
-    <Dialog open={show} onOpenChange={OnClose} onE>
+    <Dialog open={show} onOpenChange={OnClose}>
       <Root>
         <Trigger asChild>
           <button

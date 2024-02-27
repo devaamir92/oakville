@@ -154,10 +154,49 @@ const getSoldProperties = async () => {
   return shortData;
 };
 
+const getFeaturedProperties = async () => {
+  const queryBuilder = RequestQueryBuilder.create();
+
+  queryBuilder.setJoin({
+    field: 'property',
+    select: [
+      'Ml_num',
+      'Addr',
+      'Unit_num',
+      'Apt_num',
+      'Lp_dol',
+      'Br',
+      'Bath_tot',
+      'Park_spcs',
+      'Rooms_plus',
+      'Status',
+      'Is_locked',
+      'Slug',
+      'Dom',
+    ],
+  });
+
+  const res = await fetch(
+    `${process.env.API_HOST}/api/v1/featured?${queryBuilder.query()}`,
+    {
+      method: 'GET',
+      next: {
+        tags: ['property'],
+      },
+      cache: 'no-cache',
+    }
+  );
+
+  const responce = await res.json();
+  const shortData = responce.slice(0, 4);
+  return shortData;
+};
+
 const page = async () => {
-  const [newData, soldData] = await Promise.all([
+  const [newData, soldData, featureData] = await Promise.all([
     getProperties(),
     getSoldProperties(),
+    getFeaturedProperties(),
   ]);
 
   return (
@@ -170,7 +209,7 @@ const page = async () => {
       </Mobile>
       <ListingTypes />
       <div className="flex flex-col gap-8 bg-[#f3f4f6] py-8">
-        <FeatureListing />
+        <FeatureListing rows={featureData} />
         <DailyListing rows={newData} />
       </div>
       <JustSold rows={soldData} />

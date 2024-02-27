@@ -1,15 +1,7 @@
-'use server';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { MdLocationOn } from 'react-icons/md';
-import { getServerSession } from 'next-auth';
-
-import cn from '@utils/cn';
-import Auth from '@layouts/default/Header/auth';
-
-import LikeToggle from './LikeToggle';
 
 interface CardProps {
   location: string;
@@ -22,7 +14,7 @@ interface CardProps {
   isLocked?: boolean;
 }
 
-const ListingCard: React.FC<CardProps> = async ({
+const PropCard: React.FC<CardProps> = ({
   location,
   bedrooms,
   bathrooms,
@@ -32,35 +24,8 @@ const ListingCard: React.FC<CardProps> = async ({
   slug = '/',
   isLocked,
 }) => {
-  const session = await getServerSession();
-
   return (
     <div className="group relative overflow-hidden rounded border border-gray-300  bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
-      {!session && (
-        <>
-          <div
-            className={cn('absolute inset-0 z-20', {
-              hidden: !isLocked,
-            })}
-            style={{
-              background: 'rgba(0,0,0,0.5)',
-              backdropFilter: 'blur(5px)',
-            }}
-          />
-          <div
-            className={cn('absolute inset-0 z-20', {
-              hidden: !isLocked,
-            })}
-          >
-            <div className="flex size-full items-center justify-center">
-              <Auth
-                className="bg-white !px-4 text-base font-medium text-primary-500 hover:bg-primary-100"
-                isLocked={isLocked}
-              />
-            </div>
-          </div>
-        </>
-      )}
       <Link href={slug} className=" flex flex-col overflow-hidden ">
         <div className="relative h-60">
           <Image
@@ -85,7 +50,7 @@ const ListingCard: React.FC<CardProps> = async ({
               <MdLocationOn size={20} className="mb-1" />
               <span className="w-full truncate">{location}</span>
             </div>
-            <LikeToggle />
+            {/* <LikeToggle /> */}
           </div>
           <div className="flex justify-between gap-1 text-center text-gray-500">
             <div className="flex items-center gap-2 divide-x-[1px]">
@@ -110,4 +75,4 @@ const ListingCard: React.FC<CardProps> = async ({
   );
 };
 
-export default ListingCard;
+export default PropCard;

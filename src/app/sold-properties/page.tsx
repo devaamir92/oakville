@@ -33,6 +33,7 @@ const getProperties = async (page: number) => {
     'Is_locked',
     'Slug',
     'Dom',
+    'Community',
   ]);
 
   queryBuilder.setPage(page ?? 1);
@@ -52,6 +53,7 @@ const getProperties = async (page: number) => {
 
 const Property: React.FC = async () => {
   const rows = await getProperties(0);
+  console.log(rows);
 
   return (
     <div className="container flex flex-col justify-center gap-4 py-4">
@@ -75,7 +77,10 @@ const Property: React.FC = async () => {
             location={item.Addr}
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}
             parking={item.Park_spcs ?? '0'}
-            slug={item.Slug}
+            slug={`/sold-properties/${item.Community.toLowerCase().replace(
+              ' ',
+              '-'
+            )}/${item.Slug}`}
           />
         ))}
       </div>

@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
-import type { NextAuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import type { NextAuthOptions } from 'next-auth';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -39,7 +39,11 @@ export const authOptions: NextAuthOptions = {
       return url.startsWith(baseUrl) ? url : baseUrl;
     },
     async session({ session, token }) {
-      session.accessToken = token.token;
+      session.user.name = token.name;
+      session.user.email = token.email;
+      session.user.role = token.role;
+      session.user.token = token.token;
+
       return session;
     },
     async jwt({ token, user, session, trigger }) {

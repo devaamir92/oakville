@@ -2,43 +2,11 @@ import React from 'react';
 
 import Card from '@components/ListingCard';
 
-const data = [
-  {
-    location: 'Oakville Ontario L6X 5A6',
-    bedrooms: '4 Beds',
-    bathrooms: '4 Baths',
-    parking: '0 Parking',
-    price: '1,250,000',
-    imageUrl: '/images/webp/listing/12.webp',
-  },
-  {
-    location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2 Beds',
-    bathrooms: '2 Baths',
-    parking: '1 Parking',
-    price: '550,000',
-    imageUrl: '/images/webp/listing/4.webp',
-  },
-  {
-    location: 'Oakville Ontario L6P 1W1',
-    bedrooms: '4 Beds',
-    bathrooms: '4 Baths',
-    parking: '0 Parking',
-    price: '1,200,000',
-    imageUrl: '/images/webp/listing/6.webp',
-  },
+interface FeatureListingProps {
+  rows: any;
+}
 
-  {
-    location: 'Oakville Ontario L6S 2G5',
-    bedrooms: '3 Beds',
-    bathrooms: '3 Baths',
-    parking: '1 Parking',
-    price: '750,000',
-    imageUrl: '/images/webp/listing/8.webp',
-  },
-];
-
-function FeatureListing() {
+const FeatureListing: React.FC<FeatureListingProps> = ({ rows }) => {
   return (
     <section>
       <div className="container flex flex-col">
@@ -47,15 +15,20 @@ function FeatureListing() {
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {data.map(item => (
+          {rows.map(item => (
             <Card
-              key={item.location}
-              bathrooms={item.bathrooms}
-              bedrooms={item.bedrooms}
-              imageUrl={item.imageUrl}
-              location={item.location}
-              price={item.price}
-              parking={item.parking}
+              key={item.property.id}
+              bathrooms={item.property.Bath_tot ?? 0}
+              bedrooms={
+                Number(
+                  Number(item.property.Br) + Number(item.property.Rooms_plus)
+                ).toLocaleString() ?? '0'
+              }
+              imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.property.Ml_num}/photo_1.webp`}
+              location={item.property.Addr}
+              price={Number(item.property.Lp_dol).toLocaleString() ?? '0'}
+              parking={item.property.Park_spcs ?? '0'}
+              slug={item.property.Slug}
             />
           ))}
         </div>
@@ -70,6 +43,6 @@ function FeatureListing() {
       </div>
     </section>
   );
-}
+};
 
 export default FeatureListing;

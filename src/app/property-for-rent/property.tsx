@@ -36,6 +36,7 @@ const getProperties = async (page: number) => {
     'Status',
     'Is_locked',
     'Slug',
+    'Community',
   ]);
 
   queryBuilder.setPage(page ?? 1);
@@ -86,11 +87,16 @@ const Property: React.FC<PropertyProps> = async ({ page, view }) => {
             location={item.Addr}
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}
             parking={item.Park_spcs ?? '0'}
-            slug={item.Slug}
+            slug={`/property-for-rent/${item.Community.toLowerCase().replace(
+              ' ',
+              '-'
+            )}/${item.Slug}`}
+            isLocked={item.Is_locked}
           />
         ))}
       </div>
       <Pagination
+        otherQueryParams={{ view }}
         totalPages={rows.pageCount}
         currentPage={rows.page}
         location="/property-for-rent"
