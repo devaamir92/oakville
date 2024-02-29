@@ -19,6 +19,7 @@ interface PageProps {
     bedrooms?: any;
     bathrooms?: any;
     basement?: any;
+    sort?: any;
   };
 }
 
@@ -108,6 +109,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
               bedrooms={searchParams?.bedrooms}
               bathrooms={searchParams?.bathrooms}
               basement={searchParams?.basement}
+              sort={searchParams?.sort}
             />
           </Suspense>
         </section>

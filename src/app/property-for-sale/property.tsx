@@ -5,6 +5,8 @@ import Card from '@components/ListingCard';
 import cn from '@utils/cn';
 import { BedroomsParser } from '@utils/parsers/bedrooms-parser';
 import { BathroomsParser } from '@utils/parsers/bathrooms-parser';
+import Sorting from '@components/Sorting';
+import sortlisting from '@utils/sort';
 
 interface PropertyProps {
   view?: 'list' | 'map';
@@ -15,6 +17,7 @@ interface PropertyProps {
   bathrooms: any;
   bedrooms: any;
   basement: any;
+  sort: any;
 }
 
 const getProperties = async (
@@ -24,7 +27,8 @@ const getProperties = async (
   type: string | string[],
   bedrooms: any,
   bathrooms: any,
-  basement: string | string[]
+  basement: string | string[],
+  sort: string
 ) => {
   const queryBuilder = RequestQueryBuilder.create();
 
@@ -62,25 +66,27 @@ const getProperties = async (
     }) ||
     {};
 
-  queryBuilder.search({
-    $and: [
-      {
-        Status: {
-          $eq: 'A',
+  queryBuilder
+    .search({
+      $and: [
+        {
+          Status: {
+            $eq: 'A',
+          },
+          S_r: {
+            $eq: 'Sale',
+          },
+          Lp_dol: {
+            $gte: min,
+            $lte: max,
+          },
+          ...typeQuery,
+          ...bsmtQuery,
+          ...search,
         },
-        S_r: {
-          $eq: 'Sale',
-        },
-        Lp_dol: {
-          $gte: min,
-          $lte: max,
-        },
-        ...typeQuery,
-        ...bsmtQuery,
-        ...search,
-      },
-    ],
-  });
+      ],
+    })
+    .sortBy(sortlisting(sort));
 
   queryBuilder.select([
     'Ml_num',
@@ -122,6 +128,7 @@ const Property: React.FC<PropertyProps> = async ({
   bedrooms,
   bathrooms,
   basement,
+  sort,
 }) => {
   const rows = await getProperties(
     page,
@@ -130,7 +137,8 @@ const Property: React.FC<PropertyProps> = async ({
     type,
     bedrooms,
     bathrooms,
-    basement
+    basement,
+    sort
   );
   const getBedroomString = (Br: any, Br_plus: any) => {
     if (Br === null) {
@@ -144,16 +152,22 @@ const Property: React.FC<PropertyProps> = async ({
 
   return (
     <div className="flex flex-col gap-4">
-      <h1
-        className={cn(
-          'text-center text-xl font-semibold text-gray-800 lg:text-left',
-          {
-            'text-center': view === 'list',
-          }
-        )}
-      >
-        {rows?.total.toLocaleString()} Properties for Sale in Oakville
-      </h1>
+      <div className="flex justify-between gap-2">
+        <h1
+          className={cn(
+            'flex-1 text-center text-xl font-semibold text-gray-800 lg:text-left',
+            {
+              'text-center': view === 'list',
+            }
+          )}
+        >
+          {rows?.total.toLocaleString()} Properties for Sale in Oakville
+        </h1>
+        <div className="flex size-fit items-center justify-end gap-2">
+          <span className="w-full">Sort by:</span>
+          <Sorting />
+        </div>
+      </div>
       <div
         className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {
           'xl:grid-cols-4': view === 'list',
@@ -179,7 +193,6 @@ const Property: React.FC<PropertyProps> = async ({
 
       {rows?.pageCount > 1 && (
         <Pagination
-          otherQueryParams={{}}
           totalPages={rows.pageCount}
           currentPage={rows.page}
           location="/property-for-sale"

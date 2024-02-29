@@ -17,22 +17,22 @@ const FiltersData = {
   bedrooms: [
     {
       id: 1,
-      name: '1BD+',
+      name: '1BD',
       value: '1',
     },
     {
       id: 2,
-      name: '2BD+',
+      name: '2BD',
       value: '2',
     },
     {
       id: 3,
-      name: '3BD+',
+      name: '3BD',
       value: '3',
     },
     {
       id: 4,
-      name: '4BD+',
+      name: '4BD',
       value: '4',
     },
     {

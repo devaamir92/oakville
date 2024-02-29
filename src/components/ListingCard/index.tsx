@@ -73,9 +73,9 @@ const ListingCard: React.FC<CardProps> = async ({
           <div className="absolute bottom-3 left-3">
             <span className="rounded bg-primary px-3 py-1.5 text-sm font-semibold uppercase text-white">
               $ {price}
-              {isLocked && (
+              {/* {isLocked && (
                 <span className="ml-1 text-xs font-normal">Locked</span>
-              )}
+              )} */}
             </span>
           </div>
         </div>

@@ -16,6 +16,8 @@ interface DropdownProps {
   ariaLabel?: string;
   className?: string;
   children: React.ReactNode;
+  align?: 'start' | 'end';
+  contentClassName?: string;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -25,6 +27,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   className,
   ariaLabel,
   title,
+  align = 'start',
+  contentClassName,
 }) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [width, setWidth] = useState<number>(0);
@@ -54,8 +58,11 @@ const Dropdown: React.FC<DropdownProps> = ({
         </Trigger>
         <Portal>
           <Content
-            align="start"
-            className="z-50  overflow-y-auto rounded-[3px] bg-white p-3 shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]"
+            align={align}
+            className={cn(
+              'z-50  overflow-y-auto rounded-[3px] bg-white p-3 shadow-[0px_10px_38px_-10px_rgba(22,_23,_24,_0.35),_0px_10px_20px_-15px_rgba(22,_23,_24,_0.2)]',
+              contentClassName
+            )}
             style={{
               minWidth: width <= 160 ? '160px' : `${width}px`,
             }}
