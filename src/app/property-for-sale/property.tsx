@@ -3,26 +3,84 @@ import { RequestQueryBuilder } from '@nestjsx/crud-request';
 import Pagination from '@components/ui/Pagination';
 import Card from '@components/ListingCard';
 import cn from '@utils/cn';
+import { BedroomsParser } from '@utils/parsers/bedrooms-parser';
+import { BathroomsParser } from '@utils/parsers/bathrooms-parser';
 
 interface PropertyProps {
   view?: 'list' | 'map';
   page: number;
+  min: number;
+  max: number;
+  type: any;
+  bathrooms: any;
+  bedrooms: any;
+  basement: any;
 }
 
-const getProperties = async (page: number) => {
+const getProperties = async (
+  page: number,
+  max: number,
+  min: number,
+  type: string | string[],
+  bedrooms: any,
+  bathrooms: any,
+  basement: string | string[]
+) => {
   const queryBuilder = RequestQueryBuilder.create();
 
-  queryBuilder
-    .setFilter({
-      field: 'Status',
-      operator: '$eq',
-      value: 'A',
-    })
-    .setFilter({
-      field: 'S_r',
-      operator: '$eq',
-      value: 'Sale',
-    });
+  let search = {};
+
+  if (bedrooms) {
+    search = {
+      ...search,
+      ...BedroomsParser.create(bedrooms).parse(),
+    };
+  }
+  if (bathrooms) {
+    search = {
+      ...search,
+      ...BathroomsParser.create(bathrooms).parse(),
+    };
+  }
+  // console.log(search);
+  const propType = Array.isArray(type) ? type : [type];
+  const propsBsmt = Array.isArray(basement) ? basement : [basement];
+
+  const typeQuery: any =
+    (type && {
+      Type_own_srch: {
+        $in: propType,
+      },
+    }) ||
+    {};
+
+  const bsmtQuery: any =
+    (basement && {
+      Bsmt1_out: {
+        $in: propsBsmt,
+      },
+    }) ||
+    {};
+
+  queryBuilder.search({
+    $and: [
+      {
+        Status: {
+          $eq: 'A',
+        },
+        S_r: {
+          $eq: 'Sale',
+        },
+        Lp_dol: {
+          $gte: min,
+          $lte: max,
+        },
+        ...typeQuery,
+        ...bsmtQuery,
+        ...search,
+      },
+    ],
+  });
 
   queryBuilder.select([
     'Ml_num',
@@ -30,13 +88,14 @@ const getProperties = async (page: number) => {
     'Apt_num',
     'Lp_dol',
     'Br',
+    'Br_plus',
     'Bath_tot',
     'Park_spcs',
-    'Rooms_plus',
     'Status',
     'Is_locked',
     'Slug',
     'Community',
+    'Bsmt1_out',
   ]);
 
   queryBuilder.setPage(page ?? 1);
@@ -54,8 +113,34 @@ const getProperties = async (page: number) => {
   return res.json();
 };
 
-const Property: React.FC<PropertyProps> = async ({ page, view }) => {
-  const rows = await getProperties(page);
+const Property: React.FC<PropertyProps> = async ({
+  page,
+  view,
+  max,
+  min,
+  type,
+  bedrooms,
+  bathrooms,
+  basement,
+}) => {
+  const rows = await getProperties(
+    page,
+    max,
+    min,
+    type,
+    bedrooms,
+    bathrooms,
+    basement
+  );
+  const getBedroomString = (Br: any, Br_plus: any) => {
+    if (Br === null) {
+      return '0';
+    }
+    if (Br_plus > 0) {
+      return `${Br} + ${Br_plus}`;
+    }
+    return `${Br}`;
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -78,11 +163,7 @@ const Property: React.FC<PropertyProps> = async ({ page, view }) => {
           <Card
             key={item.id}
             bathrooms={item.Bath_tot ?? 0}
-            bedrooms={
-              Number(
-                Number(item.Br) + Number(item.Rooms_plus)
-              ).toLocaleString() ?? '0'
-            }
+            bedrooms={getBedroomString(item.Br, item.Br_plus)}
             imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
             location={item.Addr}
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}
@@ -95,12 +176,22 @@ const Property: React.FC<PropertyProps> = async ({ page, view }) => {
           />
         ))}
       </div>
-      <Pagination
-        otherQueryParams={{ view }}
-        totalPages={rows.pageCount}
-        currentPage={rows.page}
-        location="/property-for-sale"
-      />
+
+      {rows?.pageCount > 1 && (
+        <Pagination
+          otherQueryParams={{
+            ...(type && { type }),
+            ...(bedrooms && { bedrooms }),
+            ...(bathrooms && { bathrooms }),
+            ...(basement && { basement }),
+            ...(min && { min }),
+            ...(max && { max }),
+          }}
+          totalPages={rows.pageCount}
+          currentPage={rows.page}
+          location="/property-for-sale"
+        />
+      )}
     </div>
   );
 };

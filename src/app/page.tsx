@@ -21,8 +21,8 @@ export const metadata = {
 const data = [
   {
     location: 'Oakville Ontario L6H 0V2',
-    bedrooms: '2 Beds',
-    bathrooms: '4 Baths',
+    bedrooms: '2',
+    bathrooms: '4',
     price: '600,000',
     imageUrl: '/images/webp/photo1.webp',
     parking: '0 Parking',
@@ -30,8 +30,8 @@ const data = [
   },
   {
     location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3 Beds',
-    bathrooms: '2 Baths',
+    bedrooms: '3',
+    bathrooms: '2',
     price: '750,000',
     imageUrl: '/images/webp/photo.webp',
     parking: '1 Parking',
@@ -39,8 +39,8 @@ const data = [
   },
   {
     location: 'Oakville Ontario L6K 2H2',
-    bedrooms: '4 Beds',
-    bathrooms: '3 Baths',
+    bedrooms: '4',
+    bathrooms: '3',
     price: '950,000',
     imageUrl: '/images/webp/photo2.webp',
     parking: '2 Parking',
@@ -48,8 +48,8 @@ const data = [
   },
   {
     location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2 Beds',
-    bathrooms: '2 Baths',
+    bedrooms: '2',
+    bathrooms: '2',
     price: '550,000',
     imageUrl: '/images/webp/photo3.webp',
     parking: '1 Parking',
@@ -81,11 +81,12 @@ const getProperties = async () => {
     'Br',
     'Bath_tot',
     'Park_spcs',
-    'Rooms_plus',
+    'Br_plus',
     'Status',
     'Is_locked',
     'Slug',
     'Dom',
+    'Community',
   ]);
 
   const res = await fetch(
@@ -130,11 +131,12 @@ const getSoldProperties = async () => {
     'Br',
     'Bath_tot',
     'Park_spcs',
-    'Rooms_plus',
+    'Br_plus',
     'Status',
     'Is_locked',
     'Slug',
     'Dom',
+    'Community',
   ]);
 
   const res = await fetch(
@@ -168,11 +170,13 @@ const getFeaturedProperties = async () => {
       'Br',
       'Bath_tot',
       'Park_spcs',
-      'Rooms_plus',
+      'Br_plus',
       'Status',
       'Is_locked',
       'Slug',
       'Dom',
+      'Community',
+      'S_r',
     ],
   });
 
@@ -198,6 +202,16 @@ const page = async () => {
     getSoldProperties(),
     getFeaturedProperties(),
   ]);
+
+  const getBedroomString = (Br: any, Br_plus: any) => {
+    if (Br === null) {
+      return '0';
+    }
+    if (Br_plus > 0) {
+      return `${Br} + ${Br_plus}`;
+    }
+    return `${Br}`;
+  };
 
   return (
     <main className="flex flex-col gap-8 pb-8">
@@ -231,7 +245,7 @@ const page = async () => {
               <Card
                 key={item.location}
                 bathrooms={item.bathrooms}
-                bedrooms={item.bedrooms}
+                bedrooms={getBedroomString(item.bedrooms, item.Br_plus)}
                 imageUrl={item.imageUrl}
                 location={item.location}
                 price={item.price}

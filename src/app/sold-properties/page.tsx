@@ -3,6 +3,12 @@ import { RequestQueryBuilder } from '@nestjsx/crud-request';
 import Pagination from '@components/ui/Pagination';
 import Card from '@components/ListingCard';
 
+interface PropertyProps {
+  searchParams?: {
+    page?: string;
+  };
+}
+
 const getProperties = async (page: number) => {
   const queryBuilder = RequestQueryBuilder.create();
 
@@ -28,7 +34,7 @@ const getProperties = async (page: number) => {
     'Br',
     'Bath_tot',
     'Park_spcs',
-    'Rooms_plus',
+    'Br_plus',
     'Status',
     'Is_locked',
     'Slug',
@@ -51,9 +57,8 @@ const getProperties = async (page: number) => {
   return res.json();
 };
 
-const Property: React.FC = async () => {
-  const rows = await getProperties(0);
-  console.log(rows);
+const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
+  const rows = await getProperties(Number(searchParams?.page ?? 1) ?? 1);
 
   return (
     <div className="container flex flex-col justify-center gap-4 py-4">
@@ -68,11 +73,9 @@ const Property: React.FC = async () => {
           <Card
             key={item.id}
             bathrooms={item.Bath_tot ?? 0}
-            bedrooms={
-              Number(
-                Number(item.Br) + Number(item.Rooms_plus)
-              ).toLocaleString() ?? '0'
-            }
+            bedrooms={`${item.Br}${
+              item.Br_plus !== '0' ? ` + ${item.Br_plus}` : ''
+            }`}
             imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
             location={item.Addr}
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}

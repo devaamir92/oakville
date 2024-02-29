@@ -90,7 +90,7 @@ const ListingCard: React.FC<CardProps> = async ({
           <div className="flex justify-between gap-1 text-center text-gray-500">
             <div className="flex items-center gap-2 divide-x-[1px]">
               <div className="flex items-center gap-1">
-                <span className="text-sm">{bedrooms}</span>
+                <span className="text-sm">{bedrooms || 0}</span>
                 <span className="text-sm">Beds</span>
               </div>
 
@@ -99,7 +99,7 @@ const ListingCard: React.FC<CardProps> = async ({
                 <span className="text-sm">Baths</span>
               </div>
               <div className="flex items-center gap-1 pl-2">
-                <span className="text-sm">{parking}</span>
+                <span className="text-sm">{parking || 0}</span>
                 <span className="text-sm">Parking</span>
               </div>
             </div>

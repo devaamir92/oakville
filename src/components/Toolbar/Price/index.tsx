@@ -1,21 +1,40 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { Input } from '@components/ui/Input';
 
 import RangeSlider from './RangeSlider';
 
 function Price() {
-  const [min, setMin] = useState(0);
-  const [max, setMax] = useState(9000000);
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+  const [min, setMin] = useState(Number(searchParams.get('min') || 0));
+  const [max, setMax] = useState(Number(searchParams.get('max')) || 25000000);
+
+  const handlePriceChange = (e: any) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('min', String(e[0]));
+    params.set('max', String(e[1]));
+    replace(`${pathname}?${params.toString()}`);
+  };
 
   const handleMinChange = (event: any) => {
     setMin(Number(event.target.value));
+    handlePriceChange([Number(event.target.value), max]);
   };
 
   const handleMaxChange = (event: any) => {
     setMax(Number(event.target.value));
+    handlePriceChange([min, Number(event.target.value)]);
+  };
+
+  const onchangeComplete = (e: any) => {
+    setMin(e[0]);
+    setMax(e[1]);
+    handlePriceChange(e);
   };
 
   return (
@@ -34,11 +53,11 @@ function Price() {
           className="h-[32px]"
           onChange={handleMaxChange}
           value={max}
-          max={9000000}
+          max={25000000}
         />
       </div>
       <div className="px-2">
-        <RangeSlider min={0} max={9000000} setMax={setMax} setMin={setMin} />
+        <RangeSlider min={min} max={max} onchangeComplete={onchangeComplete} />
       </div>
     </div>
   );

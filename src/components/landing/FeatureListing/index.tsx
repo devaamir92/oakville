@@ -6,6 +6,38 @@ interface FeatureListingProps {
   rows: any;
 }
 
+const getSlug = (item: any) => {
+  if (item.property.S_r === 'Sale') {
+    return `/property-for-sale/${item.property.Community.toLowerCase().replace(
+      ' ',
+      '-'
+    )}/${item.property.Slug}`;
+  }
+  if (item.property.S_r === 'Lease') {
+    return `/property-for-rent/${item.property.Community.toLowerCase().replace(
+      ' ',
+      '-'
+    )}/${item.property.Slug}`;
+  }
+  if (item.property.Status === 'U') {
+    return `/sold-property/${item.property.Community.toLowerCase().replace(
+      ' ',
+      '-'
+    )}/${item.property.Slug}`;
+  }
+  return '';
+};
+
+const getBedroomString = (Br: any, Br_plus: any) => {
+  if (Br === null) {
+    return '0';
+  }
+  if (Br_plus > 0) {
+    return `${Br} + ${Br_plus}`;
+  }
+  return `${Br}`;
+};
+
 const FeatureListing: React.FC<FeatureListingProps> = ({ rows }) => {
   return (
     <section>
@@ -15,31 +47,22 @@ const FeatureListing: React.FC<FeatureListingProps> = ({ rows }) => {
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {rows.map(item => (
+          {rows.map((item: any) => (
             <Card
               key={item.property.id}
               bathrooms={item.property.Bath_tot ?? 0}
-              bedrooms={
-                Number(
-                  Number(item.property.Br) + Number(item.property.Rooms_plus)
-                ).toLocaleString() ?? '0'
-              }
+              bedrooms={getBedroomString(
+                item.property.Br,
+                item.property.Br_plus
+              )}
               imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.property.Ml_num}/photo_1.webp`}
               location={item.property.Addr}
               price={Number(item.property.Lp_dol).toLocaleString() ?? '0'}
               parking={item.property.Park_spcs ?? '0'}
-              slug={item.property.Slug}
+              slug={getSlug(item)}
             />
           ))}
         </div>
-        {/* <div className="mt-3 flex justify-end">
-          <Link
-            href="/"
-            className="inline-flex items-center justify-center gap-1 rounded bg-primary-200 px-3 py-1.5 text-center text-sm font-medium text-primary-700"
-          >
-            See More <FaArrowRight size={12} />
-          </Link>
-        </div> */}
       </div>
     </section>
   );

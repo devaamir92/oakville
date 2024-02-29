@@ -18,7 +18,7 @@ function CTASection() {
             price.
           </p>
           <Link
-            href="/sell"
+            href="/home-evaluation"
             className="flex h-[36px] min-w-fit  items-center justify-center rounded bg-primary-800 px-3 text-center text-sm text-white transition-all duration-300 ease-in-out hover:bg-primary-400"
           >
             Get Free Evaluation

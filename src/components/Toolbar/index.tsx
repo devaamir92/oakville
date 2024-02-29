@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { FaChevronDown, FaRepeat } from 'react-icons/fa6';
+import { usePathname, useRouter } from 'next/navigation';
 
 import Dropdown from '@components/ui/Dropdown';
 import { Button } from '@components/ui/Button';
@@ -15,91 +16,134 @@ import ViewChanger from './View';
 const FiltersData = {
   bedrooms: [
     {
+      id: 1,
       name: '1BD+',
       value: '1',
     },
     {
+      id: 2,
       name: '2BD+',
       value: '2',
     },
     {
+      id: 3,
       name: '3BD+',
       value: '3',
     },
     {
+      id: 4,
       name: '4BD+',
       value: '4',
     },
     {
+      id: 5,
       name: '5BD+',
       value: '5',
     },
   ],
   bathrooms: [
     {
+      id: 1,
       name: '1BTH+',
       value: '1',
     },
     {
+      id: 2,
       name: '2BTH+',
       value: '2',
     },
     {
+      id: 3,
       name: '3BTH+',
       value: '3',
     },
     {
+      id: 4,
       name: '4BTH+',
       value: '4',
     },
     {
+      id: 5,
       name: '5BTH+',
       value: '5',
     },
   ],
-  Basement: [
+  basement: [
     {
+      id: 1,
       name: 'Apt',
-      value: 'appartment',
+      value: 'Apartment',
     },
     {
+      id: 2,
       name: 'Unfinished',
-      value: 'unfinished',
+      value: 'Unfinished',
     },
     {
+      id: 3,
       name: 'Finished',
-      value: 'finished',
+      value: 'Finished',
     },
 
     {
+      id: 4,
       name: 'Part Fin',
-      value: 'part-fin',
+      value: 'Part Fin',
     },
     {
+      id: 5,
       name: 'W/O',
-      value: 'w-o',
+      value: 'W/O',
     },
     {
+      id: 6,
       name: 'Fin W/O',
-      value: 'fin-walk-out',
+      value: 'Fin W/O',
     },
     {
+      id: 7,
       name: 'Sep Entrance',
-      value: 'sep-entrance',
+      value: 'Sep Entrance',
     },
   ],
 };
 
 const TypeData = [
-  'Condo Apt',
-  'Condo Townhouse',
-  'Att/Row/Townhouse',
-  'Semi-Detached',
-  'Detached',
-  // 'Store W/Apt/Offc',
+  {
+    label: 'Condo Apt',
+    value: '.C.',
+    id: 1,
+  },
+  {
+    label: 'Condo Townhouse',
+    value: '.T.',
+    id: 2,
+  },
+  {
+    label: 'Att/Row/Townhouse',
+    value: '.A.',
+    id: 3,
+  },
+  {
+    label: 'Semi-Detached',
+    value: '.S.',
+    id: 4,
+  },
+  {
+    label: 'Detached',
+    value: '.D.',
+    id: 5,
+  },
 ];
 
 function Toolbar() {
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const clearFilters = () => {
+    replace(pathname);
+  };
+
   return (
     <div className="sticky top-[113px] z-50 flex h-12 items-center justify-end bg-tertiary-500 px-4 lg:top-[70px]">
       <nav className="container flex items-center overflow-x-auto md:justify-end">
@@ -123,6 +167,7 @@ function Toolbar() {
             <Button
               className="flex items-center gap-2 px-0 text-sm text-white"
               variant="ghost"
+              onClick={() => clearFilters()}
             >
               <FaRepeat size={14} />
               <span>Clear Filter</span>

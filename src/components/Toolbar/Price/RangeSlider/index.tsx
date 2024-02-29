@@ -5,26 +5,20 @@ import 'rc-slider/assets/index.css';
 interface Props {
   min: number;
   max: number;
-  setMin: (value: number) => void;
-  setMax: (value: number) => void;
+  onchangeComplete: (value: number | number[]) => void;
 }
 
-const RangeSlider: React.FC<Props> = ({ min, max, setMin, setMax }) => {
-  const handleSliderChange = (value: number | number[]) => {
-    if (Array.isArray(value)) {
-      setMin(value[0]);
-      setMax(value[1]);
-    }
-  };
-
+const RangeSlider: React.FC<Props> = ({ min, max, onchangeComplete }) => {
   return (
     <Slider
       range
       allowCross={false}
-      min={min}
-      max={max}
+      min={0}
+      max={25000000}
+      step={10000}
+      value={[min, max]}
       defaultValue={[min, max]}
-      onChange={handleSliderChange}
+      onChange={onchangeComplete}
       trackStyle={{ backgroundColor: '#6B8656', height: 5 }}
       handleStyle={{
         borderColor: '#6B8656',

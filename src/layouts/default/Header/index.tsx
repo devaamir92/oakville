@@ -14,7 +14,7 @@ import SignOut from './auth/signOut';
 const navLinks = [
   { name: 'Home', link: '/' },
   { name: 'Buy', link: '/property-for-sale' },
-  { name: 'Sell', link: '/sell' },
+  { name: 'Sell', link: '/home-evaluation' },
   { name: 'Rent', link: '/property-for-rent' },
   { name: 'Sold', link: '/sold-properties' },
   { name: 'New Developments', link: '/new-developments' },

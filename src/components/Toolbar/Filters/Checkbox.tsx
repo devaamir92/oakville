@@ -11,6 +11,7 @@ interface Props {
     label: string;
     value: string;
   }[];
+  utilities: string;
 }
 
 const CheckboxItem = ({
@@ -48,7 +49,7 @@ const CheckboxItem = ({
   );
 };
 
-const Types: React.FC<Props> = ({ items }) => {
+const Checkbox: React.FC<Props> = ({ items, utilities }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -56,7 +57,7 @@ const Types: React.FC<Props> = ({ items }) => {
   const [checkedItems, setCheckedItems] = useState<any>(
     items
       .map(item =>
-        searchParams.getAll('type').includes(item.value) ? item.id : null
+        searchParams.getAll(utilities).includes(item.value) ? item.id : null
       )
       .filter(item => item !== null)
   );
@@ -67,7 +68,7 @@ const Types: React.FC<Props> = ({ items }) => {
     const selectedType = items.find(type => type.id === id);
 
     if (selectedType) {
-      params.append('type', selectedType.value);
+      params.append(utilities, selectedType.value);
     }
 
     replace(`${pathname}?${params.toString()}`);
@@ -79,7 +80,7 @@ const Types: React.FC<Props> = ({ items }) => {
     const selectedType = items.find(type => type.id === id);
 
     if (selectedType) {
-      params.delete('type', selectedType.value);
+      params.delete(utilities, selectedType.value);
     }
 
     replace(`${pathname}?${params.toString()}`);
@@ -98,7 +99,7 @@ const Types: React.FC<Props> = ({ items }) => {
   };
 
   return (
-    <ul className="flex flex-col gap-3">
+    <ul className="flex flex-wrap gap-3">
       {items.map(item => (
         <CheckboxItem
           key={item.id}
@@ -111,4 +112,4 @@ const Types: React.FC<Props> = ({ items }) => {
   );
 };
 
-export default Types;
+export default Checkbox;

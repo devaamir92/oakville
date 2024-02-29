@@ -13,6 +13,12 @@ interface PageProps {
   searchParams?: {
     view?: 'list' | 'map';
     page?: string;
+    min?: string;
+    max?: string;
+    type?: any;
+    bedrooms?: any;
+    bathrooms?: any;
+    basement?: any;
   };
 }
 
@@ -51,6 +57,7 @@ const getProperties = async (page: number) => {
 
 const Page: React.FC<PageProps> = async ({ searchParams }) => {
   const rows = await getProperties(0);
+
   return (
     <main className="flex flex-1 flex-col">
       <Toolbar />
@@ -96,6 +103,12 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
             <Property
               page={Number(searchParams?.page ?? 1) ?? 1}
               view={searchParams?.view ?? 'map'}
+              max={Number(searchParams?.max ?? 25000000)}
+              min={Number(searchParams?.min ?? 0)}
+              type={searchParams?.type}
+              bedrooms={searchParams?.bedrooms}
+              bathrooms={searchParams?.bathrooms}
+              basement={searchParams?.basement}
             />
           </Suspense>
         </section>

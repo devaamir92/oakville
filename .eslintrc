@@ -37,6 +37,7 @@
         "warnOnUnsupportedTypeScriptVersion": false
       },
       "rules": {
+        "class-methods-use-this": "off",
         "sort-imports": [
           "error",
           {

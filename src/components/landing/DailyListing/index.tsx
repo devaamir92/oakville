@@ -21,16 +21,17 @@ const DailyListing: React.FC<DailyListingProps> = ({ rows }) => {
             <Card
               key={item.id}
               bathrooms={item.Bath_tot ?? 0}
-              bedrooms={
-                Number(
-                  Number(item.Br) + Number(item.Rooms_plus)
-                ).toLocaleString() ?? '0'
-              }
+              bedrooms={`${item.Br}${
+                item.Br_plus !== '0' ? ` + ${item.Br_plus}` : ''
+              }`}
               imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
               location={item.Addr}
               price={Number(item.Lp_dol).toLocaleString() ?? '0'}
               parking={item.Park_spcs ?? '0'}
-              slug={item.Slug}
+              slug={`/property-for-sale/${item.Community.toLowerCase().replace(
+                ' ',
+                '-'
+              )}/${item.Slug}`}
             />
           ))}
         </div>

@@ -12,7 +12,7 @@ import Demographics from '@components/Demographics';
 
 import Summary from '../_components/Summary';
 import Information from '../_components/Information';
-import Neighbourhood from '../_components/Neighbourhood';
+// import Neighbourhood from '../_components/Neighbourhood';
 import FloorPlanTable from '../_components/FloorPlanTable';
 
 const data = [
@@ -183,7 +183,7 @@ function Page() {
         <div className="flex h-fit flex-1 flex-col gap-4">
           <Summary data={data} />
           <Information />
-          <Neighbourhood />
+          {/* <Neighbourhood /> */}
           <FloorPlanTable />
           <Demographics />
         </div>
