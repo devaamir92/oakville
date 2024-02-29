@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
-import { Input } from '@components/ui/Input';
+import InfoForm from './_components/InfoForm';
+
 import { Button } from '@components/ui/Button';
 
 function page() {
@@ -18,29 +19,9 @@ function page() {
             objectPosition: 'center',
           }}
         />
-        <div className="absolute inset-0 bg-black opacity-20" />
+        <div className="absolute inset-0 bg-black opacity-30" />
 
-        <div className="absolute  left-1/2 top-1/2 w-full max-w-4xl -translate-x-1/2 -translate-y-1/2">
-          <div className="flex flex-col items-center gap-3">
-            <h1 className="w-[70%] text-center text-xl font-medium text-white md:text-2xl lg:text-3xl">
-              Sell Your Home with The Local Preserve Oakville Real Estate
-              Experts
-            </h1>
-
-            <div className="mx-auto mt-4 flex w-full max-w-xs items-center md:max-w-sm lg:max-w-lg">
-              <Input
-                placeholder="Enter your address"
-                className="flex-1 rounded-r-none bg-white px-3"
-              />
-              <Button
-                className="rounded-l-none bg-primary-500 lg:w-1/4"
-                variant="default"
-              >
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
+        <InfoForm />
       </section>
       <div className="container px-4">
         <div className="flex flex-col items-center gap-2">
