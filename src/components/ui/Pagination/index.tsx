@@ -1,9 +1,12 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 
 import cn from '@utils/cn';
+import { useSearchParams } from 'next/navigation';
 
 const defaultClass =
   'border rounded bg-white flex justify-center items-center text-sm w-7 h-7 text-gray-700 transition-colors duration-300 hover:border-blue-500 hover:text-blue-500';
@@ -12,23 +15,20 @@ interface PaginationProps {
   currentPage: number;
   totalPages: number;
   location: string;
-  otherQueryParams?: {
-    [key: string]: string | number | boolean | undefined;
-  };
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   location,
-  otherQueryParams,
 }) => {
-  let pagesToShow = 5;
+  const searchParams = useSearchParams();
+  const tempQuery = searchParams.toString();
 
+  let pagesToShow = 5;
   if (currentPage === 4) {
     pagesToShow = 6;
   }
-
   const startPage = Math.max(1, currentPage - Math.floor(pagesToShow / 2));
   const endPage = Math.min(totalPages, startPage + pagesToShow - 1);
 
@@ -38,10 +38,8 @@ const Pagination: React.FC<PaginationProps> = ({
   );
 
   const getQuery = (page: number) => {
-    const query = new URLSearchParams({
-      ...otherQueryParams,
-      page: page.toString(),
-    });
+    const query = new URLSearchParams(tempQuery);
+    query.set('page', page.toString());
 
     return query.toString();
   };

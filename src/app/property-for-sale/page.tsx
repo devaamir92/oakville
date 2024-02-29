@@ -57,7 +57,6 @@ const getProperties = async (page: number) => {
 
 const Page: React.FC<PageProps> = async ({ searchParams }) => {
   const rows = await getProperties(0);
-
   return (
     <main className="flex flex-1 flex-col">
       <Toolbar />

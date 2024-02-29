@@ -18,6 +18,7 @@ function Price() {
     const params = new URLSearchParams(searchParams.toString());
     params.set('min', String(e[0]));
     params.set('max', String(e[1]));
+    params.set('page', '1');
     replace(`${pathname}?${params.toString()}`);
   };
 

@@ -70,6 +70,7 @@ const Types: React.FC<Props> = ({ items }) => {
       params.append('type', selectedType.value);
     }
 
+    params.set('page', '1');
     replace(`${pathname}?${params.toString()}`);
   };
 

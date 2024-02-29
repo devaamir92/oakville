@@ -179,14 +179,7 @@ const Property: React.FC<PropertyProps> = async ({
 
       {rows?.pageCount > 1 && (
         <Pagination
-          otherQueryParams={{
-            ...(type && { type }),
-            ...(bedrooms && { bedrooms }),
-            ...(bathrooms && { bathrooms }),
-            ...(basement && { basement }),
-            ...(min && { min }),
-            ...(max && { max }),
-          }}
+          otherQueryParams={{}}
           totalPages={rows.pageCount}
           currentPage={rows.page}
           location="/property-for-sale"

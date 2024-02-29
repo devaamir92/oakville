@@ -70,6 +70,7 @@ const Checkbox: React.FC<Props> = ({ items, utilities }) => {
     if (selectedType) {
       params.append(utilities, selectedType.value);
     }
+    params.set('page', '1');
 
     replace(`${pathname}?${params.toString()}`);
   };
