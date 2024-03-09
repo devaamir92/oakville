@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import InfoForm from './_components/InfoForm';
 
-import { Button } from '@components/ui/Button';
+import Link from 'next/link';
 
 function page() {
   return (
@@ -58,7 +58,7 @@ function page() {
             <h2 className="text-xl font-semibold 2xl:text-2xl">
               Hire A Real Estate Professional Who Never Gives Up
             </h2>
-            <p className="mt-4 text-justify text-sm text-gray-800 2xl:text-base">
+            <p className="my-4 text-justify text-sm text-gray-800 2xl:text-base">
               Selling your home can be overwhelming, we help you simplify the
               process. Our dedicated team supports you from preparation to
               negotiations, ensures a successful closing and are there to answer
@@ -69,9 +69,12 @@ function page() {
               top value.
             </p>
 
-            <Button className="mt-4" variant="default">
+            <Link
+              href="/contact-us"
+              className="rounded bg-primary-500 px-3 py-1.5 text-sm text-white transition-all duration-300 ease-in-out hover:bg-primary-600"
+            >
               Contact Now
-            </Button>
+            </Link>
           </div>
         </div>
       </section>

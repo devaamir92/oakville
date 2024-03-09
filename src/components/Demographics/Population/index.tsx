@@ -4,37 +4,19 @@ import Gender from './Gender';
 
 import MaritalStatus from './MaritalStatus';
 
-const PopulationData = [
-  {
-    name: 'Female',
-    value: 50,
-  },
-  {
-    name: 'Male',
-    value: 50,
-  },
-];
+interface PopulationProps {
+  PopulationData: { name: string; value: number }[];
+  MaritalData: { name: string; value: number }[];
+  AgeData: { name: string; value: number }[];
+  familyStatus: { name: string; value: number }[];
+}
 
-const MaritalData = [
-  { name: 'Single', value: 27 },
-  { name: 'Married', value: 67 },
-  { name: 'Divorced/Separated', value: 5 },
-  { name: 'Other', value: 1 },
-];
-
-const AgeData = [
-  { name: '0-9', value: 18 },
-  { name: '10-14', value: 8 },
-  { name: '15-19', value: 8 },
-  { name: '20-29', value: 12 },
-  { name: '30-44', value: 31 },
-  { name: '45-54', value: 13 },
-  { name: '55-64', value: 6 },
-  { name: '65-74', value: 2 },
-  { name: '75+', value: 2 },
-];
-
-function Population() {
+function Population({
+  PopulationData,
+  MaritalData,
+  AgeData,
+  familyStatus,
+}: PopulationProps) {
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -46,7 +28,7 @@ function Population() {
           <Gender data={PopulationData} />
         </div>
         <div className="flex-1">
-          <FamilyStatus />
+          <FamilyStatus data={familyStatus} />
         </div>
       </div>
       <hr className="my-2" />

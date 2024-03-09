@@ -3,33 +3,19 @@ import Ownership from './Ownership';
 import StructureDetails from './StructureDetails';
 import StructureType from './StructureType';
 
-const OwnershipData = [
-  {
-    name: 'Owned',
-    value: 77,
-  },
-  {
-    name: 'Rented',
-    value: 23,
-  },
-];
+interface HouseHoldsProps {
+  OwnershipData: { name: string; value: number }[];
+  StructuralTypes: { name: string; value: number }[];
+  AgeHomes: { name: string; value: number }[];
+  StructuralDetails: { name: string; value: number }[];
+}
 
-const StructuralTypes = [
-  { name: 'Apartment', value: 2 },
-  { name: 'Single Detached', value: 64 },
-  { name: 'Semi Detached', value: 8 },
-  { name: 'Moveable', value: 3 },
-  { name: 'Row House', value: 23 },
-];
-
-const AgeHomes = [
-  { name: '2011 +', value: 96 },
-  { name: '1991 - 2010', value: 1 },
-  { name: '1961 - 1990', value: 1 },
-  { name: '-1960', value: 2 },
-];
-
-function HouseHolds() {
+function HouseHolds({
+  OwnershipData,
+  StructuralTypes,
+  AgeHomes,
+  StructuralDetails,
+}: HouseHoldsProps) {
   return (
     <div className=" ">
       <hr className="my-2" />
@@ -40,7 +26,7 @@ function HouseHolds() {
       <div className="flex flex-col gap-4 md:flex-row md:gap-0 ">
         <div className="flex flex-1 flex-col border-gray-300 p-4 md:border-r">
           <p className="text-md font-medium">Structural Details</p>
-          <StructureDetails />
+          <StructureDetails data={StructuralDetails} />
         </div>
         <div className="flex flex-1 flex-col gap-4 border-gray-300 p-4">
           <p className="text-md font-medium">Ownership</p>

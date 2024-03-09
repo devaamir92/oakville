@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { getServerSession } from 'next-auth';
-
 import SearchComponent from '@components/ui/Search';
 
-import Auth from './auth';
-import CommunitiesList from './communitiesList';
+import { getSession } from '@lib/getsession';
+
 import MobileMenu from './mobileMenu';
+import CommunitiesList from './communitiesList';
 
 import SignOut from './auth/signOut';
+import LoginButton from './auth/LoginButton';
 
 const navLinks = [
   { name: 'Home', link: '/' },
@@ -46,7 +46,7 @@ const linkClass =
   'text-sm text-white hover:text-primary-200 transition-colors duration-200 ease-in-out';
 
 export default async function Header() {
-  const session = await getServerSession();
+  const session = await getSession();
 
   return (
     <header className="sticky top-0 z-30 bg-primary-500 py-2 shadow lg:h-[70px] lg:py-0">
@@ -67,10 +67,7 @@ export default async function Header() {
           <hr className="border-primary-400" />
         </div>
         <div className="ml-0 w-full lg:ml-4 lg:w-72 xl:w-96">
-          <SearchComponent
-            className="h-[36px] min-w-72 border-transparent bg-primary-800 text-white xl:w-96"
-            placeholder="Search by address, MLS #..."
-          />
+          <SearchComponent />
         </div>
         <div className="hidden w-full lg:flex lg:justify-end">
           <nav className="flex size-full items-center lg:justify-between xl:w-fit xl:gap-6 xl:text-sm 2xl:gap-10">
@@ -81,7 +78,7 @@ export default async function Header() {
                 component = <CommunitiesList key={name} listData={listData} />;
               } else if (name === 'Auth') {
                 component = !session?.user ? (
-                  <Auth key={name} />
+                  <LoginButton key={name} />
                 ) : (
                   <SignOut key={name} />
                 );

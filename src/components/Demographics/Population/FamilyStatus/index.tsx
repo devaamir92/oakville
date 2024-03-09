@@ -1,7 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
 
-function FamilyStatus() {
+interface Props {
+  data: { name: string; value: number }[];
+}
+
+function FamilyStatus({ data }: Props) {
   return (
     <div className="flex flex-1 flex-col border-gray-300 px-4">
       <p className="text-md mb-4 font-medium">Family Status</p>
@@ -16,7 +20,7 @@ function FamilyStatus() {
             />
           </div>
           <span className="max-w-20 text-center text-xs font-medium">
-            {'>'} 15 Married with Children 19%
+            {'>'} {data[0].name} {data[0].value}%
           </span>
         </div>
         <div className="flex flex-col items-center gap-2">
@@ -39,7 +43,7 @@ function FamilyStatus() {
             </div>
           </div>
           <span className="max-w-20 text-center text-xs font-medium">
-            {'>'} 15 Single Parent with Children 4%
+            {'>'} {data[1].name} {data[1].value}%
           </span>
         </div>
       </div>

@@ -24,8 +24,9 @@ interface Props {
     React.SetStateAction<{ index: number; image: string }>
   >;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  Images: string[];
+  Images: any;
   mls: string;
+  type: string;
 }
 
 const Viewer: React.FC<Props> = ({
@@ -36,6 +37,7 @@ const Viewer: React.FC<Props> = ({
   currentImage,
   setCurrentImage,
   mls,
+  type,
 }) => {
   const handleNext = () => {
     setCurrentImage(prev => {
@@ -97,7 +99,13 @@ const Viewer: React.FC<Props> = ({
               </Close>
               <div className="relative top-1/2 mx-auto size-full max-h-[80vh] max-w-7xl -translate-y-1/2">
                 <Image
-                  src={`https://api.preserveoakville.ca/api/v1/stream/${mls}/${currentImage.image}`}
+                  src={
+                    type === 'property'
+                      ? `https://api.preserveoakville.ca/api/v1/stream/${mls}/${currentImage.image}`
+                      : `https://api.preserveoakville.ca/public/gallery/${
+                          Images[currentImage.index].name
+                        }/${Images[currentImage.index].image}`
+                  }
                   alt={currentImage.toString()}
                   fill
                   sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"

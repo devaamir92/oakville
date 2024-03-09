@@ -3,36 +3,43 @@
 import { useEffect, useState } from 'react';
 import { BsPencil } from 'react-icons/bs';
 
-import { useSession } from 'next-auth/react';
-
 import Modal from '@components/ui/Modal';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
+import { updateSession } from '@lib/auth';
 
-const EditProfile: React.FC = () => {
-  const { data: session, update } = useSession();
+interface Props {
+  session: any;
+}
+
+const EditProfile = ({ session }: Props) => {
   const [showModal, setShowModal] = useState(false);
   const [errors, setErrors] = useState<any>(null);
   const [state, setState] = useState({
     firstName: '',
     lastName: '',
-    phone: session?.user?.phone || '',
+    phone: '',
   });
 
-  useEffect(() => {
-    setState({
-      firstName: session?.user?.name?.split(' ')[0] || '',
-      lastName: session?.user?.name?.split(' ')[1] || '',
-      phone: session?.user?.phone || '',
-    });
-  }, [session]);
-
   const onClose = () => {
-    setShowModal(false);
+    setShowModal(!showModal);
   };
+
+  const getUser = async () => {
+    const response = await fetch(
+      `${process.env.API_HOST}/api/v1/auth/profile`,
+      {
+        headers: {
+          Authorization: `Bearer ${session?.user?.token}`,
+        },
+      }
+    );
+    const userData = await response.json();
+    return userData;
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
       const res = await fetch(`${process.env.API_HOST}/api/v1/auth/update`, {
         method: 'POST',
@@ -49,21 +56,22 @@ const EditProfile: React.FC = () => {
       if (data.errors) {
         setErrors(data.errors);
       } else {
-        await update({
-          ...session,
-          user: {
-            ...session?.user,
-            name: `${state.firstName} ${state.lastName}`,
-            phone: state.phone,
-          },
-        });
-        window.location.reload();
+        const user = await getUser();
+        await updateSession(user);
         onClose();
       }
     } catch (error) {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    setState({
+      firstName: session.user?.name.split(' ')[0],
+      lastName: session.user?.name.split(' ')[1],
+      phone: session.user?.phone,
+    });
+  }, [session]);
 
   return (
     <Modal

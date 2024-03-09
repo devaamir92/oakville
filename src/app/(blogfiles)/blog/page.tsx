@@ -10,12 +10,17 @@ import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import CategoryFilter from '../_components/CategoryFilter';
 
-const getBogs = async () => {
+const getBlogs = async () => {
   const queryBuilder = RequestQueryBuilder.create();
-  queryBuilder.setJoin({
-    field: 'image',
-    select: ['images'],
-  });
+  queryBuilder
+    .setJoin({
+      field: 'image',
+      select: ['images'],
+    })
+    .setJoin({
+      field: 'categories',
+      select: ['category'],
+    });
   const res = await fetch(
     `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`
   );
@@ -23,7 +28,7 @@ const getBogs = async () => {
 };
 
 const BlogPage = async () => {
-  const blogs = await getBogs();
+  const blogs = await getBlogs();
 
   return (
     <section className="py-5">
@@ -48,7 +53,7 @@ const BlogPage = async () => {
                   alt={blog.imageAlt}
                   className="object-cover"
                 />
-                <CategoryFilter categories={blog.keywords} />
+                <CategoryFilter categories={blog.categories} />
               </div>
               <div className="flex flex-col gap-1 p-3">
                 <span className="truncate text-base font-medium">

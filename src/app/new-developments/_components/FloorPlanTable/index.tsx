@@ -8,72 +8,13 @@ import cn from '@utils/cn';
 import { Button } from '@components/ui/Button';
 
 interface FloorPlanItem {
-  title: string;
-  area: number;
-  downloadLink: string;
+  data: any;
 }
 
-const floorPlans: FloorPlanItem[] = [
-  {
-    title: 'THE QUIN (Ground Floor)',
-    area: 2557,
-    downloadLink: '#',
-  },
-  {
-    title: 'THE QUIN (Basement)',
-    area: 2557,
-    downloadLink: '#',
-  },
-  {
-    title: 'THE QUIN(Loft)',
-    area: 2557,
-    downloadLink: '#',
-  },
-  {
-    title: 'THE WEST WIND (Ground Floor)',
-    area: 2186,
-    downloadLink: '#',
-  },
-  {
-    title: 'THE WEST WIND (Basement)',
-    area: 2186,
-    downloadLink: '#',
-  },
-  {
-    title: 'THE WEST WIND (Loft)',
-    area: 2186,
-    downloadLink: '#',
-  },
-  {
-    title: 'THE HURON (Ground Floor)',
-    area: 3051,
-    downloadLink: '#',
-  },
-  {
-    title: 'THE HURON (Basement)',
-    area: 3051,
-    downloadLink: '#',
-  },
-  {
-    title: 'THE HURON (Loft)',
-    area: 3051,
-    downloadLink: '#',
-  },
-  {
-    title: 'THE SUNSET (Ground Floor)',
-    area: 3321,
-    downloadLink: '#',
-  },
-
-  {
-    title: 'THE VISTA (Penthouse)',
-    area: 4200,
-    downloadLink: '#',
-  },
-];
-
-const FloorPlanTable: React.FC = () => {
+const FloorPlanTable: React.FC<FloorPlanItem> = ({ data }) => {
   const [showMore, setShowMore] = useState(false);
+
+  console.log(data);
 
   return (
     <div className="flex flex-col gap-1">
@@ -95,7 +36,7 @@ const FloorPlanTable: React.FC = () => {
             </tr>
           </thead>
           <tbody className="w-full">
-            {floorPlans.map((floorPlan, index) => (
+            {data.map((floorPlan: any, index: number) => (
               <tr
                 key={floorPlan.title}
                 className={cn(
@@ -104,13 +45,16 @@ const FloorPlanTable: React.FC = () => {
                   'text-sm'
                 )}
               >
-                <td className="min-w-64 px-4 py-2">{floorPlan.title}</td>
+                <td className="min-w-64 px-4 py-2">
+                  {floorPlan.title} ({floorPlan.area})
+                </td>
                 <td className="min-w-28 px-4 py-2">
                   {floorPlan.area} <small>sq ft</small>
                 </td>
                 <td className="px-4 py-2">
                   <Link
-                    href={floorPlan.downloadLink}
+                    href={floorPlan?.title}
+                    download={`https://api.preserveoakville.ca/public/gallery/${floorPlan?.name}/${floorPlan?.image}`}
                     aria-label="Download"
                     className="underline"
                   >
@@ -122,13 +66,15 @@ const FloorPlanTable: React.FC = () => {
           </tbody>
         </table>
       </div>
-      <Button
-        className="w-fit p-0 text-blue-500 hover:no-underline"
-        variant="link"
-        onClick={() => setShowMore(!showMore)}
-      >
-        {showMore ? 'Show less' : 'Show all'}
-      </Button>
+      {data.length > 3 && (
+        <Button
+          onClick={() => setShowMore(!showMore)}
+          className="w-fit p-0 text-blue-500 hover:no-underline"
+          variant="link"
+        >
+          {showMore ? 'Show Less' : 'Show More'}
+        </Button>
+      )}
     </div>
   );
 };

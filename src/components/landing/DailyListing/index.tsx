@@ -9,6 +9,7 @@ interface DailyListingProps {
 }
 
 const DailyListing: React.FC<DailyListingProps> = ({ rows }) => {
+  // console.log('rows', rows);
   return (
     <section>
       <div className="container flex flex-col">
@@ -20,6 +21,7 @@ const DailyListing: React.FC<DailyListingProps> = ({ rows }) => {
           {rows?.map((item: any) => (
             <Card
               key={item.id}
+              mls={item.Ml_num}
               bathrooms={item.Bath_tot ?? 0}
               bedrooms={`${item.Br}${
                 item.Br_plus !== '0' ? ` + ${item.Br_plus}` : ''
@@ -28,7 +30,7 @@ const DailyListing: React.FC<DailyListingProps> = ({ rows }) => {
               location={item.Addr}
               price={Number(item.Lp_dol).toLocaleString() ?? '0'}
               parking={item.Park_spcs ?? '0'}
-              slug={`/property-for-sale/${item.Community.toLowerCase().replace(
+              slug={`/property-for-sale/${item.Community.toLowerCase().replaceAll(
                 ' ',
                 '-'
               )}/${item.Slug}`}

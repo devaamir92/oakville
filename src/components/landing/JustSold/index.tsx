@@ -32,7 +32,7 @@ const JustSold: React.FC<JustSoldProps> = ({ rows }) => {
               location={item.Addr}
               price={Number(item.Lp_dol).toLocaleString() ?? '0'}
               parking={item.Park_spcs ?? '0'}
-              slug={`/sold-properties/${item.Community.toLowerCase().replace(
+              slug={`/sold-properties/${item.Community.toLowerCase().replaceAll(
                 ' ',
                 '-'
               )}/${item.Slug}`}

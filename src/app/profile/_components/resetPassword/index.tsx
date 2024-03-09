@@ -2,16 +2,16 @@
 
 import { useState } from 'react';
 import { BsKey } from 'react-icons/bs';
-// import { z } from 'zod';
-import { useSession } from 'next-auth/react';
 
 import Modal from '@components/ui/Modal';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 
-const ResetPassword: React.FC = () => {
-  const { data: session } = useSession();
+interface Props {
+  session: any;
+}
 
+const ResetPassword = ({ session }: Props) => {
   const [showModal, setShowModal] = useState(false);
 
   const [errors, setErrors] = useState<any>(null);
@@ -23,17 +23,28 @@ const ResetPassword: React.FC = () => {
   });
 
   const onClose = () => {
-    setShowModal(false);
+    setShowModal(!showModal);
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (state.newPassword !== state.rePassword) {
+      setErrors({ password: 'Password does not match' });
+      return;
+    }
+
+    if (state.currentPassword.length < 8) {
+      setErrors({ password: 'Current Password must be at least 8 characters' });
+      return;
+    }
 
     try {
       const res = await fetch(`${process.env.API_HOST}/api/v1/auth/update`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${session?.accessToken}`,
+          Authorization: `Bearer ${session?.user?.token}`,
         },
         body: JSON.stringify({
           oldPassword: state.currentPassword,
@@ -44,6 +55,7 @@ const ResetPassword: React.FC = () => {
       if (data.errors) {
         setErrors(data.errors);
       } else {
+        setErrors(null);
         onClose();
       }
     } catch (error) {
@@ -66,11 +78,12 @@ const ResetPassword: React.FC = () => {
         {errors && (
           <div className="flex h-full items-center rounded border border-red-300 bg-red-100 px-2 text-sm">
             <ul className="ml-5 list-disc text-red-500">
-              {errors.map((error: any) => (
-                <li key={error.message} className="py-2 capitalize">
-                  {error.message}
-                </li>
-              ))}
+              {errors?.oldPassword && (
+                <li className="py-2 capitalize">{errors.oldPassword}</li>
+              )}
+              {errors?.password && (
+                <li className="py-2 capitalize">{errors.password}</li>
+              )}
             </ul>
           </div>
         )}
@@ -85,6 +98,7 @@ const ResetPassword: React.FC = () => {
             }
             required
           />
+
           <Input
             id="new-password"
             type="password"
@@ -93,6 +107,7 @@ const ResetPassword: React.FC = () => {
             onChange={e => setState({ ...state, newPassword: e.target.value })}
             required
           />
+
           <Input
             id="re-password"
             type="password"

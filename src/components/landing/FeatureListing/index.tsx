@@ -8,19 +8,19 @@ interface FeatureListingProps {
 
 const getSlug = (item: any) => {
   if (item.property.S_r === 'Sale') {
-    return `/property-for-sale/${item.property.Community.toLowerCase().replace(
+    return `/property-for-sale/${item.property.Community.toLowerCase().replaceAll(
       ' ',
       '-'
     )}/${item.property.Slug}`;
   }
   if (item.property.S_r === 'Lease') {
-    return `/property-for-rent/${item.property.Community.toLowerCase().replace(
+    return `/property-for-rent/${item.property.Community.toLowerCase().replaceAll(
       ' ',
       '-'
     )}/${item.property.Slug}`;
   }
   if (item.property.Status === 'U') {
-    return `/sold-property/${item.property.Community.toLowerCase().replace(
+    return `/sold-properties/${item.property.Community.toLowerCase().replaceAll(
       ' ',
       '-'
     )}/${item.property.Slug}`;

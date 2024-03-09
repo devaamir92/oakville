@@ -1,0 +1,489 @@
+{
+  "iroquisRidgeNorth": {
+    "gender": [
+      {
+        "id": 1,
+        "name": "male",
+        "value": 52
+      },
+      {
+        "id": 2,
+        "name": "female",
+        "value": 48
+      }
+    ],
+    "age": [
+      {
+        "id": 1,
+        "name": "0-9",
+        "value": 8
+      },
+      {
+        "id": 2,
+        "name": "10-14",
+        "value": 8
+      },
+      {
+        "id": 3,
+        "name": "15-19",
+        "value": 8
+      },
+      {
+        "id": 4,
+        "name": "20-29",
+        "value": 13
+      },
+      {
+        "id": 5,
+        "name": "30-44",
+        "value": 17
+      },
+      {
+        "id": 6,
+        "name": "45-54",
+        "value": 20
+      },
+      {
+        "id": 7,
+        "name": "55-64",
+        "value": 11
+      },
+      {
+        "id": 8,
+        "name": "65-74",
+        "value": 8
+      },
+      {
+        "id": 9,
+        "name": "75+",
+        "value": 6
+      },
+      {
+        "id": 10,
+        "name": "80-89",
+        "value": 13
+      }
+    ],
+    "maritalStatus": [
+      {
+        "id": 1,
+        "name": "single",
+        "value": 27
+      },
+      {
+        "id": 2,
+        "name": "married",
+        "value": 60
+      },
+      {
+        "id": 3,
+        "name": "separated/divorced",
+        "value": 8
+      },
+      {
+        "id": 4,
+        "name": "other",
+        "value": 5
+      }
+    ],
+    "familyStatus": [
+      {
+        "id": 1,
+        "name": "15 Married with Childrn",
+        "value": 17
+      },
+      {
+        "id": 2,
+        "name": "15 Single with Children",
+        "value": 6
+      }
+    ],
+    "structureDetails": [
+      {
+        "id": 1,
+        "name": "Total # of Occupied Private Dwellings",
+        "value": 654
+      },
+      {
+        "id": 2,
+        "name": "Dominant Year Built",
+        "value": "2011-2016"
+      }
+    ],
+    "ownership": [
+      {
+        "id": 1,
+        "name": "Owned",
+        "value": 75
+      },
+      {
+        "id": 2,
+        "name": "Rented",
+        "value": 25
+      }
+    ],
+    "ageOfHome": [
+      {
+        "id": 1,
+        "name": "2011+",
+        "value": 56
+      },
+      {
+        "id": 2,
+        "name": "1991-2010",
+        "value": 44
+      },
+      {
+        "id": 3,
+        "name": "1961-1990",
+        "value": 0
+      },
+      {
+        "id": 4,
+        "name": "-1960",
+        "value": 0
+      }
+    ],
+    "structuralType": [
+      {
+        "id": 1,
+        "name": "Apartment",
+        "value": 50
+      },
+      {
+        "id": 2,
+        "name": "Single Detached",
+        "value": 19
+      },
+      {
+        "id": 3,
+        "name": "Semi-Detached",
+        "value": 7
+      },
+      {
+        "id": 4,
+        "name": "Movable",
+        "value": 0
+      },
+      {
+        "id": 5,
+        "name": "Row House",
+        "value": 23
+      }
+    ],
+    "Employment": [
+      {
+        "id": 1,
+        "name": "Employed",
+        "value": 60
+      },
+      {
+        "id": 2,
+        "name": "Unemployed",
+        "value": 40
+      }
+    ],
+    "highestLevelOfEducation": [
+      {
+        "id": 1,
+        "name": "University",
+        "value": 42
+      },
+      {
+        "id": 2,
+        "name": "College",
+        "value": 15
+      },
+      {
+        "id": 3,
+        "name": "High School",
+        "value": 29
+      },
+      {
+        "id": 4,
+        "name": "Other",
+        "value": 14
+      }
+    ],
+    "dominantLanguage": [
+      {
+        "id": 1,
+        "name": "English",
+        "value": 28
+      },
+      {
+        "id": 2,
+        "name": "Mandarin",
+        "value": 9
+      },
+      {
+        "id": 3,
+        "name": "Arabic",
+        "value": 8
+      },
+      {
+        "id": 4,
+        "name": "Multiple Languages",
+        "value": 5
+      },
+      {
+        "id": 5,
+        "name": "English & Non-Official",
+        "value": 50
+      }
+    ],
+    "immigrationStatus": [
+      {
+        "id": 1,
+        "name": "Immigrant",
+        "value": 48
+      },
+      {
+        "id": 2,
+        "name": "Non-Immigrant",
+        "value": 52
+      }
+    ]
+  },
+  "uptownCore": {
+    "gender": [
+      {
+        "id": 1,
+        "name": "male",
+        "value": 45
+      },
+      {
+        "id": 2,
+        "name": "female",
+        "value": 55
+      }
+    ],
+    "age": [
+      {
+        "id": 1,
+        "name": "0-9",
+        "value": 7
+      },
+      {
+        "id": 2,
+        "name": "10-14",
+        "value": 4
+      },
+      {
+        "id": 3,
+        "name": "15-19",
+        "value": 3
+      },
+      {
+        "id": 4,
+        "name": "20-29",
+        "value": 18
+      },
+      {
+        "id": 5,
+        "name": "30-44",
+        "value": 30
+      },
+      {
+        "id": 6,
+        "name": "45-54",
+        "value": 11
+      },
+      {
+        "id": 7,
+        "name": "55-64",
+        "value": 7
+      },
+      {
+        "id": 8,
+        "name": "65-74",
+        "value": 6
+      },
+      {
+        "id": 9,
+        "name": "75+",
+        "value": 13
+      }
+    ],
+    "maritalStatus": [
+      {
+        "id": 1,
+        "name": "single",
+        "value": 30
+      },
+      {
+        "id": 2,
+        "name": "married",
+        "value": 45
+      },
+      {
+        "id": 3,
+        "name": "separated/divorced",
+        "value": 14
+      },
+      {
+        "id": 4,
+        "name": "other",
+        "value": 11
+      }
+    ],
+    "familyStatus": [
+      {
+        "id": 1,
+        "name": "15 Married with Childrn",
+        "value": 5
+      },
+      {
+        "id": 2,
+        "name": "15 Single with Children",
+        "value": 8
+      }
+    ],
+    "structureDetails": [
+      {
+        "id": 1,
+        "name": "Total # of Occupied Private Dwellings",
+        "value": 930
+      },
+      {
+        "id": 2,
+        "name": "Dominant Year Built",
+        "value": "2011-2016"
+      }
+    ],
+    "ownership": [
+      {
+        "id": 1,
+        "name": "Owned",
+        "value": 48
+      },
+      {
+        "id": 2,
+        "name": "Rented",
+        "value": 52
+      }
+    ],
+    "ageOfHome": [
+      {
+        "id": 1,
+        "name": "2011+",
+        "value": 69
+      },
+      {
+        "id": 2,
+        "name": "1991-2010",
+        "value": 31
+      },
+      {
+        "id": 3,
+        "name": "1961-1990",
+        "value": 0
+      },
+      {
+        "id": 4,
+        "name": "-1960",
+        "value": 0
+      }
+    ],
+    "structuralType": [
+      {
+        "id": 1,
+        "name": "Apartment",
+        "value": 91
+      },
+      {
+        "id": 2,
+        "name": "Single Detached",
+        "value": 0
+      },
+      {
+        "id": 3,
+        "name": "Semi-Detached",
+        "value": 0
+      },
+      {
+        "id": 4,
+        "name": "Movable",
+        "value": 0
+      },
+      {
+        "id": 5,
+        "name": "Row House",
+        "value": 9
+      }
+    ],
+    "Employment": [
+      {
+        "id": 1,
+        "name": "Employed",
+        "value": 78
+      },
+      {
+        "id": 2,
+        "name": "Unemployed",
+        "value": 22
+      }
+    ],
+    "highestLevelOfEducation": [
+      {
+        "id": 1,
+        "name": "University",
+        "value": 49
+      },
+      {
+        "id": 2,
+        "name": "College",
+        "value": 22
+      },
+      {
+        "id": 3,
+        "name": "High School",
+        "value": 23
+      },
+      {
+        "id": 4,
+        "name": "Other",
+        "value": 6
+      }
+    ],
+    "dominantLanguage": [
+      {
+        "id": 1,
+        "name": "English",
+        "value": 48
+      },
+      {
+        "id": 2,
+        "name": "Mandarin",
+        "value": 7
+      },
+      {
+        "id": 3,
+        "name": "Spanish",
+        "value": 6
+      },
+      {
+        "id": 4,
+        "name": "Arabic",
+        "value": 6
+      },
+      {
+        "id": 5,
+        "name": "Multiple Languages",
+        "value": 4
+      }
+    ],
+    "immigrationStatus": [
+      {
+        "id": 1,
+        "name": "Immigrant",
+        "value": 39
+      },
+      {
+        "id": 2,
+        "name": "Non-Immigrant",
+        "value": 61
+      }
+    ]
+  }
+}

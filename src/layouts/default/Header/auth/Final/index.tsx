@@ -2,13 +2,14 @@
 
 import { z } from 'zod';
 import React, { useState } from 'react';
-import { signIn } from 'next-auth/react';
 
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
+
+import { login } from '@lib/auth';
 
 interface Props {
   switchForm: (step: string) => void;
@@ -34,22 +35,6 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
     }),
   });
 
-  const handleLogin = async () => {
-    try {
-      const user = await signIn('credentials', {
-        redirect: true,
-        email: state.email,
-        password: state.password,
-      });
-
-      if (user?.error) {
-        setErrors([{ message: user.error }]);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   const handleRegister = async () => {
     try {
       const response = await fetch(
@@ -74,10 +59,13 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
         }));
         setErrors(roors);
       } else {
-        handleLogin();
+        const formdata = new FormData();
+        formdata.append('email', state.email);
+        formdata.append('password', state.password);
+        await login(null, formdata);
       }
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
 

@@ -18,12 +18,14 @@ const Summary: React.FC<SummaryProps> = ({ data }) => {
           <table className="w-full">
             <tbody className="divide-y divide-gray-300 bg-white">
               {data.slice(0, 4).map(item => (
-                <tr key={item.name} className="text-sm">
-                  <td className=" py-1.5 font-medium text-gray-500">
+                <tr key={item.name} className="flex justify-between text-sm">
+                  <td className="py-1.5 font-medium text-gray-500">
                     {item.name}
                   </td>
                   <td className="py-1.5 text-right font-medium text-gray-700 md:text-left">
-                    {item.value}
+                    {item.name === 'Pricing'
+                      ? `$${Number(item.value).toLocaleString()}`
+                      : item.value}
                   </td>
                 </tr>
               ))}
@@ -34,7 +36,7 @@ const Summary: React.FC<SummaryProps> = ({ data }) => {
           <table className="w-full">
             <tbody className="divide-y divide-gray-300 bg-white">
               {data.slice(4, 20).map(item => (
-                <tr key={item.name} className="text-sm">
+                <tr key={item.name} className="flex justify-between text-sm">
                   <td className=" py-1.5 font-medium text-gray-500">
                     {item.name}
                   </td>

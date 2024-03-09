@@ -10,7 +10,6 @@ import {
 
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
-// import Card from '@components/ListingCard';
 import { Button } from '@components/ui/Button';
 
 import LightBox from '@components/LightBox';
@@ -115,6 +114,7 @@ const getImages = async (mls: string) => {
 async function Page({ params }: PageProps) {
   const { property, soldHistory } = await getProperty(params.property);
   const images: string[] = await getImages(property.Ml_num);
+
   return (
     <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       <div className="flex items-center justify-between">
@@ -151,41 +151,7 @@ async function Page({ params }: PageProps) {
           property.Addr
         }`}
       />
-      {/* <div className="flex items-center justify-between">
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-8">
-            <div className="flex flex-col items-center ">
-              <LuBedDouble className="text-gray-700" size={24} />
-              <span className="text-sm font-medium">3 bed</span>
-            </div>
-            <div className="flex flex-col items-center ">
-              <LuBath className="text-gray-700" size={24} />
-              <span className="text-sm font-medium">4 bath</span>
-            </div>
-            <div className="flex flex-col items-center ">
-              <LuParkingCircle className="text-gray-700" size={24} />
-              <span className="text-sm font-medium">2 parking</span>
-            </div>
-            <div>
-              <div className="flex flex-col items-center ">
-                <LuScan className="text-gray-700" size={24} />
-                <span className="text-sm font-medium">2590 sqft *</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex gap-2">
-            <span className="rounded bg-slate-300 px-2 py-0.5 text-xs font-medium">
-              For Sale
-            </span>
-            <span className="rounded bg-primary-200 px-2 py-0.5 text-xs font-medium text-primary-600">
-              24 days on market
-            </span>
-          </div>
-        </div>
-        <div className="">
-          <p className="text-3xl font-medium text-gray-800">$1,200,000</p>
-        </div>
-      </div> */}
+
       <ListingOverview
         bathrooms={property.Bath_tot}
         bedrooms={property.Br}
@@ -253,7 +219,7 @@ async function Page({ params }: PageProps) {
 
           <Rooms data={property} />
           {/* <Map latitude={property.Lat} longitude={property.Lng} /> */}
-          <Demographics />
+          <Demographics community={property.Community} />
         </div>
       </div>
       <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3">

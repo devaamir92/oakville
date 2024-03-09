@@ -1,9 +1,16 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Button } from '@components/ui/Button';
+import { useState } from 'react';
+
+import { useSearchParams } from 'next/navigation';
+
+import Pagination from '@components/ui/Pagination';
 
 import ItemCard from './_components/ItemCard';
+import Search from './_components/Search';
 
 const recentSearches = [
   { query: 'preserve oakville', link: '/search?q=preserve%20oakville' },
@@ -28,6 +35,33 @@ const popularSearches = [
 ];
 
 const AdvancedSearch = () => {
+  const searchParams = useSearchParams();
+  const [searchData, setSearchData] = useState<any>({});
+  const handleSearchData = (data: any) => {
+    setSearchData(data);
+  };
+
+  const getSlug = (item: any) => {
+    if (item.S_r === 'Sale') {
+      return `/property-for-sale/${item.Community.toLowerCase().replaceAll(
+        ' ',
+        '-'
+      )}/${item.Slug}`;
+    }
+    if (item.S_r === 'Lease') {
+      return `/property-for-rent/${item.Community.toLowerCase().replaceAll(
+        ' ',
+        '-'
+      )}/${item.Slug}`;
+    }
+    if (item.Status === 'U') {
+      return `/sold-properties/${item.Community.toLowerCase().replaceAll(
+        ' ',
+        '-'
+      )}/${item.Slug}`;
+    }
+    return '';
+  };
   return (
     <main className="container mx-auto flex flex-col gap-6 py-4 lg:max-w-[1140px]">
       <div className="relative h-40 w-full overflow-hidden rounded">
@@ -36,27 +70,7 @@ const AdvancedSearch = () => {
           <h1 className="text-2xl font-medium text-white">
             Explore, Discover, Own
           </h1>
-          <div className="mt-4 flex h-10 w-[90%] gap-2 overflow-hidden rounded bg-white lg:w-1/2">
-            <label
-              htmlFor="search"
-              className="flex flex-1 items-center gap-2 p-1"
-            >
-              <input
-                id="search"
-                type="text"
-                className="size-full focus:outline-none"
-                placeholder="
-                Search for a neighbourhood
-                "
-              />
-              <Button
-                variant="default"
-                className="h-full rounded-[3px] py-0 text-base"
-              >
-                Search
-              </Button>
-            </label>
-          </div>
+          <Search handleSearchData={handleSearchData} />
         </div>
       </div>
 
@@ -214,23 +228,44 @@ const AdvancedSearch = () => {
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-4">
-          <div className="flex flex-1 flex-col gap-1">
-            <p className="text-base font-semibold md:text-xl">
-              9 Developments, 56 Available Floor Plans
-            </p>
+          <div className="flex  flex-col gap-1">
+            {searchData?.total >= 0 && (
+              <p className="text-lg font-semibold text-gray-800">
+                {searchData?.total} Results for {searchParams.get('tag')}
+              </p>
+            )}
+
             <hr className="border-gray-300" />
           </div>
-          <div className="flex flex-col divide-y-[1px] divide-gray-300">
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
+          <div className="flex flex-col items-start divide-y-[1px] divide-gray-300 ">
+            {searchData === null && (
+              <p className="w-full text-center text-lg font-semibold text-gray-800">
+                No results found
+              </p>
+            )}
+            {searchData?.data?.map((property: any) => (
+              <ItemCard
+                Status={property.Status}
+                Ml_num={property.Ml_num}
+                address={property.Addr}
+                price={property.Lp_dol}
+                beds={property.Br}
+                baths={property.Bath_tot}
+                parking={property.Park_spcs}
+                sqft={property.Sqft}
+                key={property.Ml_num}
+                Lsc={property.Lsc}
+                url={getSlug(property)}
+              />
+            ))}
           </div>
+          {searchData?.pageCount > 1 && (
+            <Pagination
+              totalPages={searchData.pageCount}
+              currentPage={searchData.page}
+              location="/search"
+            />
+          )}
         </div>
       </div>
     </main>

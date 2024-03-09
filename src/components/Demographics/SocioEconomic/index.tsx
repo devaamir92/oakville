@@ -1,37 +1,12 @@
 import EduLevel from './EduLevel';
 import Employment from './Employment';
 
-const EducationData = [
-  {
-    name: 'University',
-    value: 58,
-  },
-  {
-    name: 'College',
-    value: 13,
-  },
-  {
-    name: 'High School',
-    value: 18,
-  },
-  {
-    name: 'Other',
-    value: 11,
-  },
-];
+interface SocioEconomicProps {
+  EducationData: { name: string; value: number }[];
+  EmploymentData: { name: string; value: number }[];
+}
 
-const EmploymentData = [
-  {
-    name: 'Employed',
-    value: 74,
-  },
-  {
-    name: 'Unemployed',
-    value: 26,
-  },
-];
-
-function SocioEconomic() {
+function SocioEconomic({ EducationData, EmploymentData }: SocioEconomicProps) {
   return (
     <div>
       <div className="flex items-center justify-between px-4">

@@ -1,61 +1,96 @@
-import NextAuth from 'next-auth';
-import Credentials from 'next-auth/providers/credentials';
-import type { NextAuthOptions } from 'next-auth';
+'use server';
 
-export const authOptions: NextAuthOptions = {
-  providers: [
-    Credentials({
-      name: 'Credentials',
-      credentials: {
-        username: { label: 'Email', type: 'email' },
-        password: { label: 'Password', type: 'password' },
-      },
-      async authorize(credentials) {
-        const res = await fetch(`${process.env.API_HOST}/api/v1/auth/login`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(credentials),
-        });
-        const user = await res.json();
+import { jwtVerify, SignJWT } from 'jose';
+import { cookies } from 'next/headers';
 
-        if (res.ok && user.role === 'User') {
-          return user;
-        }
-        return null;
-      },
+import { z } from 'zod';
+
+import type { ErrorResponse } from '@interfaces';
+
+import { apiClient } from './apiclient';
+
+const secretKey = 'secret';
+const key = new TextEncoder().encode(secretKey);
+
+const loginSchema = z.object({
+  email: z.string().email(),
+  password: z
+    .string()
+    .min(8)
+    .regex(/[A-Z]/, {
+      message: 'Password must contain at least one uppercase letter',
+    })
+    .regex(/[0-9]/, { message: 'Password must contain at least one number' })
+    .regex(/[!@#$%^&*(),.?":{}|<>]/, {
+      message: 'Password must contain at least one special character',
     }),
-  ],
-  session: {
-    strategy: 'jwt',
-    maxAge: 30 * 24 * 60 * 60, // 30 days
-  },
-  callbacks: {
-    async signIn() {
-      return true;
-    },
-    async redirect({ url, baseUrl }) {
-      return url.startsWith(baseUrl) ? url : baseUrl;
-    },
-    async session({ session, token }) {
-      session.user.name = token.name;
-      session.user.email = token.email;
-      session.user.role = token.role;
-      session.user.token = token.token;
+});
 
-      return session;
-    },
-    async jwt({ token, user, session, trigger }) {
-      if (trigger === 'update' && session?.user?.name) {
-        token.name = session.user.name;
-      }
-      if (user) {
-        return { ...token, ...user };
-      }
-      return token;
-    },
-  },
+export type User = Partial<z.infer<typeof loginSchema>>;
+
+export async function encrypt(payload: any) {
+  return new SignJWT(payload)
+    .setProtectedHeader({ alg: 'HS256' })
+    .setIssuedAt()
+    .setExpirationTime('7d') // 7 days
+    .sign(key);
+}
+
+export async function decrypt(input: string): Promise<any> {
+  const { payload } = await jwtVerify(input, key, {
+    algorithms: ['HS256'],
+  });
+  return payload;
+}
+
+export const login = async (
+  _currentState: unknown,
+  fromData: FormData
+): Promise<ErrorResponse> => {
+  const validation = loginSchema.safeParse(
+    Object.fromEntries(fromData.entries())
+  );
+
+  if (!validation.success) {
+    return { status: 400, errors: validation.error.formErrors.fieldErrors };
+  }
+
+  try {
+    const res = await apiClient.post('/api/v1/auth/login', validation.data);
+
+    const expires = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7); // 7 days
+    const session = await encrypt({ user: res.data, expires });
+    cookies().set('session', session, { expires, httpOnly: true });
+
+    return res.data;
+  } catch (error: any) {
+    return {
+      status: error.response?.status || 500,
+      message: error.response?.data.message || 'Something went wrong',
+    };
+  }
 };
 
-export default NextAuth(authOptions);
+export async function logout() {
+  // Destroy the session
+  cookies().set('session', '', { expires: new Date(0) });
+}
+
+export async function getSession() {
+  const session = cookies().get('session')?.value;
+  if (!session) return null;
+  return decrypt(session);
+}
+
+export async function updateSession(user: any) {
+  const session = cookies().get('session')?.value;
+  if (!session) return;
+
+  const parsed = await decrypt(session);
+
+  parsed.user.name = user.name;
+
+  const expires = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7); // 7 days
+  const newSession = await encrypt({ user: parsed.user, expires });
+  cookies().set('session', newSession, { expires, httpOnly: true });
+}

@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 
 interface CategoryFilterProps {
-  categories: string[];
+  categories: any;
 }
 
 const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories }) => {
@@ -18,22 +18,22 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({ categories }) => {
     e.preventDefault();
     e.stopPropagation();
 
-    router.push(`/category/${category.toLowerCase().replace(' ', '-')}`);
+    router.push(`/category/${category.toLowerCase().replaceAll(' ', '-')}`);
   };
 
   return (
     <div className="absolute left-2 top-2 flex flex-wrap gap-2">
-      {categories.map(category => (
+      {categories.map((category: any) => (
         <Button
           onClick={e => {
-            handleLinClick(e, category);
+            handleLinClick(e, category.category);
           }}
           variant="default"
           title="category"
-          key={category}
+          key={category.id}
           className="h-auto !px-2 !py-1 text-sm text-white hover:underline"
         >
-          {category}
+          {category.category}
         </Button>
       ))}
     </div>

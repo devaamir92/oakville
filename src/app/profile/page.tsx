@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import React from 'react';
 import { redirect } from 'next/navigation';
-import { getServerSession } from 'next-auth';
+
 import { BsEnvelopeFill, BsTelephoneFill } from 'react-icons/bs';
 
 import Card from '@components/ListingCard';
+
+import { getSession } from '@lib/auth';
 
 import EditProfile from './_components/editProfile';
 import ResetPassword from './_components/resetPassword';
@@ -49,7 +51,8 @@ const data = [
 ];
 
 const Page = async () => {
-  const session = await getServerSession();
+  const session = await getSession();
+
   if (!session) {
     redirect('/');
   }
@@ -77,8 +80,8 @@ const Page = async () => {
           </div>
         </div>
         <div className="flex gap-2">
-          <EditProfile />
-          <ResetPassword />
+          <EditProfile session={session} />
+          <ResetPassword session={session} />
         </div>
       </section>
       <div className="flex flex-1 flex-col gap-2">

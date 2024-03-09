@@ -1,0 +1,81 @@
+.element h2{
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: 300 !important;
+}
+.element h3{
+    display: block;
+font-size: 1.17em;
+margin-top: 1em;
+margin-bottom: 1em;
+margin-left: 0;
+margin-right: 0;
+font-weight: 300 !important;
+}
+.element h4{
+    display: block;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: 300 !important;
+}
+.element h5{
+    display: block;
+font-size: .83em;
+margin-top: 1.67em;
+margin-bottom: 1.67em;
+margin-left: 0;
+margin-right: 0;
+font-weight: 300 !important;
+}
+.element p{
+    font-size: 1rem ;
+    font-weight: 200 ;
+    display: block;
+margin-top: 1em;
+margin-bottom: 1em;
+margin-left: 0;
+margin-right: 0;
+}
+.element ul{
+    display: block;
+list-style-type: disc;
+margin-top: 1em;
+margin-bottom: 1 em;
+margin-left: 0;
+margin-right: 0;
+padding-left: 40px;
+
+}
+.element ol{
+    display: block;
+list-style-type: decimal;
+margin-top: 1em;
+margin-bottom: 1em;
+margin-left: 0;
+margin-right: 0;
+padding-left: 40px;
+}
+.element a{
+    color: blue;
+text-decoration: underline;
+cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+    .element figure{
+        width: auto !important;
+        height: 100% !important;
+    }
+    /* .figure {
+      max-width: 100%; /* Fill container width */
+    }
+
+  

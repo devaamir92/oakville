@@ -4,84 +4,52 @@ import Image from 'next/image';
 
 // import Pagination from '@components/ui/Pagination';
 
+import { RequestQueryBuilder } from '@nestjsx/crud-request';
+
+import { getSession } from '@lib/getsession';
+
 import Toolbar from './_components/toolbar';
 
-const Property = [
-  {
-    Addr: 'Kilworth Heights West',
-    Status: 'Selling Now',
-    EstCompletion: 'TBA',
-    StartingAt: '$1,350,000',
-    Location: 'Middlesex Centre',
-    ImageUrl: '/images/webp/newconstruction/medium.webp',
-  },
-  {
-    Addr: 'Clarehaven Estates',
-    Status: 'Selling Now',
-    EstCompletion: 'NA',
-    StartingAt: '$2,419,900',
-    Location: 'Pickering',
-    ImageUrl: '/images/webp/newconstruction/medium2.webp',
-  },
-  {
-    Addr: 'Embrun Central',
-    Status: 'Coming Soon',
-    EstCompletion: 'TBA',
-    StartingAt: '$689,900',
-    Location: 'Embrun',
-    ImageUrl: '/images/webp/newconstruction/medium3.webp',
-  },
-  {
-    Addr: 'Mount Elgin Meadow Lands',
-    Status: 'Selling Now',
-    EstCompletion: 'TBA',
-    StartingAt: '$478,000',
-    Location: 'Mount Elgin',
-    ImageUrl: '/images/webp/newconstruction/medium4.webp',
-  },
-  {
-    Addr: 'South of Main',
-    Status: 'Selling Now',
-    EstCompletion: 'O',
-    StartingAt: '$733,800',
-    Location: 'Lambton Shores',
-    ImageUrl: '/images/webp/newconstruction/medium5.webp',
-  },
-  {
-    Addr: 'Creekside Valley',
-    Status: 'Selling Now',
-    EstCompletion: '2024',
-    StartingAt: '$959,900',
-    Location: 'Kingston',
-    ImageUrl: '/images/webp/newconstruction/medium6.webp',
-  },
-  {
-    Addr: 'The Preserve at Bancroft Ridge',
-    Status: 'Coming Soon',
-    EstCompletion: 'TBA',
-    StartingAt: '$0',
-    Location: 'Bancroft',
-    ImageUrl: '/images/webp/newconstruction/medium7.webp',
-  },
-  {
-    Addr: 'The Residences at Watershore',
-    Status: 'Selling Now',
-    EstCompletion: '2025',
-    StartingAt: '$1,500,000',
-    Location: 'Hamilton',
-    ImageUrl: '/images/webp/newconstruction/medium8.webp',
-  },
-  {
-    Addr: 'Ashgrove Meadows - Phase 3',
-    Status: 'Coming Soon',
-    EstCompletion: 'TBA',
-    StartingAt: '$0',
-    Location: 'Ashgrove Meadows',
-    ImageUrl: '/images/webp/newconstruction/medium9.webp',
-  },
-];
+const token = await getSession();
 
-const Developments = () => {
+//   const response = await fetch(
+//     `${process.env.API_HOST}/api/v1/development/project`,
+//     {
+//       method: 'GET',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         Authorization: `Bearer ${token.user.token}`,
+//       },
+//     }
+//   );
+//   const data = await response.json();
+
+//   return data.data;
+// };
+
+const getNewDevelopment = async () => {
+  const queryBuilder = RequestQueryBuilder.create();
+  queryBuilder.setJoin({
+    field: 'gallery',
+  });
+  const res = await fetch(
+    `${
+      process.env.API_HOST
+    }/api/v1/development/project?${queryBuilder.query()}`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token.user.token}`,
+      },
+    }
+  );
+  return res.json();
+};
+
+const Developments = async () => {
+  const data = await getNewDevelopment();
+
   return (
     <div className="flex flex-col pb-4">
       <div className="flex-1">
@@ -95,20 +63,20 @@ const Developments = () => {
       </div>
 
       <div className="container mb-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {Property.map(item => {
-          const slug = item.Addr.toLowerCase().split(' ').join('-');
+        {data.data.map((item: any) => {
+          // const slug = item.Addr.toLowerCase().split(' ').join('-');
           return (
             <Link
-              href={`/new-developments/${slug}`}
-              key={slug}
+              href={`/new-developments/${item.slug}`}
+              key={item.slug}
               className="flex flex-col"
             >
               <div className="flex flex-col overflow-hidden rounded border border-gray-300 bg-white">
                 <div className="relative h-[250px] w-full">
                   <Image
-                    src={item.ImageUrl}
-                    alt={item.Addr}
+                    src={`https://api.preserveoakville.ca/public/gallery/${item?.gallery[0].name}/${item?.gallery[0].image}`}
                     fill
+                    alt={item.gallery[0].name}
                     sizes="100vw, (min-width: 768px) 50vw"
                     className="size-full object-cover"
                   />
@@ -121,16 +89,16 @@ const Developments = () => {
 
                 <div className="flex flex-col items-center gap-1 py-1">
                   <h2 className="text-lg font-medium text-primary-500">
-                    {item.Addr}
+                    {item.name}
                   </h2>
 
                   <div className="flex items-center gap-1 text-sm font-normal">
-                    <p>Est. Completion: {item.EstCompletion}</p>
+                    <p>Est. Completion: {item.estimatedCompletionDate}</p>
                     <div className="flex h-4 w-[1px] bg-primary-500" />
-                    <p>Starting At: {item.StartingAt}</p>
+                    <p>Starting At: ${Number(item.price).toLocaleString()}</p>
                   </div>
                   <h3 className="text-base font-medium text-primary-500">
-                    {item.Location}
+                    {item.neighbourhood}
                   </h3>
                 </div>
               </div>
@@ -138,7 +106,6 @@ const Developments = () => {
           );
         })}
       </div>
-      {/* <Pagination currentPage={1} totalPages={12} /> */}
     </div>
   );
 };

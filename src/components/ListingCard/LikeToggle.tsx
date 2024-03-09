@@ -1,36 +1,49 @@
 'use client';
 
-import React, { useState } from 'react';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import React from 'react';
+import { FaRegHeart } from 'react-icons/fa';
 
-import cn from '@utils/cn';
+import { useLayout } from '@context/LayoutContext';
+import { addFavorite } from '@lib/api/addFavorite';
 
 interface LikeToggleProps {
-  className?: string;
+  listingId?: string;
+  session: any;
 }
 
-const LikeToggle: React.FC<LikeToggleProps> = ({ className }) => {
-  const [like, setLike] = useState(false);
+const LikeToggle: React.FC<LikeToggleProps> = ({ listingId, session }) => {
+  const { toggle } = useLayout();
 
-  const handleLike = (event: React.MouseEvent) => {
-    event.stopPropagation();
-    event.preventDefault();
-    setLike(!like);
+  const handleAddFavorite = async () => {
+    // console.log('Adding to favorites');
+    const res = await addFavorite(listingId as string);
+    console.log(res);
+  };
+
+  const handleFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!session) {
+      toggle();
+    } else if (session.user.role === 'User') {
+      handleAddFavorite();
+    } else {
+      // Show a message that only users can add to favorites
+    }
   };
 
   return (
-    <div>
-      {like ? (
-        <FaHeart
-          className={cn('cursor-pointer text-2xl text-red-500', className)}
-          onClick={handleLike}
-        />
-      ) : (
-        <FaRegHeart
-          className={cn('cursor-pointer text-2xl text-red-500', className)}
-          onClick={handleLike}
-        />
-      )}
+    <div className="flex items-center">
+      {/* session.user.role */}
+      <button
+        type="button"
+        aria-label="Favourite"
+        onClick={handleFavorite}
+        className="text-red-500"
+      >
+        <FaRegHeart size={18} />
+      </button>
     </div>
   );
 };

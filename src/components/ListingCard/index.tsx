@@ -4,14 +4,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { MdLocationOn } from 'react-icons/md';
-import { getServerSession } from 'next-auth';
 
 import cn from '@utils/cn';
-import Auth from '@layouts/default/Header/auth';
+// import Auth from '@layouts/default/Header/auth';
+
+import { getSession } from '@lib/getsession';
 
 import LikeToggle from './LikeToggle';
 
 interface CardProps {
+  mls?: string;
   location: string;
   bedrooms?: string;
   bathrooms?: string;
@@ -23,6 +25,7 @@ interface CardProps {
 }
 
 const ListingCard: React.FC<CardProps> = async ({
+  mls,
   location,
   bedrooms,
   bathrooms,
@@ -32,7 +35,7 @@ const ListingCard: React.FC<CardProps> = async ({
   slug = '/',
   isLocked,
 }) => {
-  const session = await getServerSession();
+  const session = await getSession();
 
   return (
     <div className="group relative overflow-hidden rounded border border-gray-300  bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
@@ -53,10 +56,10 @@ const ListingCard: React.FC<CardProps> = async ({
             })}
           >
             <div className="flex size-full items-center justify-center">
-              <Auth
+              {/* <Auth
                 className="bg-white !px-4 text-base font-medium text-primary-500 hover:bg-primary-100"
                 isLocked={isLocked}
-              />
+              /> */}
             </div>
           </div>
         </>
@@ -73,9 +76,6 @@ const ListingCard: React.FC<CardProps> = async ({
           <div className="absolute bottom-3 left-3">
             <span className="rounded bg-primary px-3 py-1.5 text-sm font-semibold uppercase text-white">
               $ {price}
-              {/* {isLocked && (
-                <span className="ml-1 text-xs font-normal">Locked</span>
-              )} */}
             </span>
           </div>
         </div>
@@ -85,7 +85,7 @@ const ListingCard: React.FC<CardProps> = async ({
               <MdLocationOn size={20} className="mb-1" />
               <span className="w-full truncate">{location}</span>
             </div>
-            <LikeToggle />
+            <LikeToggle session={session} listingId={mls} />
           </div>
           <div className="flex justify-between gap-1 text-center text-gray-500">
             <div className="flex items-center gap-2 divide-x-[1px]">

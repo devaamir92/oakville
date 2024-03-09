@@ -182,7 +182,7 @@ const Property: React.FC<PropertyProps> = async ({
             location={item.Addr}
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}
             parking={item.Park_spcs ?? '0'}
-            slug={`/property-for-sale/${item.Community.toLowerCase().replace(
+            slug={`/property-for-sale/${item.Community.toLowerCase().replaceAll(
               ' ',
               '-'
             )}/${item.Slug}`}
