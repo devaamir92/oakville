@@ -42,7 +42,7 @@ const ListingCard: React.FC<CardProps> = async ({
       {!session && (
         <>
           <div
-            className={cn('absolute inset-0 z-20', {
+            className={cn('absolute inset-0 z-10', {
               hidden: !isLocked,
             })}
             style={{
@@ -51,7 +51,7 @@ const ListingCard: React.FC<CardProps> = async ({
             }}
           />
           <div
-            className={cn('absolute inset-0 z-20', {
+            className={cn('absolute inset-0 z-10', {
               hidden: !isLocked,
             })}
           >
