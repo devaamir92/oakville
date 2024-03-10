@@ -62,7 +62,6 @@ function InfoForm() {
               <AutoAddress
                 onSelectAddress={e => {
                   setState({ ...data, address: e });
-                  console.log(e);
                 }}
               />
             </div>

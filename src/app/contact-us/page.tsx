@@ -47,11 +47,6 @@ export default function Page() {
         <form className="flex min-w-full flex-col gap-6 md:min-w-[576px]">
           <Input type="text" required placeholder="Your Name" />
           <Input type="email" required placeholder="Your Email" />
-          {/* <PhoneInputComponent
-            onChange={e => {
-              console.log(e);
-            }}
-          /> */}
           <Input type="text" required placeholder="Phone Number" />
           <Input type="text" required placeholder="Subject" />
           <textarea

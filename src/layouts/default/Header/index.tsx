@@ -80,7 +80,7 @@ export default async function Header() {
                 component = !session?.user ? (
                   <LoginButton key={name} />
                 ) : (
-                  <SignOut key={name} />
+                  <SignOut session={session} key={name} />
                 );
               } else {
                 component = (

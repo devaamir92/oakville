@@ -8,9 +8,80 @@ import Types from '@components/Toolbar/Types';
 
 import Search from './Search';
 
-const TypeData = ['Condo', 'Townhouse', 'Detached'];
-const Status = ['Coming Soon', 'Selling Now', 'Sold Out'];
-const Occupancy = ['2024', '2025', '2026', '2027', '2028', '2029', '2030'];
+const TypeData = [
+  {
+    label: 'Condo',
+    value: '.C.',
+    id: 1,
+  },
+  {
+    label: 'Townhouse',
+    value: '.A.',
+    id: 2,
+  },
+  {
+    label: 'Detached',
+    value: '.S.',
+    id: 3,
+  },
+];
+
+const Status = [
+  {
+    label: 'Coming Soon',
+    value: 'Coming Soon',
+    id: 1,
+  },
+  {
+    label: 'Selling Now',
+    value: 'Selling Now',
+    id: 2,
+  },
+  {
+    label: 'Sold Out',
+    value: 'Sold Out',
+    id: 3,
+  },
+];
+
+const Occupancy = [
+  {
+    label: '2024',
+    value: '2024',
+    id: 1,
+  },
+  {
+    label: '2025',
+    value: '2025',
+    id: 2,
+  },
+  {
+    label: '2026',
+    value: '2026',
+    id: 3,
+  },
+  {
+    label: '2027',
+    value: '2027',
+    id: 4,
+  },
+  {
+    label: '2028',
+    value: '2028',
+    id: 5,
+  },
+  {
+    label: '2029',
+    value: '2029',
+    id: 6,
+  },
+  {
+    label: '2030',
+    value: '2030',
+    id: 7,
+  },
+];
+
 function Toolbar() {
   return (
     <div className="flex w-full items-center justify-end bg-tertiary-500 py-1.5">

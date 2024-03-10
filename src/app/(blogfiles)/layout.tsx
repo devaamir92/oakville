@@ -6,9 +6,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex flex-col">
+    <main className="flex h-full flex-col">
       <BlogToolbar />
-      {children}
+      <div className="h-full">{children}</div>
     </main>
   );
 }

@@ -8,7 +8,7 @@ import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import CategoryFilter from '@app/(blogfiles)/_components/CategoryFilter';
 
-// import Pagination from '@components/ui/Pagination';
+import Pagination from '@components/ui/Pagination';
 
 const getBlogs = async (category: string) => {
   const queryBuilder = RequestQueryBuilder.create();
@@ -36,7 +36,15 @@ const BlogPage = async (searchParams: any) => {
   const blogs = await getBlogs(
     searchParams.params.slug.toString().split('-').join(' ')
   );
-
+  if (!blogs.data.length) {
+    return (
+      <div className="flex h-full items-center justify-center">
+        <h1 className="text-2xl font-semibold text-gray-500">
+          No blogs found for this category
+        </h1>
+      </div>
+    );
+  }
   return (
     <section className="py-5">
       <div className="container flex flex-col">
@@ -84,7 +92,13 @@ const BlogPage = async (searchParams: any) => {
             </Link>
           ))}
         </div>
-        {/* <Pagination currentPage={1} totalPages={12} /> */}
+        {blogs?.pageCount > 1 && (
+          <Pagination
+            totalPages={blogs.pageCount}
+            currentPage={blogs.page}
+            location="/category"
+          />
+        )}
       </div>
     </section>
   );

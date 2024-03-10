@@ -4,7 +4,8 @@ import { createContext, useContext, useMemo, useState } from 'react';
 
 type LayoutContextType = {
   login: boolean;
-  toggle: () => void;
+  onClose: () => void;
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
@@ -13,11 +14,11 @@ const LayoutProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [login, setLogin] = useState<boolean>(false);
 
   const value = useMemo(() => {
-    const toggle = () => {
-      setLogin(pre => !pre);
+    const onClose = () => {
+      setLogin(false);
     };
 
-    return { login, toggle };
+    return { login, onClose, setLogin };
   }, [login]);
 
   return (

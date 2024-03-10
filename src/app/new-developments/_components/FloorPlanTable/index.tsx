@@ -14,8 +14,6 @@ interface FloorPlanItem {
 const FloorPlanTable: React.FC<FloorPlanItem> = ({ data }) => {
   const [showMore, setShowMore] = useState(false);
 
-  console.log(data);
-
   return (
     <div className="flex flex-col gap-1">
       <h3 className="flex items-center gap-1 text-lg font-medium text-gray-800 2xl:text-xl">

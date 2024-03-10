@@ -6,11 +6,11 @@ import React from 'react';
 import { MdLocationOn } from 'react-icons/md';
 
 import cn from '@utils/cn';
-// import Auth from '@layouts/default/Header/auth';
 
 import { getSession } from '@lib/getsession';
 
 import LikeToggle from './LikeToggle';
+import LoginBtn from './loginbtn';
 
 interface CardProps {
   mls?: string;
@@ -56,10 +56,7 @@ const ListingCard: React.FC<CardProps> = async ({
             })}
           >
             <div className="flex size-full items-center justify-center">
-              {/* <Auth
-                className="bg-white !px-4 text-base font-medium text-primary-500 hover:bg-primary-100"
-                isLocked={isLocked}
-              /> */}
+              <LoginBtn />
             </div>
           </div>
         </>

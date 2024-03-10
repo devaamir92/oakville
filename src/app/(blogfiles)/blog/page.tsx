@@ -6,7 +6,7 @@ import moment from 'moment';
 import { FaRegCircleRight } from 'react-icons/fa6';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
-// import Pagination from '@components/ui/Pagination';
+import Pagination from '@components/ui/Pagination';
 
 import CategoryFilter from '../_components/CategoryFilter';
 
@@ -77,7 +77,13 @@ const BlogPage = async () => {
             </Link>
           ))}
         </div>
-        {/* <Pagination currentPage={1} totalPages={12} /> */}
+        {blogs?.pageCount > 1 && (
+          <Pagination
+            totalPages={blogs.pageCount}
+            currentPage={blogs.page}
+            location="/blog"
+          />
+        )}
       </div>
     </section>
   );
