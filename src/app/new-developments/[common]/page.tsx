@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -26,13 +26,13 @@ const getSingleProjext = async (slug: string) => {
   return res.json();
 };
 
-export async function generateMetadata(params: any): Promise<Metadata> {
-  const data = await getSingleProjext(params.common);
-  return {
-    title: data.metaTitle,
-    description: data.metaDescription,
-  };
-}
+// export async function generateMetadata(params: any): Promise<Metadata> {
+//   const data = await getSingleProjext(params.common);
+//   return {
+//     title: data.metaTitle,
+//     description: data.metaDescription,
+//   };
+// }
 
 const Page = async (searchParams: any) => {
   const rows = await getSingleProjext(searchParams.params.common);
