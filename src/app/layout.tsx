@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fonts}>
-      <body className="relative h-screen bg-white font-opensans">
+      <body className="relative min-h-screen bg-white font-opensans">
         <LayoutProvider>
           <DefaultLayout>{children}</DefaultLayout>
         </LayoutProvider>
