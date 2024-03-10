@@ -10,7 +10,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
     // <div className="relative min-h-screen">
     <>
       <Header />
-      {children}
+      <div className="h-full">{children}</div>
       <Footer />
     </>
     // </div>

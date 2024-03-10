@@ -25,7 +25,7 @@ const DialogBox: React.FC<DialogBoxProps> = ({
   size = 'sm',
   show,
 }) => {
-  const { toggle } = useLayout();
+  const { onClose } = useLayout();
 
   return (
     <Dialog>
@@ -46,7 +46,7 @@ const DialogBox: React.FC<DialogBoxProps> = ({
                 className="absolute right-2  top-2 inline-flex size-6 appearance-none items-center justify-center rounded-full text-gray-500 hover:bg-primary-200 focus:outline-none"
                 aria-label="Close"
                 onClick={() => {
-                  toggle();
+                  onClose();
                 }}
               >
                 <FaTimes />

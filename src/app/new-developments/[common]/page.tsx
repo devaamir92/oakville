@@ -31,7 +31,6 @@ export async function generateMetadata(params: any): Promise<Metadata> {
   return {
     title: data.metaTitle,
     description: data.metaDescription,
-    keywords: data.metaKeywords,
   };
 }
 

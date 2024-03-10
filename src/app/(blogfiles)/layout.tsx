@@ -8,7 +8,7 @@ export default function RootLayout({
   return (
     <main className="flex h-full flex-col">
       <BlogToolbar />
-      <div className="h-full">{children}</div>
+      <div className="min-h-[calc(100vh-118px)]">{children}</div>
     </main>
   );
 }
