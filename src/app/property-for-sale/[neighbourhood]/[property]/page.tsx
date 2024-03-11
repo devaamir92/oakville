@@ -17,8 +17,6 @@ import Demographics from '@components/Demographics';
 
 import MapPinLocation from '@components/MapPinLocation';
 
-import { getSession } from '@lib/getsession';
-
 import PriceHistory from './_components/PriceHistory';
 import ListingDetails from './_components/ListingDetails';
 import PropertyDetails from './_components/PropertyDetails';
@@ -27,7 +25,6 @@ import Rooms from './_components/Rooms';
 import ListingHighlights from './_components/ListingHighlights';
 import ListingOverview from './_components/ListingOverview';
 import Booking from './_components/Booking';
-import LoginButton from './_components/LoginButton';
 
 interface PageProps {
   params: {
@@ -120,8 +117,6 @@ const getImages = async (mls: string) => {
 async function Page({ params }: PageProps) {
   const { property, soldHistory } = await getProperty(params.property);
   const images: string[] = await getImages(property.Ml_num);
-
-  const session = await getSession();
 
   return (
     <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
