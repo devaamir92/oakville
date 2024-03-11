@@ -35,3 +35,8 @@ h6 {
 .PhoneInputInput:focus-visible {
   outline: none;
 }
+
+.mapboxgl-ctrl-bottom-right,
+.mapboxgl-ctrl-bottom-left {
+  z-index: 0 !important;
+}

@@ -34,6 +34,7 @@ const DailyListing: React.FC<DailyListingProps> = ({ rows }) => {
                 ' ',
                 '-'
               )}/${item.Slug}`}
+              isLocked={item.Is_locked}
             />
           ))}
         </div>

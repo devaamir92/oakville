@@ -2,6 +2,8 @@ import { promises as fs } from 'fs';
 
 // import Map from '@components/Mapbox';
 
+import MapPinLocation from '@components/MapPinLocation';
+
 import StoreCard from '../_components/BankCard';
 
 const StoresPage = async () => {
@@ -23,6 +25,8 @@ const StoresPage = async () => {
             height: 'calc(100vh - 252px)',
           }}
         >
+          <MapPinLocation />
+
           {/* <Map lat={43.487113} lng={-79.720562} zoom={12.27} /> */}
         </div>
       </section>

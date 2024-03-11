@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+
 import { FaDownload } from 'react-icons/fa6';
 
 import cn from '@utils/cn';
@@ -50,14 +50,15 @@ const FloorPlanTable: React.FC<FloorPlanItem> = ({ data }) => {
                   {floorPlan.area} <small>sq ft</small>
                 </td>
                 <td className="px-4 py-2">
-                  <Link
-                    href={floorPlan?.title}
-                    download={`https://api.preserveoakville.ca/public/gallery/${floorPlan?.name}/${floorPlan?.image}`}
+                  <a
+                    download="https://api.preserveoakville.ca/public/floor/1/1.jpg"
+                    href={`https://api.preserveoakville.ca/public/floor/${floorPlan?.name}/${floorPlan?.image}`}
                     aria-label="Download"
                     className="underline"
+                    target="_blank"
                   >
                     <FaDownload className="text-primary-400" />
-                  </Link>
+                  </a>
                 </td>
               </tr>
             ))}

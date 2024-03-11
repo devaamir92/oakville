@@ -36,10 +36,10 @@ const listData = [
     link: '/hospital-walk-in-clinic-vets',
   },
   { name: 'Parks & Rec', link: '/parks-rec' },
-  {
-    name: 'Public Trasportation',
-    link: '/public-trasportation',
-  },
+  // {
+  //   name: 'Public Trasportation',
+  //   link: '/public-trasportation',
+  // },
 ];
 
 const linkClass =

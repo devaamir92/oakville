@@ -1,32 +1,11 @@
 import React from 'react';
 
 import Card from '@components/ListingCard';
+import getSlug from '@utils/getSlug';
 
 interface FeatureListingProps {
   rows: any;
 }
-
-const getSlug = (item: any) => {
-  if (item.property.S_r === 'Sale') {
-    return `/property-for-sale/${item.property.Community.toLowerCase().replaceAll(
-      ' ',
-      '-'
-    )}/${item.property.Slug}`;
-  }
-  if (item.property.S_r === 'Lease') {
-    return `/property-for-rent/${item.property.Community.toLowerCase().replaceAll(
-      ' ',
-      '-'
-    )}/${item.property.Slug}`;
-  }
-  if (item.property.Status === 'U') {
-    return `/sold-properties/${item.property.Community.toLowerCase().replaceAll(
-      ' ',
-      '-'
-    )}/${item.property.Slug}`;
-  }
-  return '';
-};
 
 const getBedroomString = (Br: any, Br_plus: any) => {
   if (Br === null) {
@@ -59,7 +38,12 @@ const FeatureListing: React.FC<FeatureListingProps> = ({ rows }) => {
               location={item.property.Addr}
               price={Number(item.property.Lp_dol).toLocaleString() ?? '0'}
               parking={item.property.Park_spcs ?? '0'}
-              slug={getSlug(item)}
+              slug={getSlug(
+                item.property.S_r,
+                item.property.Status,
+                item.property.Community,
+                item.property.Slug
+              )}
             />
           ))}
         </div>

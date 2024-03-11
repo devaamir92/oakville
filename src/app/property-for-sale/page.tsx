@@ -7,6 +7,11 @@ import cn from '@utils/cn';
 import Toolbar from '@components/Toolbar';
 import Mapbox from '@components/Mapbox';
 
+import sortlisting from '@utils/sort';
+
+import { BedroomsParser } from '@utils/parsers/bedrooms-parser';
+import { BathroomsParser } from '@utils/parsers/bathrooms-parser';
+
 import Property from './property';
 
 interface PageProps {
@@ -23,25 +28,91 @@ interface PageProps {
   };
 }
 
-const getProperties = async (page: number) => {
+const getProperties = async (
+  max: number,
+  min: number,
+  type: string | string[],
+  bedrooms: any,
+  bathrooms: any,
+  basement: string | string[],
+  sort: string
+) => {
   const queryBuilder = RequestQueryBuilder.create();
 
+  let search = {};
+
+  if (bedrooms) {
+    search = {
+      ...search,
+      ...BedroomsParser.create(bedrooms).parse(),
+    };
+  }
+  if (bathrooms) {
+    search = {
+      ...search,
+      ...BathroomsParser.create(bathrooms).parse(),
+    };
+  }
+  // console.log(search);
+  const propType = Array.isArray(type) ? type : [type];
+  const propsBsmt = Array.isArray(basement) ? basement : [basement];
+
+  const typeQuery: any =
+    (type && {
+      Type_own_srch: {
+        $in: propType,
+      },
+    }) ||
+    {};
+
+  const bsmtQuery: any =
+    (basement && {
+      Bsmt1_out: {
+        $in: propsBsmt,
+      },
+    }) ||
+    {};
+
   queryBuilder
-    .setFilter({
-      field: 'Status',
-      operator: '$eq',
-      value: 'A',
+    .search({
+      $and: [
+        {
+          Status: {
+            $eq: 'A',
+          },
+          S_r: {
+            $eq: 'Sale',
+          },
+          Lp_dol: {
+            $gte: min,
+            $lte: max,
+          },
+          ...typeQuery,
+          ...bsmtQuery,
+          ...search,
+        },
+      ],
     })
-    .setFilter({
-      field: 'S_r',
-      operator: '$eq',
-      value: 'Sale',
-    })
+    .sortBy(sortlisting(sort))
     .setLimit(1000);
 
-  queryBuilder.select(['Ml_num', 'Lp_dol', 'Slug', 'Lat', 'Lng']);
-
-  queryBuilder.setPage(page ?? 1);
+  queryBuilder.select([
+    'Ml_num',
+    'Addr',
+    'Apt_num',
+    'Lp_dol',
+    'Br',
+    'Br_plus',
+    'Bath_tot',
+    'Park_spcs',
+    'Status',
+    'Is_locked',
+    'Slug',
+    'Community',
+    'Bsmt1_out',
+    'Lat',
+    'Lng',
+  ]);
 
   const res = await fetch(
     `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
@@ -57,7 +128,16 @@ const getProperties = async (page: number) => {
 };
 
 const Page: React.FC<PageProps> = async ({ searchParams }) => {
-  const rows = await getProperties(0);
+  const rows = await getProperties(
+    Number(searchParams?.max ?? 25000000),
+    Number(searchParams?.min ?? 0),
+    searchParams?.type,
+    searchParams?.bedrooms,
+    searchParams?.bathrooms,
+    searchParams?.basement,
+    searchParams?.sort
+  );
+
   return (
     <main className="flex flex-1 flex-col">
       <Toolbar />

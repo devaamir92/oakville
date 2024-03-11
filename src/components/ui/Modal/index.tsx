@@ -51,7 +51,7 @@ const Modal: React.FC<ModalProps> = ({
           <Content
             onEscapeKeyDown={OnClose}
             className={cn(
-              'fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] -translate-x-1/2 -translate-y-1/2 rounded bg-white p-6 focus:outline-none',
+              'fixed left-1/2 top-1/2 z-10 max-h-[85vh] w-[90vw] -translate-x-1/2 -translate-y-1/2 rounded bg-white p-6 focus:outline-none',
               size === 'sm' && 'w-[400px]',
               size === 'md' && 'w-[600px]',
               size === 'lg' && 'w-[800px]'

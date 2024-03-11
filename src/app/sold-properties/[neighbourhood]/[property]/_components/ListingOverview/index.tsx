@@ -8,10 +8,10 @@ interface ListingOverviewProps {
   bathrooms: number;
   parkingSpaces: number;
   squareFeet: number;
-  price: string;
+  price: number;
   status: string;
   daysOnMarket: number;
-  soldPrice?: string;
+  soldPrice?: number;
 }
 
 const ListingOverview: React.FC<ListingOverviewProps> = ({
@@ -63,7 +63,13 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({
       <div className="flex flex-col">
         {soldPrice && (
           <div className="text-3xl font-medium text-gray-800">
-            ${soldPrice.toLocaleString()}
+            {/* ${soldPrice.toLocaleString()} */}
+            {new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+              maximumFractionDigits: 0,
+              currencyDisplay: 'symbol',
+            }).format(soldPrice)}
           </div>
         )}
         <div
@@ -71,7 +77,13 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({
             'text-lg text-red-500 line-through': soldPrice,
           })}
         >
-          ${price.toLocaleString()}
+          {/* ${price.toLocaleString()} */}
+          {new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            maximumFractionDigits: 0,
+            currencyDisplay: 'symbol',
+          }).format(price)}
         </div>
       </div>
     </div>

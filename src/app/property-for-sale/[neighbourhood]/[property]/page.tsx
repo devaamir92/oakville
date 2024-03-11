@@ -15,6 +15,10 @@ import { Button } from '@components/ui/Button';
 import LightBox from '@components/LightBox';
 import Demographics from '@components/Demographics';
 
+import MapPinLocation from '@components/MapPinLocation';
+
+import { getSession } from '@lib/getsession';
+
 import PriceHistory from './_components/PriceHistory';
 import ListingDetails from './_components/ListingDetails';
 import PropertyDetails from './_components/PropertyDetails';
@@ -22,6 +26,8 @@ import Rooms from './_components/Rooms';
 
 import ListingHighlights from './_components/ListingHighlights';
 import ListingOverview from './_components/ListingOverview';
+import Booking from './_components/Booking';
+import LoginButton from './_components/LoginButton';
 
 interface PageProps {
   params: {
@@ -115,6 +121,8 @@ async function Page({ params }: PageProps) {
   const { property, soldHistory } = await getProperty(params.property);
   const images: string[] = await getImages(property.Ml_num);
 
+  const session = await getSession();
+
   return (
     <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       <div className="flex items-center justify-between">
@@ -192,22 +200,21 @@ async function Page({ params }: PageProps) {
 
           <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 p-8 shadow">
             <p>Ready to go See it?</p>
-            <Button
-              className="w-full bg-primary-400 capitalize"
-              variant="default"
-            >
-              Book a showing
-            </Button>
+            <Booking
+              addr={property.Addr}
+              mls={property.Ml_num}
+              apt={property.Apt_num}
+            />
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300  p-8 shadow">
-            <p>Looking to Sell Your {property.Class_type} ?</p>
-            <Button
-              className="w-full bg-primary-400 capitalize"
-              variant="default"
+            <p>Looking to sell your property?</p>
+            <Link
+              href="/home-evaluation"
+              className="flex h-9  w-full items-center justify-center rounded bg-primary-400 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-primary-500"
             >
               Get Free Evaluation
-            </Button>
+            </Link>
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
@@ -218,7 +225,18 @@ async function Page({ params }: PageProps) {
           <PropertyDetails data={property} />
 
           <Rooms data={property} />
-          {/* <Map latitude={property.Lat} longitude={property.Lng} /> */}
+          {property.Lng && property.Lat && (
+            <div className="h-56 overflow-hidden rounded">
+              <MapPinLocation
+                data={[
+                  {
+                    Lng: property.Lng,
+                    Lat: property.Lat,
+                  },
+                ]}
+              />
+            </div>
+          )}
           <Demographics community={property.Community} />
         </div>
       </div>

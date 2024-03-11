@@ -11,6 +11,7 @@ interface Props {
     label: string;
     value: string;
   }[];
+  name?: string;
 }
 
 const CheckboxItem = ({
@@ -48,7 +49,7 @@ const CheckboxItem = ({
   );
 };
 
-const Types: React.FC<Props> = ({ items }) => {
+const Types: React.FC<Props> = ({ items, name = 'type' }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -56,7 +57,7 @@ const Types: React.FC<Props> = ({ items }) => {
   const [checkedItems, setCheckedItems] = useState<any>(
     items
       .map(item =>
-        searchParams.getAll('type').includes(item.value) ? item.id : null
+        searchParams.getAll(name).includes(item.value) ? item.id : null
       )
       .filter(item => item !== null)
   );
@@ -67,7 +68,7 @@ const Types: React.FC<Props> = ({ items }) => {
     const selectedType = items.find(type => type.id === id);
 
     if (selectedType) {
-      params.append('type', selectedType.value);
+      params.append(name, selectedType.value);
     }
 
     params.set('page', '1');
@@ -80,7 +81,7 @@ const Types: React.FC<Props> = ({ items }) => {
     const selectedType = items.find(type => type.id === id);
 
     if (selectedType) {
-      params.delete('type', selectedType.value);
+      params.delete(name, selectedType.value);
     }
 
     replace(`${pathname}?${params.toString()}`);

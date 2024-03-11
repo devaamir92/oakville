@@ -97,6 +97,7 @@ const Map: React.FC<MapProps> = ({ data }) => {
                 type="button"
                 onClick={async () => {
                   const res = await popupDetail(item.Slug);
+                  console.log(res);
                   setPopup(res);
                   setOpen(true);
                 }}

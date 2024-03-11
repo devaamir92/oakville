@@ -20,6 +20,7 @@ const nextConfig = {
   },
   env: {
     API_HOST: process.env.API_HOST,
+    CRM_API_HOST: process.env.CRM_API_HOST,
   },
 };
 

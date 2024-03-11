@@ -7,9 +7,18 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa6';
 import Copright from './copright';
 
 const popularNeighborhoods = [
-  { name: 'Properties in Iroquois Ridge North', href: '/' },
-  { name: 'Properties in Rural Oakville', href: '/' },
-  { name: 'Properties in Uptown Core', href: '/' },
+  {
+    name: 'Properties for sale in Iroquois Ridge North',
+    href: '/property-for-sale/iroquois-ridge-north',
+  },
+  {
+    name: 'Properties for sale in Rural Oakville',
+    href: '/property-for-sale/rural-oakville',
+  },
+  {
+    name: 'Properties for sale in Uptown Core',
+    href: '/property-for-sale/uptown-core',
+  },
 ];
 
 const popularSearches = [
@@ -59,7 +68,7 @@ const Footer = () => {
                 </address>
               </li>
               <li>
-                <Link href="tel:905-257-3633" className={linkClass}>
+                <Link href="tel:416-837-2000" className={linkClass}>
                   <FaPhone size={14} className="mr-2 inline-block" />
                   416-837-2000
                 </Link>

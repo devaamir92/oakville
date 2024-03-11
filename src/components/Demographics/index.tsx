@@ -68,6 +68,32 @@ const Demographics = async ({ community }: DemographicsProps) => {
       </div>
     );
   }
+  if (community === 'Rural Oakville') {
+    return (
+      <div className="flex flex-auto flex-col">
+        <Population
+          AgeData={data.iroquisRidgeNorth.age}
+          MaritalData={data.iroquisRidgeNorth.maritalStatus}
+          PopulationData={data.iroquisRidgeNorth.gender}
+          familyStatus={data.iroquisRidgeNorth.familyStatus}
+        />
+        <Cultural
+          LanguageData={data.iroquisRidgeNorth.immigrationStatus}
+          ImmigrationData={data.iroquisRidgeNorth.dominantLanguage}
+        />
+        <SocioEconomic
+          EducationData={data.iroquisRidgeNorth.highestLevelOfEducation}
+          EmploymentData={data.iroquisRidgeNorth.Employment}
+        />
+        <HouseHolds
+          AgeHomes={data.iroquisRidgeNorth.ageOfHome}
+          OwnershipData={data.iroquisRidgeNorth.ownership}
+          StructuralTypes={data.iroquisRidgeNorth.structuralType}
+          StructuralDetails={data.iroquisRidgeNorth.structureDetails}
+        />
+      </div>
+    );
+  }
   return (
     <div>
       <h1>Demographics not found</h1>

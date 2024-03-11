@@ -9,6 +9,8 @@ import { useSearchParams } from 'next/navigation';
 
 import Pagination from '@components/ui/Pagination';
 
+import getSlug from '@utils/getSlug';
+
 import ItemCard from './_components/ItemCard';
 import Search from './_components/Search';
 
@@ -41,27 +43,6 @@ const AdvancedSearch = () => {
     setSearchData(data);
   };
 
-  const getSlug = (item: any) => {
-    if (item.S_r === 'Sale') {
-      return `/property-for-sale/${item.Community.toLowerCase().replaceAll(
-        ' ',
-        '-'
-      )}/${item.Slug}`;
-    }
-    if (item.S_r === 'Lease') {
-      return `/property-for-rent/${item.Community.toLowerCase().replaceAll(
-        ' ',
-        '-'
-      )}/${item.Slug}`;
-    }
-    if (item.Status === 'U') {
-      return `/sold-properties/${item.Community.toLowerCase().replaceAll(
-        ' ',
-        '-'
-      )}/${item.Slug}`;
-    }
-    return '';
-  };
   return (
     <main className="container mx-auto flex flex-col gap-6 py-4 lg:max-w-[1140px]">
       <div className="relative h-40 w-full overflow-hidden rounded">
@@ -255,7 +236,12 @@ const AdvancedSearch = () => {
                 sqft={property.Sqft}
                 key={property.Ml_num}
                 Lsc={property.Lsc}
-                url={getSlug(property)}
+                url={getSlug(
+                  property.S_r,
+                  property.Status,
+                  property.Community,
+                  property.Slug
+                )}
               />
             ))}
           </div>

@@ -7,17 +7,14 @@ import Link from 'next/link';
 import { FaEnvelope, FaLocationDot, FaPhone } from 'react-icons/fa6';
 
 import LightBox from '@components/LightBox';
-import { Input } from '@components/ui/Input';
-import { Button } from '@components/ui/Button';
-
-// import Demographics from '@components/Demographics';
 
 import Demographics from '@components/Demographics';
 
 import Summary from '../_components/Summary';
 import Information from '../_components/Information';
-// import Neighbourhood from '../_components/Neighbourhood';
+
 import FloorPlanTable from '../_components/FloorPlanTable';
+import InquireForm from '../_components/InquireForm';
 
 const getSingleProjext = async (slug: string) => {
   const res = await fetch(
@@ -25,14 +22,6 @@ const getSingleProjext = async (slug: string) => {
   );
   return res.json();
 };
-
-// export async function generateMetadata(params: any): Promise<Metadata> {
-//   const data = await getSingleProjext(params.common);
-//   return {
-//     title: data.metaTitle,
-//     description: data.metaDescription,
-//   };
-// }
 
 const Page = async (searchParams: any) => {
   const rows = await getSingleProjext(searchParams.params.common);
@@ -45,11 +34,11 @@ const Page = async (searchParams: any) => {
         </div>
         <div className="flex flex-col items-center gap-1 md:items-start">
           <Link
-            href="tel:647-123-4567"
+            href="tel:416-837-2000"
             className="flex items-center gap-2 text-sm"
           >
             <FaPhone className="text-primary-500" />
-            647-123-4567
+            416-837-2000
           </Link>
           <Link
             href="mailto:info@preserveoakville.ca"
@@ -85,64 +74,13 @@ const Page = async (searchParams: any) => {
         </div>
         <div className="flex flex-col items-end">
           <p>Listing Status</p>
-          <h4 className="text-xl text-primary-500 md:text-2xl">
+          <h4 className="text-xl capitalize text-primary-500 md:text-2xl">
             {rows.status}
           </h4>
         </div>
       </div>
       <div className="flex flex-col gap-6 lg:flex-row">
-        <div className="order-2 h-fit lg:sticky lg:top-[94px] lg:order-1 lg:w-[360px]">
-          <form
-            action=""
-            className=" flex flex-col justify-between gap-6 rounded bg-secondary-300 p-6 2xl:h-3/4"
-          >
-            <h2 className="text-center text-lg font-medium">
-              Register To Get Pricing & Floor Plans for Clarehaven Estates
-            </h2>
-            <div className="flex gap-4">
-              <Input
-                type="text"
-                placeholder="First Name"
-                className="bg-white py-1"
-              />
-              <Input
-                type="text"
-                placeholder="Last Name"
-                className="bg-white py-1"
-              />
-            </div>
-            <Input type="email" placeholder="Email" className="bg-white py-1" />
-            <Input type="text" placeholder="Phone" className="bg-white py-1" />
-            <div className="flex flex-col gap-2">
-              <p className="text-sm">Are you a Realtor?</p>
-              <div className="flex gap-2">
-                <label
-                  htmlFor="checkboxyes"
-                  className="flex items-center gap-1 text-sm"
-                >
-                  <input className="" id="checkboxyes" type="radio" />
-                  Yes
-                </label>
-                <label
-                  htmlFor="checkboxno"
-                  className="flex items-center gap-1 text-sm"
-                >
-                  <input id="checkboxno" type="radio" />
-                  No
-                </label>
-              </div>
-            </div>
-            <Input
-              type="text"
-              placeholder="Message"
-              className="bg-white py-1"
-            />
-
-            <Button type="submit" title="submit" variant="default" className="">
-              Submit
-            </Button>
-          </form>
-        </div>
+        <InquireForm />
         <div className="flex h-fit flex-1 flex-col gap-4">
           <Summary
             data={[
@@ -174,6 +112,7 @@ const Page = async (searchParams: any) => {
                 name: 'VIP Launch',
                 value: rows.vipLaunch,
               },
+              { name: 'Type', value: rows.type },
             ]}
           />
           <Information

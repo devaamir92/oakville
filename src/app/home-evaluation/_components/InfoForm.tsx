@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 
+import { capiClient } from '@lib/capiclient';
+
 import { Button } from '@components/ui/Button';
 
 import AutoAddress from './Autocomplete';
@@ -22,30 +24,30 @@ function InfoForm() {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // const res = await fetch(`${process.env.CRM_API_HOST}/api/v1/sell`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     ...data,
-    //     name: data.fullName,
-    //   }),
-    // });
-
-    // if (res.ok) {
-    //   setStepCount(2);
-    //   setState({
-    //     fullName: '',
-    //     email: '',
-    //     phone: '',
-    //     message: '',
-    //     address: '',
-    //   });
-    // }
-    setStepCount(3);
+    const payload = {
+      name: data.fullName,
+      email: data.email,
+      phone: data.phone,
+      address: data.address,
+      message: data.message,
+    };
+    try {
+      const res = await capiClient.post('/api/v1/sell', payload);
+      if (res.status === 201) {
+        setStepCount(3);
+        setState({
+          fullName: '',
+          email: '',
+          phone: '',
+          message: '',
+          address: '',
+        });
+      }
+      return res;
+    } catch (err: any) {
+      return err;
+    }
   };
-
   const handleNextStep = () => {
     if (data.address) setStepCount(2);
   };
@@ -104,8 +106,8 @@ function InfoForm() {
             placeholder="Phone"
             type="text"
             className={defultClassName}
-            value={data.fullName}
-            onChange={e => setState({ ...data, fullName: e.target.value })}
+            value={data.phone}
+            onChange={e => setState({ ...data, phone: e.target.value })}
             required
           />
           <input
@@ -144,7 +146,7 @@ function InfoForm() {
           Thank You for Submitting.
         </p>
         <p className="text-center text-3xl font-medium text-white">
-          We&apos;re estimating your bungalow&apos;s worth.
+          We&apos;re estimating your property&apos;s worth.
         </p>
         <p className="text-center text-xl text-white">
           We&apos;ll get back to you shortly.

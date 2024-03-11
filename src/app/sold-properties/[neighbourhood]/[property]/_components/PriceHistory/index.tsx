@@ -1,30 +1,3 @@
-// const data = [
-//   {
-//     address: '5050 CAMBIE STREET 1',
-//     date: 'Sep 25, 2023',
-//     daysAgo: '4 months ago',
-//     status: 'Terminated',
-//     listedFor: '$1,870,000',
-//     listedOn: 'Aug 23, 2023',
-//   },
-//   {
-//     address: '5050 CAMBIE STREET 2',
-//     date: 'Jul 27, 2023',
-//     daysAgo: '6 months ago',
-//     status: 'Expired',
-//     listedFor: '$2,096,000',
-//     listedOn: 'Apr 19, 2023',
-//   },
-//   {
-//     address: '5050 CAMBIE STREET 3',
-//     date: 'Apr 19, 2023',
-//     daysAgo: '10 months ago',
-//     status: 'Terminated',
-//     listedFor: '$1,980,000',
-//     listedOn: 'Mar 29, 2023',
-//   },
-// ];
-
 import Link from 'next/link';
 
 interface PriceHistoryProps {
@@ -59,7 +32,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
   };
 
   const history = historyData();
-
+  console.log(history);
   const dateParser = (inputDate: string) => {
     const [date] = inputDate.split(' ');
     const [year, month, day] = date.split('-');
@@ -116,7 +89,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
           <tbody className="divide-y divide-gray-200 bg-white">
             {data.length !== 0 ? (
               data.map((item: any, index: number) => (
-                <>
+                <tr key={history[index].text}>
                   <td className="whitespace-nowrap px-4 py-2.5">
                     {history[index].text}
                   </td>
@@ -142,7 +115,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
                       View Listing
                     </Link>
                   </td>
-                </>
+                </tr>
               ))
             ) : (
               <tr>

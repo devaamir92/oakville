@@ -10,10 +10,10 @@ import {
 
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
-// import Card from '@components/ListingCard';
+import Image from 'next/image';
+
 import { Button } from '@components/ui/Button';
 
-import LightBox from '@components/LightBox';
 import Demographics from '@components/Demographics';
 
 import PriceHistory from './_components/PriceHistory';
@@ -100,20 +100,20 @@ const getProperty = async (slug: string) => {
   return { property, soldHistory };
 };
 
-const getImages = async (mls: string) => {
-  const res = await fetch(`${process.env.API_HOST}/api/v1/stream/${mls}`, {
-    method: 'GET',
-    next: {
-      tags: [mls],
-    },
-    cache: 'no-cache',
-  });
-  return res.json();
-};
+// const getImages = async (mls: string) => {
+//   const res = await fetch(`${process.env.API_HOST}/api/v1/stream/${mls}`, {
+//     method: 'GET',
+//     next: {
+//       tags: [mls],
+//     },
+//     cache: 'no-cache',
+//   });
+//   return res.json();
+// };
 
 async function Page({ params }: PageProps) {
   const { property, soldHistory } = await getProperty(params.property);
-  const images: string[] = await getImages(property.Ml_num);
+  // const images: string[] = await getImages(property.Ml_num);
   return (
     <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       <div className="flex items-center justify-between">
@@ -143,20 +143,21 @@ async function Page({ params }: PageProps) {
         </div>
       </div>
 
-      <LightBox
-        Images={images.slice(1)}
-        mls={property.Ml_num}
-        address={`${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
-          property.Addr
-        }`}
-      />
+      <div className="relative flex h-60 gap-2 overflow-hidden rounded md:h-80 lg:h-[420px]">
+        <Image
+          src="/images/jpg/property-sold-out-banner.jpg"
+          alt="Sold out banner"
+          layout="fill"
+          className="size-full object-cover"
+        />
+      </div>
 
       <ListingOverview
         bathrooms={property.Bath_tot}
         bedrooms={property.Br}
         parkingSpaces={property.Park_spcs}
         squareFeet={property.Sqft}
-        price={Number(property.Lp_dol).toLocaleString()}
+        price={Number(property.Lp_dol)}
         status={(() => {
           if (property.S_r === 'Sale' && property.Lsc !== 'Sld') {
             return 'For Sale';
@@ -167,7 +168,7 @@ async function Page({ params }: PageProps) {
           return 'For Rent';
         })()}
         daysOnMarket={property.Dom}
-        soldPrice={property.Sp_dol}
+        soldPrice={Number(property.Sp_dol)}
       />
 
       <div className="flex flex-col gap-3 lg:flex-row-reverse">
@@ -197,26 +198,6 @@ async function Page({ params }: PageProps) {
               </Link>
             </div>
           </div>
-
-          <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 p-8 shadow">
-            <p>Ready to go See it?</p>
-            <Button
-              className="w-full bg-primary-400 capitalize"
-              variant="default"
-            >
-              Book a showing
-            </Button>
-          </div>
-
-          <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300  p-8 shadow">
-            <p>Looking to Sell Your {property.Class_type} ?</p>
-            <Button
-              className="w-full bg-primary-400 capitalize"
-              variant="default"
-            >
-              Get Free Evaluation
-            </Button>
-          </div>
         </div>
         <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
           <PriceHistory data={soldHistory.data} />
@@ -226,8 +207,8 @@ async function Page({ params }: PageProps) {
           <PropertyDetails data={property} />
 
           <Rooms data={property} />
-          {/* <Map latitude={property.Lat} longitude={property.Lng} /> */}
-          <Demographics />
+
+          <Demographics community={property.Community} />
         </div>
       </div>
       <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3">

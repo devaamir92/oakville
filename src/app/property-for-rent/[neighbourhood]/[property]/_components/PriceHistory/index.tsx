@@ -1,30 +1,3 @@
-// const data = [
-//   {
-//     address: '5050 CAMBIE STREET 1',
-//     date: 'Sep 25, 2023',
-//     daysAgo: '4 months ago',
-//     status: 'Terminated',
-//     listedFor: '$1,870,000',
-//     listedOn: 'Aug 23, 2023',
-//   },
-//   {
-//     address: '5050 CAMBIE STREET 2',
-//     date: 'Jul 27, 2023',
-//     daysAgo: '6 months ago',
-//     status: 'Expired',
-//     listedFor: '$2,096,000',
-//     listedOn: 'Apr 19, 2023',
-//   },
-//   {
-//     address: '5050 CAMBIE STREET 3',
-//     date: 'Apr 19, 2023',
-//     daysAgo: '10 months ago',
-//     status: 'Terminated',
-//     listedFor: '$1,980,000',
-//     listedOn: 'Mar 29, 2023',
-//   },
-// ];
-
 import Link from 'next/link';
 
 interface PriceHistoryProps {
@@ -44,6 +17,7 @@ const statusMap = [
 ];
 
 const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
+  console.log(data);
   const historyData = () => {
     if (!data) {
       return [];

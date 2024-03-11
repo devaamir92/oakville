@@ -1,27 +1,31 @@
 'use client';
 
 import React from 'react';
-import { FaChevronDown } from 'react-icons/fa6';
+import { FaChevronDown, FaRepeat } from 'react-icons/fa6';
+
+import { usePathname, useRouter } from 'next/navigation';
 
 import Dropdown from '@components/ui/Dropdown';
 import Types from '@components/Toolbar/Types';
+
+import { Button } from '@components/ui/Button';
 
 import Search from './Search';
 
 const TypeData = [
   {
     label: 'Condo',
-    value: '.C.',
+    value: 'condos',
     id: 1,
   },
   {
     label: 'Townhouse',
-    value: '.A.',
+    value: 'townhouse',
     id: 2,
   },
   {
     label: 'Detached',
-    value: '.S.',
+    value: 'detached',
     id: 3,
   },
 ];
@@ -29,17 +33,17 @@ const TypeData = [
 const Status = [
   {
     label: 'Coming Soon',
-    value: 'Coming Soon',
+    value: 'coming soon',
     id: 1,
   },
   {
     label: 'Selling Now',
-    value: 'Selling Now',
+    value: 'selling now',
     id: 2,
   },
   {
     label: 'Sold Out',
-    value: 'Sold Out',
+    value: 'sold out',
     id: 3,
   },
 ];
@@ -83,6 +87,12 @@ const Occupancy = [
 ];
 
 function Toolbar() {
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const clearFilters = () => {
+    replace(pathname);
+  };
   return (
     <div className="flex w-full items-center justify-end bg-tertiary-500 py-1.5">
       <nav className="container relative flex w-full items-center">
@@ -95,13 +105,23 @@ function Toolbar() {
 
           <li className="">
             <Dropdown label="Status" icon={<FaChevronDown size={10} />}>
-              <Types items={Status} />
+              <Types items={Status} name="status" />
             </Dropdown>
           </li>
           <li className=" text-white">
             <Dropdown label="Occupancy" icon={<FaChevronDown size={10} />}>
-              <Types items={Occupancy} />
+              <Types items={Occupancy} name="occupancy" />
             </Dropdown>
+          </li>
+          <li>
+            <Button
+              className="flex items-center gap-2 px-0 text-sm text-white"
+              variant="ghost"
+              onClick={() => clearFilters()}
+            >
+              <FaRepeat size={14} />
+              <span>Clear Filter</span>
+            </Button>
           </li>
           <li>
             <Search />

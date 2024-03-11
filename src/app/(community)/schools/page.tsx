@@ -4,6 +4,8 @@ import React from 'react';
 
 // import Map from '@components/Mapbox';
 
+import MapPinLocation from '@components/MapPinLocation';
+
 import SchoolTable from '../_components/SchoolTable';
 import SchoolsLinks from '../_components/SchoolsLinks';
 
@@ -22,6 +24,8 @@ export default async function Page() {
 
       <section className="-mt-4 flex flex-col gap-8">
         <div className="h-96 overflow-hidden rounded lg:h-[calc(100vh-252px)]">
+          <MapPinLocation />
+
           {/* <Map lat={43.487113} lng={-79.720562} zoom={12.27} /> */}
         </div>
       </section>

@@ -3,6 +3,7 @@ import { promises as fs } from 'fs';
 // import Map from '@components/Mapbox';
 
 import BankCard from '../_components/BankCard';
+import MapPinLocation from '@components/MapPinLocation';
 
 const BanksPage = async () => {
   const file = await fs.readFile(
@@ -23,7 +24,7 @@ const BanksPage = async () => {
             height: 'calc(100vh - 252px)',
           }}
         >
-          {/* <Map lat={43.487113} lng={-79.720562} zoom={12.27} /> */}
+          <MapPinLocation />
         </div>
       </section>
 

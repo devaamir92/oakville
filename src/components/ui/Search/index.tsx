@@ -10,6 +10,8 @@ import Link from 'next/link';
 
 import { useOnClickOutside } from 'usehooks-ts';
 
+import getSlug from '@utils/getSlug';
+
 const SearchComponent: React.FC = () => {
   const searchParams = useSearchParams();
 
@@ -95,28 +97,6 @@ const SearchComponent: React.FC = () => {
     }
   }, 300);
 
-  const getSlug = (item: any) => {
-    if (item.S_r === 'Sale') {
-      return `/property-for-sale/${item.Community.toLowerCase().replaceAll(
-        ' ',
-        '-'
-      )}/${item.Slug}`;
-    }
-    if (item.S_r === 'Lease') {
-      return `/property-for-rent/${item.Community.toLowerCase().replaceAll(
-        ' ',
-        '-'
-      )}/${item.Slug}`;
-    }
-    if (item.Status === 'U') {
-      return `/sold-properties/${item.Community.toLowerCase().replaceAll(
-        ' ',
-        '-'
-      )}/${item.Slug}`;
-    }
-    return '';
-  };
-
   return (
     <div className="relative" ref={ref}>
       <div className="flex h-9 min-w-96 items-center gap-4 rounded bg-primary-800 px-2 text-lg lg:text-sm lg:font-normal">
@@ -144,7 +124,12 @@ const SearchComponent: React.FC = () => {
               <li key={property.Ml_num} className="flex-1">
                 <Link
                   className="flex w-full flex-col px-2"
-                  href={getSlug(property)}
+                  href={getSlug(
+                    property.S_r,
+                    property.Status,
+                    property.Community,
+                    property.Slug
+                  )}
                 >
                   <div className="flex items-center justify-between py-2">
                     <p className="text-xs font-semibold text-primary-500">

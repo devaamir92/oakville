@@ -8,11 +8,64 @@ import Pagination from '@components/ui/Pagination';
 
 import Toolbar from './_components/toolbar';
 
-const getNewDevelopment = async () => {
+const getNewDevelopment = async (
+  type: string,
+  status: string,
+  occupancy: string,
+  search: string
+) => {
   const queryBuilder = RequestQueryBuilder.create();
-  queryBuilder.setJoin({
-    field: 'gallery',
-  });
+  const propType = Array.isArray(type) ? type : [type];
+  const propStatus = Array.isArray(status) ? status : [status];
+  const propOccupancy = Array.isArray(occupancy) ? occupancy : [occupancy];
+
+  const typeQuery: any =
+    (type && {
+      type: {
+        $in: propType,
+      },
+    }) ||
+    {};
+
+  const statusQuery: any =
+    (status && {
+      status: {
+        $in: propStatus,
+      },
+    }) ||
+    {};
+
+  const occupancyQuery: any =
+    (occupancy && {
+      estimatedCompletionDate: {
+        $in: propOccupancy,
+      },
+    }) ||
+    {};
+
+  queryBuilder
+    .setJoin({
+      field: 'gallery',
+    })
+    .search({
+      $or: [
+        {
+          name: {
+            $contL: search,
+          },
+        },
+        {
+          $and: [
+            {
+              ...typeQuery,
+              ...statusQuery,
+              ...occupancyQuery,
+            },
+          ],
+        },
+      ],
+    });
+
   const res = await fetch(
     `${
       process.env.API_HOST
@@ -27,9 +80,13 @@ const getNewDevelopment = async () => {
   return res.json();
 };
 
-const Developments = async () => {
-  const data = await getNewDevelopment();
-
+const Developments = async (searchParams: any) => {
+  const data = await getNewDevelopment(
+    searchParams.searchParams.type,
+    searchParams.searchParams.status,
+    searchParams.searchParams.occupancy,
+    searchParams.searchParams.search
+  );
   return (
     <div className="flex h-full flex-col pb-4">
       <div className="w-full">
@@ -42,8 +99,14 @@ const Developments = async () => {
           </h1>
           <div className="mb-4 h-[1px] bg-gray-300" />
         </div>
-
-        <div className="container mb-4 grid  gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {data.data.length === 0 && (
+          <div className="flex min-h-[calc(100vh-200px)]  items-center justify-center ">
+            <h1 className="text-xl font-semibold text-gray-500">
+              No New Developments Found. Clear Filters To View All Projects.
+            </h1>
+          </div>
+        )}
+        <div className="container mb-4 grid min-h-[calc(100vh-200px)]  gap-8 md:grid-cols-2 lg:grid-cols-3">
           {data.data.map((item: any) => {
             return (
               <Link

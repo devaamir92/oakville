@@ -68,7 +68,7 @@ const Page = async (searchParams: any) => {
   const blogs = await getBlogs(searchParams.params.slug);
 
   return (
-    <main className="container flex flex-col gap-4 py-4 lg:flex-row">
+    <main className="container flex min-h-[calc(100vh-70px)] flex-col gap-4 py-4 lg:flex-row ">
       <div className="flex flex-1 flex-col gap-4">
         <div className="flex flex-col justify-between gap-2 md:flex-row">
           <div className="flex flex-col gap-0">

@@ -76,7 +76,7 @@ const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
             bedrooms={`${item.Br}${
               item.Br_plus !== '0' ? ` + ${item.Br_plus}` : ''
             }`}
-            imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
+            imageUrl="/images/jpg/property-sold-out.jpg"
             location={item.Addr}
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}
             parking={item.Park_spcs ?? '0'}
@@ -84,6 +84,7 @@ const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
               ' ',
               '-'
             )}/${item.Slug}`}
+            isLocked
           />
         ))}
       </div>

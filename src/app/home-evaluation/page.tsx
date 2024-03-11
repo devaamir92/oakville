@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
-import InfoForm from './_components/InfoForm';
-
 import Link from 'next/link';
+
+import InfoForm from './_components/InfoForm';
 
 function page() {
   return (
     <div className="flex flex-col gap-10 bg-white pb-10">
-      <section className="relative h-96 items-center justify-center lg:h-[calc(100vh-70px)]">
+      <section className="relative h-[500px] items-center justify-center lg:h-[calc(100vh-70px)]">
         <Image
           fill
           src="/images/webp/sell/mainEvalHeader.webp"
@@ -25,10 +25,10 @@ function page() {
       </section>
       <div className="container px-4">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-center text-xl font-semibold md:w-[80%] lg:w-[40%] 2xl:text-2xl">
+          <h2 className="text-left text-xl font-semibold md:w-[80%] md:text-center lg:w-[40%] 2xl:text-2xl">
             We Know The Neighbourhood Best, when You Sell With Us You Get More!
           </h2>
-          <p className="text-center text-sm md:w-[80%] xl:text-base">
+          <p className="text-left text-sm md:w-[80%] md:text-center xl:text-base">
             Enjoy a seamless and beneficial selling experience when working with
             us. Whether you&apos;re looking to sell your Condo, Townhouse,
             Semi-Detached or Detached home in The Preserve Oakville, we are here

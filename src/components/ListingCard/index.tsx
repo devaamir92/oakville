@@ -11,6 +11,7 @@ import { getSession } from '@lib/getsession';
 
 import LikeToggle from './LikeToggle';
 import LoginBtn from './loginbtn';
+import Verification from './Verification';
 
 interface CardProps {
   mls?: string;
@@ -36,13 +37,12 @@ const ListingCard: React.FC<CardProps> = async ({
   isLocked,
 }) => {
   const session = await getSession();
-
   return (
     <div className="group relative overflow-hidden rounded border border-gray-300  bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
       {!session && (
         <>
           <div
-            className={cn('absolute inset-0 z-10', {
+            className={cn('absolute inset-0 z-[2]', {
               hidden: !isLocked,
             })}
             style={{
@@ -51,12 +51,35 @@ const ListingCard: React.FC<CardProps> = async ({
             }}
           />
           <div
-            className={cn('absolute inset-0 z-10', {
+            className={cn('absolute inset-0 z-[3]', {
               hidden: !isLocked,
             })}
           >
             <div className="flex size-full items-center justify-center">
               <LoginBtn />
+            </div>
+          </div>
+        </>
+      )}
+
+      {session && !session?.user.verified && (
+        <>
+          <div
+            className={cn('absolute inset-0 z-[2]', {
+              hidden: !isLocked,
+            })}
+            style={{
+              background: 'rgba(0,0,0,0.5)',
+              backdropFilter: 'blur(5px)',
+            }}
+          />
+          <div
+            className={cn('absolute inset-0 z-[3]', {
+              hidden: !isLocked,
+            })}
+          >
+            <div className="flex size-full items-center justify-center">
+              <Verification />
             </div>
           </div>
         </>

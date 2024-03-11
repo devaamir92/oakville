@@ -16,6 +16,8 @@ import { Button } from '@components/ui/Button';
 import LightBox from '@components/LightBox';
 import Demographics from '@components/Demographics';
 
+import MapPinLocation from '@components/MapPinLocation';
+
 import PriceHistory from './_components/PriceHistory';
 import ListingDetails from './_components/ListingDetails';
 import PropertyDetails from './_components/PropertyDetails';
@@ -23,6 +25,7 @@ import Rooms from './_components/Rooms';
 
 import ListingHighlights from './_components/ListingHighlights';
 import ListingOverview from './_components/ListingOverview';
+import Booking from './_components/Booking';
 
 interface PageProps {
   params: {
@@ -34,7 +37,7 @@ const getSoldHistory = async (addr: string, unit: number, Apt_num: number) => {
 
   queryBuilder.select([
     'Lsc',
-    'Pr_Lsc',
+    'Pr_lsc',
     'Cndsold_xd',
     'Cd',
     'Xdtd',
@@ -151,41 +154,7 @@ async function Page({ params }: PageProps) {
           property.Addr
         }`}
       />
-      {/* <div className="flex items-center justify-between">
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-8">
-            <div className="flex flex-col items-center ">
-              <LuBedDouble className="text-gray-700" size={24} />
-              <span className="text-sm font-medium">3 bed</span>
-            </div>
-            <div className="flex flex-col items-center ">
-              <LuBath className="text-gray-700" size={24} />
-              <span className="text-sm font-medium">4 bath</span>
-            </div>
-            <div className="flex flex-col items-center ">
-              <LuParkingCircle className="text-gray-700" size={24} />
-              <span className="text-sm font-medium">2 parking</span>
-            </div>
-            <div>
-              <div className="flex flex-col items-center ">
-                <LuScan className="text-gray-700" size={24} />
-                <span className="text-sm font-medium">2590 sqft *</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex gap-2">
-            <span className="rounded bg-slate-300 px-2 py-0.5 text-xs font-medium">
-              For Sale
-            </span>
-            <span className="rounded bg-primary-200 px-2 py-0.5 text-xs font-medium text-primary-600">
-              24 days on market
-            </span>
-          </div>
-        </div>
-        <div className="">
-          <p className="text-3xl font-medium text-gray-800">$1,200,000</p>
-        </div>
-      </div> */}
+
       <ListingOverview
         bathrooms={property.Bath_tot}
         bedrooms={property.Br}
@@ -226,12 +195,11 @@ async function Page({ params }: PageProps) {
 
           <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 p-8 shadow">
             <p>Ready to go See it?</p>
-            <Button
-              className="w-full bg-primary-400 capitalize"
-              variant="default"
-            >
-              Book a showing
-            </Button>
+            <Booking
+              addr={property.Addr}
+              mls={property.Ml_num}
+              apt={property.Apt_num}
+            />
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300  p-8 shadow">
@@ -252,8 +220,20 @@ async function Page({ params }: PageProps) {
           <PropertyDetails data={property} />
 
           <Rooms data={property} />
-          {/* <Map latitude={property.Lat} longitude={property.Lng} /> */}
-          <Demographics />
+          {property.Lng && property.Lat && (
+            <div className="h-56 overflow-hidden rounded">
+              <MapPinLocation
+                data={[
+                  {
+                    Lng: property.Lng,
+                    Lat: property.Lat,
+                  },
+                ]}
+              />
+            </div>
+          )}
+
+          <Demographics community={property.Community} />
         </div>
       </div>
       <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3">
