@@ -12,7 +12,7 @@ interface LikeToggleProps {
 }
 
 const LikeToggle: React.FC<LikeToggleProps> = ({ listingId, session }) => {
-  const { toggle } = useLayout();
+  const { setLogin } = useLayout();
 
   const handleAddFavorite = async () => {
     // console.log('Adding to favorites');
@@ -25,7 +25,7 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ listingId, session }) => {
     e.stopPropagation();
 
     if (!session) {
-      toggle();
+      setLogin(true);
     } else if (session.user.role === 'User') {
       handleAddFavorite();
     } else {

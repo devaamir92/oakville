@@ -81,13 +81,13 @@ const Search: React.FC<SearchProps> = ({ handleSearchData }) => {
   };
 
   useEffect(() => {
-    if (searchParams.get('tag')) {
-      getProperties(
-        searchParams.get('tag').toString(),
-        Number(searchParams.get('page'))
-      ).then(data => {
-        handleSearchData(data);
-      });
+    const serach = searchParams.get('tag');
+    if (serach) {
+      getProperties(serach.toString(), Number(searchParams.get('page'))).then(
+        data => {
+          handleSearchData(data);
+        }
+      );
     } else {
       handleSearchData(null);
     }

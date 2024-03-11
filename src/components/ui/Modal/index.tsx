@@ -20,8 +20,8 @@ interface ModalProps {
   className?: string;
   size?: 'sm' | 'md' | 'lg';
   icon?: React.ReactNode;
-  show: boolean;
-  OnClose: () => void;
+  show?: boolean;
+  OnClose?: () => void;
 }
 
 const Modal: React.FC<ModalProps> = ({

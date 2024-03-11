@@ -89,11 +89,11 @@ const Checkbox: React.FC<Props> = ({ items, utilities }) => {
 
   const handleToggleCheckbox = (id: number, checked: boolean) => {
     if (checked) {
-      setCheckedItems(prevCheckedItems => [...prevCheckedItems, id]);
+      setCheckedItems((prevCheckedItems: any) => [...prevCheckedItems, id]);
       handleSetParms(id);
     } else {
-      setCheckedItems(prevCheckedItems =>
-        prevCheckedItems.filter(item => item !== id)
+      setCheckedItems((prevCheckedItems: any) =>
+        prevCheckedItems.filter((item: any) => item !== id)
       );
       handleRemoveParms(id);
     }

@@ -51,7 +51,7 @@ const LightBox: React.FC<Props> = ({
         />
       </div>
       <div className="hidden flex-1 grid-cols-1 items-center gap-2 shadow md:grid">
-        {Images.slice(1, 3).map(image => (
+        {Images.slice(1, 3).map((image: any) => (
           <div
             className="relative col-span-1 size-full overflow-hidden "
             key={image}

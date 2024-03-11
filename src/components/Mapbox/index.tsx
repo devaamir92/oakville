@@ -67,7 +67,7 @@ const Map: React.FC<MapProps> = ({ data }) => {
         onViewportChange={() => {}}
         boxZoom
         scrollZoom
-        onMove={e => console.log(e)}
+        onMove={(e: any) => console.log(e)}
       >
         <Source id="boundaries" type="geojson" data={mapLine} />
         <Layer
