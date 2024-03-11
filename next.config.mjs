@@ -15,9 +15,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
   env: {
     API_HOST: process.env.API_HOST,
     CRM_API_HOST: process.env.CRM_API_HOST,
