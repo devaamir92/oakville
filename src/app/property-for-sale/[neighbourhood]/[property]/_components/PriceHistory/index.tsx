@@ -116,7 +116,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
           <tbody className="divide-y divide-gray-200 bg-white">
             {data.length !== 0 ? (
               data.map((item: any, index: number) => (
-                <>
+                <tr key={history[index].text}>
                   <td className="whitespace-nowrap px-4 py-2.5">
                     {history[index].text}
                   </td>
@@ -142,7 +142,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
                       View Listing
                     </Link>
                   </td>
-                </>
+                </tr>
               ))
             ) : (
               <tr>

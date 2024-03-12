@@ -40,7 +40,7 @@ const MapPinLocation: React.FC<MapProps> = ({ data }) => {
         boxZoom
         scrollZoom
       >
-        <Source id="boundaries" type="geojson" data={mapLine} />
+        {/* <Source id="boundaries" type="geojson" data={mapLine} /> */}
         <Layer
           id="boundaries"
           type="line"

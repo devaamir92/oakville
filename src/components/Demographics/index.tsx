@@ -28,10 +28,22 @@ const Demographics = async ({ community }: DemographicsProps) => {
           EmploymentData={data.uptownCore.Employment}
         />
         <HouseHolds
-          AgeHomes={data.uptownCore.ageOfHome}
-          OwnershipData={data.uptownCore.ownership}
-          StructuralTypes={data.uptownCore.structuralType}
-          StructuralDetails={data.uptownCore.structureDetails}
+          AgeHomes={data.uptownCore.ageOfHome.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
+          OwnershipData={data.uptownCore.ownership.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
+          StructuralTypes={data.uptownCore.structuralType.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
+          StructuralDetails={data.uptownCore.structureDetails.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
         />
       </div>
     );
@@ -54,10 +66,24 @@ const Demographics = async ({ community }: DemographicsProps) => {
           EmploymentData={data.iroquisRidgeNorth.Employment}
         />
         <HouseHolds
-          AgeHomes={data.iroquisRidgeNorth.ageOfHome}
-          OwnershipData={data.iroquisRidgeNorth.ownership}
-          StructuralTypes={data.iroquisRidgeNorth.structuralType}
-          StructuralDetails={data.iroquisRidgeNorth.structureDetails}
+          AgeHomes={data.iroquisRidgeNorth.ageOfHome.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
+          OwnershipData={data.iroquisRidgeNorth.ownership.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
+          StructuralTypes={data.iroquisRidgeNorth.structuralType.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
+          StructuralDetails={data.iroquisRidgeNorth.structureDetails.map(
+            item => ({
+              ...item,
+              value: Number(item.value),
+            })
+          )}
         />
       </div>
     );
@@ -66,24 +92,36 @@ const Demographics = async ({ community }: DemographicsProps) => {
     return (
       <div className="flex flex-auto flex-col">
         <Population
-          AgeData={data.iroquisRidgeNorth.age}
-          MaritalData={data.iroquisRidgeNorth.maritalStatus}
-          PopulationData={data.iroquisRidgeNorth.gender}
-          familyStatus={data.iroquisRidgeNorth.familyStatus}
+          AgeData={data.ruralOakville.age}
+          MaritalData={data.ruralOakville.maritalStatus}
+          PopulationData={data.ruralOakville.gender}
+          familyStatus={data.ruralOakville.familyStatus}
         />
         <Cultural
-          LanguageData={data.iroquisRidgeNorth.immigrationStatus}
-          ImmigrationData={data.iroquisRidgeNorth.dominantLanguage}
+          LanguageData={data.ruralOakville.immigrationStatus}
+          ImmigrationData={data.ruralOakville.dominantLanguage}
         />
         <SocioEconomic
-          EducationData={data.iroquisRidgeNorth.highestLevelOfEducation}
-          EmploymentData={data.iroquisRidgeNorth.Employment}
+          EducationData={data.ruralOakville.highestLevelOfEducation}
+          EmploymentData={data.ruralOakville.Employment}
         />
         <HouseHolds
-          AgeHomes={data.iroquisRidgeNorth.ageOfHome}
-          OwnershipData={data.iroquisRidgeNorth.ownership}
-          StructuralTypes={data.iroquisRidgeNorth.structuralType}
-          StructuralDetails={data.iroquisRidgeNorth.structureDetails}
+          AgeHomes={data.ruralOakville.ageOfHome.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
+          OwnershipData={data.ruralOakville.ownership.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
+          StructuralTypes={data.ruralOakville.structuralType.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
+          StructuralDetails={data.ruralOakville.structureDetails.map(item => ({
+            ...item,
+            value: Number(item.value),
+          }))}
         />
       </div>
     );

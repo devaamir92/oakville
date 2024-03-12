@@ -11,20 +11,23 @@ import {
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { Button } from '@components/ui/Button';
-
 import LightBox from '@components/LightBox';
 import Demographics from '@components/Demographics';
-
+import Card from '@components/ListingCard';
 import MapPinLocation from '@components/MapPinLocation';
+import Rooms from '@components/Rooms';
+import getSimilarProperties from '@lib/api/getSimilarProperties';
 
+import { getSession } from '@lib/getsession';
 import PriceHistory from './_components/PriceHistory';
 import ListingDetails from './_components/ListingDetails';
 import PropertyDetails from './_components/PropertyDetails';
-import Rooms from './_components/Rooms';
 
 import ListingHighlights from './_components/ListingHighlights';
 import ListingOverview from './_components/ListingOverview';
 import Booking from './_components/Booking';
+import cn from '@utils/cn';
+import Auth from '@layouts/default/Header/auth';
 
 interface PageProps {
   params: {
@@ -100,7 +103,13 @@ const getProperty = async (slug: string) => {
     property.Unit_num,
     property.Apt_num
   );
-  return { property, soldHistory };
+  const similarProperties = await getSimilarProperties(
+    property.S_r,
+    Number(property.Lp_dol) - 100000,
+    Number(property.Lp_dol) + 100000,
+    property.Slug
+  );
+  return { property, soldHistory, similarProperties };
 };
 
 const getImages = async (mls: string) => {
@@ -115,11 +124,18 @@ const getImages = async (mls: string) => {
 };
 
 async function Page({ params }: PageProps) {
-  const { property, soldHistory } = await getProperty(params.property);
+  const { property, soldHistory, similarProperties } = await getProperty(
+    params.property
+  );
   const images: string[] = await getImages(property.Ml_num);
+  const session = await getSession();
 
   return (
-    <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
+    <main
+      className={cn(
+        'container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]'
+      )}
+    >
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-0">
           <h3 className="text-xl font-medium text-gray-800">
@@ -239,19 +255,28 @@ async function Page({ params }: PageProps) {
         <div className="col-span-1 md:col-span-2 lg:col-span-3">
           <h4 className="text-2xl font-semibold">Similar Properties</h4>
         </div>
-        {/* 
-        {data.map(item => (
-          <Card
-            key={item.location}
-            bathrooms={item.bathrooms}
-            bedrooms={item.bedrooms}
-            imageUrl={item.imageUrl}
-            location={item.location}
-            price={item.price}
-            parking={item.parking}
-          />
-        ))} */}
+        {similarProperties &&
+          similarProperties.data.map((item: any) => (
+            <Card
+              key={item.id}
+              mls={item.Ml_num}
+              bathrooms={item.Bath_tot ?? 0}
+              bedrooms={`${item.Br}${
+                item.Br_plus !== '0' ? ` + ${item.Br_plus}` : ''
+              }`}
+              imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
+              location={item.Addr}
+              price={Number(item.Lp_dol).toLocaleString() ?? '0'}
+              parking={item.Park_spcs ?? '0'}
+              slug={`/property-for-sale/${item.Community.toLowerCase().replaceAll(
+                ' ',
+                '-'
+              )}/${item.Slug}`}
+              isLocked={item.Is_locked}
+            />
+          ))}
       </div>
+      <Auth isLogin={!session} />
     </main>
   );
 }

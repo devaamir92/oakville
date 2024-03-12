@@ -44,9 +44,7 @@ const getNewDevelopment = async (
     {};
 
   queryBuilder
-    .setJoin({
-      field: 'gallery',
-    })
+
     .search({
       $or: [
         {
@@ -64,6 +62,9 @@ const getNewDevelopment = async (
           ],
         },
       ],
+    })
+    .setJoin({
+      field: 'gallery',
     });
 
   const res = await fetch(
@@ -87,6 +88,7 @@ const Developments = async (searchParams: any) => {
     searchParams.searchParams.occupancy,
     searchParams.searchParams.search
   );
+
   return (
     <div className="flex h-full flex-col pb-4">
       <div className="w-full">

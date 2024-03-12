@@ -1,13 +1,9 @@
 'use client';
 
-import React, { useContext, useEffect } from 'react';
-import { FaRegHeart } from 'react-icons/fa';
+import React from 'react';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
-import {
-  addFavourite,
-  addFavouriteAdmin,
-  getFavourite,
-} from '@lib/api/addFavourite';
+import { addFavourite, addFavouriteAdmin } from '@lib/api/addFavourite';
 
 import { useLayout } from '@context/LayoutContext';
 import { useFavLayout } from '@context/FavContext';
@@ -20,29 +16,19 @@ interface LikeToggleProps {
 const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session }) => {
   const { setLogin } = useLayout();
   const { favourite, setFavourite } = useFavLayout();
-  // const handleAddFavourite = async () => {
-  //   if (session.user.role === 'User') {
-  //     const res = await getFavourite();
-  //     setFavourite(res.data);
-
-  //     console.log(favourite);
-  //   }
-  // };
 
   const handleAddFavourite = async () => {
     if (session.user.role === 'User') {
       const res = await addFavourite(mls as string);
       setFavourite(res.data);
-
-      console.log(res.data);
     } else {
       const res = await addFavouriteAdmin(mls as string);
-      console.log(res);
       setFavourite(res.data);
     }
   };
 
   const handleFavourite = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(mls);
     e.preventDefault();
     e.stopPropagation();
 
@@ -55,7 +41,6 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session }) => {
 
   return (
     <div className="flex items-center">
-      {/* session.user.role */}
       <button
         type="button"
         aria-label="Favourite"
@@ -63,9 +48,9 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session }) => {
         className="text-red-500"
       >
         {favourite?.includes(mls) ? (
-          <FaRegHeart className="text-red-500" />
+          <FaHeart className="text-red-500" />
         ) : (
-          <FaRegHeart />
+          <FaRegHeart className="text-red-500" />
         )}
       </button>
     </div>

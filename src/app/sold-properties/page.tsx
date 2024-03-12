@@ -71,6 +71,7 @@ const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
         {rows?.data?.map((item: any) => (
           <Card
+            mls={item.Ml_num}
             key={item.id}
             bathrooms={item.Bath_tot ?? 0}
             bedrooms={`${item.Br}${

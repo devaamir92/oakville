@@ -23,6 +23,7 @@ const JustSold: React.FC<JustSoldProps> = ({ rows }) => {
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {rows?.map((item: any) => (
             <Card
+              mls={item.Ml_num}
               key={item.id}
               bathrooms={item.Bath_tot ?? 0}
               bedrooms={`${item.Br}${

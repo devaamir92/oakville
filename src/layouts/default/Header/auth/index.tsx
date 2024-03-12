@@ -10,11 +10,18 @@ import Register from './Register';
 import FinalStep from './Final';
 import DialogBox from './Dailog';
 
+interface LinkProps {
+  isLogin?: boolean;
+}
+
 type FormState = 'SIGN_IN' | 'SIGN_UP' | 'FINAL_STEP';
 
-const Auth: React.FC = () => {
-  const { login } = useLayout();
+const Auth: React.FC<LinkProps> = ({ isLogin }) => {
+  const { login, setLogin } = useLayout();
   const [formState, setFormState] = useState<FormState>('SIGN_IN');
+  if (isLogin) {
+    setLogin(true);
+  }
 
   const [state, setState] = useState({
     email: '',

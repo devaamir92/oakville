@@ -175,6 +175,7 @@ const Property: React.FC<PropertyProps> = async ({
       >
         {rows?.data?.map((item: any) => (
           <Card
+            mls={item.Ml_num}
             key={item.id}
             bathrooms={item.Bath_tot ?? 0}
             bedrooms={getBedroomString(item.Br, item.Br_plus)}
