@@ -25,7 +25,7 @@ const StoresPage = async () => {
             height: 'calc(100vh - 252px)',
           }}
         >
-          <MapPinLocation />
+          {/* <MapPinLocation /> */}
 
           {/* <Map lat={43.487113} lng={-79.720562} zoom={12.27} /> */}
         </div>

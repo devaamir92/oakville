@@ -24,7 +24,14 @@ const BanksPage = async () => {
             height: 'calc(100vh - 252px)',
           }}
         >
-          <MapPinLocation />
+          <MapPinLocation
+            data={[
+              {
+                Lng: '-79.7976',
+                Lat: '43.4328',
+              },
+            ]}
+          />
         </div>
       </section>
 

@@ -24,7 +24,7 @@ const HealthcarePage = async () => {
             height: 'calc(100vh - 252px)',
           }}
         >
-          <MapPinLocation />
+          {/* <MapPinLocation /> */}
         </div>
       </section>
       <Healthcare id="banks" data={data.healthcare} />

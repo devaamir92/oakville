@@ -17,7 +17,7 @@ const Marker = dynamic(() =>
 );
 
 interface MapProps {
-  data?: {
+  data: {
     Lng: string;
     Lat: string;
   }[];
