@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 
 import data from '@assets/schools/file.json';
 
@@ -6,6 +7,12 @@ import MapPinLocation from '@components/MapPinLocation';
 
 import SchoolTable from '../_components/SchoolTable';
 import SchoolsLinks from '../_components/SchoolsLinks';
+
+export const metadata: Metadata = {
+  title: 'Schools Near The Preserve Oakville: A Great Place for Education',
+  description:
+    'Discover the best schools near The Preserve Oakville, making it an ideal place for families. Explore top-rated public and private schools in the area. Read more.',
+};
 
 export default async function Page() {
   return (

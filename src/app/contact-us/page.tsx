@@ -3,15 +3,15 @@ import Link from 'next/link';
 
 import { FaEnvelope, FaPhone } from 'react-icons/fa6';
 
-import { Button } from '@components/ui/Button';
-import { Input } from '@components/ui/Input';
+import type { Metadata } from 'next';
+
 import Contact from './_components/Contact';
 // import PhoneInputComponent from '@components/ui/PhoneInput';
 
-export const metadata = {
-  title: 'Contact Us - The Oakville Preserve',
+export const metadata: Metadata = {
+  title: 'Acme Dashboard',
   description:
-    'If you have any queries regarding our website. Feel free to contact us.',
+    'Get in touch with The Preserve Oakville for luxury properties and homes for sale. Contact for information on properties from Mattamy Homes, Fernbrook, and more.',
 };
 
 export default function Page() {

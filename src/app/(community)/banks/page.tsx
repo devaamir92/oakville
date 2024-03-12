@@ -1,8 +1,17 @@
+import type { Metadata } from 'next';
+
 import banksData from '@assets/banks/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
 
 import BankCard from '../_components/BankCard';
+
+export const metadata: Metadata = {
+  title:
+    'Banking Services Near The Preserve - Convenient Options for Residents',
+  description:
+    'Explore the best variety of banks and financial institutions in the area. Find out why The Preserve Oakville offers easy access to banking for its residents.',
+};
 
 const BanksPage = async () => {
   return (

@@ -6,10 +6,18 @@ import moment from 'moment';
 import { FaRegCircleRight } from 'react-icons/fa6';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
+import type { Metadata } from 'next/types';
+
 import Pagination from '@components/ui/Pagination';
 
 import CategoryFilter from '../_components/CategoryFilter';
 import BlogToolbar from '../_components/BlogToolbar';
+
+export const metadata: Metadata = {
+  title: 'The Preserve Oakville Blog: Latest News & Insights',
+  description:
+    'Discover The Preserve Oakville blog for exclusive insights and updates on luxury living. Stay informed about the latest in properties, homes, and the neighborhood. ',
+};
 
 const getBlogs = async () => {
   const queryBuilder = RequestQueryBuilder.create();

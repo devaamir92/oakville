@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
+import { Metadata } from 'next';
 import Loader from '@components/Loader';
 import cn from '@utils/cn';
 
@@ -27,6 +28,13 @@ interface PageProps {
     sort?: any;
   };
 }
+
+export const metadata: Metadata = {
+  title:
+    'Properties for Sale in The Preserve Oakville: Luxury Property for Sale',
+  description:
+    'Explore properties for sale in The Preserve Oakville, featuring luxury properties for every lifestyle. Find your dream home in this desirable Canadian neighborhood.',
+};
 
 const getProperties = async (
   max: number,

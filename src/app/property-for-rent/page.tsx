@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
+import { Metadata } from 'next';
 import Loader from '@components/Loader';
 import cn from '@utils/cn';
 
@@ -27,6 +28,12 @@ interface PageProps {
     sort?: any;
   };
 }
+
+export const metadata: Metadata = {
+  title: 'Properties for Rent in The Preserve Oakville: Find Property for Rent',
+  description:
+    'Browse our listings for properties for rent in The Preserve Oakville. Find properties for rent in this coveted Canadian neighborhood. Start your search today. ',
+};
 
 const getProperties = async (
   max: number,

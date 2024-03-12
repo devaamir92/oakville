@@ -1,5 +1,7 @@
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
+import type { Metadata } from 'next';
+
 import Pagination from '@components/ui/Pagination';
 import Card from '@components/ListingCard';
 
@@ -8,6 +10,12 @@ interface PropertyProps {
     page?: string;
   };
 }
+
+export const metadata: Metadata = {
+  title: 'Sell Your Property in The Preserve Oakville ',
+  description:
+    'Ready to sell your property in The Preserve Oakville? We specialize in selling luxury properties- Let us help you reach buyers looking for Oakville real estate. ',
+};
 
 const getProperties = async (page: number) => {
   const queryBuilder = RequestQueryBuilder.create();

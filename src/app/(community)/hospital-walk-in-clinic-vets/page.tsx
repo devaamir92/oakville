@@ -1,8 +1,16 @@
+import type { Metadata } from 'next';
+
 import data from '@assets/healthcare/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
 
 import Healthcare from '../_components/BankCard';
+
+export const metadata: Metadata = {
+  title: 'Hospitals Near The Preserve Oakville: Healthcare Access',
+  description:
+    'Hospitals and medical facilities near The Preserve Oakville - With easy access to healthcare services, residents can rest assured knowing quality care is nearby.',
+};
 
 const HealthcarePage = async () => {
   return (

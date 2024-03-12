@@ -1,5 +1,13 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import React from 'react';
+
+export const metadata: Metadata = {
+  title:
+    'Mortgage Calculator for The Preserve Oakville: Estimate Your Home Loan',
+  description:
+    'Use our mortgage calculator for The Preserve Oakville to estimate your home loan. Calculate your monthly payments and find the right mortgage for your property.',
+};
 
 const Calculators = () => {
   return (

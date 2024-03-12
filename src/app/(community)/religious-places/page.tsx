@@ -1,8 +1,16 @@
+import type { Metadata } from 'next';
+
 import data from '@assets/religious/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
 
 import Healthcare from '../_components/BankCard';
+
+export const metadata: Metadata = {
+  title: 'Places of Worship Near The Preserve Oakville: Spiritual Community',
+  description:
+    'Discover the best convenient stores near The Preserve, Oakville. From boutique shops to everyday essentials, enjoy great shopping options in the neighborhood.',
+};
 
 const ReligiousPage = async () => {
   return (

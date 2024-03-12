@@ -1,8 +1,16 @@
+import type { Metadata } from 'next';
+
 import storesData from '@assets/stores/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
 
 import StoreCard from '../_components/BankCard';
+
+export const metadata: Metadata = {
+  title: 'Convenient Stores Near The Preserve Oakville: Shopping Made Easy',
+  description:
+    'Explore places of worship near The Preserve Oakville. Find a welcoming spiritual community in this sought-after Canadian neighbourhood.',
+};
 
 const StoresPage = async () => {
   return (

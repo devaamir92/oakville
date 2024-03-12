@@ -1,5 +1,5 @@
 import React from 'react';
-
+import type { Metadata } from 'next';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { Desktop, Mobile } from '@components/ua';
@@ -13,9 +13,10 @@ import FeatureListing from '@components/landing/FeatureListing';
 import ListingTypes from '@components/landing/ListingTypes/Index';
 import HeroMobile from '@components/landing/Hero/Mobile';
 
-export const metadata = {
-  title: 'The Oakville Preserve',
-  description: 'The Oakville Preserve is a real estate website.',
+export const metadata: Metadata = {
+  title: 'The Preserve Oakville | Luxury properties for Sale, Homes in Canada',
+  description:
+    "Explore The Preserve Oakville for luxury property for sale in Canada. Discover serene living in one of Oakville's best neighborhoods. Find your dream home today!",
 };
 
 const data = [

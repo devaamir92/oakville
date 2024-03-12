@@ -4,9 +4,18 @@ import Image from 'next/image';
 
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
+import type { Metadata } from 'next';
+
 import Pagination from '@components/ui/Pagination';
 
 import Toolbar from './_components/toolbar';
+
+export const metadata: Metadata = {
+  title:
+    'New Developments in The Preserve Oakville | Discover properties for Sale',
+  description:
+    'Explore new developments in The Preserve Oakville, featuring luxury properties and homes. Stay updated on the latest properties by Mattamy Homes, Fernbrook, & more.',
+};
 
 const getNewDevelopment = async (
   type: string,
