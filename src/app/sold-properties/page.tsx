@@ -67,10 +67,11 @@ const getProperties = async (page: number) => {
   );
   return res.json();
 };
-const session = await getSession();
 
 const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
   const rows = await getProperties(Number(searchParams?.page ?? 1) ?? 1);
+
+  const session = await getSession();
 
   return (
     <div className="container flex flex-col justify-center gap-4 py-4">
