@@ -9,7 +9,6 @@ interface DailyListingProps {
 }
 
 const DailyListing: React.FC<DailyListingProps> = ({ rows }) => {
-  // console.log('rows', rows);
   return (
     <section>
       <div className="container flex flex-col">

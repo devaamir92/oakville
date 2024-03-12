@@ -16,7 +16,6 @@ const getBlogs = async () => {
   queryBuilder
     .setJoin({
       field: 'image',
-      select: ['images'],
     })
     .setJoin({
       field: 'categories',
@@ -30,6 +29,7 @@ const getBlogs = async () => {
 
 const BlogPage = async () => {
   const blogs = await getBlogs();
+  console.log(blogs);
 
   return (
     <main className="flex h-full flex-col">
@@ -52,7 +52,7 @@ const BlogPage = async () => {
                 >
                   <div className="relative h-60">
                     <Image
-                      src={`https://api.preserveoakville.ca/${blog.image.images.thumbnail.url}`}
+                      src={`https://api.preserveoakville.ca/${blog.image.images.medium.url}`}
                       fill
                       alt={blog.imageAlt}
                       className="object-cover"

@@ -6,6 +6,7 @@ import '@styles/globals.css';
 
 import DefaultLayout from '@layouts/default';
 import LayoutProvider from '@context/LayoutContext';
+import FavProvider from '@context/FavContext';
 
 export const metadata: Metadata = {
   title: 'Oakville The Preserve',
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={fonts}>
       <body className="relative min-h-screen bg-white font-opensans">
-        <LayoutProvider>
-          <DefaultLayout>{children}</DefaultLayout>
-        </LayoutProvider>
+        <FavProvider>
+          <LayoutProvider>
+            <DefaultLayout>{children}</DefaultLayout>
+          </LayoutProvider>
+        </FavProvider>
       </body>
     </html>
   );

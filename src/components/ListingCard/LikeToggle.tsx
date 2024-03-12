@@ -1,35 +1,55 @@
 'use client';
 
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { FaRegHeart } from 'react-icons/fa';
 
+import {
+  addFavourite,
+  addFavouriteAdmin,
+  getFavourite,
+} from '@lib/api/addFavourite';
+
 import { useLayout } from '@context/LayoutContext';
-import { addFavorite } from '@lib/api/addFavorite';
+import { useFavLayout } from '@context/FavContext';
 
 interface LikeToggleProps {
-  listingId?: string;
+  mls?: string;
   session: any;
 }
 
-const LikeToggle: React.FC<LikeToggleProps> = ({ listingId, session }) => {
+const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session }) => {
   const { setLogin } = useLayout();
+  const { favourite, setFavourite } = useFavLayout();
+  // const handleAddFavourite = async () => {
+  //   if (session.user.role === 'User') {
+  //     const res = await getFavourite();
+  //     setFavourite(res.data);
 
-  const handleAddFavorite = async () => {
-    // console.log('Adding to favorites');
-    const res = await addFavorite(listingId as string);
-    console.log(res);
+  //     console.log(favourite);
+  //   }
+  // };
+
+  const handleAddFavourite = async () => {
+    if (session.user.role === 'User') {
+      const res = await addFavourite(mls as string);
+      setFavourite(res.data);
+
+      console.log(res.data);
+    } else {
+      const res = await addFavouriteAdmin(mls as string);
+      console.log(res);
+      setFavourite(res.data);
+    }
   };
 
-  const handleFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleFavourite = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
 
     if (!session) {
       setLogin(true);
-    } else if (session.user.role === 'User') {
-      handleAddFavorite();
     } else {
-      // Show a message that only users can add to favorites
+      handleAddFavourite();
     }
   };
 
@@ -39,10 +59,14 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ listingId, session }) => {
       <button
         type="button"
         aria-label="Favourite"
-        onClick={handleFavorite}
+        onClick={handleFavourite}
         className="text-red-500"
       >
-        <FaRegHeart size={18} />
+        {favourite?.includes(mls) ? (
+          <FaRegHeart className="text-red-500" />
+        ) : (
+          <FaRegHeart />
+        )}
       </button>
     </div>
   );

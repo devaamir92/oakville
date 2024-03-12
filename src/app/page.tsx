@@ -185,7 +185,7 @@ const getFeaturedProperties = async () => {
     {
       method: 'GET',
       next: {
-        tags: ['property'],
+        tags: ['featured'],
       },
       cache: 'no-cache',
     }

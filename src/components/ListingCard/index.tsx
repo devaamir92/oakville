@@ -37,6 +37,7 @@ const ListingCard: React.FC<CardProps> = async ({
   isLocked,
 }) => {
   const session = await getSession();
+
   return (
     <div className="group relative overflow-hidden rounded border border-gray-300  bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
       {!session && (
@@ -105,7 +106,7 @@ const ListingCard: React.FC<CardProps> = async ({
               <MdLocationOn size={20} className="mb-1" />
               <span className="w-full truncate">{location}</span>
             </div>
-            <LikeToggle session={session} listingId={mls} />
+            <LikeToggle session={session} mls={mls} />
           </div>
           <div className="flex justify-between gap-1 text-center text-gray-500">
             <div className="flex items-center gap-2 divide-x-[1px]">

@@ -70,7 +70,7 @@ const BlogPage = async (searchParams: any) => {
                   >
                     <div className="relative h-60">
                       <Image
-                        src={`https://api.preserveoakville.ca/${blog.image.images.thumbnail.url}`}
+                        src={`https://api.preserveoakville.ca/${blog.image.images.medium.url}`}
                         fill
                         alt={blog.imageAlt}
                         className="object-cover"
