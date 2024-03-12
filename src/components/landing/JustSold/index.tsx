@@ -3,12 +3,15 @@ import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 
 import Card from '@components/ListingCard';
+import getBedroomString from '@utils/getbedroomString';
+import getSlug from '@utils/getSlug';
 
 interface JustSoldProps {
   rows: any;
+  session: any;
 }
 
-const JustSold: React.FC<JustSoldProps> = ({ rows }) => {
+const JustSold: React.FC<JustSoldProps> = ({ rows, session }) => {
   return (
     <section>
       <div className="container flex flex-col">
@@ -23,20 +26,16 @@ const JustSold: React.FC<JustSoldProps> = ({ rows }) => {
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {rows?.map((item: any) => (
             <Card
+              session={session}
               mls={item.Ml_num}
               key={item.id}
               bathrooms={item.Bath_tot ?? 0}
-              bedrooms={`${item.Br}${
-                item.Br_plus !== '0' ? ` + ${item.Br_plus}` : ''
-              }`}
+              bedrooms={getBedroomString(Number(item.Br), Number(item.Br_plus))}
               imageUrl="/images/jpg/property-sold-out.jpg"
               location={item.Addr}
               price={Number(item.Lp_dol).toLocaleString() ?? '0'}
               parking={item.Park_spcs ?? '0'}
-              slug={`/sold-properties/${item.Community.toLowerCase().replaceAll(
-                ' ',
-                '-'
-              )}/${item.Slug}`}
+              slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
               isLocked
             />
           ))}

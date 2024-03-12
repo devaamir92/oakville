@@ -113,6 +113,7 @@ const getProperty = async (slug: string) => {
 
 async function Page({ params }: PageProps) {
   const { property, soldHistory } = await getProperty(params.property);
+
   // const images: string[] = await getImages(property.Ml_num);
   return (
     <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">

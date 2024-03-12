@@ -3,12 +3,15 @@ import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 
 import Card from '@components/ListingCard';
+import getBedroomString from '@utils/getbedroomString';
+import getSlug from '@utils/getSlug';
 
 interface DailyListingProps {
   rows: any;
+  session: any;
 }
 
-const DailyListing: React.FC<DailyListingProps> = ({ rows }) => {
+const DailyListing: React.FC<DailyListingProps> = async ({ rows, session }) => {
   return (
     <section>
       <div className="container flex flex-col">
@@ -19,20 +22,16 @@ const DailyListing: React.FC<DailyListingProps> = ({ rows }) => {
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {rows?.map((item: any) => (
             <Card
+              session={session}
               key={item.id}
               mls={item.Ml_num}
               bathrooms={item.Bath_tot ?? 0}
-              bedrooms={`${item.Br}${
-                item.Br_plus !== '0' ? ` + ${item.Br_plus}` : ''
-              }`}
+              bedrooms={getBedroomString(Number(item.Br), Number(item.Br_plus))}
               imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
               location={item.Addr}
               price={Number(item.Lp_dol).toLocaleString() ?? '0'}
               parking={item.Park_spcs ?? '0'}
-              slug={`/property-for-sale/${item.Community.toLowerCase().replaceAll(
-                ' ',
-                '-'
-              )}/${item.Slug}`}
+              slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
               isLocked={item.Is_locked}
             />
           ))}

@@ -7,6 +7,9 @@ import { BedroomsParser } from '@utils/parsers/bedrooms-parser';
 import { BathroomsParser } from '@utils/parsers/bathrooms-parser';
 import Sorting from '@components/Sorting';
 import sortlisting from '@utils/sort';
+import { getSession } from '@lib/getsession';
+import getBedroomString from '@utils/getbedroomString';
+import getSlug from '@utils/getSlug';
 
 interface PropertyProps {
   view?: 'list' | 'map';
@@ -102,6 +105,7 @@ const getProperties = async (
     'Slug',
     'Community',
     'Bsmt1_out',
+    'S_r',
   ]);
 
   queryBuilder.setPage(page ?? 1);
@@ -140,15 +144,8 @@ const Property: React.FC<PropertyProps> = async ({
     basement,
     sort
   );
-  const getBedroomString = (Br: any, Br_plus: any) => {
-    if (Br === null) {
-      return '0';
-    }
-    if (Br_plus > 0) {
-      return `${Br} + ${Br_plus}`;
-    }
-    return `${Br}`;
-  };
+
+  const session = await getSession();
 
   return (
     <div className="flex flex-col gap-4">
@@ -175,18 +172,16 @@ const Property: React.FC<PropertyProps> = async ({
       >
         {rows?.data?.map((item: any) => (
           <Card
+            session={session}
             mls={item.Ml_num}
             key={item.id}
             bathrooms={item.Bath_tot ?? 0}
-            bedrooms={getBedroomString(item.Br, item.Br_plus)}
+            bedrooms={getBedroomString(Number(item.Br), Number(item.Br_plus))}
             imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
             location={item.Addr}
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}
             parking={item.Park_spcs ?? '0'}
-            slug={`/property-for-rent/${item.Community.toLowerCase().replaceAll(
-              ' ',
-              '-'
-            )}/${item.Slug}`}
+            slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
             isLocked={item.Is_locked}
           />
         ))}

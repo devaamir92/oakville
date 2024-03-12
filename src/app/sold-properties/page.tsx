@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 
 import Pagination from '@components/ui/Pagination';
 import Card from '@components/ListingCard';
+import { getSession } from '@lib/getsession';
+import getBedroomString from '@utils/getbedroomString';
+import getSlug from '@utils/getSlug';
 
 interface PropertyProps {
   searchParams?: {
@@ -64,6 +67,7 @@ const getProperties = async (page: number) => {
   );
   return res.json();
 };
+const session = await getSession();
 
 const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
   const rows = await getProperties(Number(searchParams?.page ?? 1) ?? 1);
@@ -79,20 +83,16 @@ const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
         {rows?.data?.map((item: any) => (
           <Card
+            session={session}
             mls={item.Ml_num}
             key={item.id}
             bathrooms={item.Bath_tot ?? 0}
-            bedrooms={`${item.Br}${
-              item.Br_plus !== '0' ? ` + ${item.Br_plus}` : ''
-            }`}
+            bedrooms={getBedroomString(Number(item.Br), Number(item.Br_plus))}
             imageUrl="/images/jpg/property-sold-out.jpg"
             location={item.Addr}
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}
             parking={item.Park_spcs ?? '0'}
-            slug={`/sold-properties/${item.Community.toLowerCase().replaceAll(
-              ' ',
-              '-'
-            )}/${item.Slug}`}
+            slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
             isLocked
           />
         ))}

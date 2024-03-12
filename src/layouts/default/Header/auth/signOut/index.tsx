@@ -23,7 +23,7 @@ const SignOut: React.FC<Props> = ({ session }) => {
       onClose();
       const fetchFavourite = async () => {
         const res = await getFavourite();
-        console.log(res.data.property);
+        console.log(res);
         const favourite = res.data.map((item: any) => item.property.Ml_num);
         console.log(favourite);
         setFavourite(favourite);

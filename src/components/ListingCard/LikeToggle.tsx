@@ -28,7 +28,6 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session }) => {
   };
 
   const handleFavourite = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(mls);
     e.preventDefault();
     e.stopPropagation();
 
@@ -45,7 +44,7 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session }) => {
         type="button"
         aria-label="Favourite"
         onClick={handleFavourite}
-        className="text-red-500"
+        className="text-red-500 outline-none focus:outline-none"
       >
         {favourite?.includes(mls) ? (
           <FaHeart className="text-red-500" />

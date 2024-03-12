@@ -2,22 +2,17 @@ import React from 'react';
 
 import Card from '@components/ListingCard';
 import getSlug from '@utils/getSlug';
+import getBedroomString from '@utils/getbedroomString';
 
 interface FeatureListingProps {
   rows: any;
+  session: any;
 }
 
-const getBedroomString = (Br: any, Br_plus: any) => {
-  if (Br === null) {
-    return '0';
-  }
-  if (Br_plus > 0) {
-    return `${Br} + ${Br_plus}`;
-  }
-  return `${Br}`;
-};
-
-const FeatureListing: React.FC<FeatureListingProps> = ({ rows }) => {
+const FeatureListing: React.FC<FeatureListingProps> = async ({
+  rows,
+  session,
+}) => {
   return (
     <section>
       <div className="container flex flex-col">
@@ -28,12 +23,13 @@ const FeatureListing: React.FC<FeatureListingProps> = ({ rows }) => {
         <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {rows.map((item: any) => (
             <Card
+              session={session}
               mls={item.property.Ml_num}
               key={item.property.id}
               bathrooms={item.property.Bath_tot ?? 0}
               bedrooms={getBedroomString(
-                item.property.Br,
-                item.property.Br_plus
+                Number(item.property.Br),
+                Number(item.property.Br_plus)
               )}
               imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.property.Ml_num}/photo_1.webp`}
               location={item.property.Addr}

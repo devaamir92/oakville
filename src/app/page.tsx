@@ -12,6 +12,8 @@ import DailyListing from '@components/landing/DailyListing';
 import FeatureListing from '@components/landing/FeatureListing';
 import ListingTypes from '@components/landing/ListingTypes/Index';
 import HeroMobile from '@components/landing/Hero/Mobile';
+import { getSession } from '@lib/getsession';
+import getBedroomString from '@utils/getbedroomString';
 
 export const metadata: Metadata = {
   title: 'The Preserve Oakville | Luxury properties for Sale, Homes in Canada',
@@ -88,6 +90,7 @@ const getProperties = async () => {
     'Slug',
     'Dom',
     'Community',
+    'S_r',
   ]);
 
   const res = await fetch(
@@ -138,6 +141,7 @@ const getSoldProperties = async () => {
     'Slug',
     'Dom',
     'Community',
+    'S_r',
   ]);
 
   const res = await fetch(
@@ -204,15 +208,7 @@ const page = async () => {
     getFeaturedProperties(),
   ]);
 
-  const getBedroomString = (Br: any, Br_plus: any) => {
-    if (Br === null) {
-      return '0';
-    }
-    if (Br_plus > 0) {
-      return `${Br} + ${Br_plus}`;
-    }
-    return `${Br}`;
-  };
+  const session = await getSession();
 
   return (
     <main className="flex flex-col gap-8 pb-8">
@@ -224,10 +220,10 @@ const page = async () => {
       </Mobile>
       <ListingTypes />
       <div className="flex flex-col gap-8 bg-[#f3f4f6] py-8">
-        <FeatureListing rows={featureData} />
-        <DailyListing rows={newData} />
+        <FeatureListing rows={featureData} session={session} />
+        <DailyListing rows={newData} session={session} />
       </div>
-      <JustSold rows={soldData} />
+      <JustSold rows={soldData} session={session} />
       <CTASection />
 
       <section>

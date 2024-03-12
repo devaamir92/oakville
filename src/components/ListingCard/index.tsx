@@ -1,5 +1,3 @@
-'use server';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -7,7 +5,7 @@ import { MdLocationOn } from 'react-icons/md';
 
 import cn from '@utils/cn';
 
-import { getSession } from '@lib/getsession';
+// import { getSession } from '@lib/getsession';
 
 import LikeToggle from './LikeToggle';
 import LoginBtn from './loginbtn';
@@ -23,9 +21,10 @@ interface CardProps {
   parking?: string;
   slug?: string;
   isLocked?: boolean;
+  session?: any;
 }
 
-const ListingCard: React.FC<CardProps> = async ({
+const ListingCard: React.FC<CardProps> = ({
   mls,
   location,
   bedrooms,
@@ -35,33 +34,11 @@ const ListingCard: React.FC<CardProps> = async ({
   parking,
   slug = '/',
   isLocked,
+  session,
 }) => {
-  const session = await getSession();
-
   return (
     <div className="group relative overflow-hidden rounded border border-gray-300  bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
-      {!session && (
-        <>
-          <div
-            className={cn('absolute inset-0 z-[2]', {
-              hidden: !isLocked,
-            })}
-            style={{
-              background: 'rgba(0,0,0,0.5)',
-              backdropFilter: 'blur(5px)',
-            }}
-          />
-          <div
-            className={cn('absolute inset-0 z-[3]', {
-              hidden: !isLocked,
-            })}
-          >
-            <div className="flex size-full items-center justify-center">
-              <LoginBtn />
-            </div>
-          </div>
-        </>
-      )}
+      {!session && <LoginBtn isLocked={isLocked} />}
 
       {session && !session?.user.verified && (
         <>

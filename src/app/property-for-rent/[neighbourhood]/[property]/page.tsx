@@ -20,6 +20,8 @@ import Rooms from '@components/Rooms';
 import MapPinLocation from '@components/MapPinLocation';
 import getSimilarProperties from '@lib/api/getSimilarProperties';
 
+import { getSession } from '@lib/getsession';
+
 import PriceHistory from './_components/PriceHistory';
 import ListingDetails from './_components/ListingDetails';
 import PropertyDetails from './_components/PropertyDetails';
@@ -27,6 +29,8 @@ import PropertyDetails from './_components/PropertyDetails';
 import ListingHighlights from './_components/ListingHighlights';
 import ListingOverview from './_components/ListingOverview';
 import Booking from './_components/Booking';
+import getBedroomString from '@utils/getbedroomString';
+import getSlug from '@utils/getSlug';
 
 interface PageProps {
   params: {
@@ -127,15 +131,8 @@ async function Page({ params }: PageProps) {
     params.property
   );
   const images: string[] = await getImages(property.Ml_num);
-  const getBedroomString = (Br: any, Br_plus: any) => {
-    if (Br === null) {
-      return '0';
-    }
-    if (Br_plus > 0) {
-      return `${Br} + ${Br_plus}`;
-    }
-    return `${Br}`;
-  };
+
+  const session = await getSession();
 
   return (
     <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
@@ -262,18 +259,16 @@ async function Page({ params }: PageProps) {
         {similarProperties &&
           similarProperties.data.map((item: any) => (
             <Card
+              session={session}
               mls={item.Ml_num}
               key={item.id}
               bathrooms={item.Bath_tot ?? 0}
-              bedrooms={getBedroomString(item.Br, item.Br_plus)}
+              bedrooms={getBedroomString(Number(item.Br), Number(item.Br_plus))}
               imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
               location={item.Addr}
               price={Number(item.Lp_dol).toLocaleString() ?? '0'}
               parking={item.Park_spcs ?? '0'}
-              slug={`/property-for-rent/${item.Community.toLowerCase().replaceAll(
-                ' ',
-                '-'
-              )}/${item.Slug}`}
+              slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
               isLocked={item.Is_locked}
             />
           ))}
