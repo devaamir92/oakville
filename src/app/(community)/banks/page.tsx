@@ -1,16 +1,16 @@
-import { promises as fs } from 'fs';
+// import { promises as fs } from 'fs';
 
 // import Map from '@components/Mapbox';
 
-import BankCard from '../_components/BankCard';
-// import MapPinLocation from '@components/MapPinLocation';
+// import BankCard from '../_components/BankCard';
+import MapPinLocation from '@components/MapPinLocation';
 
 const BanksPage = async () => {
-  const file = await fs.readFile(
-    `${process.cwd()}/src/assets/banks/file.json`,
-    'utf8'
-  );
-  const banksData = JSON.parse(file);
+  // const file = await fs.readFile(
+  //   `${process.cwd()}/src/assets/banks/file.json`,
+  //   'utf8'
+  // );
+  // const banksData = JSON.parse(file);
 
   return (
     <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
@@ -24,18 +24,18 @@ const BanksPage = async () => {
             height: 'calc(100vh - 252px)',
           }}
         >
-          {/* <MapPinLocation
+          <MapPinLocation
             data={[
               {
                 Lng: '-79.7976',
                 Lat: '43.4328',
               },
             ]}
-          /> */}
+          />
         </div>
       </section>
 
-      <BankCard id="banks" data={banksData.banks} />
+      {/* <BankCard id="banks" data={banksData.banks} /> */}
     </main>
   );
 };
