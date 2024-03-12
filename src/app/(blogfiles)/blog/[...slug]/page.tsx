@@ -86,7 +86,6 @@ export async function generateMetadata({
     title: blog.metaTitle,
     description: blog.metaDesc,
     keywords: blog.keywords,
-
     openGraph: {
       title: blog.metaTitle,
       description: blog.metaDesc,
