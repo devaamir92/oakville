@@ -33,8 +33,8 @@ const MapPinLocation: React.FC<MapProps> = ({ data }) => {
         style={{ width: '100%', height: '100%' }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         accessToken={MAPBOX_ACCESS_TOKEN}
-        latitude={data ? Number(data[0].Lat) : 43.47151010338547}
-        longitude={data ? Number(data[0].Lng) : -79.74806084049912}
+        latitude={43.65107}
+        longitude={-79.347015}
         zoom={11.9}
         doubleClickZoom
         onViewportChange={() => {}}
