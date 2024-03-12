@@ -1,10 +1,9 @@
 'use client';
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 
 import { FaHome } from 'react-icons/fa';
-
-import dynamic from 'next/dynamic';
 
 import MapGL, { Layer, Source } from '@urbica/react-map-gl';
 
@@ -17,7 +16,7 @@ const Marker = dynamic(() =>
 );
 
 interface MapProps {
-  data: {
+  data?: {
     Lng: string;
     Lat: string;
   }[];
@@ -33,15 +32,15 @@ const MapPinLocation: React.FC<MapProps> = ({ data }) => {
         style={{ width: '100%', height: '100%' }}
         mapStyle="mapbox://styles/mapbox/streets-v9"
         accessToken={MAPBOX_ACCESS_TOKEN}
-        latitude={43.65107}
-        longitude={-79.347015}
+        latitude={data ? Number(data[0].Lat) : 43.4328}
+        longitude={data ? Number(data[0].Lng) : -79.7976}
         zoom={11.9}
         doubleClickZoom
         onViewportChange={() => {}}
         boxZoom
         scrollZoom
       >
-        {/* <Source id="boundaries" type="geojson" data={mapLine} />
+        <Source id="boundaries" type="geojson" data={mapLine} />
         <Layer
           id="boundaries"
           type="line"
@@ -50,21 +49,22 @@ const MapPinLocation: React.FC<MapProps> = ({ data }) => {
             'line-color': '#28777E',
             'line-width': 3,
           }}
-        /> */}
+        />
 
-        {data.map(item => {
-          return (
-            <Marker
-              key={item.Lat}
-              longitude={Number(item.Lng)}
-              latitude={Number(item.Lat)}
-            >
-              <div className="absolute flex items-center justify-center gap-1 rounded-md bg-primary-500 p-2 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary">
-                <FaHome />
-              </div>
-            </Marker>
-          );
-        })}
+        {data &&
+          data.map(item => {
+            return (
+              <Marker
+                key={item.Lat}
+                longitude={Number(item.Lng)}
+                latitude={Number(item.Lat)}
+              >
+                <div className="absolute flex items-center justify-center gap-1 rounded-md bg-primary-500 p-2 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary">
+                  <FaHome />
+                </div>
+              </Marker>
+            );
+          })}
       </MapGL>
     </div>
   );

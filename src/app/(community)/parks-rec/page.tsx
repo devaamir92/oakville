@@ -1,18 +1,10 @@
-import { promises as fs } from 'fs';
-
-// import Map from '@components/Mapbox';
+import data from '@assets/parks/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
 
 import ParksRec from '../_components/BankCard';
 
 const ParksPage = async () => {
-  const file = await fs.readFile(
-    `${process.cwd()}/src/assets/parks/file.json`,
-    'utf8'
-  );
-  const data = JSON.parse(file);
-
   return (
     <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
       <h3 className="text-center text-xl font-medium">
@@ -25,7 +17,7 @@ const ParksPage = async () => {
             height: 'calc(100vh - 252px)',
           }}
         >
-          {/* <MapPinLocation /> */}
+          <MapPinLocation />
         </div>
       </section>
       <ParksRec id="parks" data={data.parks} />
