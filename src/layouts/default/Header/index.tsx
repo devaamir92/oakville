@@ -10,6 +10,7 @@ import CommunitiesList from './communitiesList';
 
 import SignOut from './auth/signOut';
 import LoginButton from './auth/LoginButton';
+import ProfileList from './profileList';
 
 const navLinks = [
   { name: 'Home', link: '/' },
@@ -80,7 +81,7 @@ export default async function Header() {
                 component = !session?.user ? (
                   <LoginButton key={name} />
                 ) : (
-                  <SignOut session={session} key={name} />
+                  <ProfileList key={name} session={session} />
                 );
               } else {
                 component = (

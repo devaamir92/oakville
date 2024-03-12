@@ -8,8 +8,12 @@ import Card from '@components/ListingCard';
 
 import { getSession } from '@lib/auth';
 
+import getFeatureProperty from '@lib/api/getFeatureProperty';
+
 import EditProfile from './_components/editProfile';
 import ResetPassword from './_components/resetPassword';
+import getBedroomString from '@utils/getbedroomString';
+import getSlug from '@utils/getSlug';
 
 const data = [
   {
@@ -52,6 +56,7 @@ const data = [
 
 const Page = async () => {
   const session = await getSession();
+  const rows = await getFeatureProperty();
 
   if (!session) {
     redirect('/');
@@ -90,17 +95,29 @@ const Page = async () => {
       </div>
 
       <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {data.map(item => (
+        {rows?.data?.map((item: any) => (
           <Card
-            key={item.location}
-            bathrooms={item.bathrooms}
-            bedrooms={item.bedrooms}
-            imageUrl={item.imageUrl}
-            location={item.location}
-            price={item.price}
-            parking={item.parking}
+            session={session}
+            mls={item.Ml_num}
+            key={item.id}
+            bathrooms={item.Bath_tot ?? 0}
+            bedrooms={getBedroomString(Number(item.Br), Number(item.Br_plus))}
+            imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
+            location={item.Addr}
+            price={Number(item.Lp_dol).toLocaleString() ?? '0'}
+            parking={item.Park_spcs ?? '0'}
+            slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
+            isLocked={item.Is_locked}
           />
         ))}
+        {rows?.data?.length === 0 && (
+          <div className="col-span-full flex flex-col items-center justify-center">
+            <h1 className="text-2xl font-medium">No Favourites</h1>
+            <p className="text-gray-500">
+              You have not added any favourites yet.
+            </p>
+          </div>
+        )}
       </div>
     </main>
   );

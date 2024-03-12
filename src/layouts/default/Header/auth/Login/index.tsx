@@ -33,6 +33,7 @@ function LoginButton() {
 const Login: React.FC<LoginProps> = ({ switchForm }) => {
   const [state, fromAction] = useFormState(login, null);
   const [fieldErrors, setFieldErrors] = useState<User | undefined>(undefined);
+  const [isRemembered, setIsRemembered] = useState(false);
 
   useEffect(() => {
     setFieldErrors({});
@@ -84,7 +85,12 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
               htmlFor="remember"
               className="flex items-center gap-1 text-sm text-gray-800"
             >
-              <input type="checkbox" id="remember" />
+              <input
+                type="checkbox"
+                id="remember"
+                checked={isRemembered}
+                onChange={e => setIsRemembered(e.target.checked)}
+              />
               Remember me
             </label>
 

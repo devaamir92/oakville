@@ -23,9 +23,7 @@ const SignOut: React.FC<Props> = ({ session }) => {
       onClose();
       const fetchFavourite = async () => {
         const res = await getFavourite();
-        console.log(res);
         const favourite = res.data.map((item: any) => item.property.Ml_num);
-        console.log(favourite);
         setFavourite(favourite);
       };
       fetchFavourite();
@@ -33,7 +31,7 @@ const SignOut: React.FC<Props> = ({ session }) => {
   }, [session, onClose]);
 
   return (
-    <Button type="button" onClick={() => logout()} className="bg-primary-800">
+    <Button type="button" onClick={() => logout()} className="primary-500">
       Logout
     </Button>
   );
