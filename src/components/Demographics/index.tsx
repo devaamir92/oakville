@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs';
+import data from '@assets/demographics/data.json';
 
 import Cultural from './Cultural';
 import HouseHolds from './HouseHolds';
@@ -10,12 +10,6 @@ interface DemographicsProps {
 }
 
 const Demographics = async ({ community }: DemographicsProps) => {
-  const file = await fs.readFile(
-    `${process.cwd()}/src/assets/demographics/data.json`,
-    'utf8'
-  );
-  const data = JSON.parse(file);
-
   if (community === 'Uptown Core') {
     return (
       <div className="flex flex-auto flex-col">

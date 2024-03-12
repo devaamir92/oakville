@@ -81,7 +81,7 @@ const Map: React.FC<MapProps> = ({ data }) => {
         />
 
         <Cluster
-          radius={50}
+          radius={30}
           extend={150}
           // ref={clusterRef}
           nodeSize={36}
