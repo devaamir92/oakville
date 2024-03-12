@@ -52,20 +52,19 @@ const MapPinLocation: React.FC<MapProps> = ({ data }) => {
           }}
         />
 
-        {data &&
-          data.map(item => {
-            return (
-              <Marker
-                key={item.Lat}
-                longitude={Number(item.Lng)}
-                latitude={Number(item.Lat)}
-              >
-                <div className="absolute flex items-center justify-center gap-1 rounded-md bg-primary-500 p-2 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary">
-                  <FaHome />
-                </div>
-              </Marker>
-            );
-          })}
+        {data.map(item => {
+          return (
+            <Marker
+              key={item.Lat}
+              longitude={Number(item.Lng)}
+              latitude={Number(item.Lat)}
+            >
+              <div className="absolute flex items-center justify-center gap-1 rounded-md bg-primary-500 p-2 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary">
+                <FaHome />
+              </div>
+            </Marker>
+          );
+        })}
       </MapGL>
     </div>
   );
