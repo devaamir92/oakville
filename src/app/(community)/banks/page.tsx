@@ -3,7 +3,7 @@ import { promises as fs } from 'fs';
 // import Map from '@components/Mapbox';
 
 import BankCard from '../_components/BankCard';
-import MapPinLocation from '@components/MapPinLocation';
+// import MapPinLocation from '@components/MapPinLocation';
 
 const BanksPage = async () => {
   const file = await fs.readFile(
