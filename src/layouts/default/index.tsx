@@ -1,3 +1,7 @@
+import { Suspense } from 'react';
+
+import Loader from '@components/Loader';
+
 import Header from './Header';
 import Footer from './Footer';
 
@@ -10,7 +14,17 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
     // <div className="relative min-h-screen">
     <>
       <Header />
-      <div className="h-full">{children}</div>
+      <div className="h-full">
+        <Suspense
+          fallback={
+            <div className="flex h-screen items-center justify-center">
+              <Loader />
+            </div>
+          }
+        >
+          {children}
+        </Suspense>
+      </div>
       <Footer />
     </>
     // </div>
