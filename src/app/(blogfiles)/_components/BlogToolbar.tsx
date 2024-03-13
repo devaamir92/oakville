@@ -5,7 +5,13 @@ import DropdownList from './DropdownList';
 import Search from './Search';
 
 const getCategories = async () => {
-  const res = await fetch(`${process.env.API_HOST}/api/v1/categories`);
+  const res = await fetch(`${process.env.API_HOST}/api/v1/categories`, {
+    method: 'GET',
+    next: {
+      tags: ['categories'],
+    },
+    cache: 'no-cache',
+  });
   return res.json();
 };
 const BlogToolbar = async () => {
