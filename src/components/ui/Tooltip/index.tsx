@@ -15,7 +15,11 @@ const TooltipDemo = () => {
           </button>
         </Tooltip.Trigger>
         <Tooltip.Portal>
-          <Tooltip.Content className="TooltipContent" sideOffset={5}>
+          <Tooltip.Content
+            align="center"
+            className="TooltipContent"
+            sideOffset={5}
+          >
             Add to library
             <Tooltip.Arrow className="TooltipArrow" />
           </Tooltip.Content>

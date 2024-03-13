@@ -38,7 +38,6 @@ export async function popupDetail(slug: string) {
     }
   );
   const property = await res.json();
-  console.log(property.data[0]);
 
   return property.data[0];
 }

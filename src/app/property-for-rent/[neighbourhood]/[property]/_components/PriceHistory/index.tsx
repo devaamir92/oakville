@@ -17,7 +17,6 @@ const statusMap = [
 ];
 
 const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
-  console.log(data);
   const historyData = () => {
     if (!data) {
       return [];

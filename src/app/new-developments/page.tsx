@@ -85,6 +85,10 @@ const getNewDevelopment = async (
       headers: {
         'Content-Type': 'application/json',
       },
+      cache: 'no-cache',
+      next: {
+        tags: ['project'],
+      },
     }
   );
   return res.json();
