@@ -23,7 +23,7 @@ interface PropertyProps {
   sort: any;
   title?: string;
   S_r: string;
-  neighborhood: string;
+  neighborhood?: string;
   location: string;
 }
 
@@ -37,7 +37,7 @@ const getProperties = async (
   basement: string | string[],
   sort: string,
   S_r: string,
-  neighborhood: string
+  neighborhood: string = ''
 ) => {
   const queryBuilder = RequestQueryBuilder.create();
 
@@ -74,6 +74,13 @@ const getProperties = async (
       },
     }) ||
     {};
+  const neighborhoodQuery: any =
+    (neighborhood && {
+      Community: {
+        $eqL: neighborhood,
+      },
+    }) ||
+    {};
 
   queryBuilder
     .search({
@@ -82,9 +89,7 @@ const getProperties = async (
           Status: {
             $eq: 'A',
           },
-          Community: {
-            $eqL: neighborhood,
-          },
+
           S_r: {
             $eq: S_r,
           },
@@ -92,6 +97,7 @@ const getProperties = async (
             $gte: min,
             $lte: max,
           },
+          ...neighborhoodQuery,
           ...typeQuery,
           ...bsmtQuery,
           ...search,

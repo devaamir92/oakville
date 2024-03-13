@@ -205,7 +205,6 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
               title="Properties for Sale in Oakville"
               S_r="Sale"
               location="/property-for-sale"
-              neighborhood=""
             />
           </Suspense>
         </section>
