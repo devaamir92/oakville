@@ -1,23 +1,28 @@
-// import React from 'react';
-// import {
-//   Content,
-//   Portal,
-//   Provider,
-//   Root,
-//   Tooltip,
-//   Trigger,
-// } from '@radix-ui/react-tooltip';
-
-// const ToolTipUi = () => {
-//   return <div>ToolTipUi</div>;
-// };
-
-// export default ToolTipUi;
+'use client';
 
 import React from 'react';
+import * as Tooltip from '@radix-ui/react-tooltip';
+import '@styles/Tooltip.css';
+import { FaPlus } from 'react-icons/fa';
 
-function index() {
-  return <div>index</div>;
-}
+const TooltipDemo = () => {
+  return (
+    <Tooltip.Provider>
+      <Tooltip.Root>
+        <Tooltip.Trigger asChild>
+          <button type="button" aria-label="button" className="IconButton">
+            <FaPlus />
+          </button>
+        </Tooltip.Trigger>
+        <Tooltip.Portal>
+          <Tooltip.Content className="TooltipContent" sideOffset={5}>
+            Add to library
+            <Tooltip.Arrow className="TooltipArrow" />
+          </Tooltip.Content>
+        </Tooltip.Portal>
+      </Tooltip.Root>
+    </Tooltip.Provider>
+  );
+};
 
-export default index;
+export default TooltipDemo;

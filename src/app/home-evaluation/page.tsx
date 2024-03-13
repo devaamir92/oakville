@@ -1,8 +1,16 @@
 import Image from 'next/image';
+import type { Metadata } from 'next';
 
 import Link from 'next/link';
 
 import InfoForm from './_components/InfoForm';
+
+export const metadata: Metadata = {
+  title:
+    'Sell Your Home in The Preserve Oakville: Trusted Real Estate Services',
+  description:
+    'Partner with The Preserve Oakville to sell your luxury home. Our expert team specializes in listing properties in this neighborhood- Contact us to get started!',
+};
 
 function page() {
   return (

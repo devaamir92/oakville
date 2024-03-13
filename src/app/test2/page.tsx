@@ -1,18 +1,11 @@
 import React from 'react';
 
-import MapPinLocation from '@components/MapPinLocation';
+import ToolTipUi from '@components/ui/Tooltip';
 
 function page() {
   return (
     <div className="h-96">
-      <MapPinLocation
-        data={[
-          {
-            Lng: '-79.74806084049912',
-            Lat: '43.47151010338547',
-          },
-        ]}
-      />
+      <ToolTipUi />
     </div>
   );
 }

@@ -16,7 +16,7 @@ import { BathroomsParser } from '@utils/parsers/bathrooms-parser';
 
 import inPolygon from '@utils/inPolygon';
 
-import Property from './property';
+import Property from '@components/Properties';
 
 interface PageProps {
   searchParams?: {
@@ -202,6 +202,9 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
               bathrooms={searchParams?.bathrooms}
               basement={searchParams?.basement}
               sort={searchParams?.sort}
+              title="Properties for Rent in Oakville"
+              S_r="Lease"
+              location="/property-for-rent"
             />
           </Suspense>
         </section>

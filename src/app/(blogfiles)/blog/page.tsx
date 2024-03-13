@@ -30,14 +30,19 @@ const getBlogs = async () => {
       select: ['category'],
     });
   const res = await fetch(
-    `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`
+    `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`,
+    {
+      cache: 'no-cache',
+      next: {
+        tags: ['blogs'],
+      },
+    }
   );
   return res.json();
 };
 
 const BlogPage = async () => {
   const blogs = await getBlogs();
-  console.log(blogs);
 
   return (
     <main className="flex h-full flex-col">
