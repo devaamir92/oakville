@@ -1,81 +1,98 @@
-.element h2{
-    display: block;
-    font-size: 1.5em;
-    margin-top: 0.83em;
-    margin-bottom: 0.83em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: 300 !important;
+.element h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 300 !important;
 }
-.element h3{
-    display: block;
-font-size: 1.17em;
-margin-top: 1em;
-margin-bottom: 1em;
-margin-left: 0;
-margin-right: 0;
-font-weight: 300 !important;
+.element h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 300 !important;
 }
-.element h4{
-    display: block;
-    margin-top: 1.33em;
-    margin-bottom: 1.33em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: 300 !important;
+.element h4 {
+  display: block;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 300 !important;
 }
-.element h5{
-    display: block;
-font-size: .83em;
-margin-top: 1.67em;
-margin-bottom: 1.67em;
-margin-left: 0;
-margin-right: 0;
-font-weight: 300 !important;
+.element h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 300 !important;
 }
-.element p{
-    font-size: 1rem ;
-    font-weight: 200 ;
-    display: block;
-margin-top: 1em;
-margin-bottom: 1em;
-margin-left: 0;
-margin-right: 0;
+.element p {
+  font-size: 1rem;
+  font-weight: 200;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
 }
-.element ul{
-    display: block;
-list-style-type: disc;
-margin-top: 1em;
-margin-bottom: 1 em;
-margin-left: 0;
-margin-right: 0;
-padding-left: 40px;
+.element ul {
+  display: block;
+  list-style-type: disc;
+  margin-top: 1em;
+  margin-bottom: 1 em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+.element ol {
+  display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+.element a {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
+.element table {
+  font-size: 14px !important;
+  border-collapse: collapse;
+  width: 100%;
+  font-weight: 300 !important;
 }
-.element ol{
-    display: block;
-list-style-type: decimal;
-margin-top: 1em;
-margin-bottom: 1em;
-margin-left: 0;
-margin-right: 0;
-padding-left: 40px;
+.element table tr:first-child {
+  background-color: #f2f2f2;
+  font-size: 14px !important;
+  font-weight: 400 !important;
 }
-.element a{
-    color: blue;
-text-decoration: underline;
-cursor: pointer;
+.element table td {
+  padding: 8px;
+  border: 1px solid #ddd;
 }
 
-
+.element table th {
+  background-color: #eee;
+  text-align: left;
+  font-weight: bold;
+}
 
 @media (max-width: 768px) {
-    .element figure{
-        width: auto !important;
-        height: 100% !important;
-    }
-    /* .figure {
+  .element figure {
+    width: auto !important;
+    height: 100% !important;
+  }
+  /* .figure {
       max-width: 100%; /* Fill container width */
-    }
-
-  
+}

@@ -19,18 +19,22 @@ import Card from '@components/ListingCard';
 import Rooms from '@components/Rooms';
 import MapPinLocation from '@components/MapPinLocation';
 import getSimilarProperties from '@lib/api/getSimilarProperties';
+import PriceHistory from '@components/PriceHistory';
 
 import { getSession } from '@lib/getsession';
 
-import PriceHistory from './_components/PriceHistory';
+import getBedroomString from '@utils/getbedroomString';
+
+import getSlug from '@utils/getSlug';
+
+import BlurDailog from '@components/BlurDailog';
+
 import ListingDetails from './_components/ListingDetails';
 import PropertyDetails from './_components/PropertyDetails';
 
 import ListingHighlights from './_components/ListingHighlights';
 import ListingOverview from './_components/ListingOverview';
 import Booking from './_components/Booking';
-import getBedroomString from '@utils/getbedroomString';
-import getSlug from '@utils/getSlug';
 
 interface PageProps {
   params: {
@@ -135,7 +139,14 @@ async function Page({ params }: PageProps) {
   const session = await getSession();
 
   return (
-    <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
+    <main className="container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
+      {!session && (
+        <BlurDailog session={session} isLocked={property.Is_locked} />
+      )}
+      {session && property.Is_locked && (
+        <BlurDailog session={session} isLocked={property.Is_locked} />
+      )}
+
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-0">
           <h3 className="text-xl font-medium text-gray-800">
@@ -180,7 +191,7 @@ async function Page({ params }: PageProps) {
         status={property.S_r === 'Sale' ? 'For Sale' : 'For Rent'}
         daysOnMarket={property.Dom}
       />
-
+      {JSON.stringify(property.Is_locked)}
       <div className="flex flex-col gap-3 lg:flex-row-reverse">
         <div className="order-2 flex h-fit flex-col gap-10 rounded md:w-full lg:sticky lg:top-[100px] lg:order-1 lg:w-[360px]">
           <div className="flex flex-col gap-3 bg-secondary-300 px-8 py-4 shadow">
@@ -229,7 +240,13 @@ async function Page({ params }: PageProps) {
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
-          <PriceHistory data={soldHistory.data} />
+          <PriceHistory
+            data={soldHistory.data}
+            location={`/property-for-rent/${property.Community.toLowerCase().replaceAll(
+              ' ',
+              '-'
+            )}`}
+          />
           <ListingHighlights data={property} />
 
           <ListingDetails Ad_text={property.Ad_text} Extras={property.Extras} />

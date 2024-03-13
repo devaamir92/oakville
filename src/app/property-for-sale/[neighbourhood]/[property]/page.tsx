@@ -19,18 +19,19 @@ import Rooms from '@components/Rooms';
 import getSimilarProperties from '@lib/api/getSimilarProperties';
 
 import { getSession } from '@lib/getsession';
-import PriceHistory from './_components/PriceHistory';
-import ListingDetails from './_components/ListingDetails';
-import PropertyDetails from './_components/PropertyDetails';
 
-import ListingHighlights from './_components/ListingHighlights';
-import ListingOverview from './_components/ListingOverview';
-import Booking from './_components/Booking';
+import ListingDetails from '@app/property-for-sale/_components/ListingDetails';
+import PropertyDetails from '@app/property-for-sale/_components/PropertyDetails';
+
+import ListingHighlights from '@app/property-for-sale/_components/ListingHighlights';
+import ListingOverview from '@app/property-for-sale/_components/ListingOverview';
+import Booking from '@app/property-for-sale/_components/Booking';
 import cn from '@utils/cn';
-import Auth from '@layouts/default/Header/auth';
+
 import BlurDailog from '@components/BlurDailog';
 import getBedroomString from '@utils/getbedroomString';
 import getSlug from '@utils/getSlug';
+import PriceHistory from '@components/PriceHistory';
 
 interface PageProps {
   params: {
@@ -134,159 +135,160 @@ async function Page({ params }: PageProps) {
   const session = await getSession();
 
   return (
-    <>
-      {!session && <BlurDailog isVerify={session?.user.verified} />}
-
-      <main
-        className={cn(
-          'container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]'
-        )}
-      >
-        <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-0">
-            <h3 className="text-xl font-medium text-gray-800">
-              {property.Apt_num ? `${property.Apt_num} - ` : ''} {property.Addr}
-            </h3>
-            <span className="text-xs text-gray-600">
-              {property.Municipality}, {property.Community}, {property.Zip}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              className="gap-2 border-red-300 text-red-500"
-              variant="outline"
-            >
-              <BsHeart />
-              <span className="hidden lg:block">Favourite</span>
-            </Button>
-            <Button
-              className="gap-2 border-primary-300 text-primary-500"
-              variant="outline"
-            >
-              <BsUpload />
-              <span className="hidden lg:block">Share</span>
-            </Button>
-          </div>
+    <main
+      className={cn(
+        'container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]'
+      )}
+    >
+      {!session && (
+        <BlurDailog session={session} isLocked={property.Is_locked} />
+      )}
+      {session && property.Is_locked && (
+        <BlurDailog session={session} isLocked={property.Is_locked} />
+      )}
+      <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-0">
+          <h3 className="text-xl font-medium text-gray-800">
+            {property.Apt_num ? `${property.Apt_num} - ` : ''} {property.Addr}
+          </h3>
+          <span className="text-xs text-gray-600">
+            {property.Municipality}, {property.Community}, {property.Zip}
+          </span>
         </div>
+        <div className="flex items-center gap-2">
+          <Button
+            className="gap-2 border-red-300 text-red-500"
+            variant="outline"
+          >
+            <BsHeart />
+            <span className="hidden lg:block">Favourite</span>
+          </Button>
+          <Button
+            className="gap-2 border-primary-300 text-primary-500"
+            variant="outline"
+          >
+            <BsUpload />
+            <span className="hidden lg:block">Share</span>
+          </Button>
+        </div>
+      </div>
 
-        <LightBox
-          Images={images.slice(1)}
-          mls={property.Ml_num}
-          address={`${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
-            property.Addr
-          }`}
-        />
+      <LightBox
+        Images={images.slice(1)}
+        mls={property.Ml_num}
+        address={`${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+          property.Addr
+        }`}
+      />
 
-        <ListingOverview
-          bathrooms={property.Bath_tot}
-          bedrooms={property.Br}
-          parkingSpaces={property.Park_spcs}
-          squareFeet={property.Sqft}
-          price={Number(property.Lp_dol).toLocaleString()}
-          status={property.S_r === 'Sale' ? 'For Sale' : 'For Rent'}
-          daysOnMarket={property.Dom}
-        />
+      <ListingOverview
+        bathrooms={property.Bath_tot}
+        bedrooms={property.Br}
+        parkingSpaces={property.Park_spcs}
+        squareFeet={property.Sqft}
+        price={Number(property.Lp_dol).toLocaleString()}
+        status={property.S_r === 'Sale' ? 'For Sale' : 'For Rent'}
+        daysOnMarket={property.Dom}
+      />
 
-        <div className="flex flex-col gap-3 lg:flex-row-reverse">
-          <div className="order-2 flex h-fit flex-col gap-10 rounded md:w-full lg:sticky lg:top-[100px] lg:order-1 lg:w-[360px]">
-            <div className="flex flex-col gap-3 bg-secondary-300 px-8 py-4 shadow">
-              <h3 className="text-center text-2xl font-medium text-gray-800">
-                The Preserve Oakville
-              </h3>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Link
-                  href="
+      <div className="flex flex-col gap-3 lg:flex-row-reverse">
+        <div className="order-2 flex h-fit flex-col gap-10 rounded md:w-full lg:sticky lg:top-[100px] lg:order-1 lg:w-[360px]">
+          <div className="flex flex-col gap-3 bg-secondary-300 px-8 py-4 shadow">
+            <h3 className="text-center text-2xl font-medium text-gray-800">
+              The Preserve Oakville
+            </h3>
+            <div className="flex flex-col items-center justify-center gap-2">
+              <Link
+                href="
                 tel:416-123-4567"
-                  className="flex items-center gap-2 text-sm  text-gray-800"
-                >
-                  <BsFillTelephoneFill className="inline-block" />
-                  (416) 828 7773
-                </Link>
-                <Link
-                  href="
+                className="flex items-center gap-2 text-sm  text-gray-800"
+              >
+                <BsFillTelephoneFill className="inline-block" />
+                (416) 828 7773
+              </Link>
+              <Link
+                href="
                     mailto:
                     info@bungalowfinder.ca
                     "
-                  className="flex items-center gap-2 text-sm  text-gray-800"
-                >
-                  <BsFillEnvelopeFill className="inline-block" />
-                  info@bungalowfinder.ca
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 p-8 shadow">
-              <p>Ready to go See it?</p>
-              <Booking
-                addr={property.Addr}
-                mls={property.Ml_num}
-                apt={property.Apt_num}
-              />
-            </div>
-
-            <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300  p-8 shadow">
-              <p>Looking to sell your property?</p>
-              <Link
-                href="/home-evaluation"
-                className="flex h-9  w-full items-center justify-center rounded bg-primary-400 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-primary-500"
+                className="flex items-center gap-2 text-sm  text-gray-800"
               >
-                Get Free Evaluation
+                <BsFillEnvelopeFill className="inline-block" />
+                info@bungalowfinder.ca
               </Link>
             </div>
           </div>
-          <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
-            <PriceHistory data={soldHistory.data} />
-            <ListingHighlights data={property} />
 
-            <ListingDetails
-              Ad_text={property.Ad_text}
-              Extras={property.Extras}
+          <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 p-8 shadow">
+            <p>Ready to go See it?</p>
+            <Booking
+              addr={property.Addr}
+              mls={property.Ml_num}
+              apt={property.Apt_num}
             />
-            <PropertyDetails data={property} />
+          </div>
 
-            <Rooms data={property} />
-            {property.Lng && property.Lat && (
-              <div className="h-56 overflow-hidden rounded">
-                <MapPinLocation
-                  data={[
-                    {
-                      Lng: property.Lng,
-                      Lat: property.Lat,
-                    },
-                  ]}
-                />
-              </div>
-            )}
-            <Demographics community={property.Community} />
+          <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300  p-8 shadow">
+            <p>Looking to sell your property?</p>
+            <Link
+              href="/home-evaluation"
+              className="flex h-9  w-full items-center justify-center rounded bg-primary-400 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-primary-500"
+            >
+              Get Free Evaluation
+            </Link>
           </div>
         </div>
-        <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <div className="col-span-1 md:col-span-2 lg:col-span-3">
-            <h4 className="text-2xl font-semibold">Similar Properties</h4>
-          </div>
-          {similarProperties &&
-            similarProperties.data.map((item: any) => (
-              <Card
-                session={session}
-                key={item.id}
-                mls={item.Ml_num}
-                bathrooms={item.Bath_tot ?? 0}
-                bedrooms={getBedroomString(
-                  Number(item.Br),
-                  Number(item.Br_plus)
-                )}
-                imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
-                location={item.Addr}
-                price={Number(item.Lp_dol).toLocaleString() ?? '0'}
-                parking={item.Park_spcs ?? '0'}
-                slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
-                isLocked={item.Is_locked}
+        <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
+          <PriceHistory
+            data={soldHistory.data}
+            location={`/property-for-sale/${property.Community.toLowerCase().replaceAll(
+              ' ',
+              '-'
+            )}`}
+          />
+          <ListingHighlights data={property} />
+
+          <ListingDetails Ad_text={property.Ad_text} Extras={property.Extras} />
+          <PropertyDetails data={property} />
+
+          <Rooms data={property} />
+          {property.Lng && property.Lat && (
+            <div className="h-56 overflow-hidden rounded">
+              <MapPinLocation
+                data={[
+                  {
+                    Lng: property.Lng,
+                    Lat: property.Lat,
+                  },
+                ]}
               />
-            ))}
+            </div>
+          )}
+          <Demographics community={property.Community} />
         </div>
-        {/* <Auth isLogin={!session} /> */}
-      </main>
-    </>
+      </div>
+      <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="col-span-1 md:col-span-2 lg:col-span-3">
+          <h4 className="text-2xl font-semibold">Similar Properties</h4>
+        </div>
+        {similarProperties &&
+          similarProperties.data.map((item: any) => (
+            <Card
+              session={session}
+              key={item.id}
+              mls={item.Ml_num}
+              bathrooms={item.Bath_tot ?? 0}
+              bedrooms={getBedroomString(Number(item.Br), Number(item.Br_plus))}
+              imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
+              location={item.Addr}
+              price={Number(item.Lp_dol).toLocaleString() ?? '0'}
+              parking={item.Park_spcs ?? '0'}
+              slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
+              isLocked={item.Is_locked}
+            />
+          ))}
+      </div>
+    </main>
   );
 }
 

@@ -19,13 +19,34 @@ const popularNeighborhoods = [
     name: 'Properties for sale in Uptown Core',
     href: '/property-for-sale/uptown-core',
   },
+  {
+    name: 'Properties for rent in Iroquois Ridge North',
+    href: '/property-for-rent/iroquois-ridge-north',
+  },
+  {
+    name: 'Properties for rent in Rural Oakville',
+    href: '/property-for-rent/rural-oakville',
+  },
+  {
+    name: 'Properties for rent in Uptown Core',
+    href: '/property-for-rent/uptown-core',
+  },
 ];
 
-const popularSearches = [
-  { name: 'Properties for Sale', href: '/' },
-  { name: 'Properties for Rent', href: '/' },
-  { name: 'Condos Properties', href: '/' },
-  { name: 'Sold Properties', href: '/sold-properties' },
+const communitySearches = [
+  { name: 'Schools in The Preserve Oakville', href: '/schools' },
+  { name: 'Banks in The Preserve Oakville', href: '/banks' },
+  {
+    name: 'Religious Places in The Preserve Oakville',
+    href: '/religious-places',
+  },
+
+  { name: 'Stores in The Preserve Oakville', href: '/stores' },
+  {
+    name: 'Healthcare Facilities in The Preserve Oakville',
+    href: '/healthcare-facilities',
+  },
+  { name: 'Parks & Rec in The Preserve Oakville', href: '/parks-rec' },
 ];
 
 const usefulLinks = [
@@ -85,10 +106,10 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-lg font-normal text-white">Popular Searches</p>
+            <p className="text-lg font-normal text-white">Community Guide</p>
             <hr className="mt-1 border-gray-500" />
             <ul className="mt-4 flex flex-col gap-4 lg:gap-1">
-              {popularSearches.map(search => (
+              {communitySearches.map(search => (
                 <li key={search.name}>
                   <Link href={search.href} className={linkClass}>
                     {search.name}

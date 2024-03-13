@@ -16,7 +16,11 @@ import { Button } from '@components/ui/Button';
 
 import Demographics from '@components/Demographics';
 
-import PriceHistory from './_components/PriceHistory';
+import BlurDailog from '@components/BlurDailog';
+import PriceHistory from '@components/PriceHistory';
+
+import { getSession } from '@lib/getsession';
+
 import ListingDetails from './_components/ListingDetails';
 import PropertyDetails from './_components/PropertyDetails';
 import Rooms from './_components/Rooms';
@@ -100,23 +104,19 @@ const getProperty = async (slug: string) => {
   return { property, soldHistory };
 };
 
-// const getImages = async (mls: string) => {
-//   const res = await fetch(`${process.env.API_HOST}/api/v1/stream/${mls}`, {
-//     method: 'GET',
-//     next: {
-//       tags: [mls],
-//     },
-//     cache: 'no-cache',
-//   });
-//   return res.json();
-// };
-
 async function Page({ params }: PageProps) {
   const { property, soldHistory } = await getProperty(params.property);
-
+  const session: any = await getSession();
   // const images: string[] = await getImages(property.Ml_num);
   return (
-    <main className="container flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
+    <main className="container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
+      {!session && (
+        <BlurDailog session={session} isLocked={property.Is_locked} />
+      )}
+      {session && property.Is_locked && (
+        <BlurDailog session={session} isLocked={property.Is_locked} />
+      )}
+
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-0">
           <h3 className="text-xl font-medium text-gray-800">
@@ -201,7 +201,13 @@ async function Page({ params }: PageProps) {
           </div>
         </div>
         <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
-          <PriceHistory data={soldHistory.data} />
+          <PriceHistory
+            data={soldHistory.data}
+            location={`/sold-properties/${property.Community.toLowerCase().replaceAll(
+              ' ',
+              '-'
+            )}`}
+          />
           <ListingHighlights data={property} />
 
           <ListingDetails Ad_text={property.Ad_text} Extras={property.Extras} />
@@ -211,23 +217,6 @@ async function Page({ params }: PageProps) {
 
           <Demographics community={property.Community} />
         </div>
-      </div>
-      <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <div className="col-span-1 md:col-span-2 lg:col-span-3">
-          <h4 className="text-2xl font-semibold">Similar Properties</h4>
-        </div>
-        {/* 
-        {data.map(item => (
-          <Card
-            key={item.location}
-            bathrooms={item.bathrooms}
-            bedrooms={item.bedrooms}
-            imageUrl={item.imageUrl}
-            location={item.location}
-            price={item.price}
-            parking={item.parking}
-          />
-        ))} */}
       </div>
     </main>
   );

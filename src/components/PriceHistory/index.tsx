@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 interface PriceHistoryProps {
   data: any;
+  location: string;
 }
 
 const statusMap = [
@@ -16,7 +17,7 @@ const statusMap = [
   { label: 'Lsd', text: 'Leased', date: 'Td' },
 ];
 
-const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
+const PriceHistory: React.FC<PriceHistoryProps> = ({ data, location }) => {
   const historyData = () => {
     if (!data) {
       return [];
@@ -32,7 +33,6 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
   };
 
   const history = historyData();
-  console.log(history);
   const dateParser = (inputDate: string) => {
     const [date] = inputDate.split(' ');
     const [year, month, day] = date.split('-');
@@ -109,7 +109,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data }) => {
                   </td>
                   <td className="whitespace-nowrap px-4 py-2.5">
                     <Link
-                      href={`/${item.Slug}`}
+                      href={`${location}/${item.Slug}`}
                       className="text-blue-500 underline"
                     >
                       View Listing

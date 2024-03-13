@@ -10,49 +10,12 @@ import { getSession } from '@lib/auth';
 
 import getFeatureProperty from '@lib/api/getFeatureProperty';
 
-import EditProfile from './_components/editProfile';
-import ResetPassword from './_components/resetPassword';
 import getBedroomString from '@utils/getbedroomString';
+
 import getSlug from '@utils/getSlug';
 
-const data = [
-  {
-    location: 'Oakville Ontario L6H 0V2',
-    bedrooms: '2 Beds',
-    bathrooms: '4 Baths',
-    price: '600,000',
-    imageUrl: '/images/webp/photo1.webp',
-    parking: '0 Parking',
-    propertyType: 'Condo',
-  },
-  {
-    location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3 Beds',
-    bathrooms: '2 Baths',
-    price: '750,000',
-    imageUrl: '/images/webp/photo.webp',
-    parking: '1 Parking',
-    propertyType: 'Townhouse',
-  },
-  {
-    location: 'Oakville Ontario L6K 2H2',
-    bedrooms: '4 Beds',
-    bathrooms: '3 Baths',
-    price: '950,000',
-    imageUrl: '/images/webp/photo2.webp',
-    parking: '2 Parking',
-    propertyType: 'Detached',
-  },
-  {
-    location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2 Beds',
-    bathrooms: '2 Baths',
-    price: '550,000',
-    imageUrl: '/images/webp/photo3.webp',
-    parking: '1 Parking',
-    propertyType: 'Condo',
-  },
-];
+import EditProfile from './_components/editProfile';
+import ResetPassword from './_components/resetPassword';
 
 const Page = async () => {
   const session = await getSession();

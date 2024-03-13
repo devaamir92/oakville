@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+
 import Loader from '@components/Loader';
 import cn from '@utils/cn';
 
@@ -12,6 +13,8 @@ import sortlisting from '@utils/sort';
 
 import { BedroomsParser } from '@utils/parsers/bedrooms-parser';
 import { BathroomsParser } from '@utils/parsers/bathrooms-parser';
+
+import inPolygon from '@utils/inPolygon';
 
 import Property from './property';
 
@@ -131,7 +134,9 @@ const getProperties = async (
       cache: 'no-cache',
     }
   );
-  return res.json();
+  const data = await res.json();
+  const responce = inPolygon(data.data);
+  return responce;
 };
 
 const Page: React.FC<PageProps> = async ({ searchParams }) => {
@@ -164,7 +169,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
                 </div>
               }
             >
-              <Mapbox data={rows.data} />
+              <Mapbox data={rows} />
             </Suspense>
           </section>
         )}

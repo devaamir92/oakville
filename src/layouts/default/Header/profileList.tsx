@@ -1,10 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaUser } from 'react-icons/fa6';
 
 import Dropdown from '@components/ui/Dropdown';
+import { useLayout } from '@context/LayoutContext';
+import { useFavLayout } from '@context/FavContext';
+import { getFavourite } from '@lib/api/addFavourite';
 
 import SignOut from './auth/signOut';
 
@@ -13,6 +16,23 @@ interface ProfileListProps {
 }
 
 function ProfileList({ session }: ProfileListProps) {
+  const { onClose } = useLayout();
+  const { setFavourite } = useFavLayout();
+
+  useEffect(() => {
+    if (session) {
+      onClose();
+      const fetchFavourite = async () => {
+        const res = await getFavourite();
+        const favourite = res.data.map((item: any) => item.property.Ml_num);
+        setFavourite(favourite);
+      };
+      fetchFavourite();
+    } else {
+      setFavourite([]);
+    }
+  }, [session, onClose]);
+
   return (
     <Dropdown
       icon={<FaUser />}
@@ -34,7 +54,7 @@ function ProfileList({ session }: ProfileListProps) {
         >
           Profile
         </Link>
-        <SignOut session={session} />
+        <SignOut />
       </div>
     </Dropdown>
   );
