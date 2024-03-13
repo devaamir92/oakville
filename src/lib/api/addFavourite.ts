@@ -1,5 +1,3 @@
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
-
 import { apiClient } from '@lib/apiclient';
 
 export const addFavourite = async (mls: string) => {
@@ -27,15 +25,8 @@ export const addFavouriteAdmin = async (mls: string) => {
 };
 
 export const getFavourite = async () => {
-  const queryBuilder = RequestQueryBuilder.create();
-
-  queryBuilder.setJoin({
-    field: 'property',
-    select: ['Ml_num'],
-  });
   try {
-    const res = await apiClient.get(`/api/v1/favorite?${queryBuilder.query()}
-    `);
+    const res = await apiClient.get('/api/v1/favorite/mls');
     return res;
   } catch (error: any) {
     return error;

@@ -28,7 +28,7 @@ const data = [
     bathrooms: '4',
     price: '600,000',
     imageUrl: '/images/webp/photo1.webp',
-    parking: '0 Parking',
+    parking: '0',
     propertyType: 'Condo',
   },
   {
@@ -37,7 +37,7 @@ const data = [
     bathrooms: '2',
     price: '750,000',
     imageUrl: '/images/webp/photo.webp',
-    parking: '1 Parking',
+    parking: '1',
     propertyType: 'Townhouse',
   },
   {
@@ -46,7 +46,7 @@ const data = [
     bathrooms: '3',
     price: '950,000',
     imageUrl: '/images/webp/photo2.webp',
-    parking: '2 Parking',
+    parking: '2',
     propertyType: 'Detached',
   },
   {
@@ -55,7 +55,7 @@ const data = [
     bathrooms: '2',
     price: '550,000',
     imageUrl: '/images/webp/photo3.webp',
-    parking: '1 Parking',
+    parking: '1',
     propertyType: 'Condo',
   },
 ];

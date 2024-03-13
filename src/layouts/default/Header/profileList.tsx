@@ -24,7 +24,7 @@ function ProfileList({ session }: ProfileListProps) {
       onClose();
       const fetchFavourite = async () => {
         const res = await getFavourite();
-        const favourite = res.data.map((item: any) => item.property.Ml_num);
+        const favourite = res.data;
         setFavourite(favourite);
       };
       fetchFavourite();
