@@ -9,7 +9,7 @@ import { Item } from '@radix-ui/react-dropdown-menu';
 import Dropdown from '@components/ui/Dropdown';
 import { useLayout } from '@context/LayoutContext';
 import { useFavLayout } from '@context/FavContext';
-import { getFavourite } from '@lib/api/addFavourite';
+import { getFavourite } from '@lib/api/favourite';
 
 import SignOut from './auth/signOut';
 

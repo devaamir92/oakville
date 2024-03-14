@@ -3,7 +3,7 @@
 import React from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
-import { addFavourite, addFavouriteAdmin } from '@lib/api/addFavourite';
+import { addFavourite, addFavouriteAdmin } from '@lib/api/favourite';
 
 import { useLayout } from '@context/LayoutContext';
 import { useFavLayout } from '@context/FavContext';

@@ -1,19 +1,11 @@
 import Link from 'next/link';
 import { BsHouseDoorFill } from 'react-icons/bs';
 
+import { getCategories } from '@lib/api/getCategories';
+
 import DropdownList from './DropdownList';
 import Search from './Search';
 
-const getCategories = async () => {
-  const res = await fetch(`${process.env.API_HOST}/api/v1/categories`, {
-    method: 'GET',
-    next: {
-      tags: ['categories'],
-    },
-    cache: 'no-cache',
-  });
-  return res.json();
-};
 const BlogToolbar = async () => {
   const categories = await getCategories();
 

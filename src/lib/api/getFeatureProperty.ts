@@ -1,6 +1,6 @@
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
-import { getFavourite } from './addFavourite';
+import { getFavourite } from './favourite';
 
 const getFeatureProperty = async (page: number) => {
   const queryBuilder = RequestQueryBuilder.create();
