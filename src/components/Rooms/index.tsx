@@ -89,15 +89,18 @@ const Rooms: React.FC<Props> = ({ data }) => {
                     </div>
                   </td>
                   <td className="flex min-w-96 px-4 py-2">
-                    <ul className="flex gap-2">
-                      {room.Features.map(feature => (
-                        <li
-                          key={feature}
-                          className=" rounded bg-tertiary-400 px-1.5 text-white"
-                        >
-                          {feature}
-                        </li>
-                      ))}
+                    <ul className="flex flex-wrap gap-2">
+                      {room.Features.map(
+                        feature =>
+                          feature !== '' && (
+                            <li
+                              key={feature}
+                              className="text-nowrap rounded bg-tertiary-400 px-1.5 text-white"
+                            >
+                              {feature}
+                            </li>
+                          )
+                      )}
                     </ul>
                   </td>
                 </tr>

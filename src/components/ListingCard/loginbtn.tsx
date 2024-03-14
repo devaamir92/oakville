@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@components/ui/Button';
+import TooltipLogin from '@components/ui/Tooltip';
 
 import { useLayout } from '@context/LayoutContext';
 import cn from '@utils/cn';
@@ -30,10 +31,12 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked }) => {
           hidden: !isLocked,
         })}
       >
-        <div className="flex size-full items-center justify-center">
-          <span className=" flex h-9 items-center justify-center rounded bg-white px-3 py-1.5 text-sm font-medium text-primary-500">
-            Login Required
-          </span>
+        <div className="relative flex size-full items-center justify-center">
+          <TooltipLogin>
+            <span className=" flex h-9 items-center justify-center rounded bg-white px-3 py-1.5 text-sm font-medium text-primary-500">
+              Login Required
+            </span>
+          </TooltipLogin>
         </div>
       </div>
     </button>

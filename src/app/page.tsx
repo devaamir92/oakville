@@ -4,7 +4,6 @@ import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { Desktop, Mobile } from '@components/ua';
 
-import Card from '@components/ListingCard';
 import Hero from '@components/landing/Hero';
 import CTASection from '@components/landing/CTA';
 import JustSold from '@components/landing/JustSold';
@@ -13,7 +12,7 @@ import FeatureListing from '@components/landing/FeatureListing';
 import ListingTypes from '@components/landing/ListingTypes/Index';
 import HeroMobile from '@components/landing/Hero/Mobile';
 import { getSession } from '@lib/getsession';
-import getBedroomString from '@utils/getbedroomString';
+import CommunityCard from '@components/CommunityCard';
 
 export const metadata: Metadata = {
   title: 'The Preserve Oakville | Luxury properties for Sale, Homes in Canada',
@@ -23,40 +22,40 @@ export const metadata: Metadata = {
 
 const data = [
   {
-    location: 'Oakville Ontario L6H 0V2',
-    bedrooms: '2',
-    bathrooms: '4',
-    price: '600,000',
-    imageUrl: '/images/webp/photo1.webp',
-    parking: '0',
-    propertyType: 'Condo',
+    title: 'Schools in The Preserve Oakville',
+    imageUrl: '/images/jpg/community/school.jpg',
+    href: '/schools',
+    alt: 'Schools in The Preserve Oakville',
   },
   {
-    location: 'Oakville Ontario L8N 1E9',
-    bedrooms: '3',
-    bathrooms: '2',
-    price: '750,000',
-    imageUrl: '/images/webp/photo.webp',
-    parking: '1',
-    propertyType: 'Townhouse',
+    title: 'Banks in The Preserve Oakville',
+    imageUrl: '/images/jpg/community/banks.jpg',
+    href: '/banks',
+    alt: 'Banks in The Preserve Oakville',
   },
   {
-    location: 'Oakville Ontario L6K 2H2',
-    bedrooms: '4',
-    bathrooms: '3',
-    price: '950,000',
-    imageUrl: '/images/webp/photo2.webp',
-    parking: '2',
-    propertyType: 'Detached',
+    title: 'Healthcare Facilities in The Preserve Oakville',
+    imageUrl: '/images/jpg/community/hospitals-walk-in-clinics-vets.jpg',
+    href: '/healthcare-facilities',
+    alt: 'Healthcare Facilities in The Preserve Oakville',
   },
   {
-    location: 'Oakville Ontario L6L 2Y4',
-    bedrooms: '2',
-    bathrooms: '2',
-    price: '550,000',
-    imageUrl: '/images/webp/photo3.webp',
-    parking: '1',
-    propertyType: 'Condo',
+    title: 'Parks & Rec in The Preserve Oakville',
+    imageUrl: '/images/jpg/community/parks-&-Rec.jpg',
+    href: '/parks-rec',
+    alt: 'Parks & Rec in The Preserve Oakville',
+  },
+  {
+    title: 'Religious Places in The Preserve Oakville',
+    imageUrl: '/images/jpg/community/religious-places.jpg',
+    href: '/religious-places',
+    alt: '',
+  },
+  {
+    title: 'Stores in The Preserve Oakville',
+    imageUrl: '/images/jpg/community/stores.jpg',
+    href: '/stores',
+    alt: 'Stores in The Preserve Oakville',
   },
 ];
 
@@ -239,15 +238,12 @@ const page = async () => {
           </div>
           <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {data.map((item: any) => (
-              <Card
-                key={item.location}
-                bathrooms={item.bathrooms}
-                bedrooms={getBedroomString(item.bedrooms, item.Br_plus)}
-                imageUrl={item.imageUrl}
-                location={item.location}
-                price={item.price}
-                parking={item.parking}
-                isLocked={item.Is_locked}
+              <CommunityCard
+                key={item.title}
+                title={item.title}
+                image={item.imageUrl}
+                href={item.href}
+                alt={item.alt}
               />
             ))}
           </div>
