@@ -10,6 +10,8 @@ import LightBox from '@components/LightBox';
 
 import Demographics from '@components/Demographics';
 
+import MapPinLocation from '@components/MapPinLocation';
+
 import Summary from '../_components/Summary';
 import Information from '../_components/Information';
 
@@ -121,6 +123,20 @@ const Page = async (searchParams: any) => {
           />
           {/* <Neighbourhood /> */}
           <FloorPlanTable data={rows.floorPlan} />
+          {rows.lat && rows.lng ? (
+            <div className="h-56 overflow-hidden rounded">
+              <MapPinLocation
+                data={[
+                  {
+                    Lng: rows.lng,
+                    Lat: rows.lat,
+                  },
+                ]}
+              />
+            </div>
+          ) : (
+            false
+          )}
           <Demographics community={rows.neighbourhood} />
         </div>
       </div>

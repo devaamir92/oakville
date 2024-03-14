@@ -31,6 +31,7 @@ function InfoForm() {
       address: data.address,
       message: data.message,
     };
+    console.log(payload);
     try {
       const res = await capiClient.post('/api/v1/sell', payload);
       if (res.status === 201) {
@@ -99,6 +100,8 @@ function InfoForm() {
           <input
             placeholder="Full Name"
             type="text"
+            value={data.fullName}
+            onChange={e => setState({ ...data, fullName: e.target.value })}
             className={defultClassName}
             required
           />

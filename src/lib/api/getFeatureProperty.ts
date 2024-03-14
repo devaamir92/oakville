@@ -2,7 +2,7 @@ import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { getFavourite } from './addFavourite';
 
-const getFeatureProperty = async () => {
+const getFeatureProperty = async (page: number) => {
   const queryBuilder = RequestQueryBuilder.create();
   const favourite = await getFavourite();
 
@@ -15,7 +15,7 @@ const getFeatureProperty = async () => {
       },
       {
         Ml_num: {
-          $in: favourite.data.map((item: any) => item.property.Ml_num),
+          $in: favourite.data,
         },
       },
     ],
@@ -39,6 +39,8 @@ const getFeatureProperty = async () => {
     'Lng',
     'S_r',
   ]);
+
+  queryBuilder.setPage(page ?? 1);
 
   const res = await fetch(
     `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,

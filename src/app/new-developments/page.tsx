@@ -153,7 +153,7 @@ const Developments = async (searchParams: any) => {
                     <div className="flex items-center gap-1 text-sm font-normal">
                       <p>Est. Completion: {item.estimatedCompletionDate}</p>
                       <div className="flex h-4 w-[1px] bg-primary-500" />
-                      <p>Starting At: ${Number(item.price).toLocaleString()}</p>
+                      <p>Starting At: ${item.price}</p>
                     </div>
                     <h3 className="text-base font-medium text-primary-500">
                       {item.neighbourhood}

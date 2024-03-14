@@ -83,7 +83,7 @@ const Footer = () => {
               </li>
               <li className="text-white">Broker</li>
               <li className="text-sm text-white">
-                <address>
+                <address className="not-italic">
                   SUTTON Group - SUMMIT Realty Inc, Brokerage 33 Pearl Street,
                   Mississauga, On L5M1X1
                 </address>

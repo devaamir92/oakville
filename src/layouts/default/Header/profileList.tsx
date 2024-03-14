@@ -4,6 +4,8 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { FaUser } from 'react-icons/fa6';
 
+import { Item } from '@radix-ui/react-dropdown-menu';
+
 import Dropdown from '@components/ui/Dropdown';
 import { useLayout } from '@context/LayoutContext';
 import { useFavLayout } from '@context/FavContext';
@@ -28,8 +30,6 @@ function ProfileList({ session }: ProfileListProps) {
         setFavourite(favourite);
       };
       fetchFavourite();
-    } else {
-      setFavourite([]);
     }
   }, [session, onClose]);
 
@@ -48,13 +48,17 @@ function ProfileList({ session }: ProfileListProps) {
             {session.user.email}
           </span>
         </div>
-        <Link
-          className="flex h-9 items-center justify-center text-center transition-colors duration-200 ease-in-out hover:bg-primary-200 "
-          href="/profile"
-        >
-          Profile
-        </Link>
-        <SignOut />
+        <Item asChild>
+          <Link
+            className="flex h-9 items-center justify-center rounded text-center transition-colors duration-200 ease-in-out hover:bg-primary-200 hover:outline-none "
+            href="/profile"
+          >
+            Profile
+          </Link>
+        </Item>
+        <Item asChild>
+          <SignOut />
+        </Item>
       </div>
     </Dropdown>
   );

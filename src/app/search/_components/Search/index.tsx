@@ -5,9 +5,10 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { useDebouncedCallback } from 'use-debounce';
 
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
+// import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { Button } from '@components/ui/Button';
+import { searchProperty } from '@lib/api/searchProperty';
 
 interface SearchProps {
   handleSearchData: (data: any) => void;
@@ -19,65 +20,8 @@ const Search: React.FC<SearchProps> = ({ handleSearchData }) => {
   const { replace } = useRouter();
 
   const getProperties = async (search: string, page: number) => {
-    const queryBuilder = RequestQueryBuilder.create();
-
-    if (search) {
-      queryBuilder.search({
-        $or: [
-          {
-            Addr: {
-              $contL: search,
-            },
-          },
-          {
-            Ml_num: {
-              $contL: search,
-            },
-          },
-          {
-            Community: {
-              $contL: search,
-            },
-          },
-        ],
-      });
-    }
-
-    queryBuilder.select([
-      'Ml_num',
-      'Addr',
-      'Unit_num',
-      'Apt_num',
-      'Lp_dol',
-      'Br',
-      'Bath_tot',
-      'Park_spcs',
-      'Br_plus',
-      'Status',
-      'Is_locked',
-      'Slug',
-      'Dom',
-      'Community',
-      'Lsc',
-      'Sqft',
-    ]);
-
-    queryBuilder.setPage(page ?? 1);
-
-    const res = await fetch(
-      `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
-      {
-        method: 'GET',
-        next: {
-          tags: ['property'],
-        },
-        cache: 'no-cache',
-      }
-    );
-
-    const response = await res.json();
-
-    return response;
+    const res = await searchProperty(search, page);
+    return res;
   };
 
   useEffect(() => {

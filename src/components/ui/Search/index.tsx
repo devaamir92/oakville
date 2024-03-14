@@ -4,13 +4,13 @@ import { FaSearch } from 'react-icons/fa';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 
 import { useOnClickOutside } from 'usehooks-ts';
 
 import getSlug from '@utils/getSlug';
+import { searchProperty } from '@lib/api/searchProperty';
 
 const SearchComponent: React.FC = () => {
   const searchParams = useSearchParams();
@@ -25,59 +25,9 @@ const SearchComponent: React.FC = () => {
   const [searchText, setSearchText] = useState('');
 
   const getProperties = async (search: string) => {
-    const queryBuilder = RequestQueryBuilder.create();
-
-    if (search) {
-      queryBuilder
-        .search({
-          $or: [
-            {
-              Addr: {
-                $contL: search,
-              },
-            },
-            {
-              Ml_num: {
-                $contL: search,
-              },
-            },
-            {
-              Community: {
-                $contL: search,
-              },
-            },
-          ],
-        })
-        .setLimit(6);
-    }
-
-    queryBuilder.select([
-      'Ml_num',
-      'Addr',
-      'Unit_num',
-      'Apt_num',
-      'S_r',
-      'Slug',
-      'Community',
-      'Status',
-    ]);
-
-    const res = await fetch(
-      `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
-      {
-        method: 'GET',
-        next: {
-          tags: ['property'],
-        },
-        cache: 'no-cache',
-      }
-    );
-
-    const response = await res.json();
-
-    return response;
+    const res = await searchProperty(search, 1);
+    return res;
   };
-
   const handleSearchRoute = () => {
     const search = searchParams.get('tag') || searchText;
     if (search) {

@@ -253,7 +253,7 @@ async function Page({ params }: PageProps) {
           <PropertyDetails data={property} />
 
           <Rooms data={property} />
-          {property.Lng && property.Lat && (
+          {property.Lng && property.Lat ? (
             <div className="h-56 overflow-hidden rounded">
               <MapPinLocation
                 data={[
@@ -264,6 +264,8 @@ async function Page({ params }: PageProps) {
                 ]}
               />
             </div>
+          ) : (
+            false
           )}
 
           <Demographics community={property.Community} />
