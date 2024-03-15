@@ -17,6 +17,7 @@ import moment from 'moment';
 
 import { Button } from '@components/ui/Button';
 import CategoryFilter from '@app/(blogfiles)/_components/CategoryFilter';
+import { Share } from '@components/Share';
 
 const getSingleBlog = async (slug: string) => {
   const queryBuilder = RequestQueryBuilder.create();
@@ -141,34 +142,10 @@ const Page = async (searchParams: any) => {
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-sm font-medium">Share On:</span>
-              <Button
-                type="button"
-                aria-label="Facebook"
-                className="flex size-7 items-center justify-center bg-blue-500 p-0"
-              >
-                <FaFacebookF size={18} />
-              </Button>
-              <Button
-                type="button"
-                aria-label="Twitter"
-                className="flex size-7 items-center justify-center bg-black p-0"
-              >
-                <FaXTwitter size={18} />
-              </Button>
-              <Button
-                type="button"
-                aria-label="Pinterest"
-                className="flex size-7 items-center justify-center bg-red-500 p-0"
-              >
-                <FaPinterest size={18} />
-              </Button>
-              <Button
-                type="button"
-                aria-label="LinkedIn"
-                className="flex size-7 items-center justify-center bg-blue-600 p-0"
-              >
-                <FaLinkedinIn size={18} />
-              </Button>
+              <Share
+                image={`https://api.preserveoakville.ca/${blog.image.images.original.url}`}
+                title={blog.title}
+              />
             </div>
           </div>
           <div className="relative h-[450px]">

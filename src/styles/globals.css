@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './element.css';
+@import './dialog.css';
 
 h1,
 h2,

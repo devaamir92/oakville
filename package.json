@@ -37,6 +37,7 @@
     "react-icons": "^4.12.0",
     "react-lottie": "^1.2.4",
     "react-phone-number-input": "^3.3.9",
+    "react-share": "^5.1.0",
     "recharts": "^2.11.0",
     "tailwind-merge": "^2.2.1",
     "tailwind-tints": "^1.1.1",

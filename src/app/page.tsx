@@ -12,7 +12,7 @@ import FeatureListing from '@components/landing/FeatureListing';
 import ListingTypes from '@components/landing/ListingTypes/Index';
 import HeroMobile from '@components/landing/Hero/Mobile';
 import { getSession } from '@lib/getsession';
-import CommunityCard from '@components/CommunityCard';
+import Community from '@components/Community';
 
 export const metadata: Metadata = {
   title: 'The Preserve Oakville | Luxury properties for Sale, Homes in Canada',
@@ -181,6 +181,7 @@ const getFeaturedProperties = async () => {
       'Dom',
       'Community',
       'S_r',
+      'Is_locked',
     ],
   });
 
@@ -236,16 +237,8 @@ const page = async () => {
               Oakville.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {data.map((item: any) => (
-              <CommunityCard
-                key={item.title}
-                title={item.title}
-                image={item.imageUrl}
-                href={item.href}
-                alt={item.alt}
-              />
-            ))}
+          <div className="flex-1">
+            <Community data={data} />
           </div>
         </div>
       </section>

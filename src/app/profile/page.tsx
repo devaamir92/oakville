@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React, { Suspense } from 'react';
 import { redirect } from 'next/navigation';
 
-import { BsEnvelopeFill, BsTelephoneFill } from 'react-icons/bs';
+import { BsEnvelopeFill } from 'react-icons/bs';
 
 import { getSession } from '@lib/auth';
 
@@ -11,6 +11,8 @@ import Loader from '@components/Loader';
 import EditProfile from './_components/editProfile';
 import ResetPassword from './_components/resetPassword';
 import Favourites from './_components/Favourites';
+import ToolbarTab from './_components/toolbarTab';
+import SavedSearches from './_components/savedSearch';
 
 const Page = async ({ searchParams }: any) => {
   const session = await getSession();
@@ -19,10 +21,10 @@ const Page = async ({ searchParams }: any) => {
   }
 
   return (
-    <main className="container flex flex-col gap-6 py-10">
+    <main className="container flex flex-col gap-4 py-10">
       <section className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className="relative aspect-square size-32">
+          <div className="relative aspect-square size-24">
             <Image
               src={session.user?.image || '/images/webp/user.webp'}
               alt="Profile"
@@ -31,12 +33,11 @@ const Page = async ({ searchParams }: any) => {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <h1 className="text-2xl font-medium">{session.user?.name}</h1>
-            <p className="flex items-center gap-1 text-gray-500">
+            <h1 className="text-xl font-medium capitalize">
+              {session.user?.name}
+            </h1>
+            <p className="flex items-center gap-1 text-sm text-gray-500">
               <BsEnvelopeFill /> {session.user?.email}
-            </p>
-            <p className="flex items-center gap-1 text-gray-500">
-              <BsTelephoneFill /> {session.user?.phone || 'Not Provided'}
             </p>
           </div>
         </div>
@@ -45,24 +46,29 @@ const Page = async ({ searchParams }: any) => {
           <ResetPassword session={session} />
         </div>
       </section>
-      <div className="flex flex-1 flex-col gap-2">
-        <h2 className="text-lg ">Favourites</h2>
-        <hr />
-      </div>
 
-      <Suspense
-        key={searchParams?.page ?? '1'}
-        fallback={
-          <div className="flex h-[calc(100vh-360px)] items-center justify-center">
-            <Loader />
-          </div>
-        }
-      >
-        <Favourites
-          page={Number(searchParams?.page ?? 1)}
-          location="/profile"
-        />
-      </Suspense>
+      <ToolbarTab param={searchParams.tab} />
+      <hr />
+      {searchParams.tab === 'fav' && searchParams.tab !== undefined && (
+        <Suspense
+          key={searchParams?.page ?? '1'}
+          fallback={
+            <div className="flex h-[calc(100vh-360px)] items-center justify-center">
+              <Loader />
+            </div>
+          }
+        >
+          <Favourites
+            page={Number(searchParams?.page ?? 1)}
+            location="/profile"
+          />
+        </Suspense>
+      )}
+      {searchParams.tab === 'srch' && (
+        <div className="flex">
+          <SavedSearches />
+        </div>
+      )}
     </main>
   );
 };

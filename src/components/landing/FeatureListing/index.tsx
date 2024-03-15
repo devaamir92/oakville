@@ -41,6 +41,7 @@ const FeatureListing: React.FC<FeatureListingProps> = async ({
                 item.property.Community,
                 item.property.Slug
               )}
+              isLocked={item.property.Is_locked}
             />
           ))}
         </div>
