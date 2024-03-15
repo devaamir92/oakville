@@ -1,6 +1,7 @@
 'use client';
 
 import TooltipLogin from '@components/ui/Tooltip';
+import { useLayout } from '@context/LayoutContext';
 
 import cn from '@utils/cn';
 
@@ -9,10 +10,13 @@ interface VerBtnProps {
 }
 
 const VerBtn: React.FC<VerBtnProps> = ({ isLocked }) => {
+  const { setVerify } = useLayout();
+
   return (
     <button
       type="button"
-      aria-label="login required"
+      aria-label="Verify required"
+      onClick={() => setVerify(true)}
       className={cn('absolute inset-0 z-[2] bg-red-500', {
         hidden: !isLocked,
       })}

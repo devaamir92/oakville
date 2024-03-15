@@ -4,15 +4,18 @@ import React from 'react';
 
 import { Button } from '@components/ui/Button';
 import Modal from '@components/ui/Modal';
+import { useLayout } from '@context/LayoutContext';
 
 function Verification() {
+  const { verify, setVerify } = useLayout();
   const handleValidation = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log('Verification Required');
   };
-
   return (
     <Modal
+      show={verify}
+      OnClose={() => setVerify(false)}
       title="Verification Required"
       className="h-9 rounded bg-white px-2 text-base font-medium text-primary-500 transition-all duration-200 ease-in-out hover:bg-primary-100"
     >

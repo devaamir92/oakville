@@ -34,7 +34,7 @@ const data = [
     alt: 'Banks in The Preserve Oakville',
   },
   {
-    title: 'Healthcare Facilities in The Preserve Oakville',
+    title: 'Healthcare in The Preserve, Oakville.',
     imageUrl: '/images/jpg/community/hospitals-walk-in-clinics-vets.jpg',
     href: '/healthcare-facilities',
     alt: 'Healthcare Facilities in The Preserve Oakville',

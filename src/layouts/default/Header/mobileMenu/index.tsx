@@ -12,6 +12,8 @@ import {
   Trigger,
 } from '@radix-ui/react-dropdown-menu';
 
+import Verification from '@components/ListingCard/Verification';
+
 import Auth from '../auth';
 
 import CollapsItems from './Collaps';
@@ -28,6 +30,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks, listData }) => {
   return (
     <div className="flex items-center gap-2 lg:hidden">
       <Auth />
+      <Verification />
       <DropdownMenu>
         <Root
           open={isOpen}
