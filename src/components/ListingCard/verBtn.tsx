@@ -2,19 +2,15 @@
 
 import TooltipLogin from '@components/ui/Tooltip';
 
-import { useLayout } from '@context/LayoutContext';
 import cn from '@utils/cn';
 
-interface LoginBtnProps {
+interface VerBtnProps {
   isLocked: any;
 }
 
-const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked }) => {
-  const { setLogin } = useLayout();
-
+const VerBtn: React.FC<VerBtnProps> = ({ isLocked }) => {
   return (
     <button
-      onClick={() => setLogin(true)}
       type="button"
       aria-label="login required"
       className={cn('absolute inset-0 z-[2] bg-red-500', {
@@ -31,12 +27,9 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked }) => {
         })}
       >
         <div className="relative flex size-full items-center justify-center">
-          <TooltipLogin
-            title='Real estate boards require you to create an account to view MLS
-                "VOW" ( Virtual Office Website) listings.'
-          >
+          <TooltipLogin title="Real estate boards require you to be signed in to access sold prices history.">
             <span className=" flex h-9 items-center justify-center rounded bg-white px-3 py-1.5 text-sm font-medium text-primary-500">
-              Login Required
+              Verification Required
             </span>
           </TooltipLogin>
         </div>
@@ -45,4 +38,4 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked }) => {
   );
 };
 
-export default LoginBtn;
+export default VerBtn;

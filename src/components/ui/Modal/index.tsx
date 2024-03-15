@@ -16,7 +16,7 @@ import cn from '@utils/cn';
 
 interface ModalProps {
   children: React.ReactNode;
-  title: string;
+  title?: string;
   className?: string;
   size?: 'sm' | 'md' | 'lg';
   icon?: React.ReactNode;

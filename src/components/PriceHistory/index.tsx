@@ -23,6 +23,13 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data, location }) => {
       return [];
     }
 
+    function filterNullLSC(data) {
+      return data.filter(item => item.Lsc === null);
+    }
+    if (filterNullLSC(data).length > 0) {
+      return [];
+    }
+
     const historyMap: any[] = data.map((item: any) => {
       const object2 = statusMap.find((obj2: any) => obj2.label === item.Lsc);
 
@@ -31,7 +38,6 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data, location }) => {
 
     return historyMap;
   };
-
   const history = historyData();
   const dateParser = (inputDate: string) => {
     const [date] = inputDate.split(' ');
@@ -87,7 +93,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data, location }) => {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
-            {data.length !== 0 ? (
+            {history.length !== 0 ? (
               data.map((item: any, index: number) => (
                 <tr key={history[index].text}>
                   <td className="whitespace-nowrap px-4 py-2.5">

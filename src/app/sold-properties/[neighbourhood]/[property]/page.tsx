@@ -185,17 +185,17 @@ async function Page({ params }: PageProps) {
                 className="flex items-center gap-2 text-sm  text-gray-800"
               >
                 <BsFillTelephoneFill className="inline-block" />
-                (416) 828 7773
+                416-837-2000
               </Link>
               <Link
                 href="
                     mailto:
-                    info@bungalowfinder.ca
+                  info@preserveoakville.ca
                     "
                 className="flex items-center gap-2 text-sm  text-gray-800"
               >
                 <BsFillEnvelopeFill className="inline-block" />
-                info@bungalowfinder.ca
+                info@preserveoakville.ca
               </Link>
             </div>
           </div>

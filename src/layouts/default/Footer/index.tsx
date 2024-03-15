@@ -84,8 +84,8 @@ const Footer = () => {
               <li className="text-white">Broker</li>
               <li className="text-sm text-white">
                 <address className="not-italic">
-                  SUTTON Group - SUMMIT Realty Inc, Brokerage 33 Pearl Street,
-                  Mississauga, On L5M1X1
+                  SUTTON Group - SUMMIT Realty Inc, Brokerage
+                  <br /> 33 Pearl Street, Mississauga, On L5M1X1
                 </address>
               </li>
               <li>

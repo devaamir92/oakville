@@ -7,11 +7,12 @@ import { BsExclamationCircle } from 'react-icons/bs';
 
 interface Props {
   children: React.ReactNode;
+  title?: string;
 }
 
-const TooltipLogin = ({ children }: Props) => {
+const TooltipLogin = ({ children, title }: Props) => {
   return (
-    <Tooltip.Provider>
+    <Tooltip.Provider delayDuration={0}>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
         <Tooltip.Portal>
@@ -25,8 +26,7 @@ const TooltipLogin = ({ children }: Props) => {
                 <BsExclamationCircle size={24} className="text-primary-400" />
               </div>
               <p className="w-full text-wrap text-justify text-xs text-gray-600">
-                Real estate boards require you to create an account to view MLS
-                &quot;VOW&quot; ( Virtual Office Website) listings.
+                {title}
               </p>
             </div>
             <Tooltip.Arrow className="TooltipArrow " />
