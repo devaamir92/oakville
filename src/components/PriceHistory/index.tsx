@@ -23,8 +23,8 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data, location }) => {
       return [];
     }
 
-    function filterNullLSC(data) {
-      return data.filter(item => item.Lsc === null);
+    function filterNullLSC(prop: any) {
+      return prop.filter((item: any) => item.Lsc === null);
     }
     if (filterNullLSC(data).length > 0) {
       return [];
