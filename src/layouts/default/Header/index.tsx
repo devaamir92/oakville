@@ -8,13 +8,12 @@ import { getSession } from '@lib/getsession';
 import MobileMenu from './mobileMenu';
 import CommunitiesList from './communitiesList';
 
-import SignOut from './auth/signOut';
 import LoginButton from './auth/LoginButton';
 import ProfileList from './profileList';
 
 const navLinks = [
   { name: 'Home', link: '/' },
-  { name: 'Buy', link: '/property-for-sale' },
+  { name: 'Buy', link: '/property-for-sale?page=1&view=map&type=.D.' },
   { name: 'Sell', link: '/home-evaluation' },
   { name: 'Rent', link: '/property-for-rent' },
   { name: 'Sold', link: '/sold-properties' },

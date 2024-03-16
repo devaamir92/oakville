@@ -6,9 +6,10 @@ import { FaChevronDown, FaRepeat } from 'react-icons/fa6';
 import { usePathname, useRouter } from 'next/navigation';
 
 import Dropdown from '@components/ui/Dropdown';
-import Types from '@components/Toolbar/Types';
 
 import { Button } from '@components/ui/Button';
+
+import Types from './Types';
 
 import Search from './Search';
 

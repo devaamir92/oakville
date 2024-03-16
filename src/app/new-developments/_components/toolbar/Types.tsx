@@ -28,12 +28,10 @@ const CheckboxItem = ({
       <label
         htmlFor={item.label}
         className={cn(
-          'flex cursor-pointer rounded px-3 py-1.5 text-sm text-white  transition-colors ease-in-out',
+          'flex cursor-pointer rounded px-3 py-1.5 text-sm outline outline-1 outline-primary-500 transition-colors duration-200 ease-in-out',
           {
-            ' hover:text-secondary-600 hover:outline hover:outline-1':
-              !isChecked,
-            'text-secondary-600 outline outline-1  outline-secondary-600':
-              isChecked,
+            'hover:bg-primary-200': !isChecked,
+            'bg-primary-500 text-white': isChecked,
           }
         )}
       >
@@ -67,13 +65,6 @@ const Types: React.FC<Props> = ({ items, name = 'type' }) => {
   const handleSetParms = (id: any) => {
     const params = new URLSearchParams(searchParams.toString());
 
-    if (id === 0) {
-      params.delete(name);
-      replace(`${pathname}?${params.toString()}`);
-      setCheckedItems([]);
-      return;
-    }
-
     const selectedType = items.find(type => type.id === id);
 
     if (selectedType) {
@@ -86,12 +77,7 @@ const Types: React.FC<Props> = ({ items, name = 'type' }) => {
 
   const handleRemoveParms = (id: any) => {
     const params = new URLSearchParams(searchParams.toString());
-    if (id === 0) {
-      params.delete(name);
-      replace(`${pathname}?${params.toString()}`);
-      setCheckedItems([]);
-      return;
-    }
+
     const selectedType = items.find(type => type.id === id);
 
     if (selectedType) {
@@ -114,7 +100,7 @@ const Types: React.FC<Props> = ({ items, name = 'type' }) => {
   };
 
   return (
-    <ul className="flex gap-3">
+    <ul className="flex flex-col gap-3">
       {items.map(item => (
         <CheckboxItem
           key={item.id}

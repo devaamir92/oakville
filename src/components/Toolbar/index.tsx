@@ -110,6 +110,11 @@ const FiltersData = {
 
 const TypeData = [
   {
+    label: 'All',
+    value: '',
+    id: 0,
+  },
+  {
     label: 'Condo Apt',
     value: '.C.',
     id: 1,
@@ -146,13 +151,11 @@ function Toolbar() {
 
   return (
     <div className="sticky top-[113px] z-20 flex h-12 items-center justify-end bg-tertiary-500 px-4 lg:top-[70px]">
-      <nav className="container flex items-center overflow-x-auto md:justify-end">
+      <nav className="flex min-w-full flex-wrap items-center justify-between">
+        <nav className="flex items-center gap-0">
+          <Types items={TypeData} />
+        </nav>
         <ul className="flex min-w-[500px] items-center justify-center gap-4 text-sm xl:gap-9 2xl:gap-6">
-          <li>
-            <Dropdown label="Type" icon={<FaChevronDown size={10} />}>
-              <Types items={TypeData} />
-            </Dropdown>
-          </li>
           <li>
             <Dropdown label="Price" icon={<FaChevronDown size={10} />}>
               <Price />
