@@ -18,6 +18,7 @@ interface CardProps {
   slug: string;
   isLocked?: boolean;
   session?: any;
+  status?: string;
 }
 
 const ListingCard: React.FC<CardProps> = ({
@@ -31,12 +32,15 @@ const ListingCard: React.FC<CardProps> = ({
   slug,
   isLocked,
   session,
+  status,
 }) => {
   return (
     <div className="group relative overflow-hidden rounded border border-gray-300  bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
-      {!session && <LoginBtn isLocked={isLocked} />}
+      {!session && <LoginBtn status={status} isLocked={isLocked} />}
 
-      {session && !session?.user.verified && <VerBtn isLocked={isLocked} />}
+      {session && !session?.user.verified && (
+        <VerBtn status={status} isLocked={isLocked} />
+      )}
       <Link href={slug} className=" flex flex-col overflow-hidden ">
         <div className="relative h-60">
           <Image

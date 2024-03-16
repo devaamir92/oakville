@@ -81,7 +81,6 @@ const SoldProperty: React.FC<PropertyProps> = async ({
   location,
 }) => {
   const rows = await getProperties(page, days);
-
   const session = await getSession();
 
   return (
@@ -100,6 +99,7 @@ const SoldProperty: React.FC<PropertyProps> = async ({
             parking={item.Park_spcs ?? '0'}
             slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
             isLocked
+            status={item.Status}
           />
         ))}
         {!rows?.data?.length && (

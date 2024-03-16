@@ -37,6 +37,7 @@ const JustSold: React.FC<JustSoldProps> = ({ rows, session }) => {
               parking={item.Park_spcs ?? '0'}
               slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
               isLocked
+              status={item.Status}
             />
           ))}
         </div>

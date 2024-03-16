@@ -7,9 +7,10 @@ import cn from '@utils/cn';
 
 interface VerBtnProps {
   isLocked: any;
+  status?: string;
 }
 
-const VerBtn: React.FC<VerBtnProps> = ({ isLocked }) => {
+const VerBtn: React.FC<VerBtnProps> = ({ isLocked, status }) => {
   const { setVerify } = useLayout();
 
   return (
@@ -31,7 +32,13 @@ const VerBtn: React.FC<VerBtnProps> = ({ isLocked }) => {
         })}
       >
         <div className="relative flex size-full items-center justify-center">
-          <TooltipLogin title="Real estate boards require you to be signed in to access this property.">
+          <TooltipLogin
+            title={
+              status === 'U'
+                ? 'Real estate boards require you to create an account to view sold listing.'
+                : 'Real estate boards require you to be signed in to access this property.'
+            }
+          >
             <span className=" flex h-9 items-center justify-center rounded bg-white px-3 py-1.5 text-sm font-medium text-primary-500">
               Verification Required
             </span>
