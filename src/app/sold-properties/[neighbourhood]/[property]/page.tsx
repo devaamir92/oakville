@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import {
   BsFillEnvelopeFill,
@@ -7,25 +8,20 @@ import {
   BsHeart,
   BsUpload,
 } from 'react-icons/bs';
-
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
-
-import Image from 'next/image';
-
-import { Button } from '@components/ui/Button';
-
-import Demographics from '@components/Demographics';
-
-import BlurDailog from '@components/BlurDailog';
-import PriceHistory from '@components/PriceHistory';
 
 import { getSession } from '@lib/getsession';
 
-import ListingDetails from './_components/ListingDetails';
-import PropertyDetails from './_components/PropertyDetails';
-import Rooms from './_components/Rooms';
-import ListingHighlights from './_components/ListingHighlights';
-import ListingOverview from './_components/ListingOverview';
+import Rooms from '@components/Rooms';
+import { Button } from '@components/ui/Button';
+import BlurDailog from '@components/BlurDailog';
+import Demographics from '@components/Demographics';
+import PriceHistory from '@components/PriceHistory';
+import ListingDetails from '@components/ListingDetails';
+import PropertyDetails from '@components/PropertyDetails';
+import ListingOverview from '@components/ListingOverview';
+import ListingHighlights from '@components/ListingHighlights';
+import statusMapper from '@utils/statusMaper';
 
 interface PageProps {
   params: {
@@ -159,17 +155,10 @@ async function Page({ params }: PageProps) {
         parkingSpaces={property.Park_spcs}
         squareFeet={property.Sqft}
         price={Number(property.Lp_dol)}
-        status={(() => {
-          if (property.S_r === 'Sale' && property.Lsc !== 'Sld') {
-            return 'For Sale';
-          }
-          if (property.Lsc === 'Sld') {
-            return 'Sold';
-          }
-          return 'For Rent';
-        })()}
+        status={statusMapper(property.Lsc)}
         daysOnMarket={property.Dom}
         soldPrice={Number(property.Sp_dol)}
+        statusFlag={property.Status}
       />
 
       <div className="flex flex-col gap-3 lg:flex-row-reverse">
@@ -207,6 +196,7 @@ async function Page({ params }: PageProps) {
               ' ',
               '-'
             )}`}
+            session={session}
           />
           <ListingHighlights data={property} />
 

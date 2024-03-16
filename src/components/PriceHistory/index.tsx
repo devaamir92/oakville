@@ -1,8 +1,11 @@
 import Link from 'next/link';
 
+import VerBtn from '@components/ListingCard/verBtn';
+
 interface PriceHistoryProps {
   data: any;
   location: string;
+  session?: any;
 }
 
 const statusMap = [
@@ -17,7 +20,11 @@ const statusMap = [
   { label: 'Lsd', text: 'Leased', date: 'Td' },
 ];
 
-const PriceHistory: React.FC<PriceHistoryProps> = ({ data, location }) => {
+const PriceHistory: React.FC<PriceHistoryProps> = ({
+  data,
+  location,
+  session,
+}) => {
   const historyData = () => {
     if (!data) {
       return [];
@@ -55,7 +62,10 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({ data, location }) => {
           The property price history is available only to registered users.
         </p>
       </div>
-      <div className="overflow-hidden overflow-x-auto rounded border">
+      <div className="relative overflow-hidden overflow-x-auto rounded border">
+        {history.length !== 0 && !session?.user.verified ? (
+          <VerBtn isLocked />
+        ) : null}
         <table className="min-w-full">
           <thead className="border-b bg-gray-50">
             <tr>

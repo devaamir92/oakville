@@ -109,14 +109,15 @@ const Rooms: React.FC<Props> = ({ data }) => {
           </table>
         )}
       </div>
-
-      <Button
-        className="w-fit p-0 text-blue-500 hover:no-underline"
-        variant="link"
-        onClick={() => setShowMore(!showMore)}
-      >
-        {showMore ? 'Show less' : 'Show all'}
-      </Button>
+      {TableData.length !== 0 && (
+        <Button
+          className="w-fit p-0 text-blue-500 hover:no-underline"
+          variant="link"
+          onClick={() => setShowMore(!showMore)}
+        >
+          {showMore ? 'Show less' : 'Show all'}
+        </Button>
+      )}
       <div className="flex items-center justify-between text-sm">
         <span>Broker: {data.Rltr}</span>
         <span>MLS®#: {data.Ml_num}</span>

@@ -17,7 +17,7 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked }) => {
       onClick={() => setLogin(true)}
       type="button"
       aria-label="login required"
-      className={cn('absolute inset-0 z-[2] bg-red-500', {
+      className={cn('absolute inset-0 z-[2] w-full', {
         hidden: !isLocked,
       })}
       style={{

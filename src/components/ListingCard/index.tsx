@@ -15,7 +15,7 @@ interface CardProps {
   price: string;
   imageUrl: string;
   parking?: string;
-  slug?: string;
+  slug: string;
   isLocked?: boolean;
   session?: any;
 }
@@ -28,7 +28,7 @@ const ListingCard: React.FC<CardProps> = ({
   price,
   imageUrl,
   parking,
-  slug = '/',
+  slug,
   isLocked,
   session,
 }) => {

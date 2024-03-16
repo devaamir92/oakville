@@ -7,34 +7,27 @@ import {
   BsHeart,
   BsUpload,
 } from 'react-icons/bs';
-
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
-// import Card from '@components/ListingCard';
 import { Button } from '@components/ui/Button';
 
-import LightBox from '@components/LightBox';
-import Demographics from '@components/Demographics';
-import Card from '@components/ListingCard';
-import Rooms from '@components/Rooms';
-import MapPinLocation from '@components/MapPinLocation';
-import getSimilarProperties from '@lib/api/getSimilarProperties';
-import PriceHistory from '@components/PriceHistory';
-
+import getSlug from '@utils/getSlug';
 import { getSession } from '@lib/getsession';
 
-import getBedroomString from '@utils/getbedroomString';
-
-import getSlug from '@utils/getSlug';
-
+import Rooms from '@components/Rooms';
+import Booking from '@components/Booking';
+import Card from '@components/ListingCard';
+import LightBox from '@components/LightBox';
 import BlurDailog from '@components/BlurDailog';
-
-import ListingDetails from './_components/ListingDetails';
-import PropertyDetails from './_components/PropertyDetails';
-
-import ListingHighlights from './_components/ListingHighlights';
-import ListingOverview from './_components/ListingOverview';
-import Booking from './_components/Booking';
+import PriceHistory from '@components/PriceHistory';
+import Demographics from '@components/Demographics';
+import getBedroomString from '@utils/getbedroomString';
+import ListingDetails from '@components/ListingDetails';
+import MapPinLocation from '@components/MapPinLocation';
+import PropertyDetails from '@components/PropertyDetails';
+import ListingOverview from '@components/ListingOverview';
+import ListingHighlights from '@components/ListingHighlights';
+import getSimilarProperties from '@lib/api/getSimilarProperties';
 
 interface PageProps {
   params: {
@@ -187,11 +180,11 @@ async function Page({ params }: PageProps) {
         bedrooms={property.Br}
         parkingSpaces={property.Park_spcs}
         squareFeet={property.Sqft}
-        price={Number(property.Lp_dol).toLocaleString()}
-        status={property.S_r === 'Sale' ? 'For Sale' : 'For Rent'}
+        price={Number(property.Lp_dol)}
+        status="For Rent"
         daysOnMarket={property.Dom}
       />
-      {JSON.stringify(property.Is_locked)}
+
       <div className="flex flex-col gap-3 lg:flex-row-reverse">
         <div className="order-2 flex h-fit flex-col gap-10 rounded md:w-full lg:sticky lg:top-[100px] lg:order-1 lg:w-[360px]">
           <div className="flex flex-col gap-3 bg-secondary-300 px-8 py-4 shadow">
@@ -242,10 +235,11 @@ async function Page({ params }: PageProps) {
         <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
           <PriceHistory
             data={soldHistory.data}
-            location={`/property-for-rent/${property.Community.toLowerCase().replaceAll(
+            location={`/sold-properties/${property.Community.toLowerCase().replaceAll(
               ' ',
               '-'
             )}`}
+            session={session}
           />
           <ListingHighlights data={property} />
 

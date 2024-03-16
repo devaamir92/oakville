@@ -52,7 +52,7 @@ function page() {
       <section className="relative overflow-hidden py-12 lg:h-[50vh]">
         <div className="absolute inset-0 hidden  md:block">
           <Image
-            src="/images/webp/sell/homeEvalBanner.webp"
+            src="/images/webp/sell/homeEvalBanner.jpg"
             alt="banner"
             fill
             sizes="100vw"

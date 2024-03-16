@@ -18,16 +18,16 @@ const TooltipLogin = ({ children, title }: Props) => {
         <Tooltip.Portal>
           <Tooltip.Content
             side="bottom"
-            className="TooltipContent z-20 !rounded-lg border"
+            className="z-20 !w-full !rounded-lg border bg-white"
             sideOffset={5}
           >
-            <div className="flex max-w-xs items-center gap-4 p-2">
+            <div className="flex w-full max-w-xs items-center gap-2 p-2">
               <div>
                 <BsExclamationCircle size={24} className="text-primary-400" />
               </div>
-              <p className="w-full text-wrap text-justify text-xs text-gray-600">
-                {title}
-              </p>
+              <div className="flex-1">
+                <p className="text-justify text-xs text-gray-600">{title}</p>
+              </div>
             </div>
             <Tooltip.Arrow className="TooltipArrow " />
           </Tooltip.Content>

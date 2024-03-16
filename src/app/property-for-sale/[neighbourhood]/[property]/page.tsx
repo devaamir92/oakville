@@ -7,31 +7,28 @@ import {
   BsHeart,
   BsUpload,
 } from 'react-icons/bs';
-
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
-import { Button } from '@components/ui/Button';
-import LightBox from '@components/LightBox';
-import Demographics from '@components/Demographics';
-import Card from '@components/ListingCard';
-import MapPinLocation from '@components/MapPinLocation';
-import Rooms from '@components/Rooms';
-import getSimilarProperties from '@lib/api/getSimilarProperties';
+import cn from '@utils/cn';
+import getSlug from '@utils/getSlug';
+import getBedroomString from '@utils/getbedroomString';
 
 import { getSession } from '@lib/getsession';
+import getSimilarProperties from '@lib/api/getSimilarProperties';
 
-import ListingDetails from '@app/property-for-sale/_components/ListingDetails';
-import PropertyDetails from '@app/property-for-sale/_components/PropertyDetails';
-
-import ListingHighlights from '@app/property-for-sale/_components/ListingHighlights';
-import ListingOverview from '@app/property-for-sale/_components/ListingOverview';
-import Booking from '@app/property-for-sale/_components/Booking';
-import cn from '@utils/cn';
-
+import Rooms from '@components/Rooms';
+import Booking from '@components/Booking';
+import Card from '@components/ListingCard';
+import LightBox from '@components/LightBox';
+import { Button } from '@components/ui/Button';
 import BlurDailog from '@components/BlurDailog';
-import getBedroomString from '@utils/getbedroomString';
-import getSlug from '@utils/getSlug';
 import PriceHistory from '@components/PriceHistory';
+import Demographics from '@components/Demographics';
+import MapPinLocation from '@components/MapPinLocation';
+import ListingDetails from '@components/ListingDetails';
+import PropertyDetails from '@components/PropertyDetails';
+import ListingOverview from '@components/ListingOverview';
+import ListingHighlights from '@components/ListingHighlights';
 
 interface PageProps {
   params: {
@@ -186,8 +183,8 @@ async function Page({ params }: PageProps) {
         bedrooms={property.Br}
         parkingSpaces={property.Park_spcs}
         squareFeet={property.Sqft}
-        price={Number(property.Lp_dol).toLocaleString()}
-        status={property.S_r === 'Sale' ? 'For Sale' : 'For Rent'}
+        price={Number(property.Lp_dol)}
+        status="For Sale"
         daysOnMarket={property.Dom}
       />
 
@@ -241,10 +238,11 @@ async function Page({ params }: PageProps) {
         <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
           <PriceHistory
             data={soldHistory.data}
-            location={`/property-for-sale/${property.Community.toLowerCase().replaceAll(
+            location={`/sold-properties/${property.Community.toLowerCase().replaceAll(
               ' ',
               '-'
             )}`}
+            session={session}
           />
           <ListingHighlights data={property} />
 

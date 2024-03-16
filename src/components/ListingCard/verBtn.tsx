@@ -17,7 +17,7 @@ const VerBtn: React.FC<VerBtnProps> = ({ isLocked }) => {
       type="button"
       aria-label="Verify required"
       onClick={() => setVerify(true)}
-      className={cn('absolute inset-0 z-[2] bg-red-500', {
+      className={cn('absolute inset-0 z-[2] w-full', {
         hidden: !isLocked,
       })}
       style={{
@@ -31,7 +31,7 @@ const VerBtn: React.FC<VerBtnProps> = ({ isLocked }) => {
         })}
       >
         <div className="relative flex size-full items-center justify-center">
-          <TooltipLogin title="Real estate boards require you to be signed in to access sold prices history.">
+          <TooltipLogin title="Real estate boards require you to be signed in to access this property.">
             <span className=" flex h-9 items-center justify-center rounded bg-white px-3 py-1.5 text-sm font-medium text-primary-500">
               Verification Required
             </span>

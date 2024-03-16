@@ -46,6 +46,7 @@ const getSimilarProperties = async (
     'Bsmt1_out',
     'Lat',
     'Lng',
+    'S_r',
   ]);
 
   const res = await fetch(

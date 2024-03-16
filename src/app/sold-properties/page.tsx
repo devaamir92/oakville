@@ -1,16 +1,17 @@
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
-
 import type { Metadata } from 'next';
 
-import Pagination from '@components/ui/Pagination';
-import Card from '@components/ListingCard';
-import { getSession } from '@lib/getsession';
-import getBedroomString from '@utils/getbedroomString';
-import getSlug from '@utils/getSlug';
+import { Suspense } from 'react';
+
+import SoldTopBar from '@components/SoldTopBar';
+
+import Loader from '@components/Loader';
+
+import SoldProperty from './_components/SoldProperty';
 
 interface PropertyProps {
   searchParams?: {
     page?: string;
+    days?: string;
   };
 }
 
@@ -20,91 +21,26 @@ export const metadata: Metadata = {
     'Ready to sell your property in The Preserve Oakville? We specialize in selling luxury properties- Let us help you reach buyers looking for Oakville real estate. ',
 };
 
-const getProperties = async (page: number) => {
-  const queryBuilder = RequestQueryBuilder.create();
-
-  queryBuilder
-    .setFilter({
-      field: 'Status',
-      operator: '$eq',
-      value: 'U',
-    })
-    .setFilter({
-      field: 'Lsc',
-      operator: '$eq',
-      value: 'Sld',
-    });
-
-  queryBuilder.select([
-    'Ml_num',
-    'Addr',
-    'Unit_num',
-    'Apt_num',
-    'Lp_dol',
-    'Lsc',
-    'Br',
-    'Bath_tot',
-    'Park_spcs',
-    'Br_plus',
-    'Status',
-    'Is_locked',
-    'Slug',
-    'Dom',
-    'Community',
-  ]);
-
-  queryBuilder.setPage(page ?? 1);
-
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      next: {
-        tags: ['property'],
-      },
-      cache: 'no-cache',
-    }
-  );
-  return res.json();
-};
-
 const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
-  const rows = await getProperties(Number(searchParams?.page ?? 1) ?? 1);
-
-  const session = await getSession();
-
   return (
     <div className="container flex flex-col justify-center gap-4 py-4">
-      <div className="flex-1 ">
-        <h1 className="text-center text-2xl font-semibold text-gray-800">
-          Sold Properties in Oakville
-        </h1>
-      </div>
+      <SoldTopBar />
       <hr />
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {rows?.data?.map((item: any) => (
-          <Card
-            session={session}
-            mls={item.Ml_num}
-            key={item.id}
-            bathrooms={item.Bath_tot ?? 0}
-            bedrooms={getBedroomString(Number(item.Br), Number(item.Br_plus))}
-            imageUrl="/images/jpg/property-sold-out.jpg"
-            location={item.Addr}
-            price={Number(item.Lp_dol).toLocaleString() ?? '0'}
-            parking={item.Park_spcs ?? '0'}
-            slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
-            isLocked
-          />
-        ))}
-      </div>
-      {rows.pageCount > 1 && (
-        <Pagination
-          totalPages={rows.pageCount}
-          currentPage={rows.page}
+
+      <Suspense
+        key={searchParams?.page ?? '1'}
+        fallback={
+          <div className="flex min-h-[calc(100vh-135px)]  items-center justify-center">
+            <Loader />
+          </div>
+        }
+      >
+        <SoldProperty
+          days={Number(searchParams?.days ?? 0) ?? 0}
+          page={Number(searchParams?.page ?? 1) ?? 1}
           location="/sold-properties"
         />
-      )}
+      </Suspense>
     </div>
   );
 };

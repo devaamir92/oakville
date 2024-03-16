@@ -12,6 +12,7 @@ interface ListingOverviewProps {
   status: string;
   daysOnMarket: number;
   soldPrice?: number;
+  statusFlag?: string;
 }
 
 const ListingOverview: React.FC<ListingOverviewProps> = ({
@@ -22,7 +23,8 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({
   price,
   status,
   daysOnMarket,
-  soldPrice,
+  soldPrice = 0,
+  statusFlag,
 }) => {
   return (
     <div className="flex flex-1 flex-col items-center justify-between gap-3 md:flex-row">
@@ -60,10 +62,10 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({
           </div>
         </div>
       </div>
+
       <div className="flex flex-col">
-        {soldPrice && (
+        {statusFlag === 'U' && (
           <div className="text-3xl font-medium text-gray-800">
-            {/* ${soldPrice.toLocaleString()} */}
             {new Intl.NumberFormat('en-US', {
               style: 'currency',
               currency: 'USD',
@@ -74,10 +76,9 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({
         )}
         <div
           className={cn('text-3xl font-medium text-gray-800', {
-            'text-lg text-red-500 line-through': soldPrice,
+            'text-lg text-red-500 line-through': statusFlag === 'U',
           })}
         >
-          {/* ${price.toLocaleString()} */}
           {new Intl.NumberFormat('en-US', {
             style: 'currency',
             currency: 'USD',
