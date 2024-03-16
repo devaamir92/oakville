@@ -10,7 +10,7 @@ interface DemographicsProps {
 }
 
 const Demographics = async ({ community }: DemographicsProps) => {
-  if (community === 'Uptown Core') {
+  if (community === 'Uptown Core' || community === 'uptown core') {
     return (
       <div className="flex flex-auto flex-col">
         <Population
@@ -48,7 +48,10 @@ const Demographics = async ({ community }: DemographicsProps) => {
       </div>
     );
   }
-  if (community === 'Iroquois Ridge North') {
+  if (
+    community === 'Iroquois Ridge North' ||
+    community === 'iroquois ridge north'
+  ) {
     return (
       <div className="flex flex-auto flex-col">
         <Population
@@ -88,7 +91,7 @@ const Demographics = async ({ community }: DemographicsProps) => {
       </div>
     );
   }
-  if (community === 'Rural Oakville') {
+  if (community === 'Rural Oakville' || community === 'rural oakville') {
     return (
       <div className="flex flex-auto flex-col">
         <Population

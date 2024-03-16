@@ -20,7 +20,14 @@ import InquireForm from '../_components/InquireForm';
 
 const getSingleProjext = async (slug: string) => {
   const res = await fetch(
-    `${process.env.API_HOST}/api/v1/development/project/slug/${slug}`
+    `${process.env.API_HOST}/api/v1/development/project/slug/${slug}`,
+    {
+      method: 'GET',
+      next: {
+        tags: ['project'],
+      },
+      cache: 'no-cache',
+    }
   );
   return res.json();
 };
@@ -137,6 +144,7 @@ const Page = async (searchParams: any) => {
           ) : (
             false
           )}
+
           <Demographics community={rows.neighbourhood} />
         </div>
       </div>
