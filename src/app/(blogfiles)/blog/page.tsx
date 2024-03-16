@@ -36,6 +36,7 @@ const getBlogs = async () => {
       next: {
         tags: ['blogs'],
       },
+      method: 'GET',
     }
   );
   return res.json();

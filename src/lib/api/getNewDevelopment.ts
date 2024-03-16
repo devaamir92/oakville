@@ -11,6 +11,10 @@ export async function getNewDevelopment() {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token.user.token}`,
       },
+      next: {
+        tags: ['project'],
+      },
+      cache: 'no-cache',
     }
   );
   const data = await response.json();

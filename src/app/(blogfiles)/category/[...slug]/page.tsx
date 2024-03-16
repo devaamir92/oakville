@@ -28,7 +28,14 @@ const getBlogs = async (category: string) => {
       value: category,
     });
   const res = await fetch(
-    `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`
+    `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`,
+    {
+      method: 'GET',
+      next: {
+        tags: ['blogs'],
+      },
+      cache: 'no-cache',
+    }
   );
   return res.json();
 };

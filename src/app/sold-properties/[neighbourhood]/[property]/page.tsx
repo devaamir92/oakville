@@ -75,6 +75,9 @@ const getSoldHistory = async (addr: string, unit: number, Apt_num: number) => {
     {
       method: 'GET',
       cache: 'no-cache',
+      next: {
+        tags: ['property'],
+      },
     }
   );
   return res.json();
@@ -85,7 +88,7 @@ const getProperty = async (slug: string) => {
     {
       method: 'GET',
       next: {
-        tags: [slug],
+        tags: ['slug'],
       },
       cache: 'no-cache',
     }

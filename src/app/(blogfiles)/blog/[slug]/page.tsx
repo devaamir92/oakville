@@ -15,7 +15,6 @@ import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import moment from 'moment';
 
-import { Button } from '@components/ui/Button';
 import CategoryFilter from '@app/(blogfiles)/_components/CategoryFilter';
 import { Share } from '@components/Share';
 
@@ -31,7 +30,14 @@ const getSingleBlog = async (slug: string) => {
       select: ['category'],
     });
   const res = await fetch(
-    `${process.env.API_HOST}/api/v1/blogs/slug/${slug}?${queryBuilder.query()}`
+    `${process.env.API_HOST}/api/v1/blogs/slug/${slug}?${queryBuilder.query()}`,
+    {
+      method: 'GET',
+      next: {
+        tags: ['slug'],
+      },
+      cache: 'no-cache',
+    }
   );
   return res.json();
 };
@@ -53,7 +59,14 @@ const getBlogs = async (slug: string) => {
     })
     .setLimit(4);
   const res = await fetch(
-    `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`
+    `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`,
+    {
+      method: 'GET',
+      next: {
+        tags: ['blogs'],
+      },
+      cache: 'no-cache',
+    }
   );
 
   const responce = await res.json();
@@ -79,7 +92,14 @@ export async function generateMetadata({
   const res = await fetch(
     `${process.env.API_HOST}/api/v1/blogs/slug/${
       params.slug
-    }?${queryBuilder.query()}`
+    }?${queryBuilder.query()}`,
+    {
+      method: 'GET',
+      next: {
+        tags: ['slug'],
+      },
+      cache: 'no-cache',
+    }
   );
 
   const blog = await res.json();

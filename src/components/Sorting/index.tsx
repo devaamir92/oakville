@@ -71,7 +71,7 @@ const Sorting: React.FC = () => {
             type="button"
             onClick={() => handleSort(type.value)}
             className={cn(
-              'w-full rounded-sm px-3 py-1.5 text-sm transition-colors duration-200 ease-in-out hover:bg-primary-200',
+              'w-full rounded-sm px-3 py-1.5 text-start text-sm transition-colors duration-200 ease-in-out hover:bg-primary-200',
               {
                 'bg-primary-500 text-white': activeSort === type.value,
               }
