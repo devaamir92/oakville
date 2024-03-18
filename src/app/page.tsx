@@ -28,16 +28,16 @@ const data = [
     alt: 'Schools in The Preserve Oakville',
   },
   {
-    title: 'Banks in The Preserve Oakville',
+    title: 'Banks near The Preserve Oakville',
     imageUrl: '/images/jpg/community/banks.jpg',
     href: '/banks',
-    alt: 'Banks in The Preserve Oakville',
+    alt: 'Banks near The Preserve Oakville',
   },
   {
     title: 'Healthcare in The Preserve, Oakville.',
     imageUrl: '/images/jpg/community/hospitals-walk-in-clinics-vets.jpg',
     href: '/healthcare-facilities',
-    alt: 'Healthcare Facilities in The Preserve Oakville',
+    alt: 'Healthcare facilities near The Preserve Oakville',
   },
   {
     title: 'Parks & Rec in The Preserve Oakville',
@@ -46,16 +46,16 @@ const data = [
     alt: 'Parks & Rec in The Preserve Oakville',
   },
   {
-    title: 'Religious Places in The Preserve Oakville',
+    title: 'Religious Places near The Preserve Oakville',
     imageUrl: '/images/jpg/community/religious-places.jpg',
     href: '/religious-places',
     alt: '',
   },
   {
-    title: 'Stores in The Preserve Oakville',
+    title: 'stores near the preserve Oakville',
     imageUrl: '/images/jpg/community/stores.jpg',
     href: '/stores',
-    alt: 'Stores in The Preserve Oakville',
+    alt: 'stores near the preserve Oakville',
   },
 ];
 

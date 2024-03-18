@@ -7,6 +7,7 @@ import Modal from '@components/ui/Modal';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 import { updateSession } from '@lib/auth';
+import { updateUser } from '@lib/api/auth/updateUser';
 
 interface Props {
   session: any;
@@ -56,8 +57,7 @@ const EditProfile = ({ session }: Props) => {
       if (data.errors) {
         setErrors(data.errors);
       } else {
-        const user = await getUser();
-        await updateSession(user);
+        await updateUser();
         onClose();
       }
     } catch (error) {

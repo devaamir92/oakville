@@ -35,7 +35,7 @@ const SoldTopBar = () => {
   return (
     <div className="flex flex-1 items-center justify-between">
       <h1 className="text-2xl font-semibold text-gray-800">
-        Sold Properties in Oakville
+        Sold Properties in Preserve Oakville
       </h1>
       <div className="flex items-center gap-2">
         <span className="font-medium">Sort by:</span>

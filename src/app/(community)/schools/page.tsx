@@ -15,6 +15,23 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  const getdata = () => {
+    const schools = [
+      ...data.publicSchools,
+      ...data.catholicSchools,
+      ...data.montessoriSchools,
+      ...data.privateSchools,
+    ];
+    return schools.map(school => {
+      return {
+        name: school.name,
+        address: school.address,
+        Lat: school.lat,
+        Lng: school.lng,
+      };
+    });
+  };
+
   return (
     <main className="container mx-auto flex flex-col gap-8 py-4 lg:max-w-[1140px]">
       <h3 className="text-center text-xl font-medium">
@@ -22,8 +39,8 @@ export default async function Page() {
       </h3>
 
       <section className="-mt-4 flex flex-col gap-8">
-        <div className="h-96 overflow-hidden rounded lg:h-[calc(100vh-252px)]">
-          <MapPinLocation />
+        <div className="h-96 overflow-hidden rounded lg:h-[calc(80vh-252px)]">
+          <MapPinLocation data={getdata()} />
         </div>
       </section>
       <SchoolsLinks />

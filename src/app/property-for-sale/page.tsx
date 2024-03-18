@@ -204,7 +204,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
               sort={searchParams?.sort}
               title="Properties for Sale in Rural Oakville & Uptown Core"
               S_r="Sale"
-              location="/property-for-sale"
+              location="/homes-for-sale"
             />
           </Suspense>
         </section>

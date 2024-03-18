@@ -22,7 +22,7 @@ const ParksPage = async () => {
         <div
           className="overflow-hidden rounded"
           style={{
-            height: 'calc(100vh - 252px)',
+            height: 'calc(80vh - 252px)',
           }}
         >
           <MapPinLocation />

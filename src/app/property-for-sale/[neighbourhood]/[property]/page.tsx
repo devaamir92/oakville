@@ -201,7 +201,7 @@ async function Page({ params }: PageProps) {
                 className="flex items-center gap-2 text-sm  text-gray-800"
               >
                 <BsFillTelephoneFill className="inline-block" />
-                416-837-2000
+                647 929 9072
               </Link>
               <Link
                 href="
@@ -238,7 +238,7 @@ async function Page({ params }: PageProps) {
         <div className="flex flex-1 flex-col gap-6  bg-white lg:p-3">
           <PriceHistory
             data={soldHistory.data}
-            location={`/sold-properties/${property.Community.toLowerCase().replaceAll(
+            location={`/sold-homes/${property.Community.toLowerCase().replaceAll(
               ' ',
               '-'
             )}`}

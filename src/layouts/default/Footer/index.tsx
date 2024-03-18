@@ -9,41 +9,41 @@ import Copright from './copright';
 const popularNeighborhoods = [
   {
     name: 'Properties for sale in Iroquois Ridge North',
-    href: '/property-for-sale/iroquois-ridge-north',
+    href: '/homes-for-sale/iroquois-ridge-north',
   },
   {
     name: 'Properties for sale in Rural Oakville',
-    href: '/property-for-sale/rural-oakville',
+    href: '/homes-for-sale/rural-oakville',
   },
   {
     name: 'Properties for sale in Uptown Core',
-    href: '/property-for-sale/uptown-core',
+    href: '/homes-for-sale/uptown-core',
   },
   {
     name: 'Properties for rent in Iroquois Ridge North',
-    href: '/property-for-rent/iroquois-ridge-north',
+    href: '/homes-for-rent/iroquois-ridge-north',
   },
   {
     name: 'Properties for rent in Rural Oakville',
-    href: '/property-for-rent/rural-oakville',
+    href: '/homes-for-rent/rural-oakville',
   },
   {
     name: 'Properties for rent in Uptown Core',
-    href: '/property-for-rent/uptown-core',
+    href: '/homes-for-rent/uptown-core',
   },
 ];
 
 const communitySearches = [
   { name: 'Schools in The Preserve Oakville', href: '/schools' },
-  { name: 'Banks in The Preserve Oakville', href: '/banks' },
+  { name: 'Banks near The Preserve Oakville', href: '/banks' },
   {
-    name: 'Religious Places in The Preserve Oakville',
+    name: 'Religious Places near The Preserve Oakville',
     href: '/religious-places',
   },
 
-  { name: 'Stores in The Preserve Oakville', href: '/stores' },
+  { name: 'Stores near the preserve Oakville', href: '/stores' },
   {
-    name: 'Healthcare Facilities in The Preserve Oakville',
+    name: 'Healthcare facilities near The Preserve Oakville',
     href: '/healthcare-facilities',
   },
   { name: 'Parks & Rec in The Preserve Oakville', href: '/parks-rec' },
@@ -78,10 +78,11 @@ const Footer = () => {
                   className={linkClass}
                   href="https://www.realtor.ca/agent/1736536/tariq-janjua-33-pearl-st-300-mississauga-ontario-l5m1x1#firstname=Tariq%20&amp;lastname=Janjua&amp;page=1&amp;sort=3-A"
                 >
-                  Tariq Janjua
+                  Tariq Janjua / Shaheena Hemraj
                 </Link>
               </li>
               <li className="text-white">Broker</li>
+              <li className="text-sm text-white">Janjua Real Estate Group</li>
               <li className="text-sm text-white">
                 <address className="not-italic">
                   SUTTON Group - SUMMIT Realty Inc, Brokerage
@@ -89,9 +90,9 @@ const Footer = () => {
                 </address>
               </li>
               <li>
-                <Link href="tel:416-837-2000" className={linkClass}>
+                <Link href="tel:647 929 9072" className={linkClass}>
                   <FaPhone size={14} className="mr-2 inline-block" />
-                  416-837-2000
+                  647 929 9072
                 </Link>
               </li>
               <li>

@@ -34,8 +34,8 @@ export default function Page() {
           </div>
           <div className="flex items-center justify-center gap-2 text-base">
             <FaPhone />
-            <Link href="tel:416-837-2000" className="">
-              Phone: 416-837-2000
+            <Link href="tel:647 929 9072" className="">
+              Phone: 647 929 9072
             </Link>
           </div>
         </div>

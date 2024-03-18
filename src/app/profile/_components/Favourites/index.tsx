@@ -16,7 +16,7 @@ const Favourites: React.FC<PropertyProps> = async ({ page, location }) => {
   const session = await getSession();
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex h-full flex-col gap-4">
       <div className="grid grid-cols-1 gap-4  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {rows?.data?.map((item: any) => (
           <Card

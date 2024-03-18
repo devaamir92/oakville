@@ -1,16 +1,30 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button } from '@components/ui/Button';
 import Modal from '@components/ui/Modal';
 import { useLayout } from '@context/LayoutContext';
+import { sendEmailVerification } from '@lib/api/auth/sendEmailVerification';
 
 function Verification() {
   const { verify, setVerify } = useLayout();
-  const handleValidation = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const [sussess, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const handleValidation = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log('Verification Required');
+    try {
+      const res = await sendEmailVerification();
+      if (res.status === 200) {
+        setSuccess(true);
+        setError('');
+      }
+      if (res.status === 500) {
+        setError('Something went wrong. Please try again.');
+      }
+    } catch (err: any) {
+      setError(err.message);
+    }
   };
   return (
     <Modal
@@ -23,13 +37,30 @@ function Verification() {
         <h2 className="text-center text-xl font-semibold">
           Verify your account
         </h2>
-        <p className="text-center text-sm text-gray-600">
-          We have sent a verification link to your email. Please verify your
-          account to continue.
-        </p>
-        <Button type="submit" className="w-full" onClick={handleValidation}>
-          Resend verification link
-        </Button>
+        {sussess && (
+          <p className="text-center text-sm text-primary-500">
+            Verification link has been sent to your email
+          </p>
+        )}
+        {error && <p className="text-center text-sm text-red-500">{error}</p>}
+        {!sussess && (
+          <Button type="submit" className="w-full" onClick={handleValidation}>
+            Resend verification link
+          </Button>
+        )}
+        {sussess && (
+          <Button
+            type="submit"
+            className="w-full"
+            onClick={() => {
+              setVerify(false);
+              setSuccess(false);
+              setError('');
+            }}
+          >
+            Close
+          </Button>
+        )}
       </form>
     </Modal>
   );

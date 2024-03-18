@@ -5,17 +5,17 @@ const getSlug = (
   slug: string
 ) => {
   if (s_r === 'Sale') {
-    return `/property-for-sale/${community
+    return `/homes-for-sale/${community
       .toLowerCase()
       .replaceAll(' ', '-')}/${slug}`;
   }
   if (s_r === 'Lease') {
-    return `/property-for-rent/${community
+    return `/homes-for-rent/${community
       .toLowerCase()
       .replaceAll(' ', '-')}/${slug}`;
   }
   if (status === 'U') {
-    return `/sold-properties/${community
+    return `/sold-homes/${community
       .toLowerCase()
       .replaceAll(' ', '-')}/${slug}`;
   }

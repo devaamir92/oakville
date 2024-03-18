@@ -61,12 +61,11 @@ export const login = async (
     const expires = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7); // 7 days
     const session = await encrypt({ user: res.data, expires });
     cookies().set('session', session, { expires, httpOnly: true });
-
     return res.data;
   } catch (error: any) {
     return {
-      status: error.response?.status || 500,
-      message: error.response?.data.message || 'Something went wrong',
+      status: error.status,
+      message: error.message,
     };
   }
 };
@@ -89,6 +88,7 @@ export async function updateSession(user: any) {
   const parsed = await decrypt(session);
 
   parsed.user.name = user.name;
+  parsed.user.verified = user.verified;
 
   const expires = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7); // 7 days
   const newSession = await encrypt({ user: parsed.user, expires });

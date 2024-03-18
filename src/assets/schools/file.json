@@ -9,7 +9,9 @@
       "grades": "JK - GR08",
       "program": "Regular Track",
       "url": "https://ood.hdsb.ca/",
-      "raking": 8.2
+      "raking": 8.2,
+      "lat": 43.472772732775816,
+      "lng": -79.74416056218261
     },
     {
       "id": 2,
@@ -20,7 +22,9 @@
       "grades": "JK - GR08",
       "program": "Regular Track",
       "url": "https://ddw.hdsb.ca/",
-      "raking": ""
+      "raking": "",
+      "lat": 43.487348947951645,
+      "lng": -79.73333000290856
     },
     {
       "id": 3,
@@ -31,7 +35,9 @@
       "grades": "GR09 - GR12",
       "program": "Regular Track",
       "url": "https://wos.hdsb.ca/",
-      "raking": 8.6
+      "raking": 8.6,
+      "lat": 43.46391014788362,
+      "lng": -79.70177602344658
     },
     {
       "id": 4,
@@ -42,7 +48,9 @@
       "grades": "GR09 - GR12",
       "program": "Regular Track",
       "url": "https://irs.hdsb.ca/",
-      "raking": 8.9
+      "raking": 8.9,
+      "lat": 43.48925321512134,
+      "lng": -79.69930783174335
     }
   ],
   "privateSchools": [
@@ -56,7 +64,9 @@
         "Casa Senior (5 year old)",
         "Grades 1 to 8"
       ],
-      "url": "https://alfalahschool.ca"
+      "url": "https://alfalahschool.ca",
+      "lat": 43.50403550935779,
+      "lng": -79.73659384708228
     },
     {
       "id": 2,
@@ -64,7 +74,9 @@
       "address": "528 Burnhamthorpe Rd W, Oakville",
       "phone": "(905) 257-5464",
       "program": ["Grades 9-12"],
-      "url": "https://kingschristian.ca"
+      "url": "https://kingschristian.ca",
+      "lat": 43.4785454158984,
+      "lng": -79.76224382989956
     },
     {
       "id": 3,
@@ -72,7 +84,9 @@
       "address": "3300 Ninth Line Oakville",
       "phone": "(647) 277-5135",
       "program": "Pre-School to Grade 8",
-      "url": "https://www.fernhillschool.com"
+      "url": "https://www.fernhillschool.com",
+      "lat": 43.51815904369261,
+      "lng": -79.70904132152252
     },
     {
       "id": 4,
@@ -80,7 +94,9 @@
       "address": "337 Trafalgar Rd, Oakville",
       "phone": "(905) 844-0373",
       "program": "IB PYP: K to Grade 6, Grade 7-12",
-      "url": "https://www.maclachlan.ca"
+      "url": "https://www.maclachlan.ca",
+      "lat": 43.466038917735716,
+      "lng": -79.668223914786
     },
     {
       "id": 5,
@@ -90,7 +106,9 @@
       "program": [
         "Middle School Grade 7-8, Upper School Grade 9-10, Senior School Grade 11-12"
       ],
-      "url": "https://www.appleby.on.ca"
+      "url": "https://www.appleby.on.ca",
+      "lat": 43.42584016280276,
+      "lng": -79.68579084708564
     },
     {
       "id": 6,
@@ -98,7 +116,9 @@
       "address": "1079 Linbrook Rd, Oakville",
       "phone": "(905) 844-2697",
       "program": "Grades 1-8",
-      "url": "https://www.linbrook.ca/"
+      "url": "https://www.linbrook.ca/",
+      "lat": 43.464782736562796,
+      "lng": -79.66823860106526
     }
   ],
   "montessoriSchools": [
@@ -108,7 +128,9 @@
       "program": "Preschool | Daycare",
       "address": "2460 Neyagawa Blvd # 11 & 12, Oakville",
       "phone": "(905) 257-2030",
-      "url": "https://www.kendellhurst.com/"
+      "url": "https://www.kendellhurst.com/",
+      "lat": 43.46516807394237,
+      "lng": -79.7458124735506
     },
     {
       "id": 2,
@@ -116,7 +138,9 @@
       "program": "Toddler (18 months - 3 Years), Casa (2.5 Years - 5 Years), Elementary Grades 1-6",
       "address": "297 Oak Walk Drive, Oakville",
       "phone": "(905) 257-3200",
-      "url": "https://dearcroftmontessori.com/"
+      "url": "https://dearcroftmontessori.com/",
+      "lat": 43.4863151708307,
+      "lng": -79.71874451455965
     },
     {
       "id": 3,
@@ -124,7 +148,9 @@
       "program": "Casa Montessori, Lower Elementary, Summer Camp",
       "address": "2379 Trafalgar Rd, Oakville",
       "phone": "(905) 257-5955",
-      "url": "https://trms.ca"
+      "url": "https://trms.ca",
+      "lat": 43.48484124048115,
+      "lng": -79.71459116057844
     },
     {
       "id": 4,
@@ -132,7 +158,9 @@
       "program": "Toddler 15-30 months Casa 2.5- 6 Years",
       "address": "1525 Litchfield Road, Oakville",
       "phone": "(905) 842-4800",
-      "url": "https://www.pm-ms.ca/"
+      "url": "https://www.pm-ms.ca/",
+      "lat": 43.47584621090739,
+      "lng": -79.70023285873454
     }
   ],
   "catholicSchools": [
@@ -145,7 +173,9 @@
       "grades": "JK-8",
       "program": "Regular Track",
       "url": "https://elem.hcdsb.org/stgregory#",
-      "raking": 7.0
+      "raking": 7.0,
+      "lat": 43.487665682009876,
+      "lng": -79.7341537325635
     },
     {
       "id": 2,
@@ -156,7 +186,9 @@
       "grades": "9-12",
       "program": "Regular Track",
       "url": "https://secondary.hcdsb.org/loyola/",
-      "raking": 7.9
+      "raking": 7.9,
+      "lat": 43.44465931450815,
+      "lng": -79.73354661824996
     },
     {
       "id": 3,
@@ -167,7 +199,9 @@
       "grades": "9-12",
       "program": "Regular Track",
       "url": "https://secondary.hcdsb.org/holytrinity/",
-      "raking": 7.1
+      "raking": 7.1,
+      "lat": 43.47259967820196,
+      "lng": -79.72417547591856
     }
   ]
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 
 import { FaHome } from 'react-icons/fa';
@@ -10,6 +10,7 @@ import MapGL, { Layer, Source } from '@urbica/react-map-gl';
 import mapLine from '@assets/map/map.json';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
+import Modal from './Popup';
 
 const Marker = dynamic(() =>
   import('@urbica/react-map-gl').then(mod => mod.Marker)
@@ -17,8 +18,10 @@ const Marker = dynamic(() =>
 
 interface MapProps {
   data?: {
-    Lng: string;
-    Lat: string;
+    Lng: string | number;
+    Lat: string | number;
+    name?: string;
+    address?: string;
   }[];
 }
 
@@ -26,6 +29,9 @@ const MAPBOX_ACCESS_TOKEN =
   'pk.eyJ1IjoiaW1hdHRlaCIsImEiOiJja3J2dTZqamEwYTZpMnZsanUxcWhrcW9jIn0.c3dQrAz3T8LQNnfvP3z_Wg';
 
 const MapPinLocation: React.FC<MapProps> = ({ data }) => {
+  const [popup, setPopup] = useState<any>(null);
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="relative size-full">
       <MapGL
@@ -59,13 +65,31 @@ const MapPinLocation: React.FC<MapProps> = ({ data }) => {
                 longitude={Number(item.Lng)}
                 latitude={Number(item.Lat)}
               >
-                <div className="absolute flex items-center justify-center gap-1 rounded-md bg-primary-500 p-2 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary">
+                <button
+                  type="button"
+                  aria-label={item.name || 'property location'}
+                  className="absolute flex items-center justify-center gap-1 rounded-md bg-primary-500 p-2 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary"
+                  onClick={() => {
+                    if (item.name && item.address) {
+                      setOpen(false);
+                      setPopup(null);
+                    }
+                  }}
+                >
                   <FaHome />
-                </div>
+                </button>
               </Marker>
             );
           })}
       </MapGL>
+      <Modal
+        show={open}
+        item={popup}
+        handleModalClose={() => {
+          setOpen(false);
+          setPopup(null);
+        }}
+      />
     </div>
   );
 };

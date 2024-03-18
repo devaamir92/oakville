@@ -7,6 +7,9 @@
       "address": "271 Hays Blvd, Oakville",
       "intersection": "Trafalgar Rd / Dundas St",
       "phone": "(905) 257-1040",
+      "lat": 43.484748192943584,
+
+      "lng": -79.71786923278917,
       "hours": [
         {
           "day": "Monday",
@@ -52,6 +55,9 @@
       "address": "501 Dundas St W, Oakville",
       "intersection": "Neyagawa Blvd / Dundas St",
       "phone": "(289) 725-7233",
+      "lat": 43.46576713937804,
+
+      "lng": -79.74471116162569,
       "hours": [
         {
           "day": "Monday",
@@ -97,6 +103,8 @@
       "address": "309 Hays Blvd, Oakville",
       "intersection": "Trafalgar Rd / Dundas St",
       "phone": "(905) 338-2933",
+      "lat": 43.485942287370314,
+      "lng": -79.71758477511843,
       "hours": [
         {
           "day": "Monday",
@@ -142,6 +150,8 @@
       "address": "483 Dundas St W, Oakville",
       "intersection": "Neyagawa Blvd / Dundas St",
       "phone": "(905) 842-4353",
+      "lat": 43.46659953946574,
+      "lng": -79.74395040395494,
       "hours": [
         {
           "day": "Monday",
@@ -188,6 +198,8 @@
       "address": "2325 Trafalgar Rd, Oakville",
       "intersection": "Trafalgar Rd / Postridge Dr",
       "phone": "(905) 257-0255",
+      "lat": 43.48319890151694,
+      "lng": -79.71245353278928,
       "hours": [
         {
           "day": "Monday",
@@ -233,6 +245,8 @@
       "address": "2517 Prince Michael Dr, Oakville",
       "intersection": "Prince Michael Dr / Dundas St",
       "phone": "(866) 222-3456",
+      "lat": 43.49802449781137,
+      "lng": -79.70786570395305,
       "hours": [
         {
           "day": "Monday",
@@ -278,6 +292,8 @@
       "address": "320 Dundas St E, Oakville",
       "intersection": "Trafalgar Rd / Dundas St",
       "phone": "(905) 257-0904",
+      "lat": 43.487962006894065,
+      "lng": -79.71891963278897,
       "hours": [
         {
           "day": "Monday",
@@ -324,6 +340,8 @@
       "address": "2391 Trafalgar Rd Unit 1, Oakville",
       "intersection": "Trafalgar Rd / Postridge Dr",
       "phone": "(905) 257-4810",
+      "lat": 43.48497676152578,
+      "lng": -79.71494580395382,
       "hours": [
         {
           "day": "Monday",
@@ -369,6 +387,8 @@
       "intersection": "Trafalgar Rd / Dundas St",
       "address": "275 Hays Blvd Unit G1, Oakville",
       "phone": "(888) 310-4722",
+      "lat": 43.48516642046728,
+      "lng": -79.7185997039538,
       "hours": [
         {
           "day": "Monday",
@@ -415,6 +435,8 @@
       "address": "489 Dundas St W, Oakville",
       "intersection": "Neyagawa Blvd / Dundas St",
       "phone": "(888) 826-4374",
+      "lat": 43.466116138928385,
+      "lng": -79.744445090461,
       "hours": [
         {
           "day": "Monday",
@@ -461,6 +483,8 @@
       "address": "201 Oak Park Blvd, Oakville",
       "intersection": "Dundas St / Oak Park Blvd",
       "phone": "(888) 246-7262",
+      "lat": 43.48397508491611,
+      "lng": -79.72230616162456,
       "hours": [
         {
           "day": "Monday",
@@ -507,6 +531,8 @@
       "address": "505 Dundas St W, Oakville",
       "intersection": "Neyagawa Blvd / Dundas St",
       "phone": "(800) 616-8878",
+      "lat": 43.46564965225016,
+      "lng": -79.74498866985272,
       "hours": [
         {
           "day": "Monday",

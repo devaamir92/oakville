@@ -43,9 +43,7 @@ const FloorPlanTable: React.FC<FloorPlanItem> = ({ data }) => {
                   'text-sm'
                 )}
               >
-                <td className="min-w-64 px-4 py-2">
-                  {floorPlan.title} ({floorPlan.area})
-                </td>
+                <td className="min-w-64 px-4 py-2">{floorPlan.title}</td>
                 <td className="min-w-28 px-4 py-2">
                   {floorPlan.area} <small>sq ft</small>
                 </td>

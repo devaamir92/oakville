@@ -13,11 +13,11 @@ import ProfileList from './profileList';
 
 const navLinks = [
   { name: 'Home', link: '/' },
-  { name: 'Buy', link: '/property-for-sale?page=1&view=map&type=.D.' },
+  { name: 'Buy', link: '/homes-for-sale?page=1&view=map&type=.D.' },
   { name: 'Sell', link: '/home-evaluation' },
-  { name: 'Rent', link: '/property-for-rent' },
-  { name: 'Sold', link: '/sold-properties' },
-  { name: 'New Developments', link: '/new-developments' },
+  { name: 'Rent', link: '/homes-for-rent' },
+  { name: 'Sold', link: '/sold-homes' },
+  { name: 'New Developments', link: '/new-homes' },
   { name: 'Communities', link: '/communities' }, // or the appropriate link
   { name: 'Blog', link: '/blog' },
   { name: 'Auth', link: '/auth' },

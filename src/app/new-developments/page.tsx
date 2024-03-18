@@ -110,7 +110,7 @@ const Developments = async (searchParams: any) => {
       <div className="h-full">
         <div className="container mt-4 flex  flex-col">
           <h1 className="mb-3 text-center text-2xl font-semibold">
-            The Preserve Oakville
+            The Preserve Oakville New Developments
           </h1>
           <div className="mb-4 h-[1px] bg-gray-300" />
         </div>
@@ -125,7 +125,7 @@ const Developments = async (searchParams: any) => {
           {data.data.map((item: any) => {
             return (
               <Link
-                href={`/new-developments/${item.slug}`}
+                href={`/new-homes/${item.slug}`}
                 key={item.slug}
                 className="flex flex-col"
               >
@@ -169,7 +169,7 @@ const Developments = async (searchParams: any) => {
         <Pagination
           totalPages={data.pageCount}
           currentPage={data.page}
-          location="/new-developments"
+          location="/new-homes"
         />
       )}
     </div>

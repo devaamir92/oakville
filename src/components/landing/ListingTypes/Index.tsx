@@ -4,23 +4,23 @@ const Listings = [
   {
     id: 1,
     title: 'Condos',
-    href: '/property-for-sale?type=.C.&page=1&type=.T.',
+    href: '/homes-for-sale?type=.C.&page=1&type=.T.',
   },
   {
     id: 2,
     title: 'Townhouses',
-    href: '/property-for-sale?page=1&type=.T.&type=.A.',
+    href: '/homes-for-sale?page=1&type=.T.&type=.A.',
   },
   {
     id: 3,
     title: 'Detached',
-    href: '/property-for-sale?page=1&type=.D.',
+    href: '/homes-for-sale?page=1&type=.D.',
   },
 
   {
     id: 5,
     title: 'New Developments',
-    href: '/new-developments',
+    href: '/new-homes',
   },
 ];
 

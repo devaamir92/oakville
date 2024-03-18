@@ -12,6 +12,16 @@ export const metadata: Metadata = {
   description:
     'Explore the best variety of banks and financial institutions in the area. Find out why The Preserve Oakville offers easy access to banking for its residents.',
 };
+const getdata = () => {
+  return banksData.banks.map(bank => {
+    return {
+      name: bank.name,
+      address: bank.address,
+      Lat: bank.lat,
+      Lng: bank.lng,
+    };
+  });
+};
 
 const BanksPage = async () => {
   return (
@@ -23,17 +33,10 @@ const BanksPage = async () => {
         <div
           className="overflow-hidden rounded"
           style={{
-            height: 'calc(100vh - 252px)',
+            height: 'calc(80vh - 252px)',
           }}
         >
-          <MapPinLocation
-            data={[
-              {
-                Lng: '-79.7976',
-                Lat: '43.4328',
-              },
-            ]}
-          />
+          <MapPinLocation data={getdata()} />
         </div>
       </section>
 

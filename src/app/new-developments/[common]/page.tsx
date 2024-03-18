@@ -43,11 +43,11 @@ const Page = async (searchParams: any) => {
         </div>
         <div className="flex flex-col items-center gap-1 md:items-start">
           <Link
-            href="tel:416-837-2000"
+            href="tel:647 929 9072"
             className="flex items-center gap-2 text-sm"
           >
             <FaPhone className="text-primary-500" />
-            416-837-2000
+            647 929 9072
           </Link>
           <Link
             href="mailto:info@preserveoakville.ca"

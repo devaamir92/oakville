@@ -43,7 +43,7 @@ const JustSold: React.FC<JustSoldProps> = ({ rows, session }) => {
         </div>
         <div className="mt-3 flex justify-end">
           <Link
-            href="/sold-properties"
+            href="/sold-homes"
             className="inline-flex items-center justify-center gap-1 rounded bg-primary-200 px-3 py-1.5 text-center text-sm font-medium text-primary-700"
           >
             View all sold listings <FaArrowRight size={12} />

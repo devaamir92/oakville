@@ -213,7 +213,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
               neighborhood={searchParams.params.neighbourhood
                 .split('-')
                 .join(' ')}
-              location={`/property-for-sale/${searchParams.params.neighbourhood}`}
+              location={`/homes-for-sale/${searchParams.params.neighbourhood}`}
             />
           </Suspense>
         </section>
