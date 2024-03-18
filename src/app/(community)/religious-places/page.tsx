@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { FaMosque } from 'react-icons/fa';
+
 import data from '@assets/religious/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
@@ -22,10 +24,10 @@ const ReligiousPage = async () => {
         <div
           className="overflow-hidden rounded"
           style={{
-            height: 'calc(80vh - 252px)',
+            height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation />
+          <MapPinLocation icon={<FaMosque />} />
         </div>
       </section>
       <Healthcare id="banks" data={data.religious} />

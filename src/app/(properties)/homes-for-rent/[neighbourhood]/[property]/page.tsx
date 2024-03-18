@@ -28,6 +28,7 @@ import PropertyDetails from '@components/PropertyDetails';
 import ListingOverview from '@components/ListingOverview';
 import ListingHighlights from '@components/ListingHighlights';
 import getSimilarProperties from '@lib/api/getSimilarProperties';
+import { FaHome } from 'react-icons/fa';
 
 interface PageProps {
   params: {
@@ -256,6 +257,7 @@ async function Page({ params }: PageProps) {
                     Lat: property.Lat,
                   },
                 ]}
+                icon={<FaHome />}
               />
             </div>
           ) : (

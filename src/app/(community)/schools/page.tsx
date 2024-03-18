@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
 
+import { FaSchool } from 'react-icons/fa';
+
 import data from '@assets/schools/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
@@ -39,8 +41,8 @@ export default async function Page() {
       </h3>
 
       <section className="-mt-4 flex flex-col gap-8">
-        <div className="h-96 overflow-hidden rounded lg:h-[calc(80vh-252px)]">
-          <MapPinLocation data={getdata()} />
+        <div className="h-96 overflow-hidden rounded lg:h-[calc(90vh-252px)]">
+          <MapPinLocation icon={<FaSchool />} data={getdata()} />
         </div>
       </section>
       <SchoolsLinks />

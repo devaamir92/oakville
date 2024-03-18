@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { FaStore } from 'react-icons/fa';
+
 import storesData from '@assets/stores/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
@@ -22,10 +24,10 @@ const StoresPage = async () => {
         <div
           className="overflow-hidden rounded"
           style={{
-            height: 'calc(80vh - 252px)',
+            height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation />
+          <MapPinLocation icon={<FaStore />} />
 
           {/* <Map lat={43.487113} lng={-79.720562} zoom={12.27} /> */}
         </div>

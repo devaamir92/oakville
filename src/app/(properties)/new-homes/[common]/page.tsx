@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaEnvelope, FaLocationDot, FaPhone } from 'react-icons/fa6';
 
+import { FaHome } from 'react-icons/fa';
+
 import LightBox from '@components/LightBox';
 
 import Demographics from '@components/Demographics';
@@ -139,6 +141,7 @@ const Page = async (searchParams: any) => {
                     Lat: rows.lat,
                   },
                 ]}
+                icon={<FaHome />}
               />
             </div>
           ) : (

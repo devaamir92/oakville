@@ -11,9 +11,10 @@ import { useFavLayout } from '@context/FavContext';
 interface LikeToggleProps {
   mls?: string;
   session: any;
+  className?: string;
 }
 
-const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session }) => {
+const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session, className }) => {
   const { setLogin } = useLayout();
   const { favourite, setFavourite } = useFavLayout();
 
@@ -44,7 +45,11 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session }) => {
         type="button"
         aria-label="Favourite"
         onClick={handleFavourite}
-        className="text-red-500 outline-none focus:outline-none"
+        // className={cn('outline-none focus:outline-none', {
+        //   className,
+        // })}
+        // clas
+        className={`outline-none focus:outline-none${className}`}
       >
         {favourite?.includes(mls) ? (
           <FaHeart className="text-red-500" />

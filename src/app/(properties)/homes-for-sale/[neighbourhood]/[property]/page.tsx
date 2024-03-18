@@ -9,6 +9,8 @@ import {
 } from 'react-icons/bs';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
+import { FaHome } from 'react-icons/fa';
+
 import cn from '@utils/cn';
 import getSlug from '@utils/getSlug';
 import getBedroomString from '@utils/getbedroomString';
@@ -29,6 +31,8 @@ import ListingDetails from '@components/ListingDetails';
 import PropertyDetails from '@components/PropertyDetails';
 import ListingOverview from '@components/ListingOverview';
 import ListingHighlights from '@components/ListingHighlights';
+import { Share } from '@components/Share';
+import LikeToggle from '@components/ListingCard/LikeToggle';
 
 interface PageProps {
   params: {
@@ -153,20 +157,15 @@ async function Page({ params }: PageProps) {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <Button
-            className="gap-2 border-red-300 text-red-500"
-            variant="outline"
-          >
-            <BsHeart />
-            <span className="hidden lg:block">Favourite</span>
-          </Button>
-          <Button
-            className="gap-2 border-primary-300 text-primary-500"
-            variant="outline"
-          >
-            <BsUpload />
-            <span className="hidden lg:block">Share</span>
-          </Button>
+          <LikeToggle
+            className="mx-auto flex !size-[22px] items-center justify-center rounded-sm outline-1 !outline-red-500"
+            session={session}
+            mls={property.Ml_num}
+          />
+          <Share
+            image={`https://api.preserveoakville.ca/api/v1/stream/${property.Ml_num}/${images[0]}`}
+            title={property.title}
+          />
         </div>
       </div>
 
@@ -259,6 +258,7 @@ async function Page({ params }: PageProps) {
                     Lat: property.Lat,
                   },
                 ]}
+                icon={<FaHome />}
               />
             </div>
           ) : (

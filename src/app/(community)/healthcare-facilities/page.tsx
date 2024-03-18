@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { MdHealthAndSafety } from 'react-icons/md';
+
 import data from '@assets/healthcare/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
@@ -22,10 +24,10 @@ const HealthcarePage = async () => {
         <div
           className="overflow-hidden rounded"
           style={{
-            height: 'calc(80vh - 252px)',
+            height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation />
+          <MapPinLocation icon={<MdHealthAndSafety />} />
         </div>
       </section>
       <Healthcare id="banks" data={data.healthcare} />

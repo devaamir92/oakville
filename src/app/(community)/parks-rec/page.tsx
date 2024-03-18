@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { FaTree } from 'react-icons/fa';
+
 import data from '@assets/parks/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
@@ -22,10 +24,10 @@ const ParksPage = async () => {
         <div
           className="overflow-hidden rounded"
           style={{
-            height: 'calc(80vh - 252px)',
+            height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation />
+          <MapPinLocation icon={<FaTree />} />
         </div>
       </section>
       <ParksRec id="parks" data={data.parks} />

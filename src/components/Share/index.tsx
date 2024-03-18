@@ -14,7 +14,7 @@ import {
   FaXTwitter,
 } from 'react-icons/fa6';
 
-import { usePathname } from 'next/navigation';
+// import { usePathname } from 'next/navigation';
 
 const commonStyles = {
   borderRadius: '4px',
@@ -32,8 +32,9 @@ interface ShareProps {
 }
 
 export function Share({ image, title }: ShareProps) {
-  const pathname = usePathname();
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL}/${pathname}`;
+  // const pathname = usePathname();
+  // const url = `${process.env.NEXT_PUBLIC_SITE_URL}${pathname}`;
+  const url = window.location.href;
 
   return (
     <div className="flex items-center gap-1.5">

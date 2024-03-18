@@ -3,11 +3,7 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 
-import { FaHome } from 'react-icons/fa';
-
-import MapGL, { Layer, Source } from '@urbica/react-map-gl';
-
-import mapLine from '@assets/map/map.json';
+import MapGL, { Layer } from '@urbica/react-map-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import Modal from './Popup';
@@ -23,12 +19,13 @@ interface MapProps {
     name?: string;
     address?: string;
   }[];
+  icon: React.ReactNode;
 }
 
 const MAPBOX_ACCESS_TOKEN =
   'pk.eyJ1IjoiaW1hdHRlaCIsImEiOiJja3J2dTZqamEwYTZpMnZsanUxcWhrcW9jIn0.c3dQrAz3T8LQNnfvP3z_Wg';
 
-const MapPinLocation: React.FC<MapProps> = ({ data }) => {
+const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
   const [popup, setPopup] = useState<any>(null);
   const [open, setOpen] = useState(false);
 
@@ -46,7 +43,6 @@ const MapPinLocation: React.FC<MapProps> = ({ data }) => {
         boxZoom
         scrollZoom
       >
-        {/* <Source id="boundaries" type="geojson" data={mapLine} /> */}
         <Layer
           id="boundaries"
           type="line"
@@ -70,13 +66,13 @@ const MapPinLocation: React.FC<MapProps> = ({ data }) => {
                   aria-label={item.name || 'property location'}
                   className="absolute flex items-center justify-center gap-1 rounded-md bg-primary-500 p-2 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary"
                   onClick={() => {
-                    if (item.name && item.address) {
-                      setOpen(false);
-                      setPopup(null);
+                    if (item.name || item.address) {
+                      setOpen(true);
+                      setPopup(item);
                     }
                   }}
                 >
-                  <FaHome />
+                  {icon}
                 </button>
               </Marker>
             );

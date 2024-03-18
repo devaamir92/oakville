@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import { FaDollarSign } from 'react-icons/fa';
+
 import banksData from '@assets/banks/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
@@ -33,10 +35,10 @@ const BanksPage = async () => {
         <div
           className="overflow-hidden rounded"
           style={{
-            height: 'calc(80vh - 252px)',
+            height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation data={getdata()} />
+          <MapPinLocation data={getdata()} icon={<FaDollarSign />} />
         </div>
       </section>
 
