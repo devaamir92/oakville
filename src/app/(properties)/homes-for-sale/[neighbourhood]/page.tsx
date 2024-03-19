@@ -156,7 +156,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
 
   return (
     <main className="flex flex-1 flex-col">
-      <Toolbar />
+      <Toolbar type="sale" />
       <div className="flex flex-1">
         {searchParams?.searchParams.view !== 'list' && (
           <section
