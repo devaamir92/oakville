@@ -15,7 +15,7 @@ import { getSession } from '@lib/getsession';
 import Community from '@components/Community';
 
 export const metadata: Metadata = {
-  title: 'The Preserve Oakville | Luxury properties for Sale, Homes in Canada',
+  title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
   description:
     "Explore The Preserve Oakville for luxury property for sale in Canada. Discover serene living in one of Oakville's best neighborhoods. Find your dream home today!",
 };

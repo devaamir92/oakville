@@ -15,6 +15,16 @@ export const metadata: Metadata = {
 };
 
 const ParksPage = async () => {
+  const getdata = () => {
+    return data.map(park => {
+      return {
+        name: park.name,
+        address: park.address,
+        Lat: park.lat,
+        Lng: park.lng,
+      };
+    });
+  };
   return (
     <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
       <h3 className="text-center text-xl font-medium">
@@ -27,10 +37,10 @@ const ParksPage = async () => {
             height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation icon={<FaTree />} />
+          <MapPinLocation icon={<FaTree />} data={getdata()} />
         </div>
       </section>
-      <ParksRec id="parks" data={data.parks} />
+      <ParksRec id="parks" data={data} />
     </main>
   );
 };

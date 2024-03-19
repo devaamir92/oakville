@@ -13,11 +13,11 @@ import ProfileList from './profileList';
 
 const navLinks = [
   { name: 'Home', link: '/' },
-  { name: 'Buy', link: '/homes-for-sale?page=1&view=map&type=.D.' },
+  { name: 'Buy', link: '/houses-for-sale' },
   { name: 'Sell', link: '/home-evaluation' },
   { name: 'Rent', link: '/homes-for-rent' },
   { name: 'Sold', link: '/sold-homes' },
-  { name: 'New Developments', link: '/new-homes' },
+  { name: 'New Homes', link: '/new-homes' },
   { name: 'Communities', link: '/communities' }, // or the appropriate link
   { name: 'Blog', link: '/blog' },
   { name: 'Auth', link: '/auth' },
@@ -33,7 +33,7 @@ const listData = [
   { name: 'Religious Places', link: '/religious-places' },
   {
     name: 'Hospitals / walk-in clinics / vets',
-    link: '/hospital-walk-in-clinic-vets',
+    link: '/healthcare-facilities',
   },
   { name: 'Parks & Rec', link: '/parks-rec' },
   // {
@@ -61,7 +61,11 @@ export default async function Header() {
               className="object-contain"
             />
           </Link>
-          <MobileMenu navLinks={navLinks} listData={listData} />
+          <MobileMenu
+            session={session}
+            navLinks={navLinks}
+            listData={listData}
+          />
         </div>
         <div className="w-full lg:hidden">
           <hr className="border-primary-400" />

@@ -15,6 +15,17 @@ export const metadata: Metadata = {
 };
 
 const ReligiousPage = async () => {
+  const getdata = () => {
+    return data.map(reg => {
+      return {
+        name: reg.name,
+        address: reg.address,
+        Lat: reg.lat,
+        Lng: reg.lng,
+      };
+    });
+  };
+
   return (
     <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
       <h3 className="text-center text-xl font-medium">
@@ -27,10 +38,10 @@ const ReligiousPage = async () => {
             height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation icon={<FaMosque />} />
+          <MapPinLocation icon={<FaMosque />} data={getdata()} />
         </div>
       </section>
-      <Healthcare id="banks" data={data.religious} />
+      <Healthcare id="banks" data={data} />
     </main>
   );
 };

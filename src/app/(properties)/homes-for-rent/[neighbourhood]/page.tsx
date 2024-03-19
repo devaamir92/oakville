@@ -32,9 +32,9 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Discover Best Properties for Rent in The Preserve Oakville',
+  title: 'Discover Best Homes for Rent in The Preserve Oakville',
   description:
-    'Browse our listings for properties for rent in The Preserve Oakville neighbourhood. Find luxury properties and homes for rent - Start your search today.',
+    'Browse our listings for homes for rent in The Preserve Oakville neighbourhood. Find luxury properties and homes for rent - Start your search today.',
 };
 
 const getProperties = async (
@@ -206,7 +206,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
               bathrooms={searchParams?.searchParams.bathrooms}
               basement={searchParams?.searchParams.basement}
               sort={searchParams?.searchParams.sort}
-              title={`Properties for Rent in ${searchParams.params.neighbourhood
+              title={`Homes for Rent in ${searchParams.params.neighbourhood
                 .split('-')
                 .join(' ')}`}
               S_r="Lease"

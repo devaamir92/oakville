@@ -31,7 +31,6 @@ function InfoForm() {
       address: data.address,
       message: data.message,
     };
-    console.log(payload);
     try {
       const res = await capiClient.post('/api/v1/sell', payload);
       if (res.status === 201) {

@@ -15,6 +15,16 @@ export const metadata: Metadata = {
 };
 
 const HealthcarePage = async () => {
+  const getdata = () => {
+    return data.map(health => {
+      return {
+        name: health.name,
+        address: health.address,
+        Lat: health.lat,
+        Lng: health.lng,
+      };
+    });
+  };
   return (
     <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
       <h3 className="text-center text-xl font-medium">
@@ -27,10 +37,13 @@ const HealthcarePage = async () => {
             height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation icon={<MdHealthAndSafety />} />
+          <MapPinLocation
+            icon={<MdHealthAndSafety size={16} />}
+            data={getdata()}
+          />
         </div>
       </section>
-      <Healthcare id="banks" data={data.healthcare} />
+      <Healthcare id="banks" data={data} />
     </main>
   );
 };

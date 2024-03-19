@@ -1,82 +1,101 @@
-{
-  "religious": [
-    {
-      "id": 1,
-      "name": "Al Falah Islamic Centre",
-      "address": "391 Burnhamthorpe Rd E, Oakville",
-      "phone": "905-257-4262",
-      "url": "http://www.alfalahcentre.ca/"
-    },
-    {
-      "id": 2,
-      "name": "Muslim Association Of Milton (MAM)",
-      "address": "4269 Regional Rd 25, Oakville",
-      "phone": "905-467-5097",
-      "url": "http://www.miltonmasjid.com/"
-    },
-    {
-      "id": 3,
-      "name": "Jame Masjid Oakville : Noor-UL- Haram",
-      "address": "2478 Ninth Line, Oakville",
-      "phone": "905257-1342",
-      "url": "https://wimcanada.com/"
-    },
-    {
-      "id": 4,
-      "name": "Vaishno Devi Temple",
-      "address": "3259 Regional Rd 25, Oakville",
-      "phone": "905-825-4202",
-      "url": "https://vaishnodevimandir.ca/"
-    },
-
-    {
-      "id": 5,
-      "name": "Dhan Dhan Baba Budha Ji Gurdwara Sahib",
-      "address": "2403 Khalsa Gate, Oakville",
-      "phone": "905-469-1313",
-      "url": "http://www.bababudhaji.ca/"
-    },
-    {
-      "id": 6,
-      "name": "Legion of Christ",
-      "address": "2525 Prince Michael Dr, Oakville",
-      "phone": "647-921-7095",
-      "url": "http://www.legionariesofchrist.org/"
-    },
-    {
-      "id": 7,
-      "name": "The Church of Jesus Christ of Latter-day Saints",
-      "address": "2279 Eighth Line, Oakville",
-      "phone": "647-618-8036",
-      "url": "https://local.churchofjesuschrist.org/en/ca/on/oakville/2279-eighth-line-road?utm_source=gmb&utm_medium=yext&y_source=1_NjcwODE0NzAtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D"
-    },
-    {
-      "id": 8,
-      "name": "Oakridge Bible Chapel",
-      "address": "2250 Eighth Line, Oakville",
-      "phone": "905-849-0567",
-      "url": "https://www.oakridgebiblechapel.org/"
-    },
-    {
-      "id": 9,
-      "name": "Sanctuary Church (The)",
-      "address": "3064 Trafalgar Rd, Oakville",
-      "phone": "",
-      "url": ""
-    },
-    {
-      "id": 10,
-      "name": "River Oaks Community Church",
-      "address": "2435 Munn's Ave, Oakville",
-      "phone": "905-257-3864",
-      "url": "https://riveroakschurch.ca/"
-    },
-    {
-      "id": 11,
-      "name": "Knox Presbyterian Church 16",
-      "address": "1150 Dundas St W, Oakville",
-      "phone": "905-257-2770",
-      "url": "https://knox16presbyterian.ca/"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Al Falah Islamic Centre",
+    "address": "391 Burnhamthorpe Rd E, Oakville",
+    "phone": "905-257-4262",
+    "url": "http://www.alfalahcentre.ca/",
+    "lat": 43.50387990000001,
+    "lng": -79.7365396
+  },
+  {
+    "id": 2,
+    "name": "Muslim Association Of Milton (MAM)",
+    "address": "4269 Regional Rd 25, Oakville",
+    "phone": "905-467-5097",
+    "url": "http://www.miltonmasjid.com/",
+    "lat": 43.4570918,
+    "lng": -79.802146
+  },
+  {
+    "id": 3,
+    "name": "Jame Masjid Oakville : Noor-UL- Haram",
+    "address": "2478 Ninth Line, Oakville",
+    "phone": "905257-1342",
+    "url": "https://wimcanada.com/",
+    "lat": 43.5062972,
+    "lng": -79.6958204
+  },
+  {
+    "id": 4,
+    "name": "Vaishno Devi Temple",
+    "address": "3259 Regional Rd 25, Oakville",
+    "phone": "905-825-4202",
+    "url": "https://vaishnodevimandir.ca/",
+    "lat": 43.4425688,
+    "lng": -79.784886
+  },
+  {
+    "id": 5,
+    "name": "Dhan Dhan Baba Budha Ji Gurdwara Sahib",
+    "address": "2403 Khalsa Gate, Oakville",
+    "phone": "905-469-1313",
+    "url": "http://www.bababudhaji.ca/",
+    "lat": 43.4334086,
+    "lng": -79.77150639999999
+  },
+  {
+    "id": 6,
+    "name": "Legion of Christ",
+    "address": "2525 Prince Michael Dr, Oakville",
+    "phone": "647-921-7095",
+    "url": "http://www.legionariesofchrist.org/",
+    "lat": 43.49849589999999,
+    "lng": -79.7069453
+  },
+  {
+    "id": 7,
+    "name": "The Church of Jesus Christ of Latter-day Saints",
+    "address": "2279 Eighth Line, Oakville",
+    "phone": "647-618-8036",
+    "url": "https://local.churchofjesuschrist.org/en/ca/on/oakville/2279-eighth-line-road?utm_source=gmb&utm_medium=yext&y_source=1_NjcwODE0NzAtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+    "lat": 43.488314,
+    "lng": -79.7046695
+  },
+  {
+    "id": 8,
+    "name": "Oakridge Bible Chapel",
+    "address": "2250 Eighth Line, Oakville",
+    "phone": "905-849-0567",
+    "url": "https://www.oakridgebiblechapel.org/",
+    "lat": 43.4865185,
+    "lng": -79.7044824
+  },
+  {
+    "id": 9,
+    "name": "Sanctuary Church (The)",
+    "address": "3064 Trafalgar Rd, Oakville",
+    "phone": "",
+    "url": "",
+    "lat": 43.48932,
+    "lng": -79.72198999999999
+  },
+  {
+    "id": 10,
+    "name": "River Oaks Community Church",
+    "address": "2435 Munn's Ave, Oakville",
+    "phone": "905-257-3864",
+    "url": "https://riveroakschurch.ca/",
+    "lat": 43.4744211,
+    "lng": -79.7234679
+  },
+  {
+    "id": 11,
+    "name": "Knox Presbyterian Church 16",
+    "address": "1150 Dundas St W, Oakville",
+    "phone": "905-257-2770",
+    "url": "https://knox16presbyterian.ca/",
+    "lat": 43.4604077,
+    "lng": -79.7490785
+  }
+]

@@ -65,7 +65,7 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
         await login(null, formdata);
       }
     } catch (err) {
-      console.log(err);
+      setErrors([{ message: 'Something went wrong' }]);
     }
   };
 

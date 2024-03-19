@@ -8,27 +8,27 @@ import Copright from './copright';
 
 const popularNeighborhoods = [
   {
-    name: 'Properties for sale in Iroquois Ridge North',
+    name: 'Homes for sale in Iroquois Ridge North',
     href: '/homes-for-sale/iroquois-ridge-north',
   },
   {
-    name: 'Properties for sale in Rural Oakville',
+    name: 'Homes for sale in Rural Oakville',
     href: '/homes-for-sale/rural-oakville',
   },
   {
-    name: 'Properties for sale in Uptown Core',
+    name: 'Homes for sale in Uptown Core',
     href: '/homes-for-sale/uptown-core',
   },
   {
-    name: 'Properties for rent in Iroquois Ridge North',
+    name: 'Homes for rent in Iroquois Ridge North',
     href: '/homes-for-rent/iroquois-ridge-north',
   },
   {
-    name: 'Properties for rent in Rural Oakville',
+    name: 'Homes for rent in Rural Oakville',
     href: '/homes-for-rent/rural-oakville',
   },
   {
-    name: 'Properties for rent in Uptown Core',
+    name: 'Homes for rent in Uptown Core',
     href: '/homes-for-rent/uptown-core',
   },
 ];

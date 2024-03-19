@@ -12,25 +12,39 @@ import {
   Trigger,
 } from '@radix-ui/react-dropdown-menu';
 
+import Link from 'next/link';
+
 import Verification from '@components/ListingCard/Verification';
 
+import { useLayout } from '@context/LayoutContext';
+
 import Auth from '../auth';
+
+import SignOut from '../auth/signOut';
 
 import CollapsItems from './Collaps';
 
 interface MobileMenuProps {
   navLinks: { name: string; link: string }[];
   listData: { name: string; link: string }[];
+  session: any;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks, listData }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({
+  navLinks,
+  listData,
+  session,
+}) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const { setLogin } = useLayout();
 
   return (
     <div className="flex items-center gap-2 lg:hidden">
       <Auth />
-      <Verification />
+      <div className="hidden">
+        <Verification />
+      </div>
       <DropdownMenu>
         <Root
           open={isOpen}
@@ -67,7 +81,35 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ navLinks, listData }) => {
                       />
                     );
                   } else if (name === 'Auth') {
-                    component = null;
+                    component = (
+                      <div className="flex flex-col divide-y-[1px] divide-gray-300">
+                        {!session?.user ? (
+                          <button
+                            type="button"
+                            key={name}
+                            onClick={() => {
+                              setLogin(true);
+                              setIsOpen(false);
+                            }}
+                            className="flex h-10 items-center px-2 text-lg text-primary-500"
+                          >
+                            Login
+                          </button>
+                        ) : (
+                          <>
+                            <Link
+                              type="button"
+                              key={name}
+                              href="/profile"
+                              className="flex h-10 items-center px-2 text-lg text-primary-500"
+                            >
+                              Profile
+                            </Link>
+                            <SignOut />
+                          </>
+                        )}
+                      </div>
+                    );
                   } else {
                     component = (
                       <button

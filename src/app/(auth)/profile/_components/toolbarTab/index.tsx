@@ -1,7 +1,8 @@
 'use client';
 
-import cn from '@utils/cn';
 import { usePathname, useRouter } from 'next/navigation';
+
+import cn from '@utils/cn';
 
 interface Tab {
   param?: string | undefined;

@@ -5,8 +5,9 @@ import Link from 'next/link';
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 
-import cn from '@utils/cn';
 import { useSearchParams } from 'next/navigation';
+
+import cn from '@utils/cn';
 
 const defaultClass =
   'border rounded bg-white flex justify-center items-center text-sm w-7 h-7 text-gray-700 transition-colors duration-300 hover:border-blue-500 hover:text-blue-500';

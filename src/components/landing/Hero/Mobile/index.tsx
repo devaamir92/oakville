@@ -28,7 +28,7 @@ function HeroMobile() {
           </div>
           {/* Oakville Preserve logo End */}
           <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">
-            <div className="mx-auto flex w-3/4 flex-col sm:w-[60%]">
+            <div className="mx-auto flex w-[60%] flex-col sm:w-[60%]">
               <HelloText />
             </div>
           </div>

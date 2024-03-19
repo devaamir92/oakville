@@ -9,6 +9,8 @@ import {
 } from 'react-icons/bs';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
+import { FaHome } from 'react-icons/fa';
+
 import { Button } from '@components/ui/Button';
 
 import getSlug from '@utils/getSlug';
@@ -28,7 +30,6 @@ import PropertyDetails from '@components/PropertyDetails';
 import ListingOverview from '@components/ListingOverview';
 import ListingHighlights from '@components/ListingHighlights';
 import getSimilarProperties from '@lib/api/getSimilarProperties';
-import { FaHome } from 'react-icons/fa';
 
 interface PageProps {
   params: {

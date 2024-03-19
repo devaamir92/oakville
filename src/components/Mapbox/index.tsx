@@ -44,9 +44,6 @@ const Map: React.FC<MapProps> = ({ data }) => {
   const component = (props: any) => {
     return (
       <ClusterMarker
-        onClick={() => {
-          console.log('click');
-        }}
         latitude={props.latitude}
         longitude={props.longitude}
         pointCount={props.pointCount}
@@ -67,7 +64,6 @@ const Map: React.FC<MapProps> = ({ data }) => {
         onViewportChange={() => {}}
         boxZoom
         scrollZoom
-        onMove={(e: any) => console.log(e)}
       >
         <Source id="boundaries" type="geojson" data={mapLine} />
         <Layer
@@ -97,7 +93,6 @@ const Map: React.FC<MapProps> = ({ data }) => {
                 type="button"
                 onClick={async () => {
                   const res = await popupDetail(item.Slug);
-                  console.log(res);
                   setPopup(res);
                   setOpen(true);
                 }}

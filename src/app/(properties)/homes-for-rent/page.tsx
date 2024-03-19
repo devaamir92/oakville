@@ -33,9 +33,9 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Properties for Rent in The Preserve Oakville: Find Property for Rent',
+  title: 'Homes for Rent in The Preserve Oakville: Find Property for Rent',
   description:
-    'Browse our listings for properties for rent in The Preserve Oakville. Find properties for rent in this coveted Canadian neighborhood. Start your search today. ',
+    'Browse our listings for homes for rent in The Preserve Oakville. Find homes for rent in this coveted Canadian neighborhood. Start your search today. ',
 };
 
 const getProperties = async (
@@ -152,7 +152,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
 
   return (
     <main className="flex flex-1 flex-col">
-      <Toolbar />
+      <Toolbar type="rent" />
       <div className="flex flex-1">
         {searchParams?.view !== 'list' && (
           <section
@@ -202,7 +202,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
               bathrooms={searchParams?.bathrooms}
               basement={searchParams?.basement}
               sort={searchParams?.sort}
-              title="Properties for Rent in Rural Oakville & Uptown Core"
+              title="Homes for Rent in Rural Oakville & Uptown Core"
               S_r="Lease"
               location="/homes-for-rent"
             />

@@ -11,10 +11,9 @@ import Pagination from '@components/ui/Pagination';
 import Toolbar from './_components/toolbar';
 
 export const metadata: Metadata = {
-  title:
-    'New Developments in The Preserve Oakville | Discover properties for Sale',
+  title: 'New Homes in The Preserve Oakville | Discover Homes for Sale',
   description:
-    'Explore new developments in The Preserve Oakville, featuring luxury properties and homes. Stay updated on the latest properties by Mattamy Homes, Fernbrook, & more.',
+    'Explore New Homes in The Preserve Oakville, featuring luxury properties and homes. Stay updated on the latest properties by Mattamy Homes, Fernbrook, & more.',
 };
 
 const getNewDevelopment = async (
@@ -110,14 +109,14 @@ const Developments = async (searchParams: any) => {
       <div className="h-full">
         <div className="container mt-4 flex  flex-col">
           <h1 className="mb-3 text-center text-2xl font-semibold">
-            The Preserve Oakville New Developments
+            The Preserve Oakville New Homes
           </h1>
           <div className="mb-4 h-[1px] bg-gray-300" />
         </div>
         {data.data.length === 0 && (
           <div className="flex min-h-[calc(100vh-200px)]  items-center justify-center ">
             <h1 className="text-xl font-semibold text-gray-500">
-              No New Developments Found. Clear Filters To View All Projects.
+              No New Homes Found. Clear Filters To View All Projects.
             </h1>
           </div>
         )}

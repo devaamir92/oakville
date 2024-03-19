@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import Viewer from './viewer';
 import cn from '@utils/cn';
+
+import Viewer from './viewer';
 
 interface Props {
   Images: any;

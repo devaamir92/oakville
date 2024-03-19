@@ -1,82 +1,46 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import { A11y, Navigation } from 'swiper/modules';
 
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
 
 import CommunityCard from './card';
-import cn from '@utils/cn';
 
 interface CommunityProps {
   data: any[];
 }
-
-function Community({ data }: CommunityProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleNextClick = () => {
-    setCurrentIndex(prevIndex => {
-      const nextIndex = prevIndex + 1;
-      return nextIndex >= data.length ? 0 : nextIndex;
-    });
-  };
-
-  const handlePrevClick = () => {
-    setCurrentIndex(prevIndex => {
-      const nextIndex = prevIndex - 1;
-      return nextIndex < 0 ? data.length - 1 : nextIndex;
-    });
-  };
-
-  const cardCount = Math.ceil(data.length / 4);
-  const rows = Array.from({ length: cardCount }, (_, i) => (
-    <div
-      key={i}
-      className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-    >
-      {data.slice(i * 4, (i + 1) * 4).map(item => (
-        <CommunityCard
-          key={item.title}
-          title={item.title}
-          image={item.imageUrl}
-          href={item.href}
-          alt={item.alt}
-        />
-      ))}
-    </div>
-  ));
-
+const Community: React.FC<CommunityProps> = ({ data }) => {
   return (
-    <div className="relative">
-      <button
-        type="button"
-        aria-label="Previous"
-        disabled={currentIndex === 0}
-        onClick={handlePrevClick}
-        className={cn(
-          'absolute -left-10 top-1/2 -translate-y-1/2 disabled:opacity-50',
-          { 'cursor-not-allowed': currentIndex === 0 }
-        )}
-      >
-        <FaArrowLeft />
-      </button>
-      <div className="overflow-x-hidden">{rows[currentIndex]}</div>
-      <button
-        type="button"
-        aria-label="Next"
-        disabled={currentIndex === cardCount - 1}
-        onClick={handleNextClick}
-        className={cn(
-          'absolute -right-10 top-1/2 -translate-y-1/2 disabled:opacity-50',
-          {
-            'cursor-not-allowed': currentIndex === cardCount - 1,
-          }
-        )}
-      >
-        <FaArrowRight />
-      </button>
-    </div>
+    <Swiper
+      modules={[Navigation, A11y]}
+      spaceBetween={16}
+      slidesPerView={1}
+      navigation
+      breakpoints={{
+        768: {
+          slidesPerView: 4,
+        },
+      }}
+    >
+      {data.map(item => (
+        <SwiperSlide key={item.title}>
+          <CommunityCard
+            key={item.title}
+            title={item.title}
+            image={item.imageUrl}
+            href={item.href}
+            alt={item.alt}
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
-}
+};
 
 export default Community;

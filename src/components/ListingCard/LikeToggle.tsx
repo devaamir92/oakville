@@ -45,10 +45,6 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session, className }) => {
         type="button"
         aria-label="Favourite"
         onClick={handleFavourite}
-        // className={cn('outline-none focus:outline-none', {
-        //   className,
-        // })}
-        // clas
         className={`outline-none focus:outline-none${className}`}
       >
         {favourite?.includes(mls) ? (

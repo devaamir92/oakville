@@ -1,12 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import {
-  BsFillEnvelopeFill,
-  BsFillTelephoneFill,
-  BsHeart,
-  BsUpload,
-} from 'react-icons/bs';
+import { BsFillEnvelopeFill, BsFillTelephoneFill } from 'react-icons/bs';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { FaHome } from 'react-icons/fa';
@@ -22,7 +17,6 @@ import Rooms from '@components/Rooms';
 import Booking from '@components/Booking';
 import Card from '@components/ListingCard';
 import LightBox from '@components/LightBox';
-import { Button } from '@components/ui/Button';
 import BlurDailog from '@components/BlurDailog';
 import PriceHistory from '@components/PriceHistory';
 import Demographics from '@components/Demographics';

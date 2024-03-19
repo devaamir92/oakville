@@ -6,7 +6,6 @@ import { BsPencil } from 'react-icons/bs';
 import Modal from '@components/ui/Modal';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
-import { updateSession } from '@lib/auth';
 import { updateUser } from '@lib/api/auth/updateUser';
 
 interface Props {
@@ -24,19 +23,6 @@ const EditProfile = ({ session }: Props) => {
 
   const onClose = () => {
     setShowModal(!showModal);
-  };
-
-  const getUser = async () => {
-    const response = await fetch(
-      `${process.env.API_HOST}/api/v1/auth/profile`,
-      {
-        headers: {
-          Authorization: `Bearer ${session?.user?.token}`,
-        },
-      }
-    );
-    const userData = await response.json();
-    return userData;
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -61,7 +47,7 @@ const EditProfile = ({ session }: Props) => {
         onClose();
       }
     } catch (error) {
-      console.error(error);
+      setErrors([{ message: 'Something went wrong' }]);
     }
   };
 

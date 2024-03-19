@@ -15,6 +15,17 @@ export const metadata: Metadata = {
 };
 
 const StoresPage = async () => {
+  const getdata = () => {
+    return storesData.map(store => {
+      return {
+        name: store.name,
+        address: store.address,
+        Lat: store.lat,
+        Lng: store.lng,
+      };
+    });
+  };
+
   return (
     <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
       <h3 className="text-center text-xl font-medium">
@@ -27,13 +38,11 @@ const StoresPage = async () => {
             height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation icon={<FaStore />} />
-
-          {/* <Map lat={43.487113} lng={-79.720562} zoom={12.27} /> */}
+          <MapPinLocation icon={<FaStore />} data={getdata()} />
         </div>
       </section>
 
-      <StoreCard id="banks" data={storesData.stores} />
+      <StoreCard id="banks" data={storesData} />
     </main>
   );
 };

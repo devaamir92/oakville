@@ -59,7 +59,7 @@ const ResetPassword = ({ session }: Props) => {
         onClose();
       }
     } catch (error) {
-      console.error(error);
+      setErrors([{ message: 'Something went wrong' }]);
     }
   };
 

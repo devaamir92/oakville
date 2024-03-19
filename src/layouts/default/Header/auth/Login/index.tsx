@@ -95,7 +95,7 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
             </label>
 
             <Link
-              href="/resetpass"
+              href="/reset-password"
               className="text-sm text-gray-800 hover:underline  "
             >
               Forget Password?

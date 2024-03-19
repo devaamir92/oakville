@@ -25,6 +25,7 @@ interface PropertyProps {
   S_r: string;
   neighborhood?: string;
   location: string;
+  classType?: string;
 }
 
 const getProperties = async (
@@ -37,7 +38,8 @@ const getProperties = async (
   basement: string | string[],
   sort: string,
   S_r: string,
-  neighborhood: string = ''
+  neighborhood: string = '',
+  classType?: string
 ) => {
   const queryBuilder = RequestQueryBuilder.create();
 
@@ -56,16 +58,7 @@ const getProperties = async (
     };
   }
 
-  const propType = Array.isArray(type) ? type : [type];
   const propsBsmt = Array.isArray(basement) ? basement : [basement];
-
-  const typeQuery: any =
-    (type && {
-      Type_own_srch: {
-        $in: propType,
-      },
-    }) ||
-    {};
 
   const bsmtQuery: any =
     (basement && {
@@ -78,6 +71,14 @@ const getProperties = async (
     (neighborhood && {
       Community: {
         $eqL: neighborhood,
+      },
+    }) ||
+    {};
+
+  const classTypeQuery: any =
+    (classType && {
+      Class_type: {
+        $eq: classType,
       },
     }) ||
     {};
@@ -97,8 +98,11 @@ const getProperties = async (
             $gte: min,
             $lte: max,
           },
+          Type_own_srch: {
+            $eq: type,
+          },
+          ...classTypeQuery,
           ...neighborhoodQuery,
-          ...typeQuery,
           ...bsmtQuery,
           ...search,
         },
@@ -152,6 +156,7 @@ const Property: React.FC<PropertyProps> = async ({
   S_r,
   neighborhood,
   location,
+  classType,
 }) => {
   const rows = await getProperties(
     page,
@@ -163,7 +168,8 @@ const Property: React.FC<PropertyProps> = async ({
     basement,
     sort,
     S_r,
-    neighborhood
+    neighborhood,
+    classType
   );
 
   const session = await getSession();
@@ -173,10 +179,7 @@ const Property: React.FC<PropertyProps> = async ({
       <div className="flex justify-between gap-2">
         <h1
           className={cn(
-            'flex-1 text-center text-xl font-semibold capitalize text-gray-800 lg:text-left',
-            {
-              'text-center': view === 'list',
-            }
+            'flex-1 text-start text-xl font-semibold capitalize text-gray-800 lg:text-left'
           )}
         >
           {rows?.total.toLocaleString()} {title ?? 'Properties'}

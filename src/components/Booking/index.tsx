@@ -39,10 +39,6 @@ const Booking: React.FC<BookingProps> = ({ mls, addr, apt }) => {
       const res = await apiClient.post('/api/v1/booking', payload);
       return res;
     } catch (err: any) {
-      console.log(err);
-      if (err.response?.status === 401) {
-        console.log(err.response.status);
-      }
       return err;
     }
   };

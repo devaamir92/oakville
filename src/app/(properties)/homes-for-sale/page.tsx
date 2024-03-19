@@ -32,10 +32,9 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title:
-    'Properties for Sale in The Preserve Oakville: Luxury Property for Sale',
+  title: 'Homes for Sale in The Preserve Oakville: Luxury Property for Sale',
   description:
-    'Explore properties for sale in The Preserve Oakville, featuring luxury properties for every lifestyle. Find your dream home in this desirable Canadian neighborhood.',
+    'Explore homes for sale in The Preserve Oakville, featuring luxury properties for every lifestyle. Find your dream home in this desirable Canadian neighborhood.',
 };
 
 const getProperties = async (
@@ -152,7 +151,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
 
   return (
     <main className="flex flex-1 flex-col">
-      <Toolbar />
+      <Toolbar type="sale" />
       <div className="flex flex-1">
         {searchParams?.view !== 'list' && (
           <section
@@ -202,7 +201,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
               bathrooms={searchParams?.bathrooms}
               basement={searchParams?.basement}
               sort={searchParams?.sort}
-              title="Properties for Sale in Rural Oakville & Uptown Core"
+              title="Homes for Sale in Rural Oakville & Uptown Core"
               S_r="Sale"
               location="/homes-for-sale"
             />

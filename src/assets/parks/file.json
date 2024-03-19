@@ -1,144 +1,182 @@
-{
-  "parks": [
-    {
-      "id": 1,
-      "name": "Ninth Line Sports Park",
-      "address": "3115 Ninth Line, Mississauga.",
-      "url": "http://www.mississauga.ca/portal/residents/parks-sport-fields",
-      "phone": "905-615-3000"
-    },
-    {
-      "id": 2,
-      "name": "Buttonbush Woods Park",
-      "address": "3295 Meadow Marsh Cres, Oakville.",
-      "url": "",
-      "phone": ""
-    },
-    {
-      "id": 3,
-      "name": "William Rose Park",
-      "address": "455 Wheat Boom Dr., Oakville.",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 4,
-      "name": "Fowley Park",
-      "address": "106 Fowley Dr, Oakville",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 5,
-      "name": "George Savage Park",
-      "address": "3200 George Savage Ave, Oakville",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 6,
-      "name": "Memorial Park",
-      "address": "120 Oak Park Blvd, Oakville",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 7,
-      "name": "Postridge Park",
-      "address": "400 Postridge Dr, Oakville",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 8,
-      "name": "Laurelwood Park",
-      "address": "420 Hedgerow Ln, Oakville",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 9,
-      "name": "Craigleith Park",
-      "address": "1326 Craigleith Rd, Oakville",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 10,
-      "name": "Travertine Park",
-      "address": "3145 Travertine Dr, Oakville",
-      "url": "",
-      "phone": ""
-    },
-    {
-      "id": 11,
-      "name": "Featherstone Parkette",
-      "address": "307 Ironside Dr, Oakville",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 12,
-      "name": "Spyglass Pond",
-      "address": "Oakville",
-      "url": "",
-      "phone": ""
-    },
-    {
-      "id": 13,
-      "name": "Isaac Park Playground",
-      "address": "59 Sixteen Mile Dr, Oakville",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 14,
-      "name": "Oak Park Dog Park",
-      "address": "2303 Central Park Dr, Oakville",
-      "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
-      "phone": "905-845-6601"
-    },
-    {
-      "id": 15,
-      "name": "Windfield Parkette",
-      "address": "254 Glenashton Dr, Oakville",
-      "url": "",
-      "phone": ""
-    },
-    {
-      "id": 16,
-      "name": "Athabasca Pond",
-      "address": "3020 Postridge Dr, Oakville",
-      "url": "",
-      "phone": ""
-    },
-    {
-      "id": 17,
-      "name": "Buttonbush Woods Park",
-      "address": "3295 Meadow Marsh Cres, Oakville",
-      "url": "",
-      "phone": ""
-    },
-    {
-      "id": 18,
-      "name": "Everest Parkette",
-      "address": "1501 Everest Cres, Oakville",
-      "url": "",
-      "phone": ""
-    },
-    {
-      "id": 19,
-      "name": "Settlers Wood Park",
-      "address": "Oakville",
-      "url": "",
-      "phone": ""
-    },
-    {
-      "id": 20,
-      "name": "North Park",
-      "address": "Oakville",
-      "url": "",
-      "phone": ""
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Ninth Line Sports Park",
+    "address": "3115 Ninth Line, Mississauga.",
+    "url": "http://www.mississauga.ca/portal/residents/parks-sport-fields",
+    "phone": "905-615-3000",
+    "lat": 43.5097008,
+    "lng": -79.6985952
+  },
+  {
+    "id": 2,
+    "name": "Buttonbush Woods Park",
+    "address": "3295 Meadow Marsh Cres, Oakville.",
+    "url": "",
+    "phone": "",
+    "lat": 43.4975954,
+    "lng": -79.7232149
+  },
+  {
+    "id": 3,
+    "name": "William Rose Park",
+    "address": "455 Wheat Boom Dr., Oakville.",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.49365,
+    "lng": -79.71861
+  },
+  {
+    "id": 4,
+    "name": "Fowley Park",
+    "address": "106 Fowley Dr, Oakville",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.4850277,
+    "lng": -79.7298675
+  },
+  {
+    "id": 5,
+    "name": "George Savage Park",
+    "address": "3200 George Savage Ave, Oakville",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.4737404,
+    "lng": -79.74645319999999
+  },
+  {
+    "id": 6,
+    "name": "Memorial Park",
+    "address": "120 Oak Park Blvd, Oakville",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.4813795,
+    "lng": -79.7211672
+  },
+  {
+    "id": 7,
+    "name": "Postridge Park",
+    "address": "400 Postridge Dr, Oakville",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.4871399,
+    "lng": -79.71262
+  },
+  {
+    "id": 8,
+    "name": "Laurelwood Park",
+    "address": "420 Hedgerow Ln, Oakville",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.4810683,
+    "lng": -79.7037675
+  },
+  {
+    "id": 9,
+    "name": "Craigleith Park",
+    "address": "1326 Craigleith Rd, Oakville",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.4982761,
+    "lng": -79.70370179999999
+  },
+  {
+    "id": 10,
+    "name": "Travertine Park",
+    "address": "3145 Travertine Dr, Oakville",
+    "url": "",
+    "phone": "",
+    "lat": 43.4581299,
+    "lng": -79.7620518
+  },
+  {
+    "id": 11,
+    "name": "Featherstone Parkette",
+    "address": "307 Ironside Dr, Oakville",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.47674,
+    "lng": -79.74619
+  },
+  {
+    "id": 12,
+    "name": "Spyglass Pond",
+    "address": "Oakville",
+    "url": "",
+    "phone": "",
+    "lat": 43.4749416132207,
+    "lng": -79.74920071929577
+  },
+  {
+    "id": 13,
+    "name": "Isaac Park Playground",
+    "address": "59 Sixteen Mile Dr, Oakville",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.48007459999999,
+    "lng": -79.7347407
+  },
+  {
+    "id": 14,
+    "name": "Oak Park Dog Park",
+    "address": "2303 Central Park Dr, Oakville",
+    "url": "https://www.oakville.ca/culturerec/parks-trails-gardens.html",
+    "phone": "905-845-6601",
+    "lat": 43.4779193,
+    "lng": -79.7238623
+  },
+  {
+    "id": 15,
+    "name": "Windfield Parkette",
+    "address": "254 Glenashton Dr, Oakville",
+    "url": "",
+    "phone": "",
+    "lat": 43.4783822,
+    "lng": -79.7118461
+  },
+  {
+    "id": 16,
+    "name": "Athabasca Pond",
+    "address": "3020 Postridge Dr, Oakville",
+    "url": "",
+    "phone": "",
+    "lat": 43.4902833,
+    "lng": -79.71873529999999
+  },
+  {
+    "id": 17,
+    "name": "Buttonbush Woods Park",
+    "address": "3295 Meadow Marsh Cres, Oakville",
+    "url": "",
+    "phone": "",
+    "lat": 43.4975954,
+    "lng": -79.7232149
+  },
+  {
+    "id": 18,
+    "name": "Everest Parkette",
+    "address": "1501 Everest Cres, Oakville",
+    "url": "",
+    "phone": "",
+    "lat": 43.5054855,
+    "lng": -79.7050763
+  },
+  {
+    "id": 19,
+    "name": "Settlers Wood Park",
+    "address": "Oakville",
+    "url": "",
+    "phone": "",
+    "lat": 43.49424153076465,
+    "lng": -79.73982687301199
+  },
+  {
+    "id": 20,
+    "name": "North Park",
+    "address": "Oakville",
+    "url": "",
+    "phone": "",
+    "lat": 43.46862066789341,
+    "lng": -79.75554548731064
+  }
+]

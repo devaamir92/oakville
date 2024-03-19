@@ -4,14 +4,21 @@ import React from 'react';
 import { FaChevronDown, FaRepeat } from 'react-icons/fa6';
 import { usePathname, useRouter } from 'next/navigation';
 
+import Link from 'next/link';
+
 import Dropdown from '@components/ui/Dropdown';
 import { Button } from '@components/ui/Button';
 
-import Types from './Types';
+import cn from '@utils/cn';
+
 import Price from './Price';
 import Filters from './Filters';
 import ListAlert from './ListAlert';
 import ViewChanger from './View';
+
+interface Props {
+  type: string;
+}
 
 const FiltersData = {
   bedrooms: [
@@ -108,40 +115,79 @@ const FiltersData = {
   ],
 };
 
+// const TypeData = [
+//   {
+//     label: 'All',
+//     value: '',
+//     id: 0,
+//   },
+//   {
+//     label: 'Condo Apt',
+//     value: '.C.',
+//     id: 1,
+//   },
+//   {
+//     label: 'Condo Townhouse',
+//     value: '.T.',
+//     id: 2,
+//   },
+//   {
+//     label: 'Att/Row/Townhouse',
+//     value: '.A.',
+//     id: 3,
+//   },
+//   {
+//     label: 'Semi-Detached',
+//     value: '.S.',
+//     id: 4,
+//   },
+//   {
+//     label: 'Detached',
+//     value: '.D.',
+//     id: 5,
+//   },
+// ];
+
 const TypeData = [
   {
     label: 'All',
-    value: '',
+    href: '/homes-for-sale',
+    rentHref: '/homes-for-rent',
     id: 0,
   },
   {
     label: 'Condo Apt',
-    value: '.C.',
+    href: '/condos-for-sale',
+    rentHref: '/condos-for-rent',
     id: 1,
   },
   {
     label: 'Condo Townhouse',
-    value: '.T.',
+    href: '/condo-townhouses-for-sale',
+    rentHref: '/condo-townhouses-for-rent',
     id: 2,
   },
   {
     label: 'Att/Row/Townhouse',
-    value: '.A.',
+    href: '/townhouses-for-sale',
+    rentHref: '/townhouses-for-rent',
     id: 3,
   },
   {
-    label: 'Semi-Detached',
-    value: '.S.',
-    id: 4,
+    label: 'Detached',
+    href: '/houses-for-sale',
+    rentHref: '/houses-for-rent',
+    id: 5,
   },
   {
-    label: 'Detached',
-    value: '.D.',
-    id: 5,
+    label: 'Commercial',
+    href: '/commercial-property-for-sale',
+    rentHref: '/commercial-property-for-rent',
+    id: 6,
   },
 ];
 
-function Toolbar() {
+const Toolbar: React.FC<Props> = ({ type }) => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
@@ -150,10 +196,25 @@ function Toolbar() {
   };
 
   return (
-    <div className="sticky top-[113px] z-20 flex h-12 items-center justify-end bg-tertiary-500 px-4 lg:top-[70px]">
-      <nav className="flex min-w-full flex-wrap items-center justify-between">
+    <div className="sticky top-[113px] z-20 flex h-12 items-center justify-end overflow-x-auto bg-tertiary-500 px-4 lg:top-[70px]">
+      <nav className="flex min-w-full items-center justify-between gap-10">
         <nav className="flex items-center gap-0">
-          <Types items={TypeData} />
+          {/* <Types items={TypeData} /> */}
+          {TypeData.map(item => (
+            <Link
+              key={item.id}
+              href={type === 'rent' ? item.rentHref : item.href}
+              className={cn(
+                'flex cursor-pointer whitespace-nowrap rounded px-3 py-1.5 text-sm text-white  transition-colors ease-in-out',
+                {
+                  'text-secondary-600 outline outline-1  outline-secondary-600':
+                    pathname === (type === 'rent' ? item.rentHref : item.href),
+                }
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
         <ul className="flex min-w-[500px] items-center justify-center gap-4 text-sm xl:gap-9 2xl:gap-6">
           <li>
@@ -186,6 +247,6 @@ function Toolbar() {
       </nav>
     </div>
   );
-}
+};
 
 export default Toolbar;
