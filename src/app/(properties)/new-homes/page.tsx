@@ -71,9 +71,14 @@ const getNewDevelopment = async (
         },
       ],
     })
+    .sortBy({
+      field: 'createdAt',
+      order: 'DESC',
+    })
     .setJoin({
       field: 'gallery',
-    });
+    })
+    .setLimit(9);
 
   const res = await fetch(
     `${

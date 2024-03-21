@@ -41,3 +41,12 @@ h6 {
 .mapboxgl-ctrl-bottom-left {
   z-index: 0 !important;
 }
+
+.password-input::-ms-reveal,
+.password-input::-ms-clear {
+  display: none;
+}
+
+.st0 {
+  fill: #fff;
+}

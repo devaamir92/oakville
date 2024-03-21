@@ -37,6 +37,12 @@ function Verification() {
         <h2 className="text-center text-xl font-semibold">
           Verify your account
         </h2>
+        {!sussess && (
+          <p className="-mt-2 text-center text-sm text-gray-600">
+            A verification email has already been sent. If expired, please click
+            on &apos;Resend verification link
+          </p>
+        )}
         {sussess && (
           <p className="text-center text-sm text-primary-500">
             Verification link has been sent to your email

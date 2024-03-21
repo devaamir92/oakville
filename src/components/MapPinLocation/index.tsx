@@ -6,7 +6,13 @@ import dynamic from 'next/dynamic';
 import MapGL, { Layer } from '@urbica/react-map-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
+
+import { FaCross, FaStarAndCrescent } from 'react-icons/fa';
+
 import Modal from './Popup';
+import Image from 'next/image';
+import SikhIcon from '@icons/SikhIcon';
+import HinduIcon from '@icons/Hindu';
 
 const Marker = dynamic(() =>
   import('@urbica/react-map-gl').then(mod => mod.Marker)
@@ -18,8 +24,9 @@ interface MapProps {
     Lat: string | number;
     name?: string;
     address?: string;
+    religion?: string;
   }[];
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 const MAPBOX_ACCESS_TOKEN =
@@ -28,6 +35,7 @@ const MAPBOX_ACCESS_TOKEN =
 const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
   const [popup, setPopup] = useState<any>(null);
   const [open, setOpen] = useState(false);
+  console.log(data);
 
   return (
     <div className="relative size-full">
@@ -64,7 +72,7 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
                 <button
                   type="button"
                   aria-label={item.name || 'property location'}
-                  className="absolute flex items-center justify-center gap-1 rounded-md bg-primary-500 p-2 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary"
+                  className="absolute flex items-center justify-center gap-1 rounded-lg bg-primary-500 p-1.5 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary"
                   onClick={() => {
                     if (item.name || item.address) {
                       setOpen(true);
@@ -73,6 +81,20 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
                   }}
                 >
                   {icon}
+                  {(() => {
+                    switch (item.religion) {
+                      case 'hindu':
+                        return <HinduIcon className="fill-white" />;
+                      case 'sikh':
+                        return <SikhIcon className="fill-white" />;
+                      case 'christian':
+                        return <FaCross size="16" />;
+                      case 'islam':
+                        return <FaStarAndCrescent size="16" />;
+                      default:
+                        return null;
+                    }
+                  })()}
                 </button>
               </Marker>
             );

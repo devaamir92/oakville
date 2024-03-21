@@ -1,3 +1,4 @@
+import action from '@lib/actions';
 import { apiClient } from '@lib/apiclient';
 
 export const addFavourite = async (mls: string) => {
@@ -18,6 +19,7 @@ export const addFavouriteAdmin = async (mls: string) => {
   };
   try {
     const res = await apiClient.post('/api/v1/featured', payload);
+    action('featured');
     return res;
   } catch (error: any) {
     return error;

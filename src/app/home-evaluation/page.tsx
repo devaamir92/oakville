@@ -92,7 +92,7 @@ function page() {
       <div className="container grid items-center gap-10 md:grid-cols-2 lg:gap-20">
         <div className="relative mx-auto aspect-video w-[100%]">
           <Image
-            src="/images/webp/sell/lawnSign.webp"
+            src="/images/webp/sell/lawnSign.jpg"
             alt="banner"
             fill
             sizes="100vw, (max-width: 768px) 50vw"

@@ -37,6 +37,7 @@
     "react-lottie": "^1.2.4",
     "react-phone-number-input": "^3.3.9",
     "react-share": "^5.1.0",
+    "react-toastify": "^10.0.5",
     "recharts": "^2.11.0",
     "swiper": "^11.0.7",
     "tailwind-merge": "^2.2.1",

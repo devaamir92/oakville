@@ -1,15 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { FaEnvelope, FaPhone } from 'react-icons/fa6';
+import { FaEnvelope } from 'react-icons/fa6';
 
 import type { Metadata } from 'next';
+
+import { BsFillTelephoneFill } from 'react-icons/bs';
 
 import Contact from './_components/Contact';
 // import PhoneInputComponent from '@components/ui/PhoneInput';
 
 export const metadata: Metadata = {
-  title: 'Acme Dashboard',
+  title: 'Contact Us: Rent, Buy & Sell Homes, at The Preserve',
   description:
     'Get in touch with The Preserve Oakville for luxury properties and homes for sale. Contact for information on properties from Mattamy Homes, Fernbrook, and more.',
 };
@@ -33,10 +35,24 @@ export default function Page() {
             </Link>
           </div>
           <div className="flex items-center justify-center gap-2 text-base">
-            <FaPhone />
-            <Link href="tel:647 929 9072" className="">
-              Phone: 647 929 9072
-            </Link>
+            <div className="flex items-center gap-1">
+              <BsFillTelephoneFill className="mr-1 inline-block" />
+              <Link
+                href="
+                tel:647-929-9072"
+                className="text-sm  text-gray-800"
+              >
+                647 929 9072
+              </Link>
+              <span>/</span>
+              <Link
+                href="
+                tel:416-837-2000"
+                className="text-sm  text-gray-800"
+              >
+                416 837 2000
+              </Link>
+            </div>
           </div>
         </div>
       </div>

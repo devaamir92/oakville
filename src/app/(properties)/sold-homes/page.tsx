@@ -16,9 +16,10 @@ interface PropertyProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Sell Your Property in The Preserve Oakville ',
+  title:
+    'Sold Homes |Recently Sold Homes and Sold Properties| Preserve Oakville',
   description:
-    'Ready to sell your property in The Preserve Oakville? We specialize in selling luxury properties- Let us help you reach buyers looking for Oakville real estate. ',
+    'Search recently sold homes, condos, land and more at The Preserve Oakville. Find sold properties from the most comprehensive source of real estate data online.',
 };
 
 const Property: React.FC<PropertyProps> = async ({ searchParams }) => {

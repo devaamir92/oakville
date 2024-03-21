@@ -20,6 +20,7 @@ const Page = async ({ searchParams }: any) => {
     redirect('/');
   }
 
+  console.log('searchParams', searchParams.tab);
   return (
     <main className="container flex flex-col gap-4 py-10">
       <section className="flex items-center justify-between">
@@ -49,7 +50,7 @@ const Page = async ({ searchParams }: any) => {
 
       <ToolbarTab param={searchParams.tab} />
       <hr />
-      {searchParams.tab === 'fav' && searchParams.tab !== undefined && (
+      {searchParams.tab === 'fav' || !searchParams.tab ? (
         <Suspense
           key={searchParams?.page ?? '1'}
           fallback={
@@ -63,7 +64,7 @@ const Page = async ({ searchParams }: any) => {
             location="/profile"
           />
         </Suspense>
-      )}
+      ) : null}
       {searchParams.tab === 'srch' && (
         <div className="flex">
           <SavedSearches />

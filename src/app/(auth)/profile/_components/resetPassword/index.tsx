@@ -6,6 +6,7 @@ import { BsKey } from 'react-icons/bs';
 import Modal from '@components/ui/Modal';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
+import InputPassword from '@components/ui/Input/inputPassword';
 
 interface Props {
   session: any;
@@ -88,9 +89,9 @@ const ResetPassword = ({ session }: Props) => {
           </div>
         )}
         <form className="mt-4 flex flex-col gap-5" onSubmit={handleSubmit}>
-          <Input
+          <InputPassword
             id="current-password"
-            type="password"
+            className="text-sm"
             placeholder="Current Password"
             value={state.currentPassword}
             onChange={e =>
@@ -99,18 +100,18 @@ const ResetPassword = ({ session }: Props) => {
             required
           />
 
-          <Input
+          <InputPassword
             id="new-password"
-            type="password"
+            className="text-sm"
             placeholder="New Password"
             value={state.newPassword}
             onChange={e => setState({ ...state, newPassword: e.target.value })}
             required
           />
 
-          <Input
+          <InputPassword
             id="re-password"
-            type="password"
+            className="text-sm"
             placeholder="Re-enter Password"
             value={state.rePassword}
             onChange={e => setState({ ...state, rePassword: e.target.value })}

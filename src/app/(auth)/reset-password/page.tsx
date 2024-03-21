@@ -10,24 +10,22 @@ import { Input } from '@components/ui/Input';
 import { sendResetLink } from '@lib/api/auth/resetLink';
 import { validateHash } from '@lib/api/auth/validateHash';
 import { resetPassword } from '@lib/api/auth/resetPassword';
+import InputPassword from '@components/ui/Input/inputPassword';
+import { useLayout } from '@context/LayoutContext';
 
 const restPassSchema = z.object({
   password: z
     .string()
-    .min(8)
-    .regex(/[A-Z]/, {
-      message: 'Password must contain at least one uppercase letter',
-    })
-    .regex(/[0-9]/, { message: 'Password must contain at least one number' })
-    .regex(/[!@#$%^&*(),.?":{}|<>]/, {
-      message: 'Password must contain at least one special character',
-    }),
+    .min(8, { message: 'Password must be at least 8 characters' }),
 });
 
 function ResetPage(searchParams: any) {
   const [error, setError] = useState('');
   const [nextStep, seNextStep] = useState(0);
   const key = searchParams?.searchParams.key;
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const { setLogin } = useLayout();
 
   const handleFormAction = async (formData: FormData) => {
     const email = formData.get('email') as string;
@@ -50,6 +48,7 @@ function ResetPage(searchParams: any) {
   };
 
   useEffect(() => {
+    setLogin(false);
     const validate = async () => {
       try {
         const res = await validateHash(key);
@@ -69,9 +68,7 @@ function ResetPage(searchParams: any) {
     }
   }, [key]);
 
-  const handleResetPassword = async (formData: FormData) => {
-    const password = formData.get('password') as string;
-    const confirmPassword = formData.get('confpassword') as string;
+  const handleResetPassword = async () => {
     const validate = restPassSchema.safeParse({ password });
     if (!validate.success) {
       setError(validate.error.errors[0].message);
@@ -160,19 +157,23 @@ function ResetPage(searchParams: any) {
             className="flex flex-col gap-4 text-sm"
             action={handleResetPassword}
           >
-            <Input
+            <InputPassword
               id="password"
               name="password"
-              type="password"
               placeholder="Password"
               required
+              className="text-sm"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
-            <Input
+            <InputPassword
+              className="text-sm"
               id="password"
               name="confpassword"
-              type="password"
               placeholder="Confirm password"
               required
+              value={confirmPassword}
+              onChange={e => setConfirmPassword(e.target.value)}
             />
 
             <Button variant="default" className="text-sm" type="submit">

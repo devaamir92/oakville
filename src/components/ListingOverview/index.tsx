@@ -57,7 +57,9 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({
               {status}
             </span>
             <span className="rounded bg-primary-200 px-2 py-0.5 text-xs font-medium text-primary-600">
-              {daysOnMarket} days on market
+              {(daysOnMarket === 0 && 'Just Now') ||
+                (daysOnMarket === 1 && '1 Day') ||
+                `${daysOnMarket} Days`}
             </span>
           </div>
         </div>

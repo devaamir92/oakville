@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 
-import { FaSchool } from 'react-icons/fa';
+import { RiGraduationCapFill } from 'react-icons/ri';
 
 import data from '@assets/schools/file.json';
 
@@ -42,7 +42,10 @@ export default async function Page() {
 
       <section className="-mt-4 flex flex-col gap-8">
         <div className="h-96 overflow-hidden rounded lg:h-[calc(90vh-252px)]">
-          <MapPinLocation icon={<FaSchool />} data={getdata()} />
+          <MapPinLocation
+            icon={<RiGraduationCapFill size={16} />}
+            data={getdata()}
+          />
         </div>
       </section>
       <SchoolsLinks />

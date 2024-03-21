@@ -34,7 +34,7 @@ const data = [
     alt: 'Banks near The Preserve Oakville',
   },
   {
-    title: 'Healthcare in The Preserve, Oakville.',
+    title: 'Healthcare near The Preserve, Oakville.',
     imageUrl: '/images/jpg/community/hospitals-walk-in-clinics-vets.jpg',
     href: '/healthcare-facilities',
     alt: 'Healthcare facilities near The Preserve Oakville',
@@ -52,7 +52,7 @@ const data = [
     alt: '',
   },
   {
-    title: 'stores near the preserve Oakville',
+    title: 'Stores near the preserve Oakville',
     imageUrl: '/images/jpg/community/stores.jpg',
     href: '/stores',
     alt: 'stores near the preserve Oakville',

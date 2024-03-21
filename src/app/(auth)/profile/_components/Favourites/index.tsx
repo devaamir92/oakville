@@ -12,7 +12,6 @@ interface PropertyProps {
 
 const Favourites: React.FC<PropertyProps> = async ({ page, location }) => {
   const rows = await getFeatureProperty(page);
-
   const session = await getSession();
 
   return (
@@ -33,6 +32,11 @@ const Favourites: React.FC<PropertyProps> = async ({ page, location }) => {
             isLocked={item.Is_locked}
           />
         ))}
+        {rows?.data?.length === 0 && (
+          <div className="col-span-full flex h-[calc(100vh-360px)] items-center justify-center">
+            <p className="text-xl text-gray-500">No Favourites found</p>
+          </div>
+        )}
       </div>
 
       {rows?.pageCount > 1 && (

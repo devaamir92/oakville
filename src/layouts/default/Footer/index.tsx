@@ -57,7 +57,7 @@ const usefulLinks = [
     href: '/land-transfer-tax-calculator',
   },
   { name: 'Contact Us', href: '/contact-us' },
-  { name: 'Privacy Policy', href: '/privacy' },
+  { name: 'Privacy Policy', href: '/terms' },
 ];
 
 const linkClass =
@@ -90,10 +90,16 @@ const Footer = () => {
                 </address>
               </li>
               <li>
-                <Link href="tel:647 929 9072" className={linkClass}>
-                  <FaPhone size={14} className="mr-2 inline-block" />
-                  647 929 9072
-                </Link>
+                <div className="flex items-center gap-2">
+                  <FaPhone size={14} className="inline-block text-white" />
+                  <Link href="tel:416 837 2000" className={linkClass}>
+                    416 837 2000
+                  </Link>
+                  <span className="text-white">/</span>
+                  <Link href="tel:647 929 9072" className={linkClass}>
+                    647 929 9072
+                  </Link>
+                </div>
               </li>
               <li>
                 <Link

@@ -71,10 +71,10 @@ const Auth: React.FC<LinkProps> = ({ isLogin }) => {
           By creating an account, you acknowledge that you have read and agreed
           to our{' '}
           <Link
-            href="/privacy"
+            href="/terms"
             className="font-medium text-gray-700 hover:underline"
           >
-            Privacy Policy.
+            Terms of Service
           </Link>
         </p>
       </DialogBox>

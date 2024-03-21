@@ -36,10 +36,6 @@ const listData = [
     link: '/healthcare-facilities',
   },
   { name: 'Parks & Rec', link: '/parks-rec' },
-  // {
-  //   name: 'Public Trasportation',
-  //   link: '/public-trasportation',
-  // },
 ];
 
 const linkClass =

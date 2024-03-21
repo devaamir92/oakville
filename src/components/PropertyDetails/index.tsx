@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 interface PropertyDetailsProps {
@@ -5,6 +6,19 @@ interface PropertyDetailsProps {
 }
 
 const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data }) => {
+  const getURL = (type: string, community: string) => {
+    switch (type) {
+      case 'Sold':
+        return `/sold-homes/${community.replace(' ', '-').toLowerCase()}`;
+      case 'Sale':
+        return `/homes-for-sale/${community.replace(' ', '-').toLowerCase()}`;
+      case 'Lease':
+        return `/homes-for-rent/${community.replace(' ', '-').toLowerCase()}`;
+      default:
+        return '';
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <p className="text-md font-medium">Details</p>
@@ -83,7 +97,12 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data }) => {
                   Neighbourhood
                 </td>
                 <td className=" py-1.5 text-right font-medium text-gray-700 md:text-left">
-                  {data.Community}
+                  {/* {data.Community} */}
+                  {data.Community === 'Rural Oakville' && (
+                    <Link href={getURL(data.S_r, data.Community)}>
+                      {data.Community}
+                    </Link>
+                  )}
                 </td>
               </tr>
             </tbody>

@@ -7,13 +7,18 @@ import { Input } from '@components/ui/Input';
 
 import RangeSlider from './RangeSlider';
 
-function Price() {
+interface Props {
+  type: string;
+}
+
+const Price: React.FC<Props> = ({ type }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
   const [min, setMin] = useState(Number(searchParams.get('min') || 0));
-  const [max, setMax] = useState(Number(searchParams.get('max')) || 25000000);
-
+  const [max, setMax] = useState(
+    Number(searchParams.get('max')) || (type === 'rent' ? 10000 : 25000000)
+  );
   const handlePriceChange = (e: any) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set('min', String(e[0]));
@@ -54,14 +59,19 @@ function Price() {
           className="h-[32px]"
           onChange={handleMaxChange}
           value={max}
-          max={25000000}
+          max={type === 'rent' ? 10000 : 25000000}
         />
       </div>
       <div className="px-2">
-        <RangeSlider min={min} max={max} onchangeComplete={onchangeComplete} />
+        <RangeSlider
+          type={type}
+          min={min}
+          max={max}
+          onchangeComplete={onchangeComplete}
+        />
       </div>
     </div>
   );
-}
+};
 
 export default Price;

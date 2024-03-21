@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 
-import { FaMosque } from 'react-icons/fa';
-
 import data from '@assets/religious/file.json';
 
 import MapPinLocation from '@components/MapPinLocation';
@@ -22,6 +20,7 @@ const ReligiousPage = async () => {
         address: reg.address,
         Lat: reg.lat,
         Lng: reg.lng,
+        religion: reg.religion,
       };
     });
   };
@@ -38,7 +37,7 @@ const ReligiousPage = async () => {
             height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation icon={<FaMosque />} data={getdata()} />
+          <MapPinLocation data={getdata()} />
         </div>
       </section>
       <Healthcare id="banks" data={data} />

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { MdHealthAndSafety } from 'react-icons/md';
+import { BiPlusMedical } from 'react-icons/bi';
 
 import data from '@assets/healthcare/file.json';
 
@@ -37,10 +37,7 @@ const HealthcarePage = async () => {
             height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation
-            icon={<MdHealthAndSafety size={16} />}
-            data={getdata()}
-          />
+          <MapPinLocation icon={<BiPlusMedical size={16} />} data={getdata()} />
         </div>
       </section>
       <Healthcare id="banks" data={data} />

@@ -219,7 +219,7 @@ const Toolbar: React.FC<Props> = ({ type }) => {
         <ul className="flex min-w-[500px] items-center justify-center gap-4 text-sm xl:gap-9 2xl:gap-6">
           <li>
             <Dropdown label="Price" icon={<FaChevronDown size={10} />}>
-              <Price />
+              <Price type={type} />
             </Dropdown>
           </li>
           <li>

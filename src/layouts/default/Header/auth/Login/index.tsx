@@ -10,6 +10,7 @@ import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 import type { User } from '@lib/auth';
 import { login } from '@lib/auth';
+import InputPassword from '@components/ui/Input/inputPassword';
 
 interface LoginProps {
   switchForm: (step: string) => void;
@@ -34,6 +35,7 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
   const [state, fromAction] = useFormState(login, null);
   const [fieldErrors, setFieldErrors] = useState<User | undefined>(undefined);
   const [isRemembered, setIsRemembered] = useState(false);
+  const [password, setPassword] = useState('');
 
   useEffect(() => {
     setFieldErrors({});
@@ -68,12 +70,14 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
           </span>
         )}
         <div className="flex flex-col gap-3">
-          <Input
+          <InputPassword
             id="password"
-            type="password"
             name="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
             placeholder="Password"
             required
+            className="w-full text-sm"
           />
           {fieldErrors?.password && (
             <span className="text-sm capitalize text-red-500">

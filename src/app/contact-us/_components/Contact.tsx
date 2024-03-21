@@ -1,7 +1,9 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { z } from 'zod';
+
+import { toast } from 'react-toastify';
 
 import { capiClient } from '@lib/capiclient';
 
@@ -10,14 +12,13 @@ import { Input } from '@components/ui/Input';
 
 function Contact() {
   const [errors, setErrors] = useState<any>(null);
-  const [success, setSuccess] = useState<string>('');
 
   const data = z.object({
     name: z.string().min(2, { message: 'Name is required' }),
     email: z.string().email({ message: 'Email is required' }),
     phone: z.string().min(12, { message: 'Phone minimum 12 characters' }),
     subject: z.string().min(2, { message: 'Subject is required' }),
-    message: z.string().min(10, { message: 'Message is required' }),
+    message: z.string().min(1, { message: 'Message is required' }),
   });
 
   const handleSubmit = async (result: any) => {
@@ -31,7 +32,9 @@ function Contact() {
     try {
       const res = await capiClient.post('/api/v1/contact', payload);
       if (res.status === 201) {
-        setSuccess('Message sent successfully');
+        toast.success(
+          'Your message has been successfully submitted. Thank you for reaching out to us.'
+        );
         setErrors(null);
         const form = document.querySelector('form');
         form?.reset();
@@ -79,24 +82,11 @@ function Contact() {
     }
   };
 
-  useEffect(() => {
-    if (success) {
-      setTimeout(() => {
-        setSuccess('');
-      }, 5000);
-    }
-  }, [success]);
-
   return (
     <div className="mb-10 flex flex-1 flex-col items-center justify-center gap-4 lg:mb-0">
       <h1 className="mb-4 text-2xl font-medium text-gray-800 lg:mb-10">
         Submit a Message
       </h1>
-      {success && (
-        <div className="mb-4 w-96 rounded bg-primary-400 p-2 text-center text-white">
-          {success}
-        </div>
-      )}
       {errors && (
         <ul className="mb-4 w-96 list-disc rounded border border-red-400 bg-red-50 p-2 text-sm">
           {errors.map((error: any) => (

@@ -48,9 +48,9 @@ const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session, className }) => {
         className={`outline-none focus:outline-none${className}`}
       >
         {favourite?.includes(mls) ? (
-          <FaHeart className="text-red-500" />
+          <FaHeart className="text-red-500" size={24} />
         ) : (
-          <FaRegHeart className="text-red-500" />
+          <FaRegHeart className="text-red-500" size={24} />
         )}
       </button>
     </div>

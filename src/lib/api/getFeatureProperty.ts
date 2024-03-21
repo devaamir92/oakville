@@ -5,7 +5,13 @@ import { getFavourite } from './favourite';
 const getFeatureProperty = async (page: number) => {
   const queryBuilder = RequestQueryBuilder.create();
   const favourite = await getFavourite();
-
+  if (!favourite.data.length) {
+    return {
+      data: [],
+      pageCount: 1,
+      page: 1,
+    };
+  }
   queryBuilder.search({
     $and: [
       {

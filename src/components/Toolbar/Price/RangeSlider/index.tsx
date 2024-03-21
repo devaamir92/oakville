@@ -5,17 +5,18 @@ import 'rc-slider/assets/index.css';
 interface Props {
   min: number;
   max: number;
+  type: string;
   onchangeComplete: (value: number | number[]) => void;
 }
 
-const RangeSlider: React.FC<Props> = ({ min, max, onchangeComplete }) => {
+const RangeSlider: React.FC<Props> = ({ min, max, type, onchangeComplete }) => {
   return (
     <Slider
       range
       allowCross={false}
       min={0}
-      max={25000000}
-      step={10000}
+      max={type === 'rent' ? 10000 : 25000000}
+      step={type === 'rent' ? 100 : 10000}
       value={[min, max]}
       defaultValue={[min, max]}
       onChange={onchangeComplete}

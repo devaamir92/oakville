@@ -11,6 +11,7 @@ import getSlug from '@utils/getSlug';
 import getBedroomString from '@utils/getbedroomString';
 
 import { getSession } from '@lib/getsession';
+import { getImages } from '@lib/api/getImages';
 import getSimilarProperties from '@lib/api/getSimilarProperties';
 
 import Rooms from '@components/Rooms';
@@ -111,17 +112,6 @@ const getProperty = async (slug: string) => {
   return { property, soldHistory, similarProperties };
 };
 
-const getImages = async (mls: string) => {
-  const res = await fetch(`${process.env.API_HOST}/api/v1/stream/${mls}`, {
-    method: 'GET',
-    next: {
-      tags: [mls],
-    },
-    cache: 'no-cache',
-  });
-  return res.json();
-};
-
 async function Page({ params }: PageProps) {
   const { property, soldHistory, similarProperties } = await getProperty(
     params.property
@@ -178,7 +168,7 @@ async function Page({ params }: PageProps) {
         squareFeet={property.Sqft}
         price={Number(property.Lp_dol)}
         status="For Sale"
-        daysOnMarket={property.Dom}
+        daysOnMarket={Number(property.Dom)}
       />
 
       <div className="flex flex-col gap-3 lg:flex-row-reverse">
@@ -188,14 +178,24 @@ async function Page({ params }: PageProps) {
               The Preserve Oakville
             </h3>
             <div className="flex flex-col items-center justify-center gap-2">
-              <Link
-                href="
-                tel:416-123-4567"
-                className="flex items-center gap-2 text-sm  text-gray-800"
-              >
-                <BsFillTelephoneFill className="inline-block" />
-                647 929 9072
-              </Link>
+              <div className="flex items-center gap-1">
+                <BsFillTelephoneFill className="mr-1 inline-block" />
+                <Link
+                  href="
+                tel:647-929-9072"
+                  className="text-sm  text-gray-800"
+                >
+                  647 929 9072
+                </Link>
+                <span>/</span>
+                <Link
+                  href="
+                tel:416-837-2000"
+                  className="text-sm  text-gray-800"
+                >
+                  416 837 2000
+                </Link>
+              </div>
               <Link
                 href="
                     mailto:

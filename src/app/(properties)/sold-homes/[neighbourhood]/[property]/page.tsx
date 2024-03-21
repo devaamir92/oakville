@@ -1,19 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
-import {
-  BsFillEnvelopeFill,
-  BsFillTelephoneFill,
-  BsHeart,
-  BsUpload,
-} from 'react-icons/bs';
+import { BsFillEnvelopeFill, BsFillTelephoneFill } from 'react-icons/bs';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { getSession } from '@lib/getsession';
 
 import Rooms from '@components/Rooms';
-import { Button } from '@components/ui/Button';
 import BlurDailog from '@components/BlurDailog';
 import Demographics from '@components/Demographics';
 import PriceHistory from '@components/PriceHistory';
@@ -22,6 +15,10 @@ import PropertyDetails from '@components/PropertyDetails';
 import ListingOverview from '@components/ListingOverview';
 import ListingHighlights from '@components/ListingHighlights';
 import statusMapper from '@utils/statusMaper';
+import LightBox from '@components/LightBox';
+import { getImages } from '@lib/api/getImages';
+import { Share } from '@components/Share';
+import LikeToggle from '@components/ListingCard/LikeToggle';
 
 interface PageProps {
   params: {
@@ -106,7 +103,7 @@ const getProperty = async (slug: string) => {
 async function Page({ params }: PageProps) {
   const { property, soldHistory } = await getProperty(params.property);
   const session: any = await getSession();
-  // const images: string[] = await getImages(property.Ml_num);
+  const images: string[] = await getImages(property.Ml_num);
   return (
     <main className="container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       {!session && (
@@ -126,31 +123,32 @@ async function Page({ params }: PageProps) {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <Button
-            className="gap-2 border-red-300 text-red-500"
-            variant="outline"
-          >
-            <BsHeart />
-            <span className="hidden lg:block">Favourite</span>
-          </Button>
-          <Button
-            className="gap-2 border-primary-300 text-primary-500"
-            variant="outline"
-          >
-            <BsUpload />
-            <span className="hidden lg:block">Share</span>
-          </Button>
+          <LikeToggle
+            className="mx-auto flex !size-[22px] items-center justify-center rounded-sm outline-1 !outline-red-500"
+            session={session}
+            mls={property.Ml_num}
+          />
+          <Share
+            image={`https://api.preserveoakville.ca/api/v1/stream/${property.Ml_num}/${images[0]}`}
+            title={property.title}
+          />
         </div>
       </div>
-
-      <div className="relative flex h-60 gap-2 overflow-hidden rounded md:h-80 lg:h-[420px]">
+      {/* <div className="relative flex h-60 gap-2 overflow-hidden rounded md:h-80 lg:h-[420px]">
         <Image
           src="/images/jpg/property-sold-out-banner.jpg"
           alt="Sold out banner"
           layout="fill"
           className="size-full object-cover"
         />
-      </div>
+      </div> */}
+      <LightBox
+        Images={images.slice(1)}
+        mls={property.Ml_num}
+        address={`${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+          property.Addr
+        }`}
+      />
 
       <ListingOverview
         bathrooms={property.Bath_tot}
@@ -159,7 +157,7 @@ async function Page({ params }: PageProps) {
         squareFeet={property.Sqft}
         price={Number(property.Lp_dol)}
         status={statusMapper(property.Lsc)}
-        daysOnMarket={property.Dom}
+        daysOnMarket={Number(property.Dom)}
         soldPrice={Number(property.Sp_dol)}
         statusFlag={property.Status}
       />
@@ -171,14 +169,8 @@ async function Page({ params }: PageProps) {
               The Preserve Oakville
             </h3>
             <div className="flex flex-col items-center justify-center gap-2">
-              <Link
-                href="
-                tel:416-123-4567"
-                className="flex items-center gap-2 text-sm  text-gray-800"
-              >
-                <BsFillTelephoneFill className="inline-block" />
-                647 929 9072
-              </Link>
+              <BsFillTelephoneFill className="mr-1 inline-block" />
+
               <Link
                 href="
                     mailto:

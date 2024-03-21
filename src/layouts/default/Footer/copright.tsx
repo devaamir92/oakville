@@ -26,7 +26,7 @@ function Copright() {
       <div className="text-sm text-white">
         © {new Date().getFullYear()} Preserve Oakville. All rights reserved.
       </div>
-      <div className="flex items-center gap-3">
+      {/* <div className="flex items-center gap-3">
         {socials.map(social => (
           <Link
             key={social.name}
@@ -39,7 +39,7 @@ function Copright() {
             {social.icon}
           </Link>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

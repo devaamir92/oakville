@@ -44,13 +44,23 @@ const Page = async (searchParams: any) => {
           <h3 className="text-3xl  font-semibold text-gray-800">{rows.name}</h3>
         </div>
         <div className="flex flex-col items-center gap-1 md:items-start">
-          <Link
-            href="tel:647 929 9072"
-            className="flex items-center gap-2 text-sm"
-          >
-            <FaPhone className="text-primary-500" />
-            647 929 9072
-          </Link>
+          <div className="flex items-center gap-1">
+            <Link
+              href="
+                tel:647-929-9072"
+              className="text-sm  text-gray-800"
+            >
+              647 929 9072
+            </Link>
+            <span>/</span>
+            <Link
+              href="
+                tel:416-837-2000"
+              className="text-sm  text-gray-800"
+            >
+              416 837 2000
+            </Link>
+          </div>
           <Link
             href="mailto:info@preserveoakville.ca"
             className="flex items-center gap-2 text-sm"
@@ -91,7 +101,7 @@ const Page = async (searchParams: any) => {
         </div>
       </div>
       <div className="flex flex-col gap-6 lg:flex-row">
-        <InquireForm />
+        <InquireForm title={rows.name} />
         <div className="flex h-fit flex-1 flex-col gap-4">
           <Summary
             data={[

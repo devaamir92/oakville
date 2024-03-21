@@ -6,10 +6,13 @@ import React, { useState } from 'react';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
+import { toast } from 'react-toastify';
+
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 
 import { login } from '@lib/auth';
+import InputPassword from '@components/ui/Input/inputPassword';
 
 interface Props {
   switchForm: (step: string) => void;
@@ -29,11 +32,15 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
     lastName: z.string().min(1, { message: 'Last Name is required' }),
     phone: z
       .string()
-      .min(12, { message: 'phone must be at least 12 characters' }),
+      .min(12, { message: 'Phone must be at least 12 characters' }),
     password: z.string().min(8, {
       message: 'Password must be at least 8 characters',
     }),
   });
+  const notify = () =>
+    toast.success(
+      'The verification email has been successfully sent. Please check your inbox.'
+    );
 
   const handleRegister = async () => {
     try {
@@ -62,6 +69,7 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
         const formdata = new FormData();
         formdata.append('email', state.email);
         formdata.append('password', state.password);
+        notify();
         await login(null, formdata);
       }
     } catch (err) {
@@ -92,7 +100,7 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
         <div className="flex h-full items-center rounded border border-red-300 bg-red-100 px-2 text-sm">
           <ul className="ml-5 list-disc text-red-500">
             {errors.map((error: any) => (
-              <li key={error.message} className="py-2 capitalize">
+              <li key={error.message} className="py-2 ">
                 {error.message}
               </li>
             ))}
@@ -129,11 +137,13 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
           className="h-[40px] rounded border border-slate-300 bg-transparent px-2 py-1 text-sm placeholder:text-slate-400 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 "
         />
         <div className="flex gap-3">
-          <Input
+          <InputPassword
             id="password"
-            type="password"
-            value={state.password}
+            name="password"
             placeholder="Password"
+            required
+            value={state.password}
+            className="w-full text-sm"
             onChange={event =>
               setState({ ...state, password: event.target.value })
             }

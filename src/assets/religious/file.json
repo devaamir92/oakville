@@ -6,7 +6,8 @@
     "phone": "905-257-4262",
     "url": "http://www.alfalahcentre.ca/",
     "lat": 43.50387990000001,
-    "lng": -79.7365396
+    "lng": -79.7365396,
+    "religion": "islam"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "phone": "905-467-5097",
     "url": "http://www.miltonmasjid.com/",
     "lat": 43.4570918,
-    "lng": -79.802146
+    "lng": -79.802146,
+    "religion": "islam"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "phone": "905257-1342",
     "url": "https://wimcanada.com/",
     "lat": 43.5062972,
-    "lng": -79.6958204
+    "lng": -79.6958204,
+    "religion": "islam"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "phone": "905-825-4202",
     "url": "https://vaishnodevimandir.ca/",
     "lat": 43.4425688,
-    "lng": -79.784886
+    "lng": -79.784886,
+    "religion": "hindu"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "phone": "905-469-1313",
     "url": "http://www.bababudhaji.ca/",
     "lat": 43.4334086,
-    "lng": -79.77150639999999
+    "lng": -79.77150639999999,
+    "religion": "sikh"
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "phone": "647-921-7095",
     "url": "http://www.legionariesofchrist.org/",
     "lat": 43.49849589999999,
-    "lng": -79.7069453
+    "lng": -79.7069453,
+    "religion": "christian"
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "phone": "647-618-8036",
     "url": "https://local.churchofjesuschrist.org/en/ca/on/oakville/2279-eighth-line-road?utm_source=gmb&utm_medium=yext&y_source=1_NjcwODE0NzAtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
     "lat": 43.488314,
-    "lng": -79.7046695
+    "lng": -79.7046695,
+    "religion": "christian"
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "phone": "905-849-0567",
     "url": "https://www.oakridgebiblechapel.org/",
     "lat": 43.4865185,
-    "lng": -79.7044824
+    "lng": -79.7044824,
+    "religion": "christian"
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "phone": "",
     "url": "",
     "lat": 43.48932,
-    "lng": -79.72198999999999
+    "lng": -79.72198999999999,
+    "religion": "christian"
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "phone": "905-257-3864",
     "url": "https://riveroakschurch.ca/",
     "lat": 43.4744211,
-    "lng": -79.7234679
+    "lng": -79.7234679,
+    "religion": "christian"
   },
   {
     "id": 11,
@@ -96,6 +106,7 @@
     "phone": "905-257-2770",
     "url": "https://knox16presbyterian.ca/",
     "lat": 43.4604077,
-    "lng": -79.7490785
+    "lng": -79.7490785,
+    "religion": "christian"
   }
 ]

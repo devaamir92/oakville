@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { FaStore } from 'react-icons/fa';
+import { FaShoppingCart, FaStore } from 'react-icons/fa';
 
 import storesData from '@assets/stores/file.json';
 
@@ -38,7 +38,10 @@ const StoresPage = async () => {
             height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation icon={<FaStore />} data={getdata()} />
+          <MapPinLocation
+            icon={<FaShoppingCart size={16} />}
+            data={getdata()}
+          />
         </div>
       </section>
 

@@ -22,7 +22,7 @@ const Summary: React.FC<SummaryProps> = ({ data }) => {
                   <td className="py-1.5 font-medium text-gray-500">
                     {item.name}
                   </td>
-                  <td className="py-1.5 text-right font-medium capitalize text-gray-700 md:text-left">
+                  <td className="w-3/5 py-1.5 text-right font-medium capitalize text-gray-700 md:text-left">
                     {item.name === 'Pricing' ? `$${item.value}` : item.value}
                   </td>
                 </tr>
@@ -35,10 +35,10 @@ const Summary: React.FC<SummaryProps> = ({ data }) => {
             <tbody className="divide-y divide-gray-300 bg-white">
               {data.slice(4, 20).map(item => (
                 <tr key={item.name} className="flex justify-between text-sm">
-                  <td className=" py-1.5 font-medium text-gray-500">
+                  <td className="py-1.5 font-medium text-gray-500">
                     {item.name}
                   </td>
-                  <td className="py-1.5 text-right font-medium capitalize text-gray-700 md:text-left">
+                  <td className="w-3/5 py-1.5 text-right font-medium capitalize text-gray-700 md:text-left">
                     {item.value}
                   </td>
                 </tr>

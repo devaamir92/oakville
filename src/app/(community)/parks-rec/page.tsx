@@ -37,7 +37,7 @@ const ParksPage = async () => {
             height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation icon={<FaTree />} data={getdata()} />
+          <MapPinLocation icon={<FaTree size={16} />} data={getdata()} />
         </div>
       </section>
       <ParksRec id="parks" data={data} />

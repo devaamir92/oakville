@@ -71,7 +71,7 @@ const BlogPage = async () => {
                       alt={blog.imageAlt}
                       className="object-cover"
                     />
-                    <CategoryFilter categories={blog.categories} />
+                    {/* <CategoryFilter categories={blog.categories} /> */}
                   </div>
                   <div className="flex flex-col gap-1 p-3">
                     <span className="truncate text-base font-medium">

@@ -9,7 +9,11 @@ import { capiClient } from '@lib/capiclient';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 
-const InquireForm = () => {
+interface InquireFormProps {
+  title: string;
+}
+
+const InquireForm: React.FC<InquireFormProps> = ({ title }) => {
   const [errors, setErrors] = useState<any>(null);
   const [setups, setSetups] = useState<string>('step-1');
   const [checked, setChecked] = useState<boolean>(false);
@@ -18,7 +22,10 @@ const InquireForm = () => {
     firstName: z.string().min(2, { message: 'First Name is required' }),
     lastName: z.string().min(2, { message: 'Last Name is required' }),
     email: z.string().email({ message: 'Email is required' }),
-    phone: z.string().min(12, { message: 'Phone minimum 12 characters' }),
+    phone: z
+      .string()
+      .min(10, { message: 'Phone minimum 10 characters' })
+      .max(12, { message: 'Phone maximum 12 characters' }),
   });
 
   const handleInquiry = async (result: any) => {
@@ -102,7 +109,7 @@ const InquireForm = () => {
           className=" flex flex-col justify-between gap-6 rounded bg-secondary-300 p-6 2xl:h-3/4"
         >
           <h2 className="text-center text-lg font-medium">
-            Register To Get Pricing & Floor Plans for Clarehaven Estates
+            Register To Get Pricing for {title}
           </h2>
           <div className="flex gap-4">
             <Input

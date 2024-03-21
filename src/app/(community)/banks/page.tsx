@@ -38,7 +38,7 @@ const BanksPage = async () => {
             height: 'calc(90vh - 252px)',
           }}
         >
-          <MapPinLocation data={getdata()} icon={<FaDollarSign />} />
+          <MapPinLocation data={getdata()} icon={<FaDollarSign size={16} />} />
         </div>
       </section>
 
