@@ -1,11 +1,10 @@
 import React from 'react';
 
 interface BaseProps {
-  className?: string;
   children?: React.ReactNode;
 }
 
-const Base: React.FC<BaseProps> = ({ className, children }) => {
+const Base: React.FC<BaseProps> = ({ children }) => {
   return (
     <svg
       version="1.1"

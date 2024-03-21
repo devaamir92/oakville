@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { BsKey } from 'react-icons/bs';
 
 import Modal from '@components/ui/Modal';
-import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 import InputPassword from '@components/ui/Input/inputPassword';
 

@@ -1,12 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import {
-  BsFillEnvelopeFill,
-  BsFillTelephoneFill,
-  BsHeart,
-  BsUpload,
-} from 'react-icons/bs';
+import { BsFillEnvelopeFill, BsFillTelephoneFill } from 'react-icons/bs';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { FaHome } from 'react-icons/fa';

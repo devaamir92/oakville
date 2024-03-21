@@ -1,24 +1,23 @@
-import Link from 'next/link';
 import React from 'react';
-import { FaFacebookF, FaInstagram, FaXTwitter } from 'react-icons/fa6';
+// import { FaFacebookF, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 
-const socials = [
-  {
-    name: 'Facebook',
-    icon: <FaFacebookF className="text-2xl lg:text-lg" />,
-    href: 'https://www.facebook.com/PreserveOakville/',
-  },
-  {
-    name: 'Twitter',
-    icon: <FaXTwitter className="text-2xl lg:text-lg" />,
-    href: 'https://twitter.com/PreserveOak',
-  },
-  {
-    name: 'Instagram',
-    icon: <FaInstagram className="text-2xl lg:text-lg" />,
-    href: 'https://www.instagram.com/preserveoakville/',
-  },
-];
+// const socials = [
+//   {
+//     name: 'Facebook',
+//     icon: <FaFacebookF className="text-2xl lg:text-lg" />,
+//     href: 'https://www.facebook.com/PreserveOakville/',
+//   },
+//   {
+//     name: 'Twitter',
+//     icon: <FaXTwitter className="text-2xl lg:text-lg" />,
+//     href: 'https://twitter.com/PreserveOak',
+//   },
+//   {
+//     name: 'Instagram',
+//     icon: <FaInstagram className="text-2xl lg:text-lg" />,
+//     href: 'https://www.instagram.com/preserveoakville/',
+//   },
+// ];
 
 function Copright() {
   return (

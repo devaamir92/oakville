@@ -82,7 +82,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                     );
                   } else if (name === 'Auth') {
                     component = (
-                      <div className="flex flex-col divide-y-[1px] divide-gray-300">
+                      <div
+                        key={name}
+                        className="flex flex-col divide-y-[1px] divide-gray-300"
+                      >
                         {!session?.user ? (
                           <button
                             type="button"

@@ -9,10 +9,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { FaCross, FaStarAndCrescent } from 'react-icons/fa';
 
-import Modal from './Popup';
-import Image from 'next/image';
 import SikhIcon from '@icons/SikhIcon';
 import HinduIcon from '@icons/Hindu';
+
+import Modal from './Popup';
 
 const Marker = dynamic(() =>
   import('@urbica/react-map-gl').then(mod => mod.Marker)
@@ -35,7 +35,6 @@ const MAPBOX_ACCESS_TOKEN =
 const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
   const [popup, setPopup] = useState<any>(null);
   const [open, setOpen] = useState(false);
-  console.log(data);
 
   return (
     <div className="relative size-full">
@@ -84,9 +83,9 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
                   {(() => {
                     switch (item.religion) {
                       case 'hindu':
-                        return <HinduIcon className="fill-white" />;
+                        return <HinduIcon />;
                       case 'sikh':
-                        return <SikhIcon className="fill-white" />;
+                        return <SikhIcon />;
                       case 'christian':
                         return <FaCross size="16" />;
                       case 'islam':

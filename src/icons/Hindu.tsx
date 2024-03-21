@@ -2,13 +2,9 @@ import React from 'react';
 
 import Base from './base';
 
-interface HinduIconProps {
-  className?: string;
-}
-
-const HinduIcon: React.FC<HinduIconProps> = ({ className }) => {
+const HinduIcon: React.FC = () => {
   return (
-    <Base className={className}>
+    <Base>
       <g>
         <path
           className="st0"

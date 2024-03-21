@@ -66,7 +66,7 @@ export default async function Header() {
         <div className="w-full lg:hidden">
           <hr className="border-primary-400" />
         </div>
-        <div className="ml-0 w-full lg:ml-4 lg:w-72 xl:w-96">
+        <div className="ml-0 w-full lg:ml-4 lg:w-[500px]">
           <SearchComponent />
         </div>
         <div className="hidden w-full lg:flex lg:justify-end">

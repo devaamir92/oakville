@@ -2,10 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { verifyEmailAddress } from '@lib/api/auth/emailVerification';
 import { FaCheck, FaExclamation } from 'react-icons/fa';
 import Link from 'next/link';
 import { TbClockX } from 'react-icons/tb';
+
+import { verifyEmailAddress } from '@lib/api/auth/emailVerification';
 
 function VerPage(searchParams: any) {
   const [response, setResponse] = useState<any>();

@@ -198,7 +198,7 @@ const Toolbar: React.FC<Props> = ({ type }) => {
   return (
     <div className="sticky top-[113px] z-20 flex h-12 items-center justify-end overflow-x-auto bg-tertiary-500 px-4 lg:top-[70px]">
       <nav className="flex min-w-full items-center justify-between gap-10">
-        <nav className="flex items-center gap-0">
+        <div className="flex items-center gap-0">
           {/* <Types items={TypeData} /> */}
           {TypeData.map(item => (
             <Link
@@ -215,7 +215,7 @@ const Toolbar: React.FC<Props> = ({ type }) => {
               {item.label}
             </Link>
           ))}
-        </nav>
+        </div>
         <ul className="flex min-w-[500px] items-center justify-center gap-4 text-sm xl:gap-9 2xl:gap-6">
           <li>
             <Dropdown label="Price" icon={<FaChevronDown size={10} />}>

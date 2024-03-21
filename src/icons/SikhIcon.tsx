@@ -2,13 +2,9 @@ import React from 'react';
 
 import Base from './base';
 
-interface SikhIconProps {
-  className?: string;
-}
-
-const SikhIcon: React.FC<SikhIconProps> = ({ className }) => {
+const SikhIcon: React.FC = () => {
   return (
-    <Base className={className}>
+    <Base>
       <g>
         <path
           className="st0"

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { FaShoppingCart, FaStore } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
 
 import storesData from '@assets/stores/file.json';
 

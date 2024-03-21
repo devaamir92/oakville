@@ -10,7 +10,7 @@ import type { Metadata } from 'next/types';
 
 import Pagination from '@components/ui/Pagination';
 
-import CategoryFilter from '../_components/CategoryFilter';
+// import CategoryFilter from '../_components/CategoryFilter';
 import BlogToolbar from '../_components/BlogToolbar';
 
 export const metadata: Metadata = {

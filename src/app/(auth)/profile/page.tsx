@@ -20,7 +20,6 @@ const Page = async ({ searchParams }: any) => {
     redirect('/');
   }
 
-  console.log('searchParams', searchParams.tab);
   return (
     <main className="container flex flex-col gap-4 py-10">
       <section className="flex items-center justify-between">
