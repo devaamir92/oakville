@@ -14,7 +14,6 @@ import ListingDetails from '@components/ListingDetails';
 import PropertyDetails from '@components/PropertyDetails';
 import ListingOverview from '@components/ListingOverview';
 import ListingHighlights from '@components/ListingHighlights';
-import statusMapper from '@utils/statusMaper';
 import LightBox from '@components/LightBox';
 import { getImages } from '@lib/api/getImages';
 import { Share } from '@components/Share';

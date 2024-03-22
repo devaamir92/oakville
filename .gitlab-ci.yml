@@ -1,0 +1,10 @@
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - echo "Building the application"
+    - docker build -t $CI_REGISTRY_IMAGE:latest . --network=host
+  only:
+  - main

@@ -3,7 +3,6 @@ import { LuBath, LuBedDouble, LuParkingCircle, LuScan } from 'react-icons/lu';
 
 import moment from 'moment';
 
-import cn from '@utils/cn';
 import statusMapper from '@utils/statusMaper';
 import statusDateSelector from '@utils/statusDateSelector';
 import { PriceFormat } from '@utils/priceFormat';

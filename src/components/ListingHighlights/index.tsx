@@ -1,5 +1,6 @@
-import { PriceFormat } from '@utils/priceFormat';
 import React from 'react';
+
+import { PriceFormat } from '@utils/priceFormat';
 
 interface ListingHighlightsProps {
   data: any;
