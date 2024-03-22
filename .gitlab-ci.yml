@@ -5,6 +5,6 @@ build:
   stage: build
   script:
     - echo "Building the application"
-    - docker build -t $CI_REGISTRY_IMAGE:latest . --network=host
+    - docker build -t preserve-oakville-web:latest . --network=host
   only:
   - main
