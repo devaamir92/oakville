@@ -1,5 +1,6 @@
 stages:
   - build
+  - deploy
 
 build:
   stage: build
@@ -7,4 +8,17 @@ build:
     - echo "Building the application"
     - docker build -t preserve-oakville-web:latest . --network=host
   only:
-  - main
+    - main
+
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying the application"
+    - cd /home/preserve-oakville/web
+    - docker compose down
+    - docker compose up -d
+    - docker image prune -a -f
+  only:
+    - main
+  environment: production
