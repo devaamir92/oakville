@@ -46,6 +46,7 @@ const getSoldHistory = async (addr: string, unit: number, Apt_num: number) => {
     'Apt_num',
     'Slug',
     'Status',
+    'Lp_dol',
   ]);
 
   queryBuilder.search({
@@ -109,7 +110,7 @@ async function Page({ params }: PageProps) {
       {!session && (
         <BlurDailog session={session} isLocked={property.Is_locked} />
       )}
-      {session && property.Is_locked && (
+      {session && property.Is_locked && !session?.user.verified && (
         <BlurDailog session={session} isLocked={property.Is_locked} />
       )}
 
@@ -151,15 +152,20 @@ async function Page({ params }: PageProps) {
       />
 
       <ListingOverview
-        bathrooms={property.Bath_tot}
-        bedrooms={property.Br}
-        parkingSpaces={property.Park_spcs}
-        squareFeet={property.Sqft}
-        price={Number(property.Lp_dol)}
-        status={statusMapper(property.Lsc)}
-        daysOnMarket={Number(property.Dom)}
-        soldPrice={Number(property.Sp_dol)}
-        statusFlag={property.Status}
+        // bathrooms={property.Bath_tot}
+        // bedrooms={property.Br}
+        // parkingSpaces={property.Park_spcs}
+        // squareFeet={property.Sqft}
+        // price={Number(property.Lp_dol)}
+        // status={statusMapper(property.Lsc)}
+        // daysOnMarket={Number(property.Dom)}
+        // soldPrice={Number(property.Sp_dol)}
+        // statusFlag={property.Status}
+        // soldDate={property.Cd}
+        // terminationDate={property.Td}
+        // suspensionDate={property.Dt_sus}
+        // leasedDate={property.Dt_ter}
+        data={property}
       />
 
       <div className="flex flex-col gap-3 lg:flex-row-reverse">

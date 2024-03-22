@@ -70,6 +70,7 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
               >
                 <button
                   type="button"
+                  title={item.name}
                   aria-label={item.name || 'property location'}
                   className="absolute flex items-center justify-center gap-1 rounded-lg bg-primary-500 p-1.5 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary"
                   onClick={() => {

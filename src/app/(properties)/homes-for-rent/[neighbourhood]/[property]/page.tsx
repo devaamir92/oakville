@@ -119,13 +119,13 @@ async function Page({ params }: PageProps) {
   const images: string[] = await getImages(property.Ml_num);
 
   const session = await getSession();
-
+  console.log(Number(property.Lp_dol));
   return (
     <main className="container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       {!session && (
         <BlurDailog session={session} isLocked={property.Is_locked} />
       )}
-      {session && property.Is_locked && (
+      {session && property.Is_locked && !session?.user.verified && (
         <BlurDailog session={session} isLocked={property.Is_locked} />
       )}
 
@@ -159,15 +159,7 @@ async function Page({ params }: PageProps) {
         }`}
       />
 
-      <ListingOverview
-        bathrooms={property.Bath_tot}
-        bedrooms={property.Br}
-        parkingSpaces={property.Park_spcs}
-        squareFeet={property.Sqft}
-        price={Number(property.Lp_dol)}
-        status="For Rent"
-        daysOnMarket={Number(property.Dom)}
-      />
+      <ListingOverview data={property} />
 
       <div className="flex flex-col gap-3 lg:flex-row-reverse">
         <div className="order-2 flex h-fit flex-col gap-10 rounded md:w-full lg:sticky lg:top-[100px] lg:order-1 lg:w-[360px]">
@@ -180,18 +172,18 @@ async function Page({ params }: PageProps) {
                 <BsFillTelephoneFill className="mr-1 inline-block" />
                 <Link
                   href="
-                tel:647-929-9072"
-                  className="text-sm  text-gray-800"
-                >
-                  647 929 9072
-                </Link>
-                <span>/</span>
-                <Link
-                  href="
                 tel:416-837-2000"
                   className="text-sm  text-gray-800"
                 >
                   416 837 2000
+                </Link>
+                <span>/</span>
+                <Link
+                  href="
+                tel:647-929-9072"
+                  className="text-sm  text-gray-800"
+                >
+                  647 929 9072
                 </Link>
               </div>
 

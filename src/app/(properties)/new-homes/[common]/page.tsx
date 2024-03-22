@@ -47,18 +47,18 @@ const Page = async (searchParams: any) => {
           <div className="flex items-center gap-1">
             <Link
               href="
-                tel:647-929-9072"
-              className="text-sm  text-gray-800"
-            >
-              647 929 9072
-            </Link>
-            <span>/</span>
-            <Link
-              href="
                 tel:416-837-2000"
               className="text-sm  text-gray-800"
             >
               416 837 2000
+            </Link>
+            <span>/</span>
+            <Link
+              href="
+                tel:647-929-9072"
+              className="text-sm  text-gray-800"
+            >
+              647 929 9072
             </Link>
           </div>
           <Link

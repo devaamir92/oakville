@@ -1,6 +1,9 @@
 import Link from 'next/link';
 
+import { BsEye } from 'react-icons/bs';
+
 import VerBtn from '@components/ListingCard/verBtn';
+import { PriceFormat } from '@utils/priceFormat';
 
 interface PriceHistoryProps {
   data: any;
@@ -51,7 +54,6 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({
     const [year, month, day] = date.split('-');
     return `${day}-${month}-${year}`;
   };
-
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-col gap-1">
@@ -73,15 +75,9 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({
                 scope="col"
                 className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500"
               >
-                Status
-              </th>
-
-              <th
-                scope="col"
-                className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500"
-              >
                 Last Update
               </th>
+
               <th
                 scope="col"
                 className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500"
@@ -92,13 +88,19 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({
                 scope="col"
                 className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500"
               >
-                MLS Number
+                Sold Price
               </th>
               <th
                 scope="col"
                 className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500"
               >
-                View Listing
+                Status
+              </th>
+              <th
+                scope="col"
+                className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-500"
+              >
+                Listing ID
               </th>
             </tr>
           </thead>
@@ -107,28 +109,25 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({
               data.map((item: any, index: number) => (
                 <tr key={history[index].text}>
                   <td className="whitespace-nowrap px-4 py-2.5">
-                    {history[index].text}
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2.5">
                     {dateParser(item[history[index].date])}
                   </td>
                   <td className="whitespace-nowrap px-4 py-2.5">
-                    {new Intl.NumberFormat('en-US', {
-                      style: 'currency',
-                      currency: 'USD',
-                      maximumFractionDigits: 0,
-                      currencyDisplay: 'symbol',
-                    }).format(item.Sp_dol)}
+                    {PriceFormat(Number(item.Lp_dol))}
                   </td>
                   <td className="whitespace-nowrap px-4 py-2.5">
-                    {item.Ml_num}
+                    {item.Sp_dol > 0
+                      ? PriceFormat(Number(item.Sp_dol))
+                      : '................'}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2.5">
+                    {history[index].text}
                   </td>
                   <td className="whitespace-nowrap px-4 py-2.5">
                     <Link
                       href={`${location}/${item.Slug}`}
-                      className="text-blue-500 underline"
+                      className="flex items-center justify-center gap-1 text-blue-500"
                     >
-                      View Listing
+                      {item.Ml_num} <BsEye />
                     </Link>
                   </td>
                 </tr>

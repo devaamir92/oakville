@@ -55,6 +55,7 @@ const getSoldHistory = async (addr: string, unit: number, Apt_num: number) => {
     'Apt_num',
     'Slug',
     'Status',
+    'Lp_dol',
   ]);
 
   queryBuilder.search({
@@ -118,7 +119,6 @@ async function Page({ params }: PageProps) {
   );
   const images: string[] = await getImages(property.Ml_num);
   const session = await getSession();
-
   return (
     <main
       className={cn(
@@ -128,7 +128,7 @@ async function Page({ params }: PageProps) {
       {!session && (
         <BlurDailog session={session} isLocked={property.Is_locked} />
       )}
-      {session && property.Is_locked && (
+      {session && property.Is_locked && !session?.user.verified && (
         <BlurDailog session={session} isLocked={property.Is_locked} />
       )}
       <div className="flex items-center justify-between">
@@ -162,13 +162,14 @@ async function Page({ params }: PageProps) {
       />
 
       <ListingOverview
-        bathrooms={property.Bath_tot}
-        bedrooms={property.Br}
-        parkingSpaces={property.Park_spcs}
-        squareFeet={property.Sqft}
-        price={Number(property.Lp_dol)}
-        status="For Sale"
-        daysOnMarket={Number(property.Dom)}
+        // bathrooms={property.Bath_tot}
+        // bedrooms={property.Br}
+        // parkingSpaces={property.Park_spcs}
+        // squareFeet={property.Sqft}
+        // price={Number(property.Lp_dol)}
+        // status="For Sale"
+        // daysOnMarket={Number(property.Dom)}
+        data={property}
       />
 
       <div className="flex flex-col gap-3 lg:flex-row-reverse">
@@ -182,18 +183,18 @@ async function Page({ params }: PageProps) {
                 <BsFillTelephoneFill className="mr-1 inline-block" />
                 <Link
                   href="
-                tel:647-929-9072"
-                  className="text-sm  text-gray-800"
-                >
-                  647 929 9072
-                </Link>
-                <span>/</span>
-                <Link
-                  href="
                 tel:416-837-2000"
                   className="text-sm  text-gray-800"
                 >
                   416 837 2000
+                </Link>
+                <span>/</span>
+                <Link
+                  href="
+                tel:647-929-9072"
+                  className="text-sm  text-gray-800"
+                >
+                  647 929 9072
                 </Link>
               </div>
               <Link

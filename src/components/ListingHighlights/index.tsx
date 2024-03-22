@@ -1,3 +1,4 @@
+import { PriceFormat } from '@utils/priceFormat';
 import React from 'react';
 
 interface ListingHighlightsProps {
@@ -26,12 +27,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({ data }) => {
                     Maintenance Fees
                   </td>
                   <td className=" py-1.5 text-right font-medium text-gray-700 md:text-left">
-                    {new Intl.NumberFormat('en-US', {
-                      style: 'currency',
-                      currency: 'USD',
-                      maximumFractionDigits: 0,
-                      currencyDisplay: 'symbol',
-                    }).format(data.Maint)}
+                    {PriceFormat(Number(data.Maint))}
                   </td>
                 </tr>
               )}
@@ -88,12 +84,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({ data }) => {
                   Property Tax
                 </td>
                 <td className=" py-1.5 text-right font-medium text-gray-700 md:text-left">
-                  {new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                    maximumFractionDigits: 0,
-                    currencyDisplay: 'symbol',
-                  }).format(data.Taxes)}
+                  {PriceFormat(Number(data.Taxes))}
                 </td>
               </tr>
 
