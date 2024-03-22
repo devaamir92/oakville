@@ -1,7 +1,6 @@
 import action from '@lib/actions';
 import { apiClient } from '@lib/apiclient';
-
-import { getSession } from '../getsession';
+import { httpClient } from '@lib/httpclient';
 
 export const addFavourite = async (mls: string) => {
   const payload = {
@@ -29,21 +28,12 @@ export const addFavouriteAdmin = async (mls: string) => {
 };
 
 export const getFavourite = async () => {
-  const token = await getSession();
-
   try {
-    const res = await fetch(`${process.env.API_HOST}/api/v1/favorite/mls`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token.user.token}`,
-      },
+    return await httpClient.get('/api/v1/favorite/mls', {
       next: {
         tags: ['favorite'],
       },
-      cache: 'no-cache',
     });
-    return await res.json();
   } catch (error: any) {
     return error;
   }
