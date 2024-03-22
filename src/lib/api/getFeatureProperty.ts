@@ -5,7 +5,7 @@ import { getFavourite } from './favourite';
 const getFeatureProperty = async (page: number) => {
   const queryBuilder = RequestQueryBuilder.create();
   const favourite = await getFavourite();
-  if (!favourite.data.length) {
+  if (!favourite.length) {
     return {
       data: [],
       pageCount: 1,
@@ -21,7 +21,7 @@ const getFeatureProperty = async (page: number) => {
       },
       {
         Ml_num: {
-          $in: favourite.data,
+          $in: favourite,
         },
       },
     ],

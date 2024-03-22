@@ -33,4 +33,10 @@ EXPOSE 3000
 
 ENV PORT 3000
 
+ENV API_HOST = https://api.preserveoakville.ca
+
+ENV CRM_API_HOST = https://capi.preserveoakville.ca
+
+ENV NEXT_PUBLIC_SITE_URL = https://preserveoakville.ca
+
 CMD ["node", "server.js"]
