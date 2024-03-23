@@ -62,14 +62,14 @@ const BlogPage = async () => {
                 <Link
                   key={blog.id}
                   href={`/blog/${blog.slug.toLowerCase().split(' ').join('-')}`}
-                  className="group flex h-[300px] flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
+                  className="group flex size-full flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
                 >
-                  <div className="relative h-60">
+                  <div className="relative aspect-video">
                     <Image
                       src={`https://api.preserveoakville.ca/${blog.image.images.medium.url}`}
                       fill
                       alt={blog.imageAlt}
-                      className="object-cover"
+                      className="object-fill"
                     />
                     {/* <CategoryFilter categories={blog.categories} /> */}
                   </div>

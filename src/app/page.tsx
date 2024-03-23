@@ -18,9 +18,47 @@ import { getDailyListing } from '@lib/api/properties/getDailyListing';
 import { getFeaturedListing } from '@lib/api/properties/getFeaturedListing';
 
 export const metadata: Metadata = {
-  title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
+  title: {
+    default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
+    template: '%s | The Preserve Oakville',
+  },
   description:
     "Explore The Preserve Oakville for luxury property for sale in Canada. Discover serene living in one of Oakville's best neighborhoods. Find your dream home today!",
+  // keywords: [
+  //   'The Preserve Oakville',
+  //   'Luxury Homes for Sale',
+  //   'Homes in Canada',
+  // ],
+  // formatDetection: {
+  //   email: true,
+  //   address: true,
+  //   telephone: true,
+  // },
+  // openGraph: {
+  //   title: {
+  //     default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
+  //     template: '%s | The Preserve Oakville',
+  //   },
+  //   description:
+  //     'Luxury real estate listings in Oakville, Ontario. Discover your dream home with The Preserve Oakville.',
+  //   url: 'https://preserveoakville.ca/',
+  //   siteName: 'The Preserve Oakville',
+  //   type: 'website',
+  //   countryName: 'Canada',
+  //   alternateLocale: 'en_CA',
+  //   determiner: '',
+  //   emails: ['info@preserveoakville.com'],
+  //   locale: 'en_CA',
+  //   phoneNumbers: ['+1-416-837-2000', '+1-647-929-9072'],
+  //   images: [
+  //     {
+  //       url: '',
+  //       width: 800,
+  //       height: 600,
+  //       alt: '',
+  //     },
+  //   ],
+  // },
 };
 
 const data = [
