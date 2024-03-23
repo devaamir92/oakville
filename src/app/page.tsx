@@ -1,18 +1,21 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { Desktop, Mobile } from '@components/ua';
 
 import Hero from '@components/landing/Hero';
+import Community from '@components/Community';
 import CTASection from '@components/landing/CTA';
 import JustSold from '@components/landing/JustSold';
+import HeroMobile from '@components/landing/Hero/Mobile';
 import DailyListing from '@components/landing/DailyListing';
 import FeatureListing from '@components/landing/FeatureListing';
 import ListingTypes from '@components/landing/ListingTypes/Index';
-import HeroMobile from '@components/landing/Hero/Mobile';
+
 import { getSession } from '@lib/getsession';
-import Community from '@components/Community';
+import { getRecentlySold } from '@lib/api/properties/getRecentlySold';
+import { getDailyListing } from '@lib/api/properties/getDailyListing';
+import { getFeaturedListing } from '@lib/api/properties/getFeaturedListing';
 
 export const metadata: Metadata = {
   title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
@@ -59,159 +62,16 @@ const data = [
   },
 ];
 
-const getProperties = async () => {
-  const queryBuilder = RequestQueryBuilder.create();
-
-  queryBuilder
-    .setFilter({
-      field: 'Status',
-      operator: '$eq',
-      value: 'A',
-    })
-    .setFilter({
-      field: 'S_r',
-      operator: '$eq',
-      value: 'Sale',
-    });
-
-  queryBuilder.select([
-    'Ml_num',
-    'Addr',
-    'Unit_num',
-    'Apt_num',
-    'Lp_dol',
-    'Br',
-    'Bath_tot',
-    'Park_spcs',
-    'Br_plus',
-    'Status',
-    'Is_locked',
-    'Slug',
-    'Dom',
-    'Community',
-    'S_r',
-  ]);
-
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      next: {
-        tags: ['property'],
-      },
-      cache: 'no-cache',
-    }
-  );
-
-  const responce = await res.json();
-  const shortData = responce.data
-    .sort((a: any, b: any) => a.Dom - b.Dom)
-    .slice(0, 8);
-  return shortData;
-};
-const getSoldProperties = async () => {
-  const queryBuilder = RequestQueryBuilder.create();
-
-  queryBuilder
-    .setFilter({
-      field: 'Status',
-      operator: '$eq',
-      value: 'U',
-    })
-    .setFilter({
-      field: 'Lsc',
-      operator: '$eq',
-      value: 'Sld',
-    });
-
-  queryBuilder.select([
-    'Ml_num',
-    'Addr',
-    'Unit_num',
-    'Apt_num',
-    'Lp_dol',
-    'Lsc',
-    'Br',
-    'Bath_tot',
-    'Park_spcs',
-    'Br_plus',
-    'Status',
-    'Is_locked',
-    'Slug',
-    'Dom',
-    'Community',
-    'S_r',
-  ]);
-
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      next: {
-        tags: ['property'],
-      },
-      cache: 'no-cache',
-    }
-  );
-
-  const responce = await res.json();
-
-  const shortData = responce.data.slice(0, 4);
-  return shortData;
-};
-
-const getFeaturedProperties = async () => {
-  const queryBuilder = RequestQueryBuilder.create();
-
-  queryBuilder.setJoin({
-    field: 'property',
-    select: [
-      'Ml_num',
-      'Addr',
-      'Unit_num',
-      'Apt_num',
-      'Lp_dol',
-      'Br',
-      'Bath_tot',
-      'Park_spcs',
-      'Br_plus',
-      'Status',
-      'Is_locked',
-      'Slug',
-      'Dom',
-      'Community',
-      'S_r',
-      'Is_locked',
-    ],
-  });
-
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/featured?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      next: {
-        tags: ['featured'],
-      },
-      cache: 'no-cache',
-    }
-  );
-
-  const responce = await res.json();
-  const shortData = responce.slice(0, 4);
-  return shortData;
-};
-
 const page = async () => {
-  const [newData, soldData, featureData] = await Promise.all([
-    getProperties(),
-    getSoldProperties(),
-    getFeaturedProperties(),
+  const [dailyListing, recentlySold, featureListing] = await Promise.all([
+    getDailyListing(),
+    getRecentlySold(),
+    getFeaturedListing(),
   ]);
 
   const session = await getSession();
-
   return (
-    <main className="flex flex-col gap-8 pb-8">
+    <main className="flex flex-col gap-4 pb-4 md:gap-8 md:pb-8">
       <Desktop>
         <Hero />
       </Desktop>
@@ -219,15 +79,15 @@ const page = async () => {
         <HeroMobile />
       </Mobile>
       <ListingTypes />
-      <div className="flex flex-col gap-8 bg-[#f3f4f6] py-8">
-        <FeatureListing rows={featureData} session={session} />
-        <DailyListing rows={newData} session={session} />
+      <div className="flex flex-col gap-4 bg-[#f3f4f6] py-4 md:gap-8 md:py-8">
+        <FeatureListing rows={featureListing} session={session} />
+        <DailyListing rows={dailyListing.data} session={session} />
       </div>
-      <JustSold rows={soldData} session={session} />
+      <JustSold rows={recentlySold.data} session={session} />
       <CTASection />
 
       <section>
-        <div className="container flex flex-col gap-10">
+        <div className="container flex flex-col gap-4 md:gap-8">
           <div className="flex flex-col gap-1">
             <h2 className="text-center text-2xl font-semibold">
               Neighborhood Guide

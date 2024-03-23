@@ -6,15 +6,17 @@ class HttpClient {
   async get(url: string, options?: RequestInit) {
     return new Promise(async (resolve, reject) => {
       try {
-        const token = await getSession();
+        const session = await getSession();
+        const auth = session ? `Bearer ${session.user.token}` : '';
+        const headers = {
+          'Content-Type': 'application/json',
+          Authorization: auth,
+          ...options?.headers,
+        };
         const res = await fetch(`${process.env.API_HOST}${url}`, {
           cache: 'no-cache',
           ...options,
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token.user.token}`,
-            ...options?.headers,
-          },
+          headers,
           method: 'GET',
         });
         return resolve(await res.json());

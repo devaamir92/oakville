@@ -7,10 +7,10 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa6';
 import Copright from './copright';
 
 const popularNeighborhoods = [
-  {
-    name: 'Homes for sale in Iroquois Ridge North',
-    href: '/homes-for-sale/iroquois-ridge-north',
-  },
+  // {
+  //   name: 'Homes for sale in Iroquois Ridge North',
+  //   href: '/homes-for-sale/iroquois-ridge-north',
+  // },
   {
     name: 'Homes for sale in Rural Oakville',
     href: '/homes-for-sale/rural-oakville',
@@ -19,10 +19,10 @@ const popularNeighborhoods = [
     name: 'Homes for sale in Uptown Core',
     href: '/homes-for-sale/uptown-core',
   },
-  {
-    name: 'Homes for rent in Iroquois Ridge North',
-    href: '/homes-for-rent/iroquois-ridge-north',
-  },
+  // {
+  //   name: 'Homes for rent in Iroquois Ridge North',
+  //   href: '/homes-for-rent/iroquois-ridge-north',
+  // },
   {
     name: 'Homes for rent in Rural Oakville',
     href: '/homes-for-rent/rural-oakville',
@@ -83,7 +83,7 @@ const Footer = () => {
               </li>
               <li className="text-white">Broker</li>
               <li className="text-sm text-white">Janjua Real Estate Group</li>
-              <li className="text-sm text-white">
+              <li className="text-sm text-white lg:mb-1 lg:mt-2">
                 <address className="not-italic">
                   SUTTON Group - SUMMIT Realty Inc, Brokerage
                   <br /> 33 Pearl Street, Mississauga, On L5M1X1

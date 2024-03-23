@@ -62,7 +62,6 @@ const getProperties = async (
       ...BathroomsParser.create(bathrooms).parse(),
     };
   }
-  // console.log(search);
   const propType = Array.isArray(type) ? type : [type];
   const propsBsmt = Array.isArray(basement) ? basement : [basement];
 

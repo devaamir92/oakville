@@ -17,7 +17,6 @@ interface LikeToggleProps {
 const LikeToggle: React.FC<LikeToggleProps> = ({ mls, session, className }) => {
   const { setLogin } = useLayout();
   const { favourite, setFavourite } = useFavLayout();
-
   const handleAddFavourite = async () => {
     if (session.user.role === 'User') {
       const res = await addFavourite(mls as string);

@@ -115,9 +115,11 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({
                     {PriceFormat(Number(item.Lp_dol))}
                   </td>
                   <td className="whitespace-nowrap px-4 py-2.5">
-                    {item.Sp_dol > 0
-                      ? PriceFormat(Number(item.Sp_dol))
-                      : '................'}
+                    {item.Sp_dol > 0 ? (
+                      PriceFormat(Number(item.Sp_dol))
+                    ) : (
+                      <span className="ml-6">---</span>
+                    )}
                   </td>
                   <td className="whitespace-nowrap px-4 py-2.5">
                     {history[index].text}

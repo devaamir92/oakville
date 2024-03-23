@@ -48,7 +48,7 @@ export default async function Header() {
     <header className="sticky top-0 z-30 bg-primary-500 py-2 shadow lg:h-[70px] lg:py-0">
       <div className="container flex h-full flex-col items-center gap-2 lg:flex-row">
         <div className="flex w-full items-center justify-between lg:w-[55px]">
-          <Link href="/" className="relative size-[45px] lg:size-[55px]">
+          <Link href="/" className="relative size-[40px] lg:size-[55px]">
             <Image
               src="/images/svg/oakville-leaf.svg"
               alt="logo"

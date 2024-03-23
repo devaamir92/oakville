@@ -119,7 +119,6 @@ async function Page({ params }: PageProps) {
   const images: string[] = await getImages(property.Ml_num);
 
   const session = await getSession();
-  console.log(Number(property.Lp_dol));
   return (
     <main className="container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       {!session && (

@@ -18,7 +18,7 @@ const CommunityCard: React.FC<CardProps> = ({ image, href, alt, title }) => {
             src={image}
             fill
             alt={alt}
-            sizes="33vw"
+            sizes="25vw"
             className="object-cover"
           />
         </div>
