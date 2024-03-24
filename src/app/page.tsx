@@ -63,22 +63,22 @@ export const metadata: Metadata = {
 
 const data = [
   {
-    title: 'Schools in The Preserve Oakville',
+    title: 'Schools For The Preserve Oakville',
     imageUrl: '/images/jpg/community/school.jpg',
     href: '/schools',
-    alt: 'Schools in The Preserve Oakville',
+    alt: 'Schools for The Preserve Oakville',
   },
   {
-    title: 'Banks near The Preserve Oakville',
+    title: 'Banks For The Preserve Oakville',
     imageUrl: '/images/jpg/community/banks.jpg',
     href: '/banks',
-    alt: 'Banks near The Preserve Oakville',
+    alt: 'Banks for The Preserve Oakville',
   },
   {
-    title: 'Healthcare near The Preserve, Oakville.',
+    title: 'Healthcare For The Preserve Oakville.',
     imageUrl: '/images/jpg/community/hospitals-walk-in-clinics-vets.jpg',
     href: '/healthcare-facilities',
-    alt: 'Healthcare facilities near The Preserve Oakville',
+    alt: 'Healthcare for The Preserve Oakville',
   },
   {
     title: 'Parks & Rec in The Preserve Oakville',
@@ -87,13 +87,13 @@ const data = [
     alt: 'Parks & Rec in The Preserve Oakville',
   },
   {
-    title: 'Religious Places near The Preserve Oakville',
+    title: 'Religious Places For The Preserve Oakville',
     imageUrl: '/images/jpg/community/religious-places.jpg',
     href: '/religious-places',
     alt: '',
   },
   {
-    title: 'Stores near the preserve Oakville',
+    title: 'Stores For The Preserve Oakville',
     imageUrl: '/images/jpg/community/stores.jpg',
     href: '/stores',
     alt: 'stores near the preserve Oakville',

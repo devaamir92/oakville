@@ -19,13 +19,8 @@ function page() {
         <Image
           fill
           src="/images/webp/sell/mainEvalHeader.webp"
-          priority
-          sizes="100vw"
           alt="banner"
-          style={{
-            objectFit: 'cover',
-            objectPosition: 'center',
-          }}
+          className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black opacity-30" />
 

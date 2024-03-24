@@ -31,11 +31,23 @@ const popularNeighborhoods = [
     name: 'Homes for rent in Uptown Core',
     href: '/homes-for-rent/uptown-core',
   },
+  {
+    name: 'Homes for sale in The Preserve Oakville',
+    href: '/homes-for-sale',
+  },
+  {
+    name: 'Homes for sale in North Oakville',
+    href: '/homes-for-sale',
+  },
+  {
+    name: 'Homes for sale in West Oakville',
+    href: '/homes-for-sale',
+  },
 ];
 
 const communitySearches = [
-  { name: 'Schools in The Preserve Oakville', href: '/schools' },
-  { name: 'Banks near The Preserve Oakville', href: '/banks' },
+  { name: 'Schools For The Preserve Oakville', href: '/schools' },
+  { name: 'Banks For The Preserve Oakville', href: '/banks' },
   {
     name: 'Religious Places near The Preserve Oakville',
     href: '/religious-places',
@@ -43,7 +55,7 @@ const communitySearches = [
 
   { name: 'Stores near the preserve Oakville', href: '/stores' },
   {
-    name: 'Healthcare facilities near The Preserve Oakville',
+    name: 'Healthcare For The Preserve Oakville',
     href: '/healthcare-facilities',
   },
   { name: 'Parks & Rec in The Preserve Oakville', href: '/parks-rec' },

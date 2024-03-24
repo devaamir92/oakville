@@ -193,7 +193,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
               sort={searchParams?.sort}
               title="Condos for Sale in Rural Oakville & Uptown Core"
               S_r="Sale"
-              location="/condo-townhouses-for-sale"
+              location="/condos-for-sale"
             />
           </Suspense>
         </section>
