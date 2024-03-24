@@ -43,6 +43,10 @@ const popularNeighborhoods = [
     name: 'Homes for sale in West Oakville',
     href: '/homes-for-sale',
   },
+  {
+    name: 'Homes for sale in East Oakville',
+    href: '/homes-for-sale',
+  },
 ];
 
 const communitySearches = [

@@ -68,9 +68,9 @@ export default async function Page() {
 
   return (
     <main className="container mx-auto flex flex-col gap-8 py-4 lg:max-w-[1140px]">
-      <h3 className="text-center text-xl font-medium">
-        The Preserve Oakville Schools
-      </h3>
+      <h1 className="text-center text-xl font-medium">
+        Schools for The Preserve Oakville
+      </h1>
 
       <section className="-mt-4 flex flex-col gap-8">
         <div className="h-96 overflow-hidden rounded lg:h-[calc(90vh-252px)]">

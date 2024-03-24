@@ -23,7 +23,7 @@ const SchoolsLinks = () => {
           </Link>
           <Link
             href="#montessorischools"
-            className="flex flex-1 items-center justify-center rounded bg-yellow-400 px-6 py-3"
+            className="flex flex-1 items-center justify-center rounded bg-yellow-500 px-6 py-3"
           >
             <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
               Montessori
