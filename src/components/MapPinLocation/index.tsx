@@ -13,6 +13,7 @@ import SikhIcon from '@icons/SikhIcon';
 import HinduIcon from '@icons/Hindu';
 
 import Modal from './Popup';
+import cn from '@utils/cn';
 
 const Marker = dynamic(() =>
   import('@urbica/react-map-gl').then(mod => mod.Marker)
@@ -25,6 +26,7 @@ interface MapProps {
     name?: string;
     address?: string;
     religion?: string;
+    type?: string;
   }[];
   icon?: React.ReactNode;
 }
@@ -72,7 +74,25 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
                   type="button"
                   title={item.name}
                   aria-label={item.name || 'property location'}
-                  className="absolute flex items-center justify-center gap-1 rounded-lg bg-primary-500 p-1.5 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary"
+                  className={cn(
+                    'absolute flex items-center justify-center gap-1 rounded-lg bg-primary-500 p-1.5 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary',
+                    {
+                      'bg-red-600 after:border-t-red-600':
+                        item.type === 'Public Schools',
+                    },
+                    {
+                      'bg-blue-600 after:border-t-blue-600':
+                        item.type === 'Catholic Schools',
+                    },
+                    {
+                      'bg-yellow-600 after:border-t-yellow-600':
+                        item.type === 'Montessori Schools',
+                    },
+                    {
+                      'bg-green-600 after:border-t-green-600':
+                        item.type === 'Private Schools',
+                    }
+                  )}
                   onClick={() => {
                     if (item.name || item.address) {
                       setOpen(true);

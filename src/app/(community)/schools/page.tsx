@@ -17,19 +17,51 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  // const getdata = () => {
+  //   const schools = [
+  //     ...data.publicSchools,
+  //     ...data.catholicSchools,
+  //     ...data.montessoriSchools,
+  //     ...data.privateSchools,
+  //   ];
+
+  //   return schools.map(school => {
+  //     return {
+  //       name: school.name,
+  //       address: school.address,
+  //       Lat: school.lat,
+  //       Lng: school.lng,
+  //     };
+  //   });
+  // };
+
   const getdata = () => {
     const schools = [
-      ...data.publicSchools,
-      ...data.catholicSchools,
-      ...data.montessoriSchools,
-      ...data.privateSchools,
+      ...data.publicSchools.map(school => ({
+        ...school,
+        type: 'Public Schools',
+      })),
+      ...data.catholicSchools.map(school => ({
+        ...school,
+        type: 'Catholic Schools',
+      })),
+      ...data.montessoriSchools.map(school => ({
+        ...school,
+        type: 'Montessori Schools',
+      })),
+      ...data.privateSchools.map(school => ({
+        ...school,
+        type: 'Private Schools',
+      })),
     ];
+
     return schools.map(school => {
       return {
         name: school.name,
         address: school.address,
         Lat: school.lat,
         Lng: school.lng,
+        type: school.type,
       };
     });
   };
