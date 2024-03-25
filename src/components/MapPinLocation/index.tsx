@@ -12,8 +12,9 @@ import { FaCross, FaStarAndCrescent } from 'react-icons/fa';
 import SikhIcon from '@icons/SikhIcon';
 import HinduIcon from '@icons/Hindu';
 
-import Modal from './Popup';
 import cn from '@utils/cn';
+
+import Modal from './Popup';
 
 const Marker = dynamic(() =>
   import('@urbica/react-map-gl').then(mod => mod.Marker)

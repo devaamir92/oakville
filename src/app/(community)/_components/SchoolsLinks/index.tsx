@@ -7,7 +7,7 @@ const SchoolsLinks = () => {
         <div className="grid flex-1 grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:grid-cols-4">
           <Link
             href="#publicschools"
-            className="flex flex-1 items-center justify-center rounded bg-red-400 px-6 py-3"
+            className="flex flex-1 items-center justify-center rounded bg-red-600 px-6 py-3 text-white"
           >
             <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
               Public
@@ -15,7 +15,7 @@ const SchoolsLinks = () => {
           </Link>
           <Link
             href="#catholicschools"
-            className="flex flex-1 items-center justify-center rounded bg-blue-400 px-6 py-3"
+            className="flex flex-1 items-center justify-center rounded bg-blue-600 px-6 py-3 text-white"
           >
             <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
               Catholic
@@ -23,7 +23,7 @@ const SchoolsLinks = () => {
           </Link>
           <Link
             href="#montessorischools"
-            className="flex flex-1 items-center justify-center rounded bg-yellow-500 px-6 py-3"
+            className="flex flex-1 items-center justify-center rounded bg-yellow-600 px-6 py-3 text-white"
           >
             <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
               Montessori
@@ -31,7 +31,7 @@ const SchoolsLinks = () => {
           </Link>
           <Link
             href="#privateschools"
-            className="flex flex-1 items-center justify-center rounded bg-green-400 px-6 py-3"
+            className="flex flex-1 items-center justify-center rounded bg-green-600 px-6 py-3 text-white"
           >
             <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
               Private

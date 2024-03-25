@@ -5,9 +5,7 @@ import { A11y, Navigation } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-// Import Swiper styles
 import 'swiper/css';
-// import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 
 import CommunityCard from './card';
@@ -24,6 +22,9 @@ const Community: React.FC<CommunityProps> = ({ data }) => {
       navigation
       breakpoints={{
         768: {
+          slidesPerView: 2,
+        },
+        1024: {
           slidesPerView: 4,
         },
       }}

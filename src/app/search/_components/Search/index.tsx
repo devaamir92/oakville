@@ -1,5 +1,7 @@
 'use client';
 
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useEffect } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 

@@ -25,6 +25,7 @@ const ClusterMarker: React.FC<ClusterMarkerProps> = props => {
         }}
         onKeyPress={event => {
           if (event.key === 'Enter' || event.key === ' ') {
+            // eslint-disable-next-line no-console
             console.log('Pressed!');
           }
         }}

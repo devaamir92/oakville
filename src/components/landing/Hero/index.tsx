@@ -3,20 +3,27 @@
 import React from 'react';
 import Image from 'next/image';
 
-import oakvilleHero from '../../../../public/images/jpg/oakville-preserve-banner.jpg';
+// import oakvilleHero from '../../../../public/images/jpg/oakville-preserve-banner.jpg';
 
 import HelloText from './hello';
 
 function Hero() {
   return (
-    <section className="relative w-full lg:h-[40vh] xl:h-[77vh] 2xl:h-[81vh]">
-      <Image
+    <section
+      className="relative w-full lg:h-[40vh] xl:h-[77vh] 2xl:h-[81vh]"
+      style={{
+        backgroundImage: `url(/images/jpg/oakville-preserve-banner.jpg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'right',
+      }}
+    >
+      {/* <Image
         src={oakvilleHero}
         alt="oakville preserve banner"
         fill
         priority
         className="object-cover object-right"
-      />
+      /> */}
       <div className="absolute inset-x-0 h-full">
         <div className="container h-full">
           {/* Oakville Preserve logo */}

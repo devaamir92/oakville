@@ -66,6 +66,7 @@ function ResetPage(searchParams: any) {
     if (key) {
       validate();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
   const handleResetPassword = async () => {

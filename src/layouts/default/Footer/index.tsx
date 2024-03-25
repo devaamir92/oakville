@@ -85,7 +85,7 @@ const Footer = () => {
       <div className="container">
         <div className="grid grid-cols-1 gap-10 pb-5 pt-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <div>
-            <p className="text-lg font-normal text-white">Contact Us</p>
+            <p className="text-lg font-bold text-white">Contact Us</p>
             <hr className="mt-1 border-gray-500" />
             <ul className="mt-4 flex flex-col gap-4 lg:gap-1">
               <li>
@@ -129,7 +129,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-lg font-normal text-white">Community Guide</p>
+            <p className="text-lg font-bold text-white">Community Guide</p>
             <hr className="mt-1 border-gray-500" />
             <ul className="mt-4 flex flex-col gap-4 lg:gap-1">
               {communitySearches.map(search => (
@@ -142,7 +142,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-lg font-normal text-white">
+            <p className="text-lg font-bold text-white">
               Popular Neighborhoods
             </p>
             <hr className="mt-1 border-gray-500" />
@@ -157,7 +157,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <p className="text-lg font-normal text-white">Useful Links</p>
+            <p className="text-lg font-bold text-white">Useful Links</p>
             <hr className="mt-1 border-gray-500" />
             <ul className="mt-4 flex flex-col gap-4 lg:gap-1">
               {usefulLinks.map(link => (

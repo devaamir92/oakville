@@ -1,5 +1,7 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import type { Metadata } from 'next';
+import type { WebPage, WithContext } from 'schema-dts';
 
 import { Desktop, Mobile } from '@components/ua';
 
@@ -24,61 +26,73 @@ export const metadata: Metadata = {
   },
   description:
     "Explore The Preserve Oakville for luxury property for sale in Canada. Discover serene living in one of Oakville's best neighborhoods. Find your dream home today!",
-  // keywords: [
-  //   'The Preserve Oakville',
-  //   'Luxury Homes for Sale',
-  //   'Homes in Canada',
-  // ],
-  // formatDetection: {
-  //   email: true,
-  //   address: true,
-  //   telephone: true,
-  // },
-  // openGraph: {
-  //   title: {
-  //     default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
-  //     template: '%s | The Preserve Oakville',
-  //   },
-  //   description:
-  //     'Luxury real estate listings in Oakville, Ontario. Discover your dream home with The Preserve Oakville.',
-  //   url: 'https://preserveoakville.ca/',
-  //   siteName: 'The Preserve Oakville',
-  //   type: 'website',
-  //   countryName: 'Canada',
-  //   alternateLocale: 'en_CA',
-  //   determiner: '',
-  //   emails: ['info@preserveoakville.com'],
-  //   locale: 'en_CA',
-  //   phoneNumbers: ['+1-416-837-2000', '+1-647-929-9072'],
-  //   images: [
-  //     {
-  //       url: '',
-  //       width: 800,
-  //       height: 600,
-  //       alt: '',
-  //     },
-  //   ],
-  // },
+  openGraph: {
+    title: {
+      default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
+      template: '%s | The Preserve Oakville',
+    },
+    description:
+      'Luxury real estate listings in Oakville, Ontario. Discover your dream home with The Preserve Oakville.',
+    url: 'https://preserveoakville.ca/',
+    siteName: 'The Preserve Oakville',
+    type: 'website',
+    countryName: 'Canada',
+    alternateLocale: 'en_CA',
+    emails: ['info@preserveoakville.com'],
+    locale: 'en_CA',
+    phoneNumbers: ['+1-416-837-2000', '+1-647-929-9072'],
+    images: [
+      {
+        url: 'https://preserveoakville.ca/images/png/oakville-logo.png',
+        width: 800,
+        height: 600,
+        alt: 'The Preserve Oakville',
+      },
+    ],
+  },
+  twitter: {
+    site: '@preserveoakville',
+    images: [
+      {
+        url: 'https://preserveoakville.ca/images/png/oakville-logo.png',
+        width: 800,
+        height: 600,
+        alt: 'The Preserve Oakville',
+      },
+    ],
+    card: 'summary_large_image',
+    title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
+    description:
+      'Luxury real estate listings in Oakville, Ontario. Discover your dream home with The Preserve Oakville.',
+  },
 };
 
+const jsonLd: WithContext<WebPage> = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  url: 'https://preserveoakville.ca/',
+  name: 'The Preserve Oakville',
+  description:
+    'Luxury real estate listings in Oakville, Ontario. Discover your dream home with The Preserve Oakville.',
+};
 const data = [
   {
     title: 'Schools For The Preserve Oakville',
     imageUrl: '/images/jpg/community/school.jpg',
     href: '/schools',
-    alt: 'Schools for The Preserve Oakville',
+    alt: 'Schools',
   },
   {
     title: 'Banks For The Preserve Oakville',
     imageUrl: '/images/jpg/community/banks.jpg',
     href: '/banks',
-    alt: 'Banks for The Preserve Oakville',
+    alt: 'Banks',
   },
   {
     title: 'Healthcare For The Preserve Oakville.',
     imageUrl: '/images/jpg/community/hospitals-walk-in-clinics-vets.jpg',
     href: '/healthcare-facilities',
-    alt: 'Healthcare for The Preserve Oakville',
+    alt: 'Healthcare',
   },
   {
     title: 'Parks & Rec in The Preserve Oakville',
@@ -90,13 +104,13 @@ const data = [
     title: 'Religious Places For The Preserve Oakville',
     imageUrl: '/images/jpg/community/religious-places.jpg',
     href: '/religious-places',
-    alt: '',
+    alt: 'Religious Places',
   },
   {
     title: 'Stores For The Preserve Oakville',
     imageUrl: '/images/jpg/community/stores.jpg',
     href: '/stores',
-    alt: 'stores near the preserve Oakville',
+    alt: 'Stores',
   },
 ];
 
@@ -110,6 +124,10 @@ const page = async () => {
   const session = await getSession();
   return (
     <main className="flex flex-col gap-4 pb-4 md:gap-8 md:pb-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Desktop>
         <Hero />
       </Desktop>

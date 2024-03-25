@@ -5,15 +5,14 @@ import HelloText from '../hello';
 
 function HeroMobile() {
   return (
-    <section className="relative h-[28vh] overflow-hidden sm:h-[35vh]">
-      <Image
-        src="/images/jpg/oakville-preserve-banner.jpg"
-        alt="oakville preserve banner"
-        fill
-        priority
-        sizes="(max-width: 768px) 100vw, 33vw"
-        className="object-cover object-right"
-      />
+    <section
+      className="relative h-[250px] overflow-hidden sm:h-[375px]"
+      style={{
+        backgroundImage: 'url(/images/jpg/oakville-preserve-banner.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'right',
+      }}
+    >
       <div className="absolute inset-x-0 h-full">
         <div className="container h-full">
           {/* Oakville Preserve logo */}

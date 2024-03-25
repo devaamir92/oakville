@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 interface InformationProps {
   features: any;
   description: any;

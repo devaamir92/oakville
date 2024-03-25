@@ -31,12 +31,13 @@ function ProfileList({ session }: ProfileListProps) {
       };
       fetchFavourite();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session, onClose]);
 
   return (
     <Dropdown
       icon={<FaUser />}
-      className="flex size-9 items-center justify-center rounded-full bg-primary-800"
+      className="flex size-9 items-center justify-center rounded-full bg-primary-700"
       align="end"
     >
       <div className="flex flex-col gap-2 divide-y divide-gray-300">

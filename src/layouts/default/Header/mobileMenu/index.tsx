@@ -57,7 +57,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               type="button"
               aria-label="mobile Menu"
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center rounded bg-primary-600 p-2 text-white outline-none hover:bg-primary-800"
+              className="flex items-center justify-center rounded bg-primary-600 p-2 text-white outline-none hover:bg-primary-700"
             >
               <BsList className="text-2xl" />
             </button>

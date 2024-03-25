@@ -67,7 +67,7 @@ const AdvancedSearch = () => {
                 <Link
                   key={search.query}
                   href={search.link}
-                  className="rounded bg-primary-800 px-3 py-2 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500 lg:px-2.5 lg:py-0.5"
+                  className="rounded bg-primary-700 px-3 py-2 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500 lg:px-2.5 lg:py-0.5"
                 >
                   {search.query}
                 </Link>
@@ -83,7 +83,7 @@ const AdvancedSearch = () => {
                 <Link
                   key={search.query}
                   href={search.link}
-                  className="rounded bg-primary-800 px-3 py-2 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500 lg:px-2.5 lg:py-0.5"
+                  className="rounded bg-primary-700 px-3 py-2 text-sm font-medium text-white transition-colors duration-200 ease-in-out hover:bg-primary-500 lg:px-2.5 lg:py-0.5"
                 >
                   {search.query}
                 </Link>
