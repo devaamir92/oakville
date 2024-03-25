@@ -64,12 +64,12 @@ const BlogPage = async () => {
                   href={`/blog/${blog.slug.toLowerCase().split(' ').join('-')}`}
                   className="group flex size-full flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
                 >
-                  <div className="relative aspect-video">
+                  <div className="relative aspect-[2.25]">
                     <Image
-                      src={`https://api.preserveoakville.ca/${blog.image.images.medium.url}`}
+                      src={`https://api.preserveoakville.ca/${blog.image.images.original.url}`}
                       fill
                       alt={blog.imageAlt}
-                      className="object-fill"
+                      className="size-full object-cover object-center"
                     />
                     {/* <CategoryFilter categories={blog.categories} /> */}
                   </div>

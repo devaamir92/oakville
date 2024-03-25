@@ -163,7 +163,10 @@ const Page = async (searchParams: any) => {
               />
             </div>
           </div>
-          <div className="relative h-[450px]">
+          <div
+            className="relative
+          aspect-[2.25]"
+          >
             <Image
               src={`https://api.preserveoakville.ca/${blog.image.images.original.url}`}
               fill
@@ -252,7 +255,7 @@ const Page = async (searchParams: any) => {
                       .join('-')}`}
                     className="group flex h-[300px] flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
                   >
-                    <div className="relative h-60">
+                    <div className="relative aspect-[2.25]">
                       <Image
                         src={`https://api.preserveoakville.ca/${item.image.images.medium.url}`}
                         fill

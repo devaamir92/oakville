@@ -4,7 +4,7 @@ import Image from 'next/image';
 function CTASection() {
   return (
     <section className="bg-primary-500 pt-8 sm:pt-0">
-      <div className="container flex flex-col items-center justify-between gap-4 md:flex-row">
+      <div className="container flex flex-col items-center justify-between gap-16 md:flex-row">
         <div className="flex flex-1 flex-col items-center gap-4 md:items-start lg:w-2/5">
           <h2 className="text-center text-2xl font-semibold text-white">
             Free Home Evaluation
@@ -29,7 +29,6 @@ function CTASection() {
             Get Free Evaluation
           </Link>
         </div>
-        <div className="lg:w-1/5" />
         <div className="flex flex-1">
           <div className="relative hidden size-96 flex-1 overflow-hidden sm:block sm:h-96">
             <Image
