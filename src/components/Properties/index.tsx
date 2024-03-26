@@ -8,6 +8,8 @@ import getBedroomString from '@utils/getbedroomString';
 
 import { getSession } from '@lib/getsession';
 import { getPropertiesForSale } from '@lib/api/properties/getPropertiesForSale';
+import { Desktop, Mobile } from '@components/ua';
+import Types from '@components/Toolbar/Types';
 
 interface PropertyProps {
   view?: 'list' | 'map';
@@ -59,19 +61,27 @@ const Property: React.FC<PropertyProps> = async ({
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex justify-between gap-2">
-        <h1
-          className={cn(
-            'flex-1 text-start text-xl font-semibold capitalize text-gray-800 lg:text-left'
-          )}
-        >
+      <Desktop>
+        <div className="flex justify-between gap-2">
+          <h1
+            className={cn(
+              'flex-1 text-start text-xl font-semibold capitalize text-gray-800 lg:text-left'
+            )}
+          >
+            {rows?.total.toLocaleString()} {title ?? 'Properties'}
+          </h1>
+          <div className="flex size-fit items-center justify-end gap-2">
+            <span className="w-full">Sort by:</span>
+            <Sorting />
+          </div>
+        </div>
+      </Desktop>
+      <Mobile>
+        <h1 className="text-lg font-semibold capitalize text-gray-800">
           {rows?.total.toLocaleString()} {title ?? 'Properties'}
         </h1>
-        <div className="flex size-fit items-center justify-end gap-2">
-          <span className="w-full">Sort by:</span>
-          <Sorting />
-        </div>
-      </div>
+        <Types type={S_r === 'Lease' ? 'Lease' : 'Sale'} />
+      </Mobile>
       <div
         className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {
           'xl:grid-cols-4': view === 'list',

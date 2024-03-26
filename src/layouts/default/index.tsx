@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import Loader from '@components/Loader';
 
 import Header from './Header';
-import Footer from './Footer';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,7 +16,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
-      <div className="h-full">
+      <main className="h-full">
         <ToastContainer
           position="bottom-right"
           autoClose={5000}
@@ -37,8 +36,8 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
         >
           {children}
         </Suspense>
-      </div>
-      <Footer />
+      </main>
+      {/* <Footer /> */}
     </>
   );
 };

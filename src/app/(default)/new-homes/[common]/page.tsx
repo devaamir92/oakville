@@ -38,7 +38,7 @@ const Page = async (searchParams: any) => {
   const rows = await getSingleProjext(searchParams.params.common);
 
   return (
-    <main className="container flex max-w-[1140px] flex-col gap-3 py-3">
+    <div className="container flex max-w-[1140px] flex-col gap-3 py-3">
       <div className="flex flex-col items-center justify-between md:flex-row">
         <div className="flex flex-col gap-0">
           <h3 className="text-3xl  font-semibold text-gray-800">{rows.name}</h3>
@@ -161,7 +161,7 @@ const Page = async (searchParams: any) => {
           <Demographics community={rows.neighbourhood} />
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

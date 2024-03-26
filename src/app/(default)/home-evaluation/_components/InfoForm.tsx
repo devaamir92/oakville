@@ -55,7 +55,7 @@ function InfoForm() {
     return (
       <div className="absolute  left-1/2 top-1/2 w-full max-w-4xl -translate-x-1/2 -translate-y-1/2">
         <div className="flex flex-col items-center gap-3">
-          <h1 className="w-[70%] text-center text-xl font-medium text-white md:text-2xl lg:text-3xl">
+          <h1 className="w-[70%] text-center text-lg font-medium text-white  md:text-xl lg:text-3xl">
             Sell Your Home with The Local Preserve Oakville Real Estate Experts
           </h1>
 

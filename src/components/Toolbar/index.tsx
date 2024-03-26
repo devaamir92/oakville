@@ -6,18 +6,20 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import Link from 'next/link';
 
-import Dropdown from '@components/ui/Dropdown';
+import { FaBell } from 'react-icons/fa';
+
 import { Button } from '@components/ui/Button';
+import Dropdown from '@components/ui/Dropdown';
 
 import cn from '@utils/cn';
 
 import Price from './Price';
 import Filters from './Filters';
-import ListAlert from './ListAlert';
 import ViewChanger from './View';
+import ListAlert from './ListAlert';
 
 interface Props {
-  type: string;
+  type: 'sale' | 'rent';
 }
 
 const FiltersData = {
@@ -218,12 +220,20 @@ const Toolbar: React.FC<Props> = ({ type }) => {
         </div>
         <ul className="flex min-w-[500px] items-center justify-center gap-4 text-sm xl:gap-9 2xl:gap-6">
           <li>
-            <Dropdown label="Price" icon={<FaChevronDown size={10} />}>
+            <Dropdown
+              label="Price"
+              icon={<FaChevronDown size={10} />}
+              className="items-center gap-2"
+            >
               <Price type={type} />
             </Dropdown>
           </li>
           <li>
-            <Dropdown label="More Filters" icon={<FaChevronDown size={10} />}>
+            <Dropdown
+              label="More Filters"
+              icon={<FaChevronDown size={10} />}
+              className="items-center gap-2"
+            >
               <Filters data={FiltersData} />
             </Dropdown>
           </li>
@@ -238,7 +248,11 @@ const Toolbar: React.FC<Props> = ({ type }) => {
             </Button>
           </li>
           <li>
-            <ListAlert />
+            <ListAlert
+              icon={<FaBell size={14} />}
+              title="Listing Alert"
+              className="flex items-center  px-0 text-sm text-white"
+            />
           </li>
           <li>
             <ViewChanger />

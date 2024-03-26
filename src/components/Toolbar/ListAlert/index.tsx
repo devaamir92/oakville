@@ -1,17 +1,16 @@
-import { FaBell } from 'react-icons/fa';
-
 import Modal from '@components/ui/Modal';
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 
-function ListAlert() {
+interface Props {
+  className?: string;
+  title?: string;
+  icon?: React.ReactNode;
+}
+
+function ListAlert({ className, title, icon }: Props) {
   return (
-    <Modal
-      title="Listing Alert"
-      icon={<FaBell size={14} />}
-      size="sm"
-      className="px-0 text-white"
-    >
+    <Modal title={title} icon={icon} size="sm" className={className}>
       <h3 className="text-center text-xl">Create A Listing Alert</h3>
 
       <form action="" className="flex flex-col gap-3 py-4">

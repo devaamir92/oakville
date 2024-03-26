@@ -46,7 +46,7 @@ const BlogPage = async (searchParams: any) => {
   );
 
   return (
-    <main className="flex h-full flex-col">
+    <div className="flex h-full flex-col">
       <BlogToolbar />
       <div className="min-h-[calc(100vh-118px)]">
         {!blogs.data.length && (
@@ -117,7 +117,7 @@ const BlogPage = async (searchParams: any) => {
           </section>
         )}
       </div>
-    </main>
+    </div>
   );
 };
 

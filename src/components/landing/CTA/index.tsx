@@ -11,12 +11,12 @@ function CTASection() {
           </h2>
           <p className=" text-justify text-base text-white">
             As your local Preserve Oakville Real Estate experts and certified
-            Real Estate Brokers we offer free in-depth home evaluations. Having
+            Real Estate Brokers, we offer free in-depth home evaluations. Having
             significant knowledge of The Preserve Oakville housing market, we
             can assist you in evaluating the market price of your home along
             with sharing with you what simple adjustments can be done to
-            increase that value of your property before coming to market. With
-            this beneficial information you will be able to make more informed
+            increase the value of your property before coming to market. With
+            this beneficial information, you will be able to make more informed
             decisions before listing on the market to maximize your return. A
             home evaluation is a key step before listing your property and
             we&apos;re here to provide you with just that. Contact us today for

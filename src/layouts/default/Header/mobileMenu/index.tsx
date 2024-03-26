@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { BsList } from 'react-icons/bs';
 import {
   Content,
   DropdownMenu,
@@ -13,6 +12,8 @@ import {
 } from '@radix-ui/react-dropdown-menu';
 
 import Link from 'next/link';
+
+import { FaBars } from 'react-icons/fa';
 
 import Verification from '@components/ListingCard/Verification';
 
@@ -40,7 +41,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   const { setLogin } = useLayout();
 
   return (
-    <div className="flex items-center gap-2 lg:hidden">
+    <div className="flex items-center lg:hidden">
       <Auth />
       <div className="hidden">
         <Verification />
@@ -57,9 +58,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               type="button"
               aria-label="mobile Menu"
               onClick={() => setIsOpen(!isOpen)}
-              className="flex items-center justify-center rounded bg-primary-600 p-2 text-white outline-none hover:bg-primary-700"
+              className="flex size-10 items-center justify-center rounded bg-primary-600 p-2 text-white outline-none hover:bg-primary-700"
             >
-              <BsList className="text-2xl" />
+              <FaBars size={18} />
             </button>
           </Trigger>
           <Portal>

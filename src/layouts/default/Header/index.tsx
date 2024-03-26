@@ -5,11 +5,14 @@ import SearchComponent from '@components/ui/Search';
 
 import { getSession } from '@lib/getsession';
 
+import { Desktop, Mobile } from '@components/ua';
+
 import MobileMenu from './mobileMenu';
 import CommunitiesList from './communitiesList';
 
 import LoginButton from './auth/LoginButton';
 import ProfileList from './profileList';
+import MobileSearch from './mobileSearch.tsx';
 
 const navLinks = [
   { name: 'Home', link: '/' },
@@ -45,56 +48,78 @@ export default async function Header() {
   const session = await getSession();
 
   return (
-    <header className="sticky top-0 z-30 bg-primary-500 py-2 shadow lg:h-[70px] lg:py-0">
-      <div className="container flex h-full flex-col items-center gap-2 lg:flex-row">
-        <div className="flex w-full items-center justify-between lg:w-[55px]">
-          <Link href="/" className="relative size-[40px] lg:size-[55px]">
-            <Image
-              src="/images/svg/oakville-leaf.svg"
-              alt="logo"
-              fill
-              sizes="(max-width: 767px) 100px, 150px"
-              className="object-contain"
+    <>
+      <Desktop>
+        <header className="sticky top-0 z-30 h-[70px] bg-primary-500 py-2 shadow">
+          <div className="container flex h-full flex-row items-center gap-2">
+            <div className="flex w-full items-center justify-between lg:w-[55px]">
+              <MobileMenu
+                session={session}
+                navLinks={navLinks}
+                listData={listData}
+              />
+              <Link href="/" className="relative size-[36px] lg:size-[55px]">
+                <Image
+                  src="/images/svg/oakville-leaf.svg"
+                  alt="logo"
+                  fill
+                  className="object-contain"
+                />
+              </Link>
+            </div>
+            <div className="ml-0 w-full lg:ml-4 lg:w-[500px]">
+              <SearchComponent />
+            </div>
+            <div className="hidden w-full lg:flex lg:justify-end">
+              <nav className="flex size-full items-center lg:justify-between xl:w-fit xl:gap-6 xl:text-sm 2xl:gap-10">
+                {navLinks.map(({ name, link }) => {
+                  let component;
+
+                  if (name === 'Communities') {
+                    component = (
+                      <CommunitiesList key={name} listData={listData} />
+                    );
+                  } else if (name === 'Auth') {
+                    component = !session?.user ? (
+                      <LoginButton key={name} />
+                    ) : (
+                      <ProfileList key={name} session={session} />
+                    );
+                  } else {
+                    component = (
+                      <Link key={name} href={link} className={linkClass}>
+                        {name}
+                      </Link>
+                    );
+                  }
+
+                  return component;
+                })}
+              </nav>
+            </div>
+          </div>
+        </header>
+      </Desktop>
+      <Mobile>
+        <header className="sticky top-0 z-30 bg-primary-500 py-2 shadow">
+          <div className="container relative flex items-center justify-between">
+            <MobileMenu
+              session={session}
+              navLinks={navLinks}
+              listData={listData}
             />
-          </Link>
-          <MobileMenu
-            session={session}
-            navLinks={navLinks}
-            listData={listData}
-          />
-        </div>
-        <div className="w-full lg:hidden">
-          <hr className="border-primary-400" />
-        </div>
-        <div className="ml-0 w-full lg:ml-4 lg:w-[500px]">
-          <SearchComponent />
-        </div>
-        <div className="hidden w-full lg:flex lg:justify-end">
-          <nav className="flex size-full items-center lg:justify-between xl:w-fit xl:gap-6 xl:text-sm 2xl:gap-10">
-            {navLinks.map(({ name, link }) => {
-              let component;
-
-              if (name === 'Communities') {
-                component = <CommunitiesList key={name} listData={listData} />;
-              } else if (name === 'Auth') {
-                component = !session?.user ? (
-                  <LoginButton key={name} />
-                ) : (
-                  <ProfileList key={name} session={session} />
-                );
-              } else {
-                component = (
-                  <Link key={name} href={link} className={linkClass}>
-                    {name}
-                  </Link>
-                );
-              }
-
-              return component;
-            })}
-          </nav>
-        </div>
-      </div>
-    </header>
+            <Link href="/" className="relative size-[40px] lg:size-[55px]">
+              <Image
+                src="/images/svg/oakville-leaf.svg"
+                alt="logo"
+                fill
+                className="object-contain"
+              />
+            </Link>
+            <MobileSearch />
+          </div>
+        </header>
+      </Mobile>
+    </>
   );
 }

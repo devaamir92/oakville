@@ -105,7 +105,7 @@ async function Page({ params }: PageProps) {
   const session: any = await getSession();
   const images: string[] = await getImages(property.Ml_num);
   return (
-    <main className="container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
+    <div className="container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       {!session && (
         <BlurDailog session={session} isLocked={property.Is_locked} />
       )}
@@ -208,7 +208,7 @@ async function Page({ params }: PageProps) {
           <Demographics community={property.Community} />
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 

@@ -67,7 +67,7 @@ export default async function Page() {
   };
 
   return (
-    <main className="container mx-auto flex flex-col gap-8 py-4 lg:max-w-[1140px]">
+    <div className="container mx-auto flex flex-col gap-8 py-4 lg:max-w-[1140px]">
       <h1 className="text-center text-xl font-medium">
         Schools for The Preserve Oakville
       </h1>
@@ -101,6 +101,6 @@ export default async function Page() {
         schoolType="Private Schools"
         data={data.privateSchools}
       />
-    </main>
+    </div>
   );
 }

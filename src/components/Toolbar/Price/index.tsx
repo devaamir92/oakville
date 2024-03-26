@@ -44,7 +44,7 @@ const Price: React.FC<Props> = ({ type }) => {
   };
 
   return (
-    <div className="flex max-w-xs flex-col gap-4">
+    <div className="flex w-screen flex-col gap-4 p-4 lg:max-w-xs">
       <div className="flex items-center gap-2">
         <Input
           type="number"

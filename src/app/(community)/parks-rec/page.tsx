@@ -26,7 +26,7 @@ const ParksPage = async () => {
     });
   };
   return (
-    <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
+    <div className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
       <h3 className="text-center text-xl font-medium">
         The Preserve Oakville Parks & Rec
       </h3>
@@ -41,7 +41,7 @@ const ParksPage = async () => {
         </div>
       </section>
       <ParksRec id="parks" data={data} />
-    </main>
+    </div>
   );
 };
 

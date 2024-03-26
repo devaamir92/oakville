@@ -131,7 +131,6 @@ export async function generateMetadata({
 const Page = async (searchParams: any) => {
   const blog = await getSingleBlog(searchParams.params.slug);
   const blogs = await getBlogs(searchParams.params.slug);
-
   return (
     <>
       <script
@@ -146,7 +145,7 @@ const Page = async (searchParams: any) => {
           __html: `${blog.faqSchema}`,
         }}
       />
-      <main className="container flex min-h-[calc(100vh-70px)] flex-col gap-4 py-4 lg:flex-row ">
+      <div className="container flex min-h-[calc(100vh-70px)] flex-col gap-4 py-4 lg:flex-row ">
         <div className="flex flex-1 flex-col gap-4">
           <div className="flex flex-col justify-between gap-2 md:flex-row">
             <div className="flex flex-col gap-0">
@@ -172,7 +171,6 @@ const Page = async (searchParams: any) => {
               fill
               alt={blog.imageAlt}
               className="rounded object-cover object-center"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
             <div className="absolute left-4 top-4">
               {/* <div className="flex flex-wrap gap-1.5">
@@ -257,7 +255,7 @@ const Page = async (searchParams: any) => {
                   >
                     <div className="relative aspect-[2.25]">
                       <Image
-                        src={`https://api.preserveoakville.ca/${item.image.images.medium.url}`}
+                        src={`https://api.preserveoakville.ca/${item.image.images.original.url}`}
                         fill
                         alt={item.imageAlt}
                         className="object-cover"
@@ -290,7 +288,7 @@ const Page = async (searchParams: any) => {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 };

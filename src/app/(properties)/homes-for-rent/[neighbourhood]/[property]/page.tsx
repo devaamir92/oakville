@@ -120,7 +120,7 @@ async function Page({ params }: PageProps) {
 
   const session = await getSession();
   return (
-    <main className="container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
+    <div className="container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]">
       {!session && (
         <BlurDailog session={session} isLocked={property.Is_locked} />
       )}
@@ -273,7 +273,7 @@ async function Page({ params }: PageProps) {
             />
           ))}
       </div>
-    </main>
+    </div>
   );
 }
 

@@ -52,7 +52,7 @@ const Modal: React.FC<ModalProps> = ({
             onEscapeKeyDown={OnClose}
             className={cn(
               'DialogContent',
-              size === 'sm' && 'w-[400px]',
+              size === 'sm' && 'w-[380px]',
               size === 'md' && 'w-[600px]',
               size === 'lg' && 'w-[800px]'
             )}

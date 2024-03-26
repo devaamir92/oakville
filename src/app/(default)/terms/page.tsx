@@ -2,7 +2,7 @@ import React from 'react';
 
 const Terms = () => {
   return (
-    <main>
+    <div>
       <section className="container flex  flex-col gap-5 py-10 text-justify text-base ">
         <p>
           This Agreement, and all matters related to your use of the Website
@@ -170,7 +170,7 @@ const Terms = () => {
           check this page for any changes to its Privacy Policy.
         </p>
       </section>
-    </main>
+    </div>
   );
 };
 

@@ -44,7 +44,7 @@ const AdvancedSearch = () => {
   };
 
   return (
-    <main className="container mx-auto flex flex-col gap-6 py-4 lg:max-w-[1140px]">
+    <div className="container mx-auto flex flex-col gap-6 py-4 lg:max-w-[1140px]">
       <div className="relative h-40 w-full overflow-hidden rounded">
         <div className="absolute inset-0 bg-tertiary-500 opacity-80" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
@@ -254,7 +254,7 @@ const AdvancedSearch = () => {
           )}
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

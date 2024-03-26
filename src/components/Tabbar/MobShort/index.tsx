@@ -2,10 +2,11 @@
 
 import React from 'react';
 
-import { BsChevronDown } from 'react-icons/bs';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { Item } from '@radix-ui/react-dropdown-menu';
+
+import { FaShuffle } from 'react-icons/fa6';
 
 import Dropdown from '@components/ui/Dropdown';
 import cn from '@utils/cn';
@@ -33,7 +34,7 @@ const types = [
   },
 ];
 
-const Sorting: React.FC = () => {
+const Mobsort: React.FC = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -50,15 +51,13 @@ const Sorting: React.FC = () => {
 
   return (
     <Dropdown
-      icon={<BsChevronDown className="text-black" size={14} />}
-      className="w-full items-center gap-4 rounded border border-gray-300 px-2 py-1 !text-black"
+      icon={<FaShuffle className="text-white" size={20} />}
+      className="flex-col-reverse items-center justify-center gap-1 text-sm "
       ariaLabel="Sort by"
       title="Sort by"
-      label={
-        types.find(type => type.value === activeSort)?.name || 'New Listings'
-      }
-      align="end"
-      contentClassName="border border-gray-500 rounded p-2"
+      label="Sort"
+      align="center"
+      contentClassName="w-screen p-4"
     >
       {types.map(type => (
         <Item
@@ -71,7 +70,7 @@ const Sorting: React.FC = () => {
             type="button"
             onClick={() => handleSort(type.value)}
             className={cn(
-              'w-full rounded-sm px-3 py-1.5 text-start text-sm transition-colors duration-200 ease-in-out hover:bg-primary-200',
+              'w-full rounded px-3 py-2 text-start text-base transition-colors duration-200 ease-in-out hover:bg-primary-200',
               {
                 'bg-primary-500 text-white': activeSort === type.value,
               }
@@ -85,4 +84,4 @@ const Sorting: React.FC = () => {
   );
 };
 
-export default Sorting;
+export default Mobsort;

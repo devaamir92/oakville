@@ -19,7 +19,7 @@ const CommunitiesList: React.FC<Props> = ({ listData }) => {
     <Dropdown
       label="Community"
       icon={<FaChevronDown className="text-white" size={10} />}
-      className="!w-fit !text-sm"
+      className="!w-fit items-center gap-2 !text-sm"
     >
       {listData.map(item => (
         <Item

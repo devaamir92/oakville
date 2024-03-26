@@ -18,6 +18,7 @@ import { getSession } from '@lib/getsession';
 import { getRecentlySold } from '@lib/api/properties/getRecentlySold';
 import { getDailyListing } from '@lib/api/properties/getDailyListing';
 import { getFeaturedListing } from '@lib/api/properties/getFeaturedListing';
+import Footer from '@components/Footer';
 
 export const metadata: Metadata = {
   title: {
@@ -98,7 +99,7 @@ const data = [
     title: 'Parks & Rec in The Preserve Oakville',
     imageUrl: '/images/jpg/community/parks-&-Rec.jpg',
     href: '/parks-rec',
-    alt: 'Parks & Rec in The Preserve Oakville',
+    alt: 'Parks',
   },
   {
     title: 'Religious Places For The Preserve Oakville',
@@ -123,42 +124,45 @@ const page = async () => {
 
   const session = await getSession();
   return (
-    <main className="flex flex-col gap-4 pb-4 md:gap-8 md:pb-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <Desktop>
-        <Hero />
-      </Desktop>
-      <Mobile>
-        <HeroMobile />
-      </Mobile>
-      <ListingTypes />
-      <div className="flex flex-col gap-4 bg-[#f3f4f6] py-4 md:gap-8 md:py-8">
-        <FeatureListing rows={featureListing} session={session} />
-        <DailyListing rows={dailyListing.data} session={session} />
-      </div>
-      <JustSold rows={recentlySold.data} session={session} />
-      <CTASection />
-
-      <section>
-        <div className="container flex flex-col gap-4 md:gap-8">
-          <div className="flex flex-col gap-1">
-            <h2 className="text-center text-2xl font-semibold">
-              Neighborhood Guide
-            </h2>
-            <p className="text-center">
-              Browse our neighborhood guides to learn about The Preserve
-              Oakville.
-            </p>
-          </div>
-          <div className="flex-1">
-            <Community data={data} />
-          </div>
+    <>
+      <div className="flex flex-col gap-4 pb-4 md:gap-8 md:pb-8">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Desktop>
+          <Hero />
+        </Desktop>
+        <Mobile>
+          <HeroMobile />
+        </Mobile>
+        <ListingTypes />
+        <div className="flex flex-col gap-4 bg-[#f3f4f6] py-4 md:gap-8 md:py-8">
+          <FeatureListing rows={featureListing} session={session} />
+          <DailyListing rows={dailyListing.data} session={session} />
         </div>
-      </section>
-    </main>
+        <JustSold rows={recentlySold.data} session={session} />
+        <CTASection />
+
+        <section>
+          <div className="container flex flex-col gap-4 md:gap-8">
+            <div className="flex flex-col gap-1">
+              <h2 className="text-center text-2xl font-semibold">
+                Neighborhood Guide
+              </h2>
+              <p className="text-center">
+                Browse our neighborhood guides to learn about The Preserve
+                Oakville.
+              </p>
+            </div>
+            <div className="flex-1">
+              <Community data={data} />
+            </div>
+          </div>
+        </section>
+      </div>
+      <Footer />
+    </>
   );
 };
 

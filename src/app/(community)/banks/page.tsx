@@ -27,7 +27,7 @@ const getdata = () => {
 
 const BanksPage = async () => {
   return (
-    <main className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
+    <div className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
       <h3 className="text-center text-xl font-medium">
         The Preserve Oakville Banks
       </h3>
@@ -43,7 +43,7 @@ const BanksPage = async () => {
       </section>
 
       <BankCard id="banks" data={banksData.banks} />
-    </main>
+    </div>
   );
 };
 

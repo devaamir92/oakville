@@ -21,7 +21,7 @@ const Page = async ({ searchParams }: any) => {
   }
 
   return (
-    <main className="container flex flex-col gap-4 py-10">
+    <div className="container flex flex-col gap-4 py-10">
       <section className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="relative aspect-square size-24">
@@ -69,7 +69,7 @@ const Page = async ({ searchParams }: any) => {
           <SavedSearches />
         </div>
       )}
-    </main>
+    </div>
   );
 };
 

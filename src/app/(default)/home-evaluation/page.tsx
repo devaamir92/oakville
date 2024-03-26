@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 function page() {
   return (
     <div className="flex flex-col gap-10 bg-white pb-10">
-      <section className="relative h-[500px] items-center justify-center lg:h-[calc(100vh-70px)]">
+      <section className="relative h-[250px] items-center justify-center lg:h-[calc(100vh-70px)]">
         <Image
           fill
           src="/images/webp/sell/mainEvalHeader.webp"

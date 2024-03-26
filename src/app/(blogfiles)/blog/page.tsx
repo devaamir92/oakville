@@ -46,7 +46,7 @@ const BlogPage = async () => {
   const blogs = await getBlogs();
 
   return (
-    <main className="flex h-full flex-col">
+    <div className="flex h-full flex-col">
       <BlogToolbar />
       <div className="min-h-[calc(100vh-118px)]">
         <section className="py-5">
@@ -66,7 +66,7 @@ const BlogPage = async () => {
                 >
                   <div className="relative aspect-[2.25]">
                     <Image
-                      src={`https://api.preserveoakville.ca/${blog.image.images.original.url}`}
+                      src={`https://api.preserveoakville.ca/${blog.image.images.small.url}`}
                       fill
                       alt={blog.imageAlt}
                       className="size-full object-cover object-center"
@@ -105,7 +105,7 @@ const BlogPage = async () => {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 };
 
