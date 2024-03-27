@@ -27,7 +27,7 @@ const Calculators = () => {
         <div className="flex flex-[2] flex-col flex-wrap gap-5">
           <div className="px-5">
             <div className="mx-auto max-w-2xl 2xl:max-w-3xl">
-              <h1 className="my-5 text-2xl font-light capitalize">
+              <h1 className="my-5 text-xl font-light capitalize md:text-2xl">
                 Mortgage payment calculator
               </h1>
               <iframe

@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
-
 import type { Metadata } from 'next';
 
 import Pagination from '@components/ui/Pagination';
+
+import { getNewDevelopment } from '@lib/api/getNewDevelopment';
 
 import Toolbar from './_components/toolbar';
 
@@ -16,96 +16,14 @@ export const metadata: Metadata = {
     'Explore New Homes in The Preserve Oakville, featuring luxury properties and homes. Stay updated on the latest properties by Mattamy Homes, Fernbrook, & more.',
 };
 
-const getNewDevelopment = async (
-  type: string,
-  status: string,
-  occupancy: string,
-  search: string
-) => {
-  const queryBuilder = RequestQueryBuilder.create();
-  const propType = Array.isArray(type) ? type : [type];
-  const propStatus = Array.isArray(status) ? status : [status];
-  const propOccupancy = Array.isArray(occupancy) ? occupancy : [occupancy];
-
-  const typeQuery: any =
-    (type && {
-      type: {
-        $in: propType,
-      },
-    }) ||
-    {};
-
-  const statusQuery: any =
-    (status && {
-      status: {
-        $in: propStatus,
-      },
-    }) ||
-    {};
-
-  const occupancyQuery: any =
-    (occupancy && {
-      estimatedCompletionDate: {
-        $in: propOccupancy,
-      },
-    }) ||
-    {};
-
-  queryBuilder
-
-    .search({
-      $or: [
-        {
-          name: {
-            $contL: search,
-          },
-        },
-        {
-          $and: [
-            {
-              ...typeQuery,
-              ...statusQuery,
-              ...occupancyQuery,
-            },
-          ],
-        },
-      ],
-    })
-    .sortBy({
-      field: 'createdAt',
-      order: 'DESC',
-    })
-    .setJoin({
-      field: 'gallery',
-    })
-    .setLimit(9);
-
-  const res = await fetch(
-    `${
-      process.env.API_HOST
-    }/api/v1/development/project?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      cache: 'no-cache',
-      next: {
-        tags: ['project'],
-      },
-    }
-  );
-  return res.json();
-};
-
-const Developments = async (searchParams: any) => {
+const Developments = async ({ searchParams }: any) => {
   const data = await getNewDevelopment(
-    searchParams.searchParams.type,
-    searchParams.searchParams.status,
-    searchParams.searchParams.occupancy,
-    searchParams.searchParams.search
+    searchParams.type,
+    searchParams.status,
+    searchParams.occupancy,
+    searchParams.search,
+    Number(searchParams?.page ?? 1) ?? 1
   );
-
   return (
     <div className="flex h-full flex-col pb-4">
       <div className="w-full">
@@ -113,19 +31,19 @@ const Developments = async (searchParams: any) => {
       </div>
       <div className="h-full">
         <div className="container mt-4 flex  flex-col">
-          <h1 className="mb-3 text-center text-2xl font-semibold">
+          <h1 className="mb-3 text-center text-xl font-semibold md:text-2xl">
             The Preserve Oakville New Homes
           </h1>
           <div className="mb-4 h-[1px] bg-gray-300" />
         </div>
         {data.data.length === 0 && (
           <div className="flex min-h-[calc(100vh-200px)]  items-center justify-center ">
-            <h1 className="text-xl font-semibold text-gray-500">
+            <h2 className="text-xl font-semibold text-gray-500">
               No New Homes Found. Clear Filters To View All Projects.
-            </h1>
+            </h2>
           </div>
         )}
-        <div className="container mb-4 grid min-h-[calc(100vh-200px)]  gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="container mb-4 grid min-h-[calc(100vh-200px)] gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {data.data.map((item: any) => {
             return (
               <Link

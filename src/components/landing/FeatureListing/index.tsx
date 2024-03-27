@@ -18,9 +18,9 @@ const FeatureListing: React.FC<FeatureListingProps> = async ({
     <section>
       <div className="container flex flex-col">
         <div className="flex items-center justify-center">
-          <h2 className="pb-4 text-2xl  font-semibold md:pb-8">
+          <h4 className="pb-4 text-xl font-semibold  sm:text-2xl md:pb-8">
             Featured Listings
-          </h2>
+          </h4>
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
         <Desktop>

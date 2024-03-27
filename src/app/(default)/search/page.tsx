@@ -48,7 +48,7 @@ const AdvancedSearch = () => {
       <div className="relative h-40 w-full overflow-hidden rounded">
         <div className="absolute inset-0 bg-tertiary-500 opacity-80" />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-          <h1 className="text-2xl font-medium text-white">
+          <h1 className="text-xl font-medium text-white md:text-2xl">
             Explore, Discover, Own
           </h1>
           <Search handleSearchData={handleSearchData} />

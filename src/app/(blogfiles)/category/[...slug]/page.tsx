@@ -4,44 +4,15 @@ import Link from 'next/link';
 import moment from 'moment';
 
 import { FaRegCircleRight } from 'react-icons/fa6';
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import CategoryFilter from '@app/(blogfiles)/_components/CategoryFilter';
 
 import Pagination from '@components/ui/Pagination';
 import BlogToolbar from '@app/(blogfiles)/_components/BlogToolbar';
-
-const getBlogs = async (category: string) => {
-  const queryBuilder = RequestQueryBuilder.create();
-  queryBuilder
-    .setJoin({
-      field: 'image',
-      select: ['images'],
-    })
-    .setJoin({
-      field: 'categories',
-      select: ['category'],
-    })
-    .setFilter({
-      field: 'categories.category',
-      operator: '$eqL',
-      value: category,
-    });
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      next: {
-        tags: ['blogs'],
-      },
-      cache: 'no-cache',
-    }
-  );
-  return res.json();
-};
+import { getAllBlogs } from '@lib/api/getBlogs';
 
 const BlogPage = async (searchParams: any) => {
-  const blogs = await getBlogs(
+  const blogs: any = await getAllBlogs(
     searchParams.params.slug.toString().split('-').join(' ')
   );
 
@@ -51,7 +22,7 @@ const BlogPage = async (searchParams: any) => {
       <div className="min-h-[calc(100vh-118px)]">
         {!blogs.data.length && (
           <div className="flex h-[calc(100vh-118px)] items-center justify-center">
-            <h1 className="text-2xl font-semibold text-gray-500">
+            <h1 className="text-xl font-semibold text-gray-500 md:text-2xl">
               No blogs found for this category
             </h1>
           </div>
@@ -60,7 +31,7 @@ const BlogPage = async (searchParams: any) => {
           <section className="py-5">
             <div className="container flex flex-col">
               <div className="flex items-center justify-between">
-                <h1 className="mb-3 flex-1 text-center text-2xl font-semibold capitalize">
+                <h1 className="mb-3 flex-1 text-center text-xl font-semibold capitalize md:text-2xl">
                   {searchParams.params.slug.toString().split('-').join(' ')}
                 </h1>
               </div>

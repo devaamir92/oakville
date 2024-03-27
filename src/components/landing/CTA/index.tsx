@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 function CTASection() {
   return (
-    <section className="bg-primary-500 pt-8 sm:pt-0">
+    <section className="bg-primary-500 p-8 sm:py-0">
       <div className="container flex flex-col items-center justify-between gap-16 md:flex-row">
         <div className="flex flex-1 flex-col items-center gap-4 md:items-start lg:w-2/5">
-          <h2 className="text-center text-2xl font-semibold text-white">
+          <h2 className="text-center text-xl font-semibold text-white md:text-2xl">
             Free Home Evaluation
           </h2>
           <p className=" text-justify text-base text-white">
@@ -29,7 +29,7 @@ function CTASection() {
             Get Free Evaluation
           </Link>
         </div>
-        <div className="flex flex-1">
+        <div className="hidden flex-1 sm:flex">
           <div className="relative hidden size-96 flex-1 overflow-hidden sm:block sm:h-96">
             <Image
               src="/images/webp/cta-main.webp"

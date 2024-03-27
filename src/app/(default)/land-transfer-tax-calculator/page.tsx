@@ -13,7 +13,7 @@ const Index = () => {
       <div>
         <div>
           <div className="mx-auto max-w-2xl 2xl:max-w-3xl">
-            <h1 className="font-gillsans my-5 text-2xl font-light capitalize">
+            <h1 className="font-gillsans my-5 text-xl font-light capitalize md:text-2xl">
               Land transfer tax calculator
             </h1>
             <iframe

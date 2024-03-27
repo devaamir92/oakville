@@ -31,9 +31,9 @@ function HeroMobile() {
               <HelloText />
             </div>
           </div>
-          <h2 className="absolute left-1/2 top-2/3 text-center text-3xl font-medium text-secondary-500 sm:left-[35%] sm:text-4xl">
+          <h1 className="absolute left-1/2 top-2/3 text-center text-3xl font-medium text-secondary-500 sm:left-[35%] sm:text-4xl">
             neighbour
-          </h2>
+          </h1>
         </div>
       </div>
     </section>

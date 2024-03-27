@@ -34,7 +34,7 @@ function Search() {
       <form className="">
         <label
           htmlFor="search"
-          className="group flex h-[36px] items-center overflow-hidden  bg-white px-1.5 text-sm transition-all duration-300 ease-in-out lg:min-w-96"
+          className="group flex h-[36px] items-center overflow-hidden rounded bg-white px-1.5 text-sm hover:rounded-l-none hover:rounded-r lg:min-w-96 hover:lg:rounded"
         >
           <input
             type="search"
@@ -48,16 +48,16 @@ function Search() {
               }
             }}
             className={cn(
-              'full bg-white-500 absolute right-[58px] hidden h-[36px] w-[calc(100%-72px)] pl-2 text-black placeholder:text-gray-700  focus:outline-none group-hover:block lg:relative lg:right-0 lg:block lg:flex-1'
+              'full bg-white-500 absolute right-[58px] hidden h-[36px] w-[calc(100%-72px)] rounded-l pl-2  text-black placeholder:text-gray-700 focus:outline-none group-hover:block lg:relative lg:right-0 lg:block lg:flex-1'
             )}
           />
           <button
             type="button"
             aria-label="Search"
-            className=" p-2"
+            className="p-1.5"
             onClick={handleSearchRoute}
           >
-            <FaSearch className="text-tertiary-500" />
+            <FaSearch className="text-tertiary-500" size={18} />
           </button>
         </label>
       </form>

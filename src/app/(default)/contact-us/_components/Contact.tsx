@@ -84,7 +84,7 @@ function Contact() {
 
   return (
     <div className="mb-10 flex flex-1 flex-col items-center justify-center gap-4 lg:mb-0">
-      <h1 className="mb-4 text-2xl font-medium text-gray-800 lg:mb-10">
+      <h1 className="mb-4 text-xl font-medium text-gray-800 md:text-2xl lg:mb-10">
         Submit a Message
       </h1>
       {errors && (

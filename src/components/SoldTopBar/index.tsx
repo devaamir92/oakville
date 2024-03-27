@@ -15,6 +15,8 @@ const days = [
   { id: 4, value: '14', name: '14 Days Ago' },
   { id: 5, value: '30', name: '30 Days Ago' },
   { id: 6, value: '90', name: '90 Days Ago' },
+  { id: 7, value: '180', name: '180 Days Ago' },
+  { id: 8, value: '365', name: '365 Days Ago' },
 ];
 
 const SoldTopBar = () => {
@@ -33,12 +35,12 @@ const SoldTopBar = () => {
   };
 
   return (
-    <div className="flex flex-1 items-center justify-between">
-      <h1 className="text-2xl font-semibold text-gray-800">
+    <div className="flex w-full flex-col justify-between gap-2 md:flex-row md:items-center">
+      <h1 className="text-xl font-semibold text-gray-800 md:text-2xl">
         Sold Properties in Preserve Oakville
       </h1>
       <div className="flex items-center gap-2">
-        <span className="font-medium">Sort by:</span>
+        <span className="whitespace-nowrap font-medium">Sort by:</span>
         <Dropdown
           ariaLabel="Sort by"
           title="Sort by"
@@ -47,7 +49,7 @@ const SoldTopBar = () => {
               ? days.find(day => day.value === activeSort)?.name
               : 'All'
           }
-          className="w-40 rounded border border-gray-300 px-2 py-1 !text-black"
+          className="w-full rounded border border-gray-300  px-2 py-1 !text-black md:w-40"
         >
           {days.map(day => (
             <Item

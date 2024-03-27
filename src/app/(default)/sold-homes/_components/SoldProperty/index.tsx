@@ -105,7 +105,9 @@ const SoldProperty: React.FC<PropertyProps> = async ({
         ))}
         {!rows?.data?.length && (
           <div className="col-span-full flex min-h-[calc(100vh-135px)] items-center justify-center">
-            <h1 className="text-center text-2xl">No properties found</h1>
+            <h1 className="text-center text-xl md:text-2xl">
+              No properties found
+            </h1>
           </div>
         )}
       </div>

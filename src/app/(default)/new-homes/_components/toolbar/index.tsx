@@ -99,18 +99,33 @@ function Toolbar() {
       <nav className="container relative flex w-full items-center">
         <ul className="flex flex-1 items-center justify-between gap-4  text-sm">
           <li className="">
-            <Dropdown label="Type" icon={<FaChevronDown size={10} />}>
+            <Dropdown
+              label="Type"
+              icon={<FaChevronDown size={10} />}
+              className="gap-2"
+              contentClassName="p-4"
+            >
               <Types items={TypeData} />
             </Dropdown>
           </li>
 
           <li className="">
-            <Dropdown label="Status" icon={<FaChevronDown size={10} />}>
+            <Dropdown
+              label="Status"
+              icon={<FaChevronDown size={10} />}
+              className="gap-2"
+              contentClassName="p-4"
+            >
               <Types items={Status} name="status" />
             </Dropdown>
           </li>
           <li className=" text-white">
-            <Dropdown label="Occupancy" icon={<FaChevronDown size={10} />}>
+            <Dropdown
+              label="Occupancy"
+              icon={<FaChevronDown size={10} />}
+              className="gap-2"
+              contentClassName="p-4"
+            >
               <Types items={Occupancy} name="occupancy" />
             </Dropdown>
           </li>
@@ -121,7 +136,7 @@ function Toolbar() {
               onClick={() => clearFilters()}
             >
               <FaRepeat size={14} />
-              <span>Clear Filter</span>
+              <span>Clear</span>
             </Button>
           </li>
           <li>

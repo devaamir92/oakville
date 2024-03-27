@@ -4,13 +4,14 @@ import Link from 'next/link';
 import moment from 'moment';
 
 import { FaRegCircleRight } from 'react-icons/fa6';
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import type { Metadata } from 'next/types';
 
 import Pagination from '@components/ui/Pagination';
 
 // import CategoryFilter from '../_components/CategoryFilter';
+import { getAllBlogs } from '@lib/api/getBlogs';
+
 import BlogToolbar from '../_components/BlogToolbar';
 
 export const metadata: Metadata = {
@@ -19,31 +20,8 @@ export const metadata: Metadata = {
     'Discover The Preserve Oakville blog for exclusive insights and updates on luxury living. Stay informed about the latest in properties, homes, and the neighborhood. ',
 };
 
-const getBlogs = async () => {
-  const queryBuilder = RequestQueryBuilder.create();
-  queryBuilder
-    .setJoin({
-      field: 'image',
-    })
-    .setJoin({
-      field: 'categories',
-      select: ['category'],
-    });
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`,
-    {
-      cache: 'no-cache',
-      next: {
-        tags: ['blogs'],
-      },
-      method: 'GET',
-    }
-  );
-  return res.json();
-};
-
 const BlogPage = async () => {
-  const blogs = await getBlogs();
+  const blogs: any = await getAllBlogs();
 
   return (
     <div className="flex h-full flex-col">
@@ -52,7 +30,7 @@ const BlogPage = async () => {
         <section className="py-5">
           <div className="container flex flex-col">
             <div className="flex items-center justify-between">
-              <h1 className="mb-3 flex-1 text-center text-2xl font-semibold">
+              <h1 className="mb-3 flex-1 text-center text-xl font-semibold md:text-2xl">
                 Blogs
               </h1>
             </div>

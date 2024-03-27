@@ -17,7 +17,7 @@ const JustSold: React.FC<JustSoldProps> = ({ rows, session }) => {
     <section>
       <div className="container flex flex-col">
         <div className="flex flex-col items-center justify-center gap-1 pb-4 md:pb-8">
-          <h2 className="text-2xl font-semibold">Recently Sold</h2>
+          <h6 className="text-xl font-semibold md:text-2xl">Recently Sold</h6>
           <p className="">
             Real estate boards require you to be signed in to access sold prices
             history.

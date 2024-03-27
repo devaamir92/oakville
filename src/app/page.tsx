@@ -147,9 +147,9 @@ const page = async () => {
         <section>
           <div className="container flex flex-col gap-4 md:gap-8">
             <div className="flex flex-col gap-1">
-              <h2 className="text-center text-2xl font-semibold">
+              <h6 className="text-center text-xl font-semibold md:text-2xl">
                 Neighborhood Guide
-              </h2>
+              </h6>
               <p className="text-center">
                 Browse our neighborhood guides to learn about The Preserve
                 Oakville.

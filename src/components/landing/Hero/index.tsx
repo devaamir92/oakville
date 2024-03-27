@@ -32,9 +32,9 @@ function Hero() {
             <div className="w-[450px]">
               <HelloText />
             </div>
-            <h2 className="absolute top-[72%] font-semibold tracking-[12px] text-secondary-500 xl:ml-[58%] xl:text-5xl 2xl:ml-[61%] 2xl:text-7xl">
+            <h1 className="absolute top-[72%] font-semibold tracking-[12px] text-secondary-500 xl:ml-[58%] xl:text-5xl 2xl:ml-[61%] 2xl:text-7xl">
               neighbour
-            </h2>
+            </h1>
           </div>
         </div>
       </div>

@@ -1,103 +1,26 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import moment from 'moment';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-
 import { FaRegCircleRight } from 'react-icons/fa6';
-
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
-
-import moment from 'moment';
 
 import CategoryFilter from '@app/(blogfiles)/_components/CategoryFilter';
 import { Share } from '@components/Share';
+import {
+  getBlogMetaData,
+  getRecentBlogs,
+  getSingleBlog,
+} from '@lib/api/getBlogs';
 
-const getSingleBlog = async (slug: string) => {
-  const queryBuilder = RequestQueryBuilder.create();
-  queryBuilder
-    .setJoin({
-      field: 'image',
-      select: ['images'],
-    })
-    .setJoin({
-      field: 'categories',
-      select: ['category'],
-    });
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/blogs/slug/${slug}?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      next: {
-        tags: ['slug'],
-      },
-      cache: 'no-cache',
-    }
-  );
-  return res.json();
-};
-
-const getBlogs = async (slug: string) => {
-  const queryBuilder = RequestQueryBuilder.create();
-  queryBuilder
-    .setJoin({
-      field: 'image',
-    })
-    .setFilter({
-      field: 'slug',
-      operator: '$ne',
-      value: slug,
-    })
-    .setJoin({
-      field: 'categories',
-      select: ['category'],
-    })
-    .setLimit(4);
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/blogs?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      next: {
-        tags: ['blogs'],
-      },
-      cache: 'no-cache',
-    }
-  );
-
-  const responce = await res.json();
-
-  const sortByDate = responce.data.sort((a: any, b: any) => {
-    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-  });
-  return sortByDate;
-};
 export async function generateMetadata({
   params,
 }: {
   params: any;
 }): Promise<Metadata> {
-  const queryBuilder = RequestQueryBuilder.create();
-  queryBuilder
-    .setJoin({
-      field: 'image',
-      select: ['images'],
-    })
-    .select(['metaTitle', 'metaDesc', 'jsonLD', 'faqSchema', 'keywords']);
+  const blog: any = await getBlogMetaData(params.slug);
 
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/blogs/slug/${
-      params.slug
-    }?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      next: {
-        tags: ['slug'],
-      },
-      cache: 'no-cache',
-    }
-  );
-
-  const blog = await res.json();
   return {
     title: blog.metaTitle,
     description: blog.metaDesc,
@@ -128,9 +51,10 @@ export async function generateMetadata({
   };
 }
 
-const Page = async (searchParams: any) => {
-  const blog = await getSingleBlog(searchParams.params.slug);
-  const blogs = await getBlogs(searchParams.params.slug);
+const Page = async ({ params }: any) => {
+  const blog: any = await getSingleBlog(params.slug);
+  const { data }: any = await getRecentBlogs(params.slug);
+
   return (
     <>
       <script
@@ -244,7 +168,7 @@ const Page = async (searchParams: any) => {
                 <hr className="border-gray-300" />
               </div>
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
-                {blogs.map((item: any) => (
+                {data.map((item: any) => (
                   <Link
                     key={item.id}
                     href={`/blog/${item.slug

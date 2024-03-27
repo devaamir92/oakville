@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 function page() {
   return (
-    <div className="flex flex-col gap-10 bg-white pb-10">
+    <div className="flex flex-col gap-4 bg-white pb-4 md:gap-10 md:pb-10">
       <section className="relative h-[250px] items-center justify-center lg:h-[calc(100vh-70px)]">
         <Image
           fill
@@ -28,10 +28,10 @@ function page() {
       </section>
       <div className="container px-4">
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-left text-xl font-semibold md:w-[80%] md:text-center lg:w-[40%] 2xl:text-2xl">
+          <h2 className="text-left text-lg font-semibold sm:text-xl md:w-[80%] md:text-center lg:w-[40%] 2xl:text-2xl">
             We Know The Neighbourhood Best, when You Sell With Us You Get More!
           </h2>
-          <p className="text-left text-sm md:w-[80%] md:text-center xl:text-base">
+          <p className="text-base sm:text-left md:w-[80%] md:text-center">
             Enjoy a seamless and beneficial selling experience when working with
             us. Whether you&apos;re looking to sell your Condo, Townhouse,
             Semi-Detached or Detached home in The Preserve Oakville, we are here
@@ -44,7 +44,7 @@ function page() {
           </p>
         </div>
       </div>
-      <section className="relative overflow-hidden py-12 lg:h-[50vh]">
+      <section className="relative h-full pb-6 pt-4 md:py-12 lg:h-[50vh] lg:overflow-hidden">
         <div className="absolute inset-0 hidden  md:block">
           <Image
             src="/images/webp/sell/homeEvalBanner.jpg"
@@ -58,10 +58,10 @@ function page() {
         <div className="absolute inset-0  bg-gradient-to-r from-gray-100 to-gray-100 md:block md:via-transparent md:to-transparent" />
         <div className="container relative flex h-full items-center">
           <div className="md:w-2/5 md:text-left lg:w-[42%]">
-            <h2 className="text-xl font-semibold 2xl:text-2xl">
+            <h2 className="text-lg font-semibold md:text-xl 2xl:text-2xl">
               Hire A Real Estate Professional Who Never Gives Up
             </h2>
-            <p className="my-4 text-justify text-sm text-gray-800 2xl:text-base">
+            <p className="my-4 text-base text-gray-800 md:text-justify lg:text-sm 2xl:text-base">
               Selling your home can be overwhelming, we help you simplify the
               process. Our dedicated team supports you from preparation to
               negotiations, ensures a successful closing and are there to answer
@@ -99,7 +99,7 @@ function page() {
             <h3 className="mb-1 text-lg font-medium 2xl:text-xl">
               Expert Guidance
             </h3>
-            <p className="text-justify text-sm 2xl:text-base">
+            <p className="text-base md:text-justify lg:text-sm 2xl:text-base">
               Our seasoned agents bring a wealth of experience in selling a
               diverse range of properties, ensuring that you benefit from expert
               guidance precisely tailored to meet your unique needs. With a deep
@@ -113,7 +113,7 @@ function page() {
             <h3 className="mb-1 text-lg font-medium 2xl:text-xl">
               Local Market Knowledge
             </h3>
-            <p className="text-justify text-sm 2xl:text-base">
+            <p className="text-base md:text-justify lg:text-sm 2xl:text-base">
               Benefit from our in-depth knowledge of The Preserve&apos;s real
               estate market to highlight your property&apos;s unique strengths
               and showcase the charm of its neighborhood to potential buyers.
@@ -131,7 +131,7 @@ function page() {
             <h3 className="mb-1 text-lg font-medium 2xl:text-xl">
               Tailored Marketing Strategies
             </h3>
-            <p className="text-justify text-sm 2xl:text-base">
+            <p className="text-base md:text-justify lg:text-sm 2xl:text-base">
               We craft personalized marketing strategies; focused on the
               distinct features of your property for maximum exposure. Through
               targeted campaigns, we ensure maximum exposure for your home,
@@ -144,7 +144,7 @@ function page() {
             <h3 className="mb-1 text-lg font-medium 2xl:text-xl">
               Negotiation Excellence
             </h3>
-            <p className="text-justify text-sm 2xl:text-base">
+            <p className="text-base md:text-justify lg:text-sm 2xl:text-base">
               Count on our team of skilled negotiators who work tirelessly to
               secure the best possible price and terms for your property. With a
               deep understanding of market dynamics and trends specific to The
