@@ -16,6 +16,8 @@ const selectItems = [
   'S_r',
   'Lsc',
   'Bsmt1_out',
+  'Timestamp_sql',
+  'Cd',
 ];
 
 export default selectItems;

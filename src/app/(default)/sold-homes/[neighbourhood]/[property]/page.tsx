@@ -46,6 +46,7 @@ const getSoldHistory = async (addr: string, unit: number, Apt_num: number) => {
     'Slug',
     'Status',
     'Lp_dol',
+    'Dom',
   ]);
 
   queryBuilder.search({

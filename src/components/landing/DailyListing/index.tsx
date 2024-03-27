@@ -41,6 +41,8 @@ const DailyListing: React.FC<DailyListingProps> = async ({ rows, session }) => {
                 parking={item.Park_spcs ?? '0'}
                 slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
                 isLocked={item.Is_locked}
+                dom={item.Dom}
+                tssql={item.Timestamp_sql}
               />
             ))}
           </div>
@@ -63,6 +65,8 @@ const DailyListing: React.FC<DailyListingProps> = async ({ rows, session }) => {
                 parking={item.Park_spcs ?? '0'}
                 slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
                 isLocked={item.Is_locked}
+                dom={item.Dom}
+                tssql={item.Timestamp_sql}
               />
             ))}
           </div>

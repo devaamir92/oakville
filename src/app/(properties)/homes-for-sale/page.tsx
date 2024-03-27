@@ -123,6 +123,7 @@ const getProperties = async (
     'Bsmt1_out',
     'Lat',
     'Lng',
+    'Dom',
   ]);
 
   const res = await fetch(

@@ -26,6 +26,7 @@ export async function popupDetail(slug: string) {
     'Lat',
     'Lng',
     'S_r',
+    'Dom',
   ]);
   const res = await fetch(
     `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,

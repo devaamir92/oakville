@@ -56,6 +56,7 @@ const getSoldHistory = async (addr: string, unit: number, Apt_num: number) => {
     'Slug',
     'Status',
     'Lp_dol',
+    'Dom',
   ]);
 
   queryBuilder.search({
@@ -280,6 +281,8 @@ async function Page({ params }: PageProps) {
               parking={item.Park_spcs ?? '0'}
               slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
               isLocked={item.Is_locked}
+              dom={item.Dom}
+              tssql={item.Timestamp_sql}
             />
           ))}
       </div>

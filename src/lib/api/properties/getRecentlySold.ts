@@ -18,6 +18,10 @@ export const getRecentlySold = async () => {
       operator: '$eq',
       value: 'Sld',
     })
+    .sortBy({
+      field: 'Cd',
+      order: 'DESC',
+    })
     .setLimit(4);
 
   queryBuilder.select(selectItems);

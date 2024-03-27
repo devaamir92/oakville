@@ -29,7 +29,7 @@ const FloorPlanTable: React.FC<FloorPlanItem> = ({ data }) => {
           <thead>
             <tr>
               <th className="px-4 py-2 text-left text-sm">Title</th>
-              <th className="px-4 py-2 text-left text-sm">Area (Sqft)</th>
+              <th className="px-4 py-2 text-left text-sm">Area</th>
               <th className="px-4 py-2 text-left text-sm">Download</th>
             </tr>
           </thead>
@@ -43,7 +43,9 @@ const FloorPlanTable: React.FC<FloorPlanItem> = ({ data }) => {
                   'text-sm'
                 )}
               >
-                <td className="min-w-64 px-4 py-2">{floorPlan.title}</td>
+                <td className="min-w-64 px-4 py-2 capitalize">
+                  {floorPlan.title.toLowerCase()}
+                </td>
                 <td className="min-w-28 px-4 py-2">
                   {floorPlan.area} <small>sq ft</small>
                 </td>

@@ -49,7 +49,7 @@ const Developments = async ({ searchParams }: any) => {
               <Link
                 href={`/new-homes/${item.slug}`}
                 key={item.slug}
-                className="flex flex-col"
+                className="flex h-fit flex-col"
               >
                 <div className="flex flex-col overflow-hidden rounded border border-gray-300 bg-white">
                   <div className="relative h-[250px] w-full">

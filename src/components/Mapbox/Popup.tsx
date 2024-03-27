@@ -54,6 +54,7 @@ const Modal: React.FC<PopupProps> = ({ item, show, handleModalClose }) => {
                 parking={item.Park_spcs ?? '0'}
                 slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
                 isLocked={item.Is_locked}
+                tssql={item.Timestamp_sql}
               />
             )}
           </Content>

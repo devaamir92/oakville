@@ -115,6 +115,7 @@ const getProperties = async (
     'Bsmt1_out',
     'Lat',
     'Lng',
+    'Dom',
   ]);
 
   const res = await fetch(
@@ -205,42 +206,40 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
         <Footer />
       </Desktop>
       <Mobile>
-        <div className="flex flex-1">
-          <section
-            className={cn(
-              'container relative flex w-full flex-col gap-4 overflow-y-auto bg-white py-4 lg:w-1/2 2xl:w-2/5',
-              {
-                'w-full bg-transparent xl:w-full 2xl:w-full':
-                  searchParams?.view === 'list',
-                'mx-auto': searchParams?.view === 'list',
-              }
-            )}
+        <section
+          className={cn(
+            'container relative flex w-full flex-1 flex-col gap-4 overflow-y-auto bg-white py-4 lg:w-1/2 2xl:w-2/5',
+            {
+              'w-full bg-transparent xl:w-full 2xl:w-full':
+                searchParams?.view === 'list',
+              'mx-auto': searchParams?.view === 'list',
+            }
+          )}
+        >
+          <Suspense
+            key={searchParams?.page ?? '1'}
+            fallback={
+              <div className="flex flex-1 items-center justify-center">
+                <Loader />
+              </div>
+            }
           >
-            <Suspense
-              key={searchParams?.page ?? '1'}
-              fallback={
-                <div className="absolute left-0 top-0 z-0 flex size-full items-center justify-center">
-                  <Loader />
-                </div>
-              }
-            >
-              <Property
-                page={Number(searchParams?.page ?? 1) ?? 1}
-                view={searchParams?.view ?? 'map'}
-                max={Number(searchParams?.max ?? 25000000)}
-                min={Number(searchParams?.min ?? 0)}
-                type=".D."
-                bedrooms={searchParams?.bedrooms}
-                bathrooms={searchParams?.bathrooms}
-                basement={searchParams?.basement}
-                sort={searchParams?.sort}
-                title="Detached Houses for Sale in Rural Oakville & Uptown Core"
-                S_r="Sale"
-                location="/houses-for-sale"
-              />
-            </Suspense>
-          </section>
-        </div>
+            <Property
+              page={Number(searchParams?.page ?? 1) ?? 1}
+              view={searchParams?.view ?? 'map'}
+              max={Number(searchParams?.max ?? 25000000)}
+              min={Number(searchParams?.min ?? 0)}
+              type=".D."
+              bedrooms={searchParams?.bedrooms}
+              bathrooms={searchParams?.bathrooms}
+              basement={searchParams?.basement}
+              sort={searchParams?.sort}
+              title="Detached Houses for Sale in Rural Oakville & Uptown Core"
+              S_r="Sale"
+              location="/houses-for-sale"
+            />
+          </Suspense>
+        </section>
         <Footer />
         <Tabbar type="sale" />
       </Mobile>

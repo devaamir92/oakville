@@ -1,6 +1,7 @@
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { getFavourite } from './favourite';
+import selectItems from './properties/selectItems';
 
 const getFeatureProperty = async (page: number) => {
   const queryBuilder = RequestQueryBuilder.create();
@@ -27,24 +28,7 @@ const getFeatureProperty = async (page: number) => {
     ],
   });
 
-  queryBuilder.select([
-    'Ml_num',
-    'Addr',
-    'Apt_num',
-    'Lp_dol',
-    'Br',
-    'Br_plus',
-    'Bath_tot',
-    'Park_spcs',
-    'Status',
-    'Is_locked',
-    'Slug',
-    'Community',
-    'Bsmt1_out',
-    'Lat',
-    'Lng',
-    'S_r',
-  ]);
+  queryBuilder.select(selectItems);
 
   queryBuilder.setPage(page ?? 1);
 

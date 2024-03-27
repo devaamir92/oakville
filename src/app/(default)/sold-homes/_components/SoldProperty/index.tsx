@@ -101,6 +101,8 @@ const SoldProperty: React.FC<PropertyProps> = async ({
             slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
             isLocked
             status={item.Status}
+            dom={item.Dom}
+            tssql={item.Timestamp_sql}
           />
         ))}
         {!rows?.data?.length && (

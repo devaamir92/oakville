@@ -49,7 +49,7 @@ const SearchComponent: React.FC = () => {
 
   return (
     <div className="relative w-full" ref={ref}>
-      <div className="flex h-9 w-full items-center gap-4 rounded bg-primary-700 px-2 text-lg lg:text-sm lg:font-normal">
+      <div className="flex h-9 w-full items-center gap-4 rounded border bg-primary-500 px-2 text-lg lg:text-sm lg:font-normal">
         <input
           className="size-full bg-transparent text-white outline-none placeholder:text-white "
           type="search"

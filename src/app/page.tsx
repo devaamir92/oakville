@@ -121,7 +121,6 @@ const page = async () => {
     getRecentlySold(),
     getFeaturedListing(),
   ]);
-
   const session = await getSession();
   return (
     <>

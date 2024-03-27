@@ -97,9 +97,11 @@ const Footer = () => {
                   Tariq Janjua / Shaheena Hemraj
                 </Link>
               </li>
-              <li className="text-white">Broker</li>
-              <li className="text-sm text-white">Janjua Real Estate Group</li>
-              <li className="text-sm text-white lg:mb-1 lg:mt-2">
+              <li className="text-lg text-white lg:text-sm">Broker</li>
+              <li className="text-lg text-white lg:text-sm">
+                Janjua Real Estate Group
+              </li>
+              <li className="text-lg text-white lg:mb-1 lg:mt-2 lg:text-sm">
                 <address className="not-italic">
                   SUTTON Group - SUMMIT Realty Inc, Brokerage
                   <br /> 33 Pearl Street, Mississauga, On L5M1X1

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 import { MdLocationOn } from 'react-icons/md';
 
+import moment from 'moment';
+
 import LikeToggle from './LikeToggle';
 import LoginBtn from './loginbtn';
 import VerBtn from './verBtn';
@@ -19,6 +21,8 @@ interface CardProps {
   isLocked?: boolean;
   session?: any;
   status?: string;
+  dom?: string;
+  tssql?: string;
 }
 
 const ListingCard: React.FC<CardProps> = ({
@@ -33,6 +37,8 @@ const ListingCard: React.FC<CardProps> = ({
   isLocked,
   session,
   status,
+  dom,
+  tssql,
 }) => {
   return (
     <div className="group relative overflow-hidden rounded border border-gray-300  bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
@@ -47,12 +53,22 @@ const ListingCard: React.FC<CardProps> = ({
             src={imageUrl}
             fill
             alt={location}
-            sizes="(max-width: 640px) 300px, (max-width: 768px) 400px, 500px"
+            sizes="
+            (min-width:75rem) calc(33.333vw - 6rem / 3),
+            (min-width:48rem) calc(50vw - 4.5rem / 2),
+            100vw"
             className="object-cover"
           />
           <div className="absolute bottom-3 left-3">
             <span className="rounded bg-primary px-3 py-1.5 text-sm font-semibold uppercase text-white">
               $ {price}
+            </span>
+          </div>
+          <div className="absolute right-3 top-3">
+            <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold  text-primary">
+              {(Number(dom) === 0 && moment(tssql).fromNow()) ||
+                (Number(dom) === 1 && 'Listed 1 day ago') ||
+                `Listed ${dom} days ago`}
             </span>
           </div>
         </div>

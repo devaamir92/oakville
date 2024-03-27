@@ -46,6 +46,8 @@ const FeatureListing: React.FC<FeatureListingProps> = async ({
                   item.property.Slug
                 )}
                 isLocked={item.property.Is_locked}
+                dom={item.property.Dom}
+                tssql={item.property.Timestamp_sql}
               />
             ))}
           </div>
@@ -73,6 +75,8 @@ const FeatureListing: React.FC<FeatureListingProps> = async ({
                   item.property.Slug
                 )}
                 isLocked={item.property.Is_locked}
+                dom={item.property.Dom}
+                tssql={item.property.Timestamp_sql}
               />
             ))}
           </div>

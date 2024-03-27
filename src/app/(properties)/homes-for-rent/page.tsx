@@ -125,6 +125,7 @@ const getProperties = async (
     'Lat',
     'Lng',
     'S_r',
+    'Dom',
   ]);
 
   const res = await fetch(
