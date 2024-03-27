@@ -11,13 +11,7 @@ interface BlurDailogProps {
 
 const BlurDailog: React.FC<BlurDailogProps> = ({ session, isLocked }) => {
   return (
-    <div
-      className="absolute inset-0 z-10 flex h-full items-center justify-center"
-      style={{
-        background: 'rgba(0,0,0,0.1)',
-        backdropFilter: 'blur(6px)',
-      }}
-    >
+    <div className="blurContent absolute inset-0 z-10 flex h-full items-center justify-center">
       {!session && <LoginSteps />}
       {session && !session?.user.verified && isLocked && <VerifyUser />}
     </div>

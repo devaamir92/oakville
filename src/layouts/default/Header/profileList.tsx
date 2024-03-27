@@ -39,6 +39,7 @@ function ProfileList({ session }: ProfileListProps) {
       icon={<FaUser />}
       className="flex size-9 items-center justify-center rounded-full bg-primary-700"
       align="end"
+      contentClassName="p-2"
     >
       <div className="flex flex-col gap-2 divide-y divide-gray-300">
         <div className="flex flex-col">

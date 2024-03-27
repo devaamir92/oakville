@@ -18,13 +18,9 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked, status }) => {
       onClick={() => setLogin(true)}
       type="button"
       aria-label="login required"
-      className={cn('absolute inset-0 z-[2] w-full', {
+      className={cn('blurContent absolute inset-0 z-[2] w-full', {
         hidden: !isLocked,
       })}
-      style={{
-        background: 'rgba(0,0,0,0.1)',
-        backdropFilter: 'blur(6px)',
-      }}
     >
       <div
         className={cn('absolute inset-0 z-[3]', {

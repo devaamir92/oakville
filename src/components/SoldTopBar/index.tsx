@@ -50,6 +50,7 @@ const SoldTopBar = () => {
               : 'All'
           }
           className="w-full rounded border border-gray-300  px-2 py-1 !text-black md:w-40"
+          contentClassName="p-2"
         >
           {days.map(day => (
             <Item

@@ -20,6 +20,7 @@ const CommunitiesList: React.FC<Props> = ({ listData }) => {
       label="Community"
       icon={<FaChevronDown className="text-white" size={10} />}
       className="!w-fit items-center gap-2 !text-sm"
+      contentClassName="p-2"
     >
       {listData.map(item => (
         <Item
