@@ -42,11 +42,13 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({ data }) => {
             <span className="rounded bg-slate-300 px-2 py-0.5 text-xs font-medium">
               {statusMapper(data.Lsc)}
             </span>
-            <span className="rounded bg-primary-200 px-2 py-0.5 text-xs font-medium text-primary-600">
-              {(Number(data.Dom) === 0 && 'Just Now') ||
-                (Number(data.Dom) === 1 && '1 Day') ||
-                `${Number(data.Dom)} Days`}
-            </span>
+            {data.Status !== 'U' && (
+              <span className="rounded bg-primary-200 px-2 py-0.5 text-xs font-medium text-primary-600">
+                {(Number(data.Dom) === 0 && 'Just Now') ||
+                  (Number(data.Dom) === 1 && '1 Day') ||
+                  `${Number(data.Dom)} Days`}
+              </span>
+            )}
           </div>
         </div>
       </div>

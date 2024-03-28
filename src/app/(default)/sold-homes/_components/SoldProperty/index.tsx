@@ -27,19 +27,24 @@ const getProperties = async (page: number, days: number) => {
     }) ||
     {};
 
-  queryBuilder.search({
-    $and: [
-      {
-        Status: {
-          $eq: 'U',
+  queryBuilder
+    .search({
+      $and: [
+        {
+          Status: {
+            $eq: 'U',
+          },
+          Lsc: {
+            $eq: 'Sld',
+          },
+          ...daysfilter,
         },
-        Lsc: {
-          $eq: 'Sld',
-        },
-        ...daysfilter,
-      },
-    ],
-  });
+      ],
+    })
+    .sortBy({
+      field: 'Cd',
+      order: 'DESC',
+    });
 
   queryBuilder.select([
     'Ml_num',
@@ -58,6 +63,7 @@ const getProperties = async (page: number, days: number) => {
     'Dom',
     'Community',
     'Cd',
+    'Timestamp_sql',
   ]);
 
   queryBuilder.setPage(page ?? 1);
@@ -82,7 +88,7 @@ const SoldProperty: React.FC<PropertyProps> = async ({
 }) => {
   const rows = await getProperties(page, days);
   const session = await getSession();
-
+  // console.log(rows)
   return (
     <div className="flex flex-col gap-4">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -102,7 +108,7 @@ const SoldProperty: React.FC<PropertyProps> = async ({
             isLocked
             status={item.Status}
             dom={item.Dom}
-            tssql={item.Timestamp_sql}
+            tssql={item.Cd}
           />
         ))}
         {!rows?.data?.length && (

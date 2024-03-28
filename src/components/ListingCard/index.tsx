@@ -62,11 +62,18 @@ const ListingCard: React.FC<CardProps> = ({
             </span>
           </div>
           <div className="absolute right-3 top-3">
-            <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold  text-primary">
-              {(Number(dom) === 0 && moment(tssql).fromNow()) ||
-                (Number(dom) === 1 && 'Listed 1 day ago') ||
-                `Listed ${dom} days ago`}
-            </span>
+            {status !== 'U' && (
+              <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold  text-primary">
+                {(Number(dom) === 0 && moment(tssql).fromNow()) ||
+                  (Number(dom) === 1 && 'Listed 1 day ago') ||
+                  `Listed ${dom} days ago`}
+              </span>
+            )}
+            {status === 'U' && (
+              <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold  text-primary">
+                Sold {moment(tssql).fromNow()}
+              </span>
+            )}
           </div>
         </div>
         <div className="flex flex-col gap-2 p-3">

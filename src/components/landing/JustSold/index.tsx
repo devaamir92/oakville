@@ -43,8 +43,7 @@ const JustSold: React.FC<JustSoldProps> = ({ rows, session }) => {
                 slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
                 isLocked
                 status={item.Status}
-                dom={item.Dom}
-                tssql={item.Timestamp_sql}
+                tssql={item.Cd}
               />
             ))}
           </div>
@@ -68,8 +67,7 @@ const JustSold: React.FC<JustSoldProps> = ({ rows, session }) => {
                 slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
                 isLocked
                 status={item.Status}
-                dom={item.Dom}
-                tssql={item.Timestamp_sql}
+                tssql={item.Cd}
               />
             ))}
           </div>
