@@ -18,9 +18,9 @@ const DailyListing: React.FC<DailyListingProps> = async ({ rows, session }) => {
     <section>
       <div className="container flex flex-col">
         <div className="flex items-center justify-center">
-          <h5 className="pb-4 text-xl font-semibold  md:pb-8 md:text-2xl">
+          <h3 className="pb-4 text-xl font-semibold  md:pb-8 md:text-2xl">
             New Listings
-          </h5>
+          </h3>
         </div>
         <div className="mb-4 h-[1px] bg-gray-300" />
         <Desktop>

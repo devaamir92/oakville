@@ -9,19 +9,23 @@ function HeroMobile() {
       <Image
         src="/images/jpg/oakville-preserve-banner.jpg"
         alt="oakville preserve banner"
-        fill
         priority
-        className="h-[250px] object-cover object-right sm:h-[375]"
+        width={800}
+        height={600}
+        className="absolute size-full object-cover object-right"
+        sizes="100vw"
       />
       <div className="absolute inset-x-0 h-full">
         <div className="container h-full">
           {/* Oakville Preserve logo */}
           <div className="flex justify-end">
-            <div className="relative mt-2 h-[74px] w-[135px] md:mt-6 md:h-[100px] md:w-[200px]">
+            <div className="mt-2">
               <Image
-                src="/images/svg/oakville-logo.svg"
+                src="/images/png/oakville-logo.png"
                 alt="Oakville Preserve logo"
-                fill
+                width={135}
+                height={74}
+                // className="h-[74px] w-[135px] md:mt-6 md:h-[100px] md:w-[200px]"
               />
             </div>
           </div>

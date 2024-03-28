@@ -16,10 +16,10 @@ const CommunityCard: React.FC<CardProps> = ({ image, href, alt, title }) => {
         <div className="relative h-60">
           <Image
             src={image}
-            fill
+            width={300}
+            height={250}
             alt={alt}
-            sizes="25vw"
-            className="object-cover"
+            className="size-full overflow-hidden object-cover"
           />
         </div>
         <div className="flex flex-col gap-2 p-3">

@@ -6,9 +6,9 @@ function CTASection() {
     <section className="bg-primary-500 py-4 sm:py-0">
       <div className="container flex flex-col items-center justify-between gap-16 md:flex-row">
         <div className="flex flex-1 flex-col items-center gap-4 md:items-start lg:w-2/5">
-          <h2 className="text-center text-xl font-semibold text-white md:text-2xl">
+          <h5 className="text-center text-xl font-semibold text-white md:text-2xl">
             Free Home Evaluation
-          </h2>
+          </h5>
           <p className=" text-justify text-base text-white">
             As your local Preserve Oakville Real Estate experts and certified
             Real Estate Brokers, we offer free in-depth home evaluations. Having

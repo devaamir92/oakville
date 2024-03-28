@@ -51,13 +51,10 @@ const ListingCard: React.FC<CardProps> = ({
         <div className="relative h-60">
           <Image
             src={imageUrl}
-            fill
+            width={300}
+            height={250}
             alt={location}
-            sizes="
-            (min-width:75rem) calc(33.333vw - 6rem / 3),
-            (min-width:48rem) calc(50vw - 4.5rem / 2),
-            100vw"
-            className="object-cover"
+            className="size-full overflow-hidden object-cover "
           />
           <div className="absolute bottom-3 left-3">
             <span className="rounded bg-primary px-3 py-1.5 text-sm font-semibold uppercase text-white">

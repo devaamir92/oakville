@@ -12,20 +12,20 @@ function Hero() {
         src="/images/jpg/oakville-preserve-banner.jpg"
         alt="oakville preserve banner"
         fill
-        priority
         className="object-cover object-right"
+        priority
+        sizes="100vh"
       />
       <div className="absolute inset-x-0 h-full">
         <div className="container h-full">
           {/* Oakville Preserve logo */}
-          <div className="flex justify-end">
-            <div className="relative h-[74px] w-[135px] xl:mt-14 xl:h-[148px] xl:w-[270px]">
-              <Image
-                src="/images/svg/oakville-logo.svg"
-                alt="Oakville Preserve logo"
-                fill
-              />
-            </div>
+          <div className="mt-16 flex justify-end">
+            <Image
+              src="/images/png/oakville-logo.png"
+              alt="Oakville Preserve logo"
+              width={240}
+              height={100}
+            />
           </div>
           {/* Oakville Preserve logo End */}
           <div className="absolute left-32 top-[50%] -translate-y-1/2 2xl:left-64 ">
