@@ -71,52 +71,56 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
                 longitude={Number(item.Lng)}
                 latitude={Number(item.Lat)}
               >
-                <button
-                  type="button"
-                  title={item.name}
-                  aria-label={item.name || 'property location'}
-                  className={cn(
-                    'absolute flex items-center justify-center gap-1 rounded-lg bg-primary-500 p-1.5 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary',
-                    {
-                      'bg-red-600 after:border-t-red-600':
-                        item.type === 'Public Schools',
-                    },
-                    {
-                      'bg-blue-600 after:border-t-blue-600':
-                        item.type === 'Catholic Schools',
-                    },
-                    {
-                      'bg-yellow-600 after:border-t-yellow-600':
-                        item.type === 'Montessori Schools',
-                    },
-                    {
-                      'bg-green-600 after:border-t-green-600':
-                        item.type === 'Private Schools',
-                    }
-                  )}
-                  onClick={() => {
-                    if (item.name || item.address) {
-                      setOpen(true);
-                      setPopup(item);
-                    }
-                  }}
-                >
-                  {icon}
-                  {(() => {
-                    switch (item.religion) {
-                      case 'hindu':
-                        return <HinduIcon />;
-                      case 'sikh':
-                        return <SikhIcon />;
-                      case 'christian':
-                        return <FaCross size="16" />;
-                      case 'islam':
-                        return <FaStarAndCrescent size="16" />;
-                      default:
-                        return null;
-                    }
-                  })()}
-                </button>
+                <div className="group">
+                  <button
+                    type="button"
+                    aria-label={item.name || 'property location'}
+                    className={cn(
+                      'absolute flex items-center justify-center gap-1 rounded-lg bg-primary-500 p-1.5 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary',
+                      {
+                        'bg-red-600 after:border-t-red-600':
+                          item.type === 'Public Schools',
+                      },
+                      {
+                        'bg-blue-600 after:border-t-blue-600':
+                          item.type === 'Catholic Schools',
+                      },
+                      {
+                        'bg-yellow-600 after:border-t-yellow-600':
+                          item.type === 'Montessori Schools',
+                      },
+                      {
+                        'bg-green-600 after:border-t-green-600':
+                          item.type === 'Private Schools',
+                      }
+                    )}
+                    onClick={() => {
+                      if (item.name || item.address) {
+                        setOpen(true);
+                        setPopup(item);
+                      }
+                    }}
+                  >
+                    {icon}
+                    {(() => {
+                      switch (item.religion) {
+                        case 'hindu':
+                          return <HinduIcon />;
+                        case 'sikh':
+                          return <SikhIcon />;
+                        case 'christian':
+                          return <FaCross size="16" />;
+                        case 'islam':
+                          return <FaStarAndCrescent size="16" />;
+                        default:
+                          return null;
+                      }
+                    })()}
+                  </button>
+                  <span className="absolute top-8 hidden min-w-fit whitespace-nowrap rounded bg-white p-2 text-base font-medium shadow group-hover:block">
+                    {item.name}
+                  </span>
+                </div>
               </Marker>
             );
           })}

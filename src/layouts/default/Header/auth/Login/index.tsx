@@ -11,6 +11,7 @@ import { Button } from '@components/ui/Button';
 import type { User } from '@lib/auth';
 import { login } from '@lib/auth';
 import InputPassword from '@components/ui/Input/inputPassword';
+import Loading from '@components/ui/Loading';
 
 interface LoginProps {
   switchForm: (step: string) => void;
@@ -21,11 +22,12 @@ function LoginButton() {
 
   return (
     <Button
-      className="w-full"
+      className="w-full gap-2 disabled:cursor-not-allowed disabled:opacity-50"
       variant="default"
       type="submit"
-      aria-disabled={pending}
+      disabled={pending}
     >
+      {pending && <Loading />}
       Login
     </Button>
   );

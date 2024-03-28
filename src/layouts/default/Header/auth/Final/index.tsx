@@ -1,18 +1,19 @@
 'use client';
 
 import { z } from 'zod';
+import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
-import { toast } from 'react-toastify';
-
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 
-import { login } from '@lib/auth';
 import InputPassword from '@components/ui/Input/inputPassword';
+import Loading from '@components/ui/Loading';
+
+import { login } from '@lib/auth';
 
 interface Props {
   switchForm: (step: string) => void;
@@ -22,6 +23,7 @@ interface Props {
 
 const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
   const [errors, setErrors] = useState<any>(null);
+  const [pending, setPending] = useState(false);
 
   const setValue = (value: string) => {
     setState({ ...state, phone: value });
@@ -65,19 +67,23 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
           message,
         }));
         setErrors(roors);
+        setPending(false);
       } else {
         const formdata = new FormData();
         formdata.append('email', state.email);
         formdata.append('password', state.password);
         notify();
         await login(null, formdata);
+        setPending(false);
       }
     } catch (err) {
       setErrors([{ message: 'Something went wrong' }]);
+      setPending(false);
     }
   };
 
   const handleSubmit = () => {
+    setPending(true);
     try {
       data.parse({
         firstName: state.firstName,
@@ -87,6 +93,7 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
       });
       handleRegister();
     } catch (err: any) {
+      setPending(false);
       setErrors(err.errors);
     }
   };
@@ -151,10 +158,12 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
         </div>
         <div className="mt-2">
           <Button
-            className="w-full"
+            className="w-full gap-2 disabled:cursor-not-allowed disabled:opacity-50"
             variant="default"
             onClick={() => handleSubmit()}
+            disabled={pending}
           >
+            {pending && <Loading />}
             Submit
           </Button>
         </div>
