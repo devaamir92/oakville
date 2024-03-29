@@ -39,12 +39,7 @@ const FeatureListing: React.FC<FeatureListingProps> = async ({
                 location={item.property.Addr}
                 price={Number(item.property.Lp_dol).toLocaleString() ?? '0'}
                 parking={item.property.Park_spcs ?? '0'}
-                slug={getSlug(
-                  item.property.S_r,
-                  item.property.Status,
-                  item.property.Community,
-                  item.property.Slug
-                )}
+                slug={getSlug(item.property.Community, item.property.Slug)}
                 isLocked={item.property.Is_locked}
                 dom={item.property.Dom}
                 tssql={item.property.Timestamp_sql}
@@ -68,12 +63,7 @@ const FeatureListing: React.FC<FeatureListingProps> = async ({
                 location={item.property.Addr}
                 price={Number(item.property.Lp_dol).toLocaleString() ?? '0'}
                 parking={item.property.Park_spcs ?? '0'}
-                slug={getSlug(
-                  item.property.S_r,
-                  item.property.Status,
-                  item.property.Community,
-                  item.property.Slug
-                )}
+                slug={getSlug(item.property.Community, item.property.Slug)}
                 isLocked={item.property.Is_locked}
                 dom={item.property.Dom}
                 tssql={item.property.Timestamp_sql}

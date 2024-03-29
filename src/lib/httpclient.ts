@@ -1,5 +1,6 @@
 /* eslint-disable no-async-promise-executor */
 /* eslint-disable no-promise-executor-return */
+import { logout } from './auth';
 import { getSession } from './getsession';
 
 class HttpClient {
@@ -19,7 +20,13 @@ class HttpClient {
           headers,
           method: 'GET',
         });
-        return resolve(await res.json());
+
+        const response = await res.json();
+        if (response.statusCode === 401) {
+          await logout();
+        }
+
+        return resolve(response);
       } catch (error) {
         return reject(error);
       }

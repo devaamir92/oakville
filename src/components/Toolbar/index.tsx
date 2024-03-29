@@ -4,8 +4,6 @@ import React from 'react';
 import { FaChevronDown, FaRepeat } from 'react-icons/fa6';
 import { usePathname, useRouter } from 'next/navigation';
 
-import Link from 'next/link';
-
 import { FaBell } from 'react-icons/fa';
 
 import { Button } from '@components/ui/Button';
@@ -20,6 +18,7 @@ import ListAlert from './ListAlert';
 
 interface Props {
   type: 'sale' | 'rent';
+  view?: string | null;
 }
 
 const FiltersData = {
@@ -150,46 +149,46 @@ const FiltersData = {
 //   },
 // ];
 
-const TypeData = [
-  {
-    label: 'All',
-    href: '/homes-for-sale',
-    rentHref: '/homes-for-rent',
-    id: 0,
-  },
-  {
-    label: 'Condo Apt',
-    href: '/condos-for-sale',
-    rentHref: '/condos-for-rent',
-    id: 1,
-  },
-  {
-    label: 'Condo Townhouse',
-    href: '/condo-townhouses-for-sale',
-    rentHref: '/condo-townhouses-for-rent',
-    id: 2,
-  },
-  {
-    label: 'Att/Row/Townhouse',
-    href: '/townhouses-for-sale',
-    rentHref: '/townhouses-for-rent',
-    id: 3,
-  },
-  {
-    label: 'Detached',
-    href: '/houses-for-sale',
-    rentHref: '/houses-for-rent',
-    id: 5,
-  },
-  {
-    label: 'Commercial',
-    href: '/commercial-property-for-sale',
-    rentHref: '/commercial-property-for-rent',
-    id: 6,
-  },
-];
+// const TypeData = [
+//   {
+//     label: 'All',
+//     href: '/homes-for-sale',
+//     rentHref: '/homes-for-rent',
+//     id: 0,
+//   },
+//   {
+//     label: 'Condo Apt',
+//     href: '/condos-for-sale',
+//     rentHref: '/condos-for-rent',
+//     id: 1,
+//   },
+//   {
+//     label: 'Condo Townhouse',
+//     href: '/condo-townhouses-for-sale',
+//     rentHref: '/condo-townhouses-for-rent',
+//     id: 2,
+//   },
+//   {
+//     label: 'Att/Row/Townhouse',
+//     href: '/townhouses-for-sale',
+//     rentHref: '/townhouses-for-rent',
+//     id: 3,
+//   },
+//   {
+//     label: 'Detached',
+//     href: '/houses-for-sale',
+//     rentHref: '/houses-for-rent',
+//     id: 5,
+//   },
+//   {
+//     label: 'Commercial',
+//     href: '/commercial-property-for-sale',
+//     rentHref: '/commercial-property-for-rent',
+//     id: 6,
+//   },
+// ];
 
-const Toolbar: React.FC<Props> = ({ type }) => {
+const Toolbar: React.FC<Props> = ({ type, view }) => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
@@ -198,10 +197,14 @@ const Toolbar: React.FC<Props> = ({ type }) => {
   };
 
   return (
-    <div className="sticky top-[113px] z-20 flex h-12 items-center justify-end overflow-x-auto bg-tertiary-500 px-4 lg:top-[70px]">
-      <nav className="flex min-w-full items-center justify-between gap-10">
-        <div className="flex items-center gap-0">
-          {/* <Types items={TypeData} /> */}
+    <div className="absolute right-0 z-20 flex h-12 w-full items-center  overflow-x-auto bg-tertiary-500 px-4 lg:top-[0px]">
+      <nav
+        className={cn('flex items-center justify-end gap-10', {
+          container: view === 'list',
+        })}
+      >
+        {/* <div className="flex items-center gap-0">
+          <Types items={TypeData} />
           {TypeData.map(item => (
             <Link
               key={item.id}
@@ -217,7 +220,7 @@ const Toolbar: React.FC<Props> = ({ type }) => {
               {item.label}
             </Link>
           ))}
-        </div>
+        </div> */}
         <ul className="flex min-w-[500px] items-center justify-center gap-4 text-sm xl:gap-9 2xl:gap-6">
           <li>
             <Dropdown

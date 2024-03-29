@@ -24,6 +24,11 @@ const sortlisting = (sortby: string): QuerySort => {
         field: 'Lp_dol',
         order: 'DESC',
       };
+    case 'Cd':
+      return {
+        field: 'Cd',
+        order: 'DESC',
+      };
 
     default:
       return {

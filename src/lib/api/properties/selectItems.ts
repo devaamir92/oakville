@@ -18,6 +18,8 @@ const selectItems = [
   'Bsmt1_out',
   'Timestamp_sql',
   'Cd',
+  'Lat',
+  'Lng',
 ];
 
 export default selectItems;

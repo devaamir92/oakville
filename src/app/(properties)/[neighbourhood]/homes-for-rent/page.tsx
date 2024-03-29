@@ -6,7 +6,6 @@ import type { Metadata } from 'next';
 import Loader from '@components/Loader';
 import cn from '@utils/cn';
 
-import Toolbar from '@components/Toolbar';
 import Mapbox from '@components/Mapbox';
 
 import sortlisting from '@utils/sort';
@@ -16,8 +15,8 @@ import { BathroomsParser } from '@utils/parsers/bathrooms-parser';
 
 import Property from '@components/Properties';
 import inPolygon from '@utils/inPolygon';
-import Footer from '@components/Footer';
 import { Desktop, Mobile } from '@components/ua';
+import Footer from '@components/Footer';
 import Tabbar from '@components/Tabbar';
 
 interface PageProps {
@@ -35,9 +34,9 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Homes for Sale in The Preserve Oakville Neighbourhood',
+  title: 'Discover Best Homes for Rent in The Preserve Oakville',
   description:
-    "Discover luxury homes for sale in The Preserve Oakville neighbourhood. Find your ideal Oakville house or condo for sale in Canada's sought-after location.",
+    'Browse our listings for homes for rent in The Preserve Oakville neighbourhood. Find luxury properties and homes for rent - Start your search today.',
 };
 
 const getProperties = async (
@@ -96,7 +95,7 @@ const getProperties = async (
             $eqL: neighborhood,
           },
           S_r: {
-            $eq: 'Sale',
+            $eq: 'Lease',
           },
           Lp_dol: {
             $gte: min,
@@ -160,13 +159,12 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
   return (
     <div className="flex flex-1 flex-col">
       <Desktop>
-        <Toolbar type="sale" />
         <div className="flex flex-1">
           {searchParams?.searchParams.view !== 'list' && (
             <section
               style={{
-                height: 'calc(100vh - 70px - 48px)',
-                top: 'calc(70px + 48px)',
+                height: 'calc(100vh - 70px)',
+                top: '70px',
               }}
               className="sticky left-0 flex-1"
             >
@@ -184,7 +182,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
 
           <section
             className={cn(
-              'container relative flex w-full flex-col gap-4 overflow-y-auto bg-white py-4 lg:w-1/2 2xl:w-2/5',
+              'relative flex w-full flex-col gap-4 overflow-y-auto bg-white  lg:w-1/2 2xl:w-2/5',
               {
                 'w-full bg-transparent xl:w-full 2xl:w-full':
                   searchParams?.searchParams.view === 'list',
@@ -210,14 +208,14 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
                 bathrooms={searchParams?.searchParams.bathrooms}
                 basement={searchParams?.searchParams.basement}
                 sort={searchParams?.searchParams.sort}
-                title={`Homes for Sale in ${searchParams.params.neighbourhood
+                title={`Homes for Rent in ${searchParams.params.neighbourhood
                   .split('-')
                   .join(' ')}`}
-                S_r="Sale"
+                S_r="Lease"
                 neighborhood={searchParams.params.neighbourhood
                   .split('-')
                   .join(' ')}
-                location={`/homes-for-sale/${searchParams.params.neighbourhood}`}
+                location={`/${searchParams.params.neighbourhood}/homes-for-rent`}
               />
             </Suspense>
           </section>
@@ -228,7 +226,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
         <div className="flex flex-1">
           <section
             className={cn(
-              'container relative flex w-full flex-col gap-4 overflow-y-auto bg-white py-4 lg:w-1/2 2xl:w-2/5',
+              'relative flex w-full flex-col gap-4 overflow-y-auto bg-white  lg:w-1/2 2xl:w-2/5',
               {
                 'w-full bg-transparent xl:w-full 2xl:w-full':
                   searchParams?.searchParams.view === 'list',
@@ -254,20 +252,21 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
                 bathrooms={searchParams?.searchParams.bathrooms}
                 basement={searchParams?.searchParams.basement}
                 sort={searchParams?.searchParams.sort}
-                title={`Homes for Sale in ${searchParams.params.neighbourhood
+                title={`Homes for Rent in ${searchParams.params.neighbourhood
                   .split('-')
                   .join(' ')}`}
-                S_r="Sale"
+                S_r="Lease"
                 neighborhood={searchParams.params.neighbourhood
                   .split('-')
                   .join(' ')}
-                location={`/homes-for-sale/${searchParams.params.neighbourhood}`}
+                location={`/${searchParams.params.neighbourhood}/homes-for-rent`}
               />
             </Suspense>
           </section>
         </div>
+
         <Footer />
-        <Tabbar type="sale" />
+        <Tabbar type="rent" />
       </Mobile>
     </div>
   );

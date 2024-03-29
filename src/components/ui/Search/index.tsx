@@ -74,12 +74,7 @@ const SearchComponent: React.FC = () => {
               <li key={property.Ml_num} className="flex-1">
                 <Link
                   className="flex w-full flex-col px-2"
-                  href={getSlug(
-                    property.S_r,
-                    property.Status,
-                    property.Community,
-                    property.Slug
-                  )}
+                  href={getSlug(property.Community, property.Slug)}
                 >
                   <div className="flex items-center justify-between py-2">
                     <p className="text-xs font-semibold text-primary-500">

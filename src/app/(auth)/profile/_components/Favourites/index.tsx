@@ -28,7 +28,7 @@ const Favourites: React.FC<PropertyProps> = async ({ page, location }) => {
             location={item.Addr}
             price={Number(item.Lp_dol).toLocaleString() ?? '0'}
             parking={item.Park_spcs ?? '0'}
-            slug={getSlug(item.S_r, item.Status, item.Community, item.Slug)}
+            slug={getSlug(item.Community, item.Slug)}
             isLocked={item.Is_locked}
             dom={item.Dom}
             tssql={item.Timestamp_sql}

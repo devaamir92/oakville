@@ -13,11 +13,11 @@ const popularNeighborhoods = [
   // },
   {
     name: 'Homes for sale in Rural Oakville',
-    href: '/homes-for-sale/rural-oakville',
+    href: '/rural-oakville',
   },
   {
     name: 'Homes for sale in Uptown Core',
-    href: '/homes-for-sale/uptown-core',
+    href: '/uptown-core',
   },
   // {
   //   name: 'Homes for rent in Iroquois Ridge North',
@@ -25,27 +25,19 @@ const popularNeighborhoods = [
   // },
   {
     name: 'Homes for rent in Rural Oakville',
-    href: '/homes-for-rent/rural-oakville',
+    href: '/rural-oakville/homes-for-rent',
   },
   {
     name: 'Homes for rent in Uptown Core',
-    href: '/homes-for-rent/uptown-core',
+    href: '/uptown-core/homes-for-rent',
   },
   {
-    name: 'Homes for sale in The Preserve Oakville',
-    href: '/homes-for-sale',
+    name: 'Sold Homes in Rural Oakville',
+    href: '/rural-oakville/sold-homes',
   },
   {
-    name: 'Homes for sale in North Oakville',
-    href: '/homes-for-sale',
-  },
-  {
-    name: 'Homes for sale in West Oakville',
-    href: '/homes-for-sale',
-  },
-  {
-    name: 'Homes for sale in East Oakville',
-    href: '/homes-for-sale',
+    name: 'Sold Homes in Uptown Core',
+    href: '/uptown-core/sold-homes',
   },
 ];
 

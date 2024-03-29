@@ -20,6 +20,7 @@ function page() {
           fill
           src="/images/webp/sell/mainEvalHeader.webp"
           alt="banner"
+          priority
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black opacity-30" />

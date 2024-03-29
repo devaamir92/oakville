@@ -236,12 +236,7 @@ const AdvancedSearch = () => {
                 sqft={property.Sqft}
                 key={property.Ml_num}
                 Lsc={property.Lsc}
-                url={getSlug(
-                  property.S_r,
-                  property.Status,
-                  property.Community,
-                  property.Slug
-                )}
+                url={getSlug(property.Community, property.Slug)}
               />
             ))}
           </div>

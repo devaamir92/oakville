@@ -59,9 +59,9 @@ const Types: React.FC<Props> = ({ type }) => {
           key={item.id}
           href={type === 'Lease' ? item.rentHref : item.href}
           className={cn(
-            'flex flex-1 cursor-pointer justify-center whitespace-nowrap rounded bg-tertiary-500 px-3 py-1.5 text-sm text-white  transition-colors ease-in-out',
+            'flex flex-1 cursor-pointer justify-center gap-2 whitespace-nowrap rounded  border border-gray-300 px-2 py-1.5 text-sm text-black  transition-colors ease-in-out hover:bg-tertiary-200',
             {
-              'bg-primary-500 text-white':
+              'bg-tertiary-500 text-white hover:bg-tertiary-500':
                 pathname === (type === 'Lease' ? item.rentHref : item.href),
             }
           )}

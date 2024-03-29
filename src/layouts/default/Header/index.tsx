@@ -19,7 +19,7 @@ const navLinks = [
   { name: 'Buy', link: '/houses-for-sale' },
   { name: 'Sell', link: '/home-evaluation' },
   { name: 'Rent', link: '/homes-for-rent' },
-  { name: 'Sold', link: '/sold-homes' },
+  { name: 'Sold', link: '/sold-homes?days=30&page=1' },
   { name: 'New Homes', link: '/new-homes' },
   { name: 'Communities', link: '/communities' }, // or the appropriate link
   { name: 'Blog', link: '/blog' },

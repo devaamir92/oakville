@@ -8,6 +8,10 @@ import { Item } from '@radix-ui/react-dropdown-menu';
 import Dropdown from '@components/ui/Dropdown';
 import cn from '@utils/cn';
 
+interface Props {
+  location?: string;
+}
+
 const days = [
   { id: 1, value: '', name: 'All' },
   { id: 2, value: '1', name: '1 Day Ago' },
@@ -19,7 +23,7 @@ const days = [
   { id: 8, value: '365', name: '365 Days Ago' },
 ];
 
-const SoldTopBar = () => {
+const SoldTopBar: React.FC<Props> = ({ location = 'Preserve Oakville' }) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -36,8 +40,8 @@ const SoldTopBar = () => {
 
   return (
     <div className="flex w-full flex-col justify-between gap-2 md:flex-row md:items-center">
-      <h1 className="text-xl font-semibold text-gray-800 md:text-2xl">
-        Sold Properties in Preserve Oakville
+      <h1 className="text-xl font-semibold capitalize text-gray-800 md:text-2xl">
+        Sold Homes in {location.replace('-', ' ')}
       </h1>
       <div className="flex items-center gap-2">
         <span className="whitespace-nowrap font-medium">Sort by:</span>

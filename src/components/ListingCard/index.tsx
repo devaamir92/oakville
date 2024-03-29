@@ -64,14 +64,14 @@ const ListingCard: React.FC<CardProps> = ({
           <div className="absolute right-3 top-3">
             {status !== 'U' && (
               <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold  text-primary">
-                {(Number(dom) === 0 && moment(tssql).fromNow()) ||
-                  (Number(dom) === 1 && 'Listed 1 day ago') ||
-                  `Listed ${dom} days ago`}
+                {(Number(dom) === 0 && moment(tssql).fromNow(true)) ||
+                  (Number(dom) === 1 && '1 day') ||
+                  `${dom} days`}
               </span>
             )}
             {status === 'U' && (
               <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold  text-primary">
-                Sold {moment(tssql).fromNow()}
+                Sold {moment(tssql).format('MMM Do')}
               </span>
             )}
           </div>
