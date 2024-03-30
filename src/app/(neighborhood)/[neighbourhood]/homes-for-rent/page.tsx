@@ -63,7 +63,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
             >
               <Suspense
                 fallback={
-                  <div className="flex h-[calc(100vh-73px)] items-center justify-center bg-white">
+                  <div className="flex h-[calc(100vh-70px)] items-center justify-center bg-white">
                     <Loader />
                   </div>
                 }
@@ -86,7 +86,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
             <Suspense
               key={searchParams?.searchParams.page ?? '1'}
               fallback={
-                <div className="flex h-[calc(100vh-73px)] items-center justify-center bg-white">
+                <div className="flex h-[calc(100vh-70px)] items-center justify-center bg-white">
                   <Loader />
                 </div>
               }

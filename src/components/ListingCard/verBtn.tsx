@@ -33,7 +33,7 @@ const VerBtn: React.FC<VerBtnProps> = ({ isLocked, status, showBtn }) => {
             <button
               type="button"
               onClick={() => setVerify(true)}
-              className=" flex h-9 items-center justify-center rounded bg-primary-400 px-3 py-1.5 text-sm font-medium text-white"
+              className=" flex h-9 items-center justify-center rounded bg-primary-500 px-3 py-1.5 text-sm font-medium text-white"
             >
               Verification Required
             </button>

@@ -2,9 +2,9 @@ import React from 'react';
 import Link from 'next/link';
 
 import { BsFillEnvelopeFill, BsFillTelephoneFill } from 'react-icons/bs';
-import { RequestQueryBuilder } from '@nestjsx/crud-request';
-
 import { FaHome } from 'react-icons/fa';
+
+import { Share } from '@components/Share';
 
 import cn from '@utils/cn';
 import getSlug from '@utils/getSlug';
@@ -12,114 +12,41 @@ import getBedroomString from '@utils/getbedroomString';
 
 import { getSession } from '@lib/getsession';
 import { getImages } from '@lib/api/getImages';
-import getSimilarProperties from '@lib/api/getSimilarProperties';
 
 import Rooms from '@components/Rooms';
+import Footer from '@components/Footer';
 import Booking from '@components/Booking';
 import Card from '@components/ListingCard';
 import LightBox from '@components/LightBox';
 import PriceHistory from '@components/PriceHistory';
 import Demographics from '@components/Demographics';
+import VerBtn from '@components/ListingCard/verBtn';
+import BlurContainer from '@components/BlurContainer';
 import MapPinLocation from '@components/MapPinLocation';
 import ListingDetails from '@components/ListingDetails';
 import PropertyDetails from '@components/PropertyDetails';
 import ListingOverview from '@components/ListingOverview';
 import ListingHighlights from '@components/ListingHighlights';
-import { Share } from '@components/Share';
 import LikeToggle from '@components/ListingCard/LikeToggle';
-import Footer from '@components/Footer';
-import BlurContainer from '@components/BlurContainer';
-import VerBtn from '@components/ListingCard/verBtn';
+import getPropertyDetails from '@lib/api/properties/getPropertyDetails';
 
 interface PageProps {
   params: {
     property: string;
   };
 }
-const getSoldHistory = async (addr: string, unit: number, Apt_num: number) => {
-  const queryBuilder = RequestQueryBuilder.create();
-
-  queryBuilder.select([
-    'Lsc',
-    'Pr_Lsc',
-    'Cndsold_xd',
-    'Cd',
-    'Xdtd',
-    'Xd',
-    'Unavail_dt',
-    'Td',
-    'Dt_sus',
-    'Dt_ter',
-    'id',
-    'Ml_num',
-    'Sp_dol',
-    'Unit_num',
-    'Apt_num',
-    'Slug',
-    'Status',
-    'Lp_dol',
-    'Dom',
-  ]);
-
-  queryBuilder.search({
-    $and: [
-      {
-        Status: {
-          $eq: 'U',
-        },
-        Addr: {
-          $eq: addr,
-        },
-        Unit_num: {
-          $eq: unit,
-        },
-        Apt_num: {
-          $eq: Apt_num,
-        },
-      },
-    ],
-  });
-
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      cache: 'no-cache',
-    }
-  );
-  return res.json();
-};
-const getProperty = async (slug: string) => {
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/property/slug/${slug}`,
-    {
-      method: 'GET',
-      next: {
-        tags: [slug],
-      },
-      cache: 'no-cache',
-    }
-  );
-  const property = await res.json();
-
-  const soldHistory = await getSoldHistory(
-    property.Addr,
-    property.Unit_num,
-    property.Apt_num
-  );
-  const similarProperties = await getSimilarProperties(
-    property.S_r,
-    Number(property.Lp_dol) - 100000,
-    Number(property.Lp_dol) + 100000,
-    property.Slug
-  );
-  return { property, soldHistory, similarProperties };
-};
 
 async function Page({ params }: PageProps) {
-  const { property, soldHistory, similarProperties } = await getProperty(
-    params.property
-  );
+  const {
+    property,
+    soldHistory,
+    similarProperties,
+  }: {
+    property: any;
+    soldHistory: any;
+    similarProperties: any;
+  } = await getPropertyDetails(params.property);
+
   const images: string[] = await getImages(property.Ml_num);
   const session = await getSession();
   return (
