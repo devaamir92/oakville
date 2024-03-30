@@ -5,11 +5,13 @@ import React, { useState } from 'react';
 import cn from '@utils/cn';
 import { Button } from '@components/ui/Button';
 import SwitchInput from '@components/ui/Switch';
+import VerBtn from '@components/ListingCard/verBtn';
 
 interface Props {
   data: any;
+  session: any;
 }
-const Rooms: React.FC<Props> = ({ data }) => {
+const Rooms: React.FC<Props> = ({ data, session }) => {
   const [showMore, setShowMore] = useState(false);
   const [checked, setChecked] = useState(true);
 
@@ -44,10 +46,17 @@ const Rooms: React.FC<Props> = ({ data }) => {
 
       <div
         className={cn(
-          'mt-3 flex-1 overflow-x-auto',
+          'relative mt-3 flex-1 overflow-x-auto',
           showMore ? 'max-h-full overflow-y-auto' : 'max-h-36 overflow-y-hidden'
         )}
       >
+        {(!session || (session && !session.user.verified)) && (
+          <VerBtn
+            status={data.Status}
+            isLocked={data.Is_locked}
+            showBtn={false}
+          />
+        )}
         {TableData.length === 0 && (
           <div className="flex h-16 items-center justify-center rounded border">
             <p className="text-sm text-gray-500">No rooms found</p>
@@ -118,7 +127,14 @@ const Rooms: React.FC<Props> = ({ data }) => {
           {showMore ? 'Show less' : 'Show all'}
         </Button>
       )}
-      <div className="flex items-center justify-between text-sm">
+      <div className="relative flex items-center justify-between text-sm">
+        {(!session || (session && !session.user.verified)) && (
+          <VerBtn
+            status={data.Status}
+            isLocked={data.Is_locked}
+            showBtn={false}
+          />
+        )}{' '}
         <span>Broker: {data.Rltr}</span>
         <span>MLS®#: {data.Ml_num}</span>
       </div>

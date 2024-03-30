@@ -4,8 +4,6 @@ import type { Metadata } from 'next';
 
 import cn from '@utils/cn';
 
-import Tabbar from '@components/Tabbar';
-import Footer from '@components/Footer';
 import Mapbox from '@components/Mapbox';
 import Loader from '@components/Loader';
 import Property from '@components/Properties';
@@ -60,7 +58,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
             >
               <Suspense
                 fallback={
-                  <div className="absolute left-0 top-0 z-0 flex size-full items-center justify-center">
+                  <div className="flex h-[calc(100vh-73px)]  items-center justify-center bg-white">
                     <Loader />
                   </div>
                 }
@@ -83,7 +81,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
             <Suspense
               key={searchParams?.page ?? '1'}
               fallback={
-                <div className="absolute left-0 top-0 z-0 flex size-full items-center justify-center">
+                <div className="flex h-[calc(100vh-73px)]  items-center justify-center bg-white">
                   <Loader />
                 </div>
               }
@@ -106,24 +104,18 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
             </Suspense>
           </section>
         </div>
-        <Footer />
       </Desktop>
       <Mobile>
         <div className="flex flex-1">
           <section
             className={cn(
-              'relative flex w-full flex-col gap-4 overflow-y-auto bg-white  lg:w-1/2 2xl:w-2/5',
-              {
-                'w-full bg-transparent xl:w-full 2xl:w-full':
-                  searchParams?.view === 'list',
-                'mx-auto': searchParams?.view === 'list',
-              }
+              'relative flex w-full flex-col gap-4 overflow-y-auto bg-white  lg:w-1/2 2xl:w-2/5'
             )}
           >
             <Suspense
               key={searchParams?.page ?? '1'}
               fallback={
-                <div className="absolute left-0 top-0 z-0 flex size-full items-center justify-center">
+                <div className="flex h-[calc(100vh-56px)]  items-center justify-center bg-white">
                   <Loader />
                 </div>
               }
@@ -146,8 +138,6 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
             </Suspense>
           </section>
         </div>
-        <Footer />
-        <Tabbar type="sale" />
       </Mobile>
     </div>
   );

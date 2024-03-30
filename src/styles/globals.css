@@ -114,14 +114,10 @@ h6 {
 .blurContent::before {
   backdrop-filter: blur(6px) contrast(90%);
   -webkit-backdrop-filter: blur(6px) contrast(90%);
-  width: contain;
-  border-radius: 4px;
   padding: 0.3rem;
 }
 .blurContent {
-  backdrop-filter: blur(6px) contrast(90%);
-  -webkit-backdrop-filter: blur(6px) contrast(90%);
-  width: contain;
-  border-radius: 4px;
-  padding: 0.3rem;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 1rem;
 }

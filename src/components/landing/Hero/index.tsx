@@ -17,22 +17,23 @@ function Hero() {
         sizes="100vh"
       />
       <div className="absolute inset-x-0 h-full">
-        <div className="container h-full">
+        <div className="container h-[calc(100%-70px)]">
           {/* Oakville Preserve logo */}
-          <div className="mt-16 flex justify-end">
+          <div className="flex justify-end lg:mt-8 xl:mt-16">
             <Image
               src="/images/png/oakville-logo.png"
               alt="Oakville Preserve logo"
               width={240}
               height={100}
+              className="lg:w-[180px] xl:w-[240px]"
             />
           </div>
           {/* Oakville Preserve logo End */}
           <div className="absolute left-32 top-[50%] -translate-y-1/2 2xl:left-64 ">
-            <div className="w-[450px]">
+            <div className="lg:w-[350px] xl:w-[450px]">
               <HelloText />
             </div>
-            <h1 className="absolute top-[72%] font-semibold tracking-[12px] text-secondary-500 xl:ml-[58%] xl:text-5xl 2xl:ml-[61%] 2xl:text-7xl">
+            <h1 className="absolute top-[72%] font-semibold tracking-[12px] text-secondary-500 lg:ml-[58%] lg:text-4xl xl:text-5xl 2xl:ml-[61%] 2xl:text-7xl">
               neighbour
             </h1>
           </div>

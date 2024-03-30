@@ -17,10 +17,6 @@ import ListAlert from '@components/Toolbar/ListAlert';
 
 import Mobsort from './MobShort';
 
-interface Props {
-  type: string;
-}
-
 const FiltersData = {
   bedrooms: [
     {
@@ -115,10 +111,9 @@ const FiltersData = {
     },
   ],
 };
-const Tabbar: React.FC<Props> = ({ type }) => {
+const Tabbar = () => {
   const pathname = usePathname();
   const { replace } = useRouter();
-
   const clearFilters = () => {
     replace(pathname);
   };
@@ -132,7 +127,7 @@ const Tabbar: React.FC<Props> = ({ type }) => {
             className="flex-col-reverse items-center justify-center gap-1 text-sm"
             icon={<FaDollarSign size={16} />}
           >
-            <Price type={type} />
+            <Price type={pathname.includes('rent') ? 'rent' : 'sale'} />
           </Dropdown>
         </div>
         <div className="flex flex-col items-center justify-center">

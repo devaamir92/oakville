@@ -37,7 +37,7 @@ const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
         }
       >
         <SoldProperty
-          days={Number(searchParams?.days ?? 0) ?? 0}
+          days={Number(searchParams?.days ?? 30) ?? 30}
           page={Number(searchParams?.page ?? 1) ?? 1}
           location="/sold-homes"
         />

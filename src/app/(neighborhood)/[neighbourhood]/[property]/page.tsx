@@ -18,7 +18,6 @@ import Rooms from '@components/Rooms';
 import Booking from '@components/Booking';
 import Card from '@components/ListingCard';
 import LightBox from '@components/LightBox';
-import BlurDailog from '@components/BlurDailog';
 import PriceHistory from '@components/PriceHistory';
 import Demographics from '@components/Demographics';
 import MapPinLocation from '@components/MapPinLocation';
@@ -29,6 +28,8 @@ import ListingHighlights from '@components/ListingHighlights';
 import { Share } from '@components/Share';
 import LikeToggle from '@components/ListingCard/LikeToggle';
 import Footer from '@components/Footer';
+import BlurContainer from '@components/BlurContainer';
+import VerBtn from '@components/ListingCard/verBtn';
 
 interface PageProps {
   params: {
@@ -128,14 +129,15 @@ async function Page({ params }: PageProps) {
           'container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]'
         )}
       >
-        {!session && (
-          <BlurDailog session={session} isLocked={property.Is_locked} />
-        )}
-        {session && property.Is_locked && !session?.user.verified && (
-          <BlurDailog session={session} isLocked={property.Is_locked} />
-        )}
         <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-0">
+          <div className="relative flex flex-col gap-0">
+            {(!session || (session && !session.user.verified)) && (
+              <VerBtn
+                status={property.Status}
+                isLocked={property.Is_locked}
+                showBtn={false}
+              />
+            )}
             <h3 className="text-xl font-medium text-gray-800">
               {property.Apt_num ? `${property.Apt_num} - ` : ''} {property.Addr}
             </h3>
@@ -155,16 +157,22 @@ async function Page({ params }: PageProps) {
             />
           </div>
         </div>
+        <div className="relative">
+          <LightBox
+            Images={images.slice(1)}
+            mls={property.Ml_num}
+            address={`${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+              property.Addr
+            }`}
+          />
+          <BlurContainer
+            Lsc={property.Lsc}
+            isLocked={property.Is_locked}
+            session={session}
+          />
+        </div>
 
-        <LightBox
-          Images={images.slice(1)}
-          mls={property.Ml_num}
-          address={`${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
-            property.Addr
-          }`}
-        />
-
-        <ListingOverview data={property} />
+        <ListingOverview data={property} session={session} />
 
         <div className="flex flex-col gap-3 lg:flex-row-reverse">
           <div className="order-2 flex h-fit flex-col gap-10 rounded md:w-full lg:sticky lg:top-[100px] lg:order-1 lg:w-[360px]">
@@ -230,17 +238,22 @@ async function Page({ params }: PageProps) {
                 ' ',
                 '-'
               )}`}
+              isLocked={property.Is_locked}
+              status={property.Status}
               session={session}
             />
-            <ListingHighlights data={property} />
+            <ListingHighlights data={property} session={session} />
 
             <ListingDetails
               Ad_text={property.Ad_text}
               Extras={property.Extras}
+              isLocked={property.Is_locked}
+              status={property.Status}
+              session={session}
             />
-            <PropertyDetails data={property} />
+            <PropertyDetails session={session} data={property} />
 
-            <Rooms data={property} />
+            <Rooms session={session} data={property} />
             {property.Lng && property.Lat ? (
               <div className="h-56 overflow-hidden rounded">
                 <MapPinLocation

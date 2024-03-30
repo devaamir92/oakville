@@ -8,9 +8,10 @@ import cn from '@utils/cn';
 interface VerBtnProps {
   isLocked: any;
   status?: string;
+  showBtn?: boolean;
 }
 
-const VerBtn: React.FC<VerBtnProps> = ({ isLocked, status }) => {
+const VerBtn: React.FC<VerBtnProps> = ({ isLocked, status, showBtn }) => {
   const { setVerify } = useLayout();
 
   return (
@@ -23,22 +24,16 @@ const VerBtn: React.FC<VerBtnProps> = ({ isLocked, status }) => {
         className={cn(
           'absolute inset-0 z-[3] flex items-center justify-center p-4',
           {
-            hidden: !isLocked,
+            hidden: !isLocked || !showBtn,
           }
         )}
       >
         <div className="relative hidden size-full items-center justify-center lg:flex">
-          <TooltipLogin
-            title={
-              status === 'U'
-                ? 'Real estate boards require you to create an account to view sold listing.'
-                : 'Real estate boards require you to be signed in to access this property.'
-            }
-          >
+          <TooltipLogin title="Real estate boards require you to create an account to view sold listing.">
             <button
               type="button"
               onClick={() => setVerify(true)}
-              className=" flex h-9 items-center justify-center rounded bg-white px-3 py-1.5 text-sm font-medium text-primary-500"
+              className=" flex h-9 items-center justify-center rounded bg-primary-400 px-3 py-1.5 text-sm font-medium text-white"
             >
               Verification Required
             </button>

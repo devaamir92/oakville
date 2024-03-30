@@ -4,11 +4,14 @@ import { BsEye } from 'react-icons/bs';
 
 import VerBtn from '@components/ListingCard/verBtn';
 import { PriceFormat } from '@utils/priceFormat';
+import LoginBtn from '@components/ListingCard/loginbtn';
 
 interface PriceHistoryProps {
   data: any;
   location: string;
   session?: any;
+  isLocked?: boolean;
+  status?: string;
 }
 
 const statusMap = [
@@ -27,6 +30,8 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({
   data,
   location,
   session,
+  isLocked,
+  status,
 }) => {
   const historyData = () => {
     if (!data) {
@@ -65,9 +70,12 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({
         </p>
       </div>
       <div className="relative overflow-hidden overflow-x-auto rounded border">
-        {history.length !== 0 && !session?.user.verified ? (
-          <VerBtn isLocked />
+        {history.length !== 0 && session && !session?.user.verified ? (
+          <VerBtn isLocked={isLocked} status={status} showBtn />
         ) : null}
+
+        {!session && <LoginBtn isLocked={isLocked} status={status} />}
+
         <table className="min-w-full">
           <thead className="border-b bg-gray-50">
             <tr>

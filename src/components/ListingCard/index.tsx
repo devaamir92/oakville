@@ -45,7 +45,7 @@ const ListingCard: React.FC<CardProps> = ({
       {!session && <LoginBtn status={status} isLocked={isLocked} />}
 
       {session && !session?.user.verified && (
-        <VerBtn status={status} isLocked={isLocked} />
+        <VerBtn status={status} isLocked={isLocked} showBtn />
       )}
       <Link href={slug} className=" flex flex-col overflow-hidden ">
         <div className="relative h-60">

@@ -38,7 +38,7 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked, status }) => {
             <button
               type="button"
               onClick={() => setLogin(true)}
-              className=" flex h-9 items-center justify-center rounded bg-white px-3 py-1.5 text-sm font-medium text-primary-500"
+              className=" flex h-9 items-center justify-center rounded bg-primary-400 px-3 py-1.5 text-sm font-medium text-white"
             >
               Login Required
             </button>

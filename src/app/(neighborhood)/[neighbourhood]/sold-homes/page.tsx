@@ -30,7 +30,7 @@ const Property: React.FC<PropertyProps> = ({ params, searchParams }) => {
         <Suspense
           key={searchParams?.page ?? '1'}
           fallback={
-            <div className="flex min-h-[calc(100vh-135px)]  items-center justify-center">
+            <div className="flex min-h-[calc(100vh-135px)] items-center justify-center bg-white">
               <Loader />
             </div>
           }
@@ -38,9 +38,7 @@ const Property: React.FC<PropertyProps> = ({ params, searchParams }) => {
           <SoldProperty
             days={Number(searchParams?.days ?? 0) ?? 0}
             page={Number(searchParams?.page ?? 1) ?? 1}
-            location={`${params?.neighbourhood
-              .split('-')
-              .join(' ')}/sold-homes`}
+            location={`/${params.neighbourhood}/sold-homes`}
             neighbourhood={params?.neighbourhood.split('-').join(' ')}
           />
         </Suspense>

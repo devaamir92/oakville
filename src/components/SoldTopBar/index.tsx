@@ -28,7 +28,7 @@ const SoldTopBar: React.FC<Props> = ({ location = 'Preserve Oakville' }) => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const activeSort = searchParams.get('days');
+  const activeSort = searchParams.get('days') || '30';
 
   const handleSort = (value: string) => {
     const search = new URLSearchParams(searchParams.toString());

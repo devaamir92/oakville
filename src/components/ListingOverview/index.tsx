@@ -6,35 +6,77 @@ import moment from 'moment';
 import statusMapper from '@utils/statusMaper';
 import statusDateSelector from '@utils/statusDateSelector';
 import { PriceFormat } from '@utils/priceFormat';
+import VerBtn from '@components/ListingCard/verBtn';
 
 interface ListingOverviewProps {
   data: any;
+  session?: any;
 }
 
-const ListingOverview: React.FC<ListingOverviewProps> = ({ data }) => {
+const ListingOverview: React.FC<ListingOverviewProps> = ({ data, session }) => {
   return (
     <div className="flex flex-1 flex-col items-center justify-between gap-3 md:flex-row">
       <div className="flex flex-col gap-2">
         <div className="flex flex-col items-center gap-2 md:items-start">
-          <div className="flex items-center gap-8">
+          <div className="relative flex items-center gap-8">
             <div className="flex flex-col items-center">
               <LuBedDouble className="text-2xl text-gray-700" />
-              <span className="text-sm font-medium">{data.Br} bed</span>
+              <div className="relative">
+                {(!session || (session && !session.user.verified)) && (
+                  <VerBtn
+                    status={data.Status}
+                    isLocked={data.Is_locked}
+                    showBtn={false}
+                  />
+                )}
+                <span className="text-sm font-medium">{data.Br} bed</span>
+              </div>
             </div>
             <div className="flex flex-col items-center">
               <LuBath className="text-2xl text-gray-700" />
-              <span className="text-sm font-medium">{data.Bath_tot} bath</span>
+              <div className="relative">
+                {(!session || (session && !session.user.verified)) && (
+                  <VerBtn
+                    status={data.Status}
+                    isLocked={data.Is_locked}
+                    showBtn={false}
+                  />
+                )}
+                <span className="text-sm font-medium">
+                  {data.Bath_tot} bath
+                </span>
+              </div>
             </div>
             <div className="flex flex-col items-center">
               <LuParkingCircle className="text-2xl text-gray-700" />
-              <span className="text-sm font-medium">
-                {data.Park_spcs} parking
-              </span>
+              <div className="relative">
+                {(!session || (session && !session.user.verified)) && (
+                  <VerBtn
+                    status={data.Status}
+                    isLocked={data.Is_locked}
+                    showBtn={false}
+                  />
+                )}
+                <span className="text-sm font-medium">
+                  {data.Park_spcs} parking
+                </span>
+              </div>
             </div>
             <div>
               <div className="flex flex-col items-center">
                 <LuScan className="text-2xl text-gray-700" />
-                <span className="text-sm font-medium">{data.Sqft} sqft *</span>
+                <div className="relative">
+                  {(!session || (session && !session.user.verified)) && (
+                    <VerBtn
+                      status={data.Status}
+                      isLocked={data.Is_locked}
+                      showBtn={false}
+                    />
+                  )}
+                  <span className="text-sm font-medium">
+                    {data.Sqft} sqft *
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -56,7 +98,16 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({ data }) => {
       <div className="flex flex-col">
         <div className="flex items-center justify-between gap-2 text-2xl font-medium text-gray-800">
           <span className="text-lg">List Price:</span>
-          {PriceFormat(Number(data.Lp_dol))}
+          <div className="relative">
+            {(!session || (session && !session.user.verified)) && (
+              <VerBtn
+                status={data.Status}
+                isLocked={data.Is_locked}
+                showBtn={false}
+              />
+            )}
+            {PriceFormat(Number(data.Lp_dol))}
+          </div>
         </div>
         {data.Status === 'A' && (
           <p className="text-gray-600">
@@ -66,7 +117,16 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({ data }) => {
         {data.Status === 'U' && data.Sp_dol > 0 && (
           <div className="flex items-center justify-between gap-2 text-2xl font-medium text-red-500">
             <span className="text-lg">{statusMapper(data.Lsc)} Price:</span>
-            {PriceFormat(Number(data.Sp_dol))}
+            <div className="relative">
+              {(!session || (session && !session.user.verified)) && (
+                <VerBtn
+                  status={data.Status}
+                  isLocked={data.Is_locked}
+                  showBtn={false}
+                />
+              )}
+              {PriceFormat(Number(data.Sp_dol))}
+            </div>
           </div>
         )}
         <p className="text-gray-600">
