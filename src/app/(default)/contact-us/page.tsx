@@ -37,14 +37,14 @@ export default function Page() {
           <div className="flex items-center justify-center gap-2 text-base">
             <div className="flex items-center gap-1">
               <BsFillTelephoneFill className="mr-1 inline-block" />
-              <Link
+              {/* <Link
                 href="
                 tel:416-837-2000"
                 className="text-sm  text-gray-800"
               >
                 416 837 2000
               </Link>
-              <span>/</span>
+              <span>/</span> */}
               <Link
                 href="
                 tel:647-929-9072"

@@ -36,6 +36,90 @@ interface PageProps {
   };
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    property: string;
+  };
+}) {
+  try {
+    const { property } = await getPropertyDetails(params.property);
+    if (!property)
+      return {
+        title: 'Not Found',
+        description: 'The page you are looking for does not exist.',
+      };
+
+    return {
+      title: `${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+        property.Addr
+      } ${property.Ml_num}`,
+      description: `${
+        property.Ad_text
+          ? property.Ad_text.slice(0, 160)
+          : `${property.Addr} is a beautiful luxury property in ${property.Community}. It contains ${property.Br} Bedrooms,${property.Bath_tot} bathrooms,${property.Tot_park_spcs} Parking.`
+      }`,
+      openGraph: {
+        title: `${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+          property.Addr
+        }`,
+        description: `${
+          property.Ad_text
+            ? property.Ad_text.slice(0, 160)
+            : `${property.Addr} is a beautiful luxury property in ${property.Community}. It contains ${property.Br} Bedrooms,${property.Bath_tot} bathrooms,${property.Tot_park_spcs} Parking.`
+        }`,
+        url: `https://preserveoakville.ca${getSlug(
+          property.Community,
+          property.Slug
+        )}`,
+        siteName: 'The Preserve Oakville',
+        type: 'website',
+        countryName: 'Canada',
+        alternateLocale: 'en_CA',
+        emails: ['info@preserveoakville.com'],
+        locale: 'en_CA',
+        phoneNumbers: ['+1-416-837-2000', '+1-647-929-9072'],
+        images: [
+          {
+            url: `https://api.preserveoakville.ca/api/v1/stream/${property.Ml_num}/photo_1.png`,
+            width: 800,
+            height: 600,
+            alt: 'The Preserve Oakville',
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        site: '@preserveoakville',
+        title: `${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+          property.Addr
+        }`,
+        description: `${
+          property.Ad_text
+            ? property.Ad_text.slice(0, 160)
+            : `${property.Addr} is a beautiful luxury property in ${property.Community}. It contains ${property.Br} Bedrooms,${property.Bath_tot} bathrooms,${property.Tot_park_spcs} Parking.`
+        }`,
+        images: [
+          {
+            url: `https://api.preserveoakville.ca/api/v1/stream/${property.Ml_num}/photo_1.webp`,
+            width: 800,
+            height: 600,
+            alt: `${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+              property.Addr
+            }`,
+          },
+        ],
+      },
+    };
+  } catch (error) {
+    return {
+      title: 'Not Found',
+      description: 'The page you are looking for does not exist.',
+    };
+  }
+}
+
 async function Page({ params }: PageProps) {
   const {
     property,
@@ -110,14 +194,14 @@ async function Page({ params }: PageProps) {
               <div className="flex flex-col items-center justify-center gap-2">
                 <div className="flex items-center gap-1">
                   <BsFillTelephoneFill className="mr-1 inline-block" />
-                  <Link
+                  {/* <Link
                     href="
                 tel:416-837-2000"
                     className="text-sm  text-gray-800"
                   >
                     416 837 2000
                   </Link>
-                  <span>/</span>
+                  <span>/</span> */}
                   <Link
                     href="
                 tel:647-929-9072"

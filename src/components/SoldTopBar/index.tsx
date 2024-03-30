@@ -40,10 +40,11 @@ const SoldTopBar: React.FC<Props> = ({ location = 'Preserve Oakville' }) => {
 
   return (
     <div className="flex w-full flex-col justify-between gap-2 md:flex-row md:items-center">
-      <h1 className="text-xl font-semibold capitalize text-gray-800 md:text-2xl">
+      <span className="flex-1" />
+      <h1 className="flex-1 text-center text-xl font-semibold capitalize text-gray-800 md:text-2xl">
         Sold Homes in {location.replace('-', ' ')}
       </h1>
-      <div className="flex items-center gap-2">
+      <div className="flex flex-1 items-center justify-end gap-2">
         <span className="whitespace-nowrap font-medium">Sort by:</span>
         <Dropdown
           ariaLabel="Sort by"
