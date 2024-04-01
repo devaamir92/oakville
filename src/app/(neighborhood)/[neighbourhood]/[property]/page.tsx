@@ -81,12 +81,7 @@ export async function generateMetadata({
         locale: 'en_CA',
         phoneNumbers: ['+1-416-837-2000', '+1-647-929-9072'],
         images: [
-          {
-            url: `https://api.preserveoakville.ca/api/v1/stream/${property.Ml_num}/photo_1.png`,
-            width: 800,
-            height: 600,
-            alt: 'The Preserve Oakville',
-          },
+          `https://api.preserveoakville.ca/api/v1/stream/${property.Ml_num}/photo_1.png`,
         ],
       },
       twitter: {
