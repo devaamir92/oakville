@@ -17,6 +17,7 @@ function FamilyStatus({ data }: Props) {
               alt="Parents With Children"
               width={28}
               height={28}
+              className="size-full overflow-hidden"
             />
           </div>
           <span className="max-w-20 text-center text-xs font-medium">
@@ -31,6 +32,7 @@ function FamilyStatus({ data }: Props) {
                 alt="Single Parent With Children"
                 width={20}
                 height={20}
+                className="size-full overflow-hidden"
               />
             </div>
             <div className="flex size-12 items-center justify-center rounded-full bg-gray-100">
@@ -39,6 +41,7 @@ function FamilyStatus({ data }: Props) {
                 alt="Parents With Children"
                 width={20}
                 height={20}
+                className="size-full overflow-hidden"
               />
             </div>
           </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import React, { Suspense } from 'react';
 
 import type { Metadata } from 'next';
@@ -13,6 +14,8 @@ import Footer from '@components/Footer';
 import { Desktop, Mobile } from '@components/ua';
 import Tabbar from '@components/Tabbar';
 import { getProperties } from '@lib/api/properties/getProperties';
+import uptownCoreHtmlContent from '@assets/discriptions/uptownCore';
+import ruralOakvilleHtmlContent from '@assets/discriptions/ruralOakville';
 
 interface PageProps {
   searchParams?: {
@@ -218,6 +221,18 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
                 location={`/${searchParams.params.neighbourhood}`}
               />
             </Suspense>
+            {searchParams?.params.neighbourhood === 'uptown-core' && (
+              <div
+                className="element container w-full text-justify"
+                dangerouslySetInnerHTML={{ __html: uptownCoreHtmlContent }}
+              />
+            )}
+            {searchParams?.params.neighbourhood === 'rural-oakville' && (
+              <div
+                className="element container w-full text-justify"
+                dangerouslySetInnerHTML={{ __html: ruralOakvilleHtmlContent }}
+              />
+            )}
           </section>
         </div>
         <Footer />

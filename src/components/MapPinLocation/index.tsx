@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 
-import MapGL, { Layer } from '@urbica/react-map-gl';
+import MapGL from '@urbica/react-map-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -53,16 +53,6 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
         boxZoom
         scrollZoom
       >
-        <Layer
-          id="boundaries"
-          type="line"
-          source="boundaries"
-          paint={{
-            'line-color': '#28777E',
-            'line-width': 3,
-          }}
-        />
-
         {data &&
           data.map(item => {
             return (

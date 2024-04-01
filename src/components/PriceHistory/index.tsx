@@ -115,7 +115,7 @@ const PriceHistory: React.FC<PriceHistoryProps> = ({
           <tbody className="divide-y divide-gray-200 bg-white">
             {history.length !== 0 ? (
               data.map((item: any, index: number) => (
-                <tr key={history[index].text}>
+                <tr key={`${history[index].text} ${item.Ml_num}`}>
                   <td className="whitespace-nowrap px-4 py-2.5">
                     {dateParser(item[history[index].date])}
                   </td>

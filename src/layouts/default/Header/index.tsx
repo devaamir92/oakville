@@ -64,6 +64,7 @@ export default async function Header() {
                   alt="logo"
                   width={55}
                   height={55}
+                  className="size-full overflow-hidden"
                 />
               </Link>
             </div>
@@ -112,7 +113,7 @@ export default async function Header() {
               <Image
                 src="/images/png/oakville-leaf.png"
                 alt="logo"
-                className="object-contain"
+                className="size-full overflow-hidden object-contain"
                 sizes="60px"
                 width={40}
                 height={40}
