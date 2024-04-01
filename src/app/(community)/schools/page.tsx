@@ -17,41 +17,27 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  // const getdata = () => {
-  //   const schools = [
-  //     ...data.publicSchools,
-  //     ...data.catholicSchools,
-  //     ...data.montessoriSchools,
-  //     ...data.privateSchools,
-  //   ];
-
-  //   return schools.map(school => {
-  //     return {
-  //       name: school.name,
-  //       address: school.address,
-  //       Lat: school.lat,
-  //       Lng: school.lng,
-  //     };
-  //   });
-  // };
-
   const getdata = () => {
     const schools = [
       ...data.publicSchools.map(school => ({
         ...school,
         type: 'Public Schools',
+        color: '#e0434a',
       })),
       ...data.catholicSchools.map(school => ({
         ...school,
         type: 'Catholic Schools',
+        color: '#0E7AEB',
       })),
       ...data.montessoriSchools.map(school => ({
         ...school,
         type: 'Montessori Schools',
+        color: '#F6AA3C',
       })),
       ...data.privateSchools.map(school => ({
         ...school,
         type: 'Private Schools',
+        color: '#5EC976',
       })),
     ];
 
@@ -62,6 +48,7 @@ export default async function Page() {
         Lat: school.lat,
         Lng: school.lng,
         type: school.type,
+        color: school.color,
       };
     });
   };

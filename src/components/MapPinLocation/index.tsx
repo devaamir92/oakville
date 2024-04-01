@@ -12,8 +12,6 @@ import { FaCross, FaStarAndCrescent } from 'react-icons/fa';
 import SikhIcon from '@icons/SikhIcon';
 import HinduIcon from '@icons/Hindu';
 
-import cn from '@utils/cn';
-
 import Modal from './Popup';
 
 const Marker = dynamic(() =>
@@ -28,6 +26,7 @@ interface MapProps {
     address?: string;
     religion?: string;
     type?: string;
+    color: string;
   }[];
   icon?: React.ReactNode;
 }
@@ -38,6 +37,12 @@ const MAPBOX_ACCESS_TOKEN =
 const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
   const [popup, setPopup] = useState<any>(null);
   const [open, setOpen] = useState(false);
+
+  const styles = (color?: string) => {
+    return {
+      '--bg-color': color,
+    };
+  };
 
   return (
     <div className="relative size-full">
@@ -64,26 +69,9 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
                 <div className="group">
                   <button
                     type="button"
+                    style={styles(item.color) as any}
                     aria-label={item.name || 'property location'}
-                    className={cn(
-                      'absolute flex items-center justify-center gap-1 rounded-lg bg-primary-500 p-1.5 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary',
-                      {
-                        'bg-red-600 after:border-t-red-600':
-                          item.type === 'Public Schools',
-                      },
-                      {
-                        'bg-blue-600 after:border-t-blue-600':
-                          item.type === 'Catholic Schools',
-                      },
-                      {
-                        'bg-yellow-600 after:border-t-yellow-600':
-                          item.type === 'Montessori Schools',
-                      },
-                      {
-                        'bg-green-600 after:border-t-green-600':
-                          item.type === 'Private Schools',
-                      }
-                    )}
+                    className="icon-color absolute flex items-center justify-center gap-1  rounded-lg bg-[var(--bg-color)] p-1.5 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-[var(--bg-color)]"
                     onClick={() => {
                       if (item.name || item.address) {
                         setOpen(true);

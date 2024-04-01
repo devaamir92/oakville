@@ -81,7 +81,12 @@ export async function generateMetadata({
         locale: 'en_CA',
         phoneNumbers: ['+1-416-837-2000', '+1-647-929-9072'],
         images: [
-          `https://api.preserveoakville.ca/api/v1/stream/og/${property.Ml_num}/photo_1.png`,
+          {
+            url: `https://api.preserveoakville.ca/api/v1/stream/og/${property.Ml_num}/photo_1.png`,
+            width: 800,
+            height: 600,
+            alt: 'The Preserve Oakville',
+          },
         ],
       },
       twitter: {
@@ -97,7 +102,7 @@ export async function generateMetadata({
         }`,
         images: [
           {
-            url: `https://api.preserveoakville.ca/api/v1/stream/og/${property.Ml_num}/photo_1.webp`,
+            url: `https://api.preserveoakville.ca/api/v1/stream/og/${property.Ml_num}/photo_1.png`,
             width: 800,
             height: 600,
             alt: `${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
