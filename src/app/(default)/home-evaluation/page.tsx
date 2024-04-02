@@ -46,7 +46,7 @@ function page() {
         </div>
       </div>
       <section className="relative h-full pb-6 pt-4 md:py-12 lg:h-[50vh] lg:overflow-hidden">
-        <div className="absolute inset-0 hidden  md:block">
+        <div className="absolute inset-0 hidden  lg:block">
           <Image
             src="/images/webp/sell/homeEvalBanner.jpg"
             alt="banner"
@@ -58,7 +58,7 @@ function page() {
 
         <div className="absolute inset-0  bg-gradient-to-r from-gray-100 to-gray-100 md:block md:via-transparent md:to-transparent" />
         <div className="container relative flex h-full items-center">
-          <div className="md:w-2/5 md:text-left lg:w-[42%]">
+          <div className="md:text-left  lg:w-[42%]">
             <h2 className="text-lg font-semibold md:text-xl 2xl:text-2xl">
               Hire A Real Estate Professional Who Never Gives Up
             </h2>

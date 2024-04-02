@@ -32,107 +32,6 @@ export const metadata: Metadata = {
     'Explore homes for sale in The Preserve Oakville, featuring luxury properties for every lifestyle. Find your dream home in this desirable Canadian neighborhood.',
 };
 
-// const getProperties = async (
-//   max: number,
-//   min: number,
-//   type: string | string[],
-//   bedrooms: any,
-//   bathrooms: any,
-//   basement: string | string[],
-//   sort: string
-// ) => {
-//   const queryBuilder = RequestQueryBuilder.create();
-
-//   let search = {};
-
-//   if (bedrooms) {
-//     search = {
-//       ...search,
-//       ...BedroomsParser.create(bedrooms).parse(),
-//     };
-//   }
-//   if (bathrooms) {
-//     search = {
-//       ...search,
-//       ...BathroomsParser.create(bathrooms).parse(),
-//     };
-//   }
-//   const propType = Array.isArray(type) ? type : [type];
-//   const propsBsmt = Array.isArray(basement) ? basement : [basement];
-
-//   const typeQuery: any =
-//     (type && {
-//       Type_own_srch: {
-//         $in: propType,
-//       },
-//     }) ||
-//     {};
-
-//   const bsmtQuery: any =
-//     (basement && {
-//       Bsmt1_out: {
-//         $in: propsBsmt,
-//       },
-//     }) ||
-//     {};
-
-//   queryBuilder
-//     .search({
-//       $and: [
-//         {
-//           Status: {
-//             $eq: 'A',
-//           },
-//           S_r: {
-//             $eq: 'Sale',
-//           },
-//           Lp_dol: {
-//             $gte: min,
-//             $lte: max,
-//           },
-//           ...typeQuery,
-//           ...bsmtQuery,
-//           ...search,
-//         },
-//       ],
-//     })
-//     .sortBy(sortlisting(sort))
-//     .setLimit(1000);
-
-//   queryBuilder.select([
-//     'Ml_num',
-//     'Addr',
-//     'Apt_num',
-//     'Lp_dol',
-//     'Br',
-//     'Br_plus',
-//     'Bath_tot',
-//     'Park_spcs',
-//     'Status',
-//     'Is_locked',
-//     'Slug',
-//     'Community',
-//     'Bsmt1_out',
-//     'Lat',
-//     'Lng',
-//     'Dom',
-//   ]);
-
-//   const res = await fetch(
-//     `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
-//     {
-//       method: 'GET',
-//       next: {
-//         tags: ['property'],
-//       },
-//       cache: 'no-cache',
-//     }
-//   );
-//   const data = await res.json();
-//   const responce = inPolygon(data.data);
-//   return responce;
-// };
-
 const Page: React.FC<PageProps> = async ({ searchParams }) => {
   const rows = await getProperties({
     limit: 1000,
@@ -165,7 +64,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
                   </div>
                 }
               >
-                <Mapbox data={rows.data} />
+                <Mapbox data={rows.data} selectedMls="W8177186" />
               </Suspense>
             </section>
           )}

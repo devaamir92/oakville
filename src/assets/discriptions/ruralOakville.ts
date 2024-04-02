@@ -102,11 +102,12 @@ const ruralOakvilleHtmlContent = `<h2><strong>Rural Oakville Homes for Sale</str
   </li>
 </ul>
 <h3>
-  Medical Facilities<br />Ensuring access to quality healthcare is a priority in
+  Medical Facilities<br /></h3>
+  <p>Ensuring access to quality healthcare is a priority in
   <a href="https://preserveoakville.ca/rural-oakville/homes-for-rent"
     >Rural Oakville</a
   >. Residents have convenient access to:
-</h3>
+</p>
 <p>
   <strong>Oakville Trafalgar Memorial Hospital:</strong> This modern hospital
   offers a range of medical services, including emergency care, specialized

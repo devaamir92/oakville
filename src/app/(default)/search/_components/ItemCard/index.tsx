@@ -40,7 +40,7 @@ const ItemCard: React.FC<ItemCardProps> = async ({
         <VerBtn status={Status} isLocked={isLocked} showBtn />
       )}
       <Link href={url} className="flex w-full gap-4 py-4">
-        <div className="overflow-hidden rounded md:h-[150px] md:w-[250px]">
+        <div className="size-24 overflow-hidden rounded md:h-[150px] md:w-[250px]">
           <Image
             src={`https://api.preserveoakville.ca/api/v1/stream/${Ml_num}/photo_1.webp`}
             alt={address}

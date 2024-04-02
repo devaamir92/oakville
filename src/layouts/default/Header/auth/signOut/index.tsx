@@ -13,7 +13,11 @@ const SignOut: React.FC = () => {
     setFavourite([]);
   }
   return (
-    <Button type="button" className="bg-primary-500" onClick={() => Logout()}>
+    <Button
+      type="button"
+      className="h-12 bg-primary-500 text-base lg:h-9 lg:text-sm"
+      onClick={() => Logout()}
+    >
       Logout
     </Button>
   );

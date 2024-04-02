@@ -163,7 +163,7 @@ async function Page({ params }: PageProps) {
               mls={property.Ml_num}
             />
             <Share
-              image={`https://api.preserveoakville.ca/api/v1/stream/${property.Ml_num}/${images[0]}`}
+              image={`https://api.preserveoakville.ca/api/v1/stream/og/${property.Ml_num}/photo_1.png`}
               title={property.title}
             />
           </div>
@@ -194,14 +194,14 @@ async function Page({ params }: PageProps) {
               <div className="flex flex-col items-center justify-center gap-2">
                 <div className="flex items-center gap-1">
                   <BsFillTelephoneFill className="mr-1 inline-block" />
-                  {/* <Link
+                  <Link
                     href="
                 tel:416-837-2000"
                     className="text-sm  text-gray-800"
                   >
                     416 837 2000
                   </Link>
-                  <span>/</span> */}
+                  <span>/</span>
                   <Link
                     href="
                 tel:647-929-9072"

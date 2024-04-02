@@ -26,7 +26,7 @@ interface MapProps {
     address?: string;
     religion?: string;
     type?: string;
-    color: string;
+    color?: string;
   }[];
   icon?: React.ReactNode;
 }

@@ -5,16 +5,55 @@ import Search from './_components/Search';
 
 const popularSearches = [
   {
-    query: 'Homes in Rural Oakville',
+    query: 'oakville houses for sale',
     link: '/search?tag=Rural Oakville',
   },
-  { query: 'Properties in Uptown Core', link: '/search?tag=Uptown Core' },
+  { query: 'homes for sale', link: '/search?tag=Uptown Core' },
   {
-    query: 'Homes on Preserve Dr',
+    query: 'New Homes',
     link: '/search?tag=On Preserve Dr',
   },
   {
-    query: 'Homes in the Preserve',
+    query: 'homes for sale in oakville',
+    link: '/search?tag=The Preserve',
+  },
+  {
+    query: 'oakville ontario real estate',
+    link: '/search?tag=Rural Oakville',
+  },
+  { query: 'oakville house for sale', link: '/search?tag=Uptown Core' },
+  {
+    query: 'oakville homes',
+    link: '/search?tag=On Preserve Dr',
+  },
+  {
+    query: 'new developments',
+    link: '/search?tag=The Preserve',
+  },
+  {
+    query: 'houses for rent',
+    link: '/search?tag=Rural Oakville',
+  },
+  { query: 'real estate oakville', link: '/search?tag=Uptown Core' },
+  {
+    query: 'drive in oakville',
+    link: '/search?tag=On Preserve Dr',
+  },
+  {
+    query: 'apartments for rent oakville',
+    link: '/search?tag=The Preserve',
+  },
+  {
+    query: 'oakville properties for sale',
+    link: '/search?tag=Rural Oakville',
+  },
+  { query: 'oakville rentals', link: '/search?tag=Uptown Core' },
+  {
+    query: 'fernbrook homes',
+    link: '/search?tag=On Preserve Dr',
+  },
+  {
+    query: 'house for sale oakville',
     link: '/search?tag=The Preserve',
   },
 ];

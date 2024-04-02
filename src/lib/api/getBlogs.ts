@@ -2,7 +2,7 @@ import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import { httpClient } from '@lib/httpclient';
 
-export const getAllBlogs = async (category?: string) => {
+export const getAllBlogs = async (category?: string, page?: number) => {
   const queryBuilder = RequestQueryBuilder.create();
 
   queryBuilder
@@ -33,6 +33,8 @@ export const getAllBlogs = async (category?: string) => {
       },
     ],
   });
+
+  queryBuilder.setPage(page ?? 1);
 
   const res = await httpClient.get(`/api/v1/blogs?${queryBuilder.query()}`, {
     next: {

@@ -20,8 +20,11 @@ export const metadata: Metadata = {
     'Discover The Preserve Oakville blog for exclusive insights and updates on luxury living. Stay informed about the latest in properties, homes, and the neighborhood. ',
 };
 
-const BlogPage = async () => {
-  const blogs: any = await getAllBlogs();
+const BlogPage = async ({ searchParams }: any) => {
+  const blogs: any = await getAllBlogs(
+    searchParams?.search?.toString() || '',
+    Number(searchParams?.page ?? 1) ?? 1
+  );
 
   return (
     <div className="flex h-full flex-col">

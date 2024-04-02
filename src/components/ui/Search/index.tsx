@@ -49,9 +49,9 @@ const SearchComponent: React.FC = () => {
 
   return (
     <div className="relative w-full" ref={ref}>
-      <div className="flex h-9 w-full items-center gap-4 rounded border bg-primary-500 px-2 text-lg lg:text-sm lg:font-normal">
+      <div className="flex h-9 w-full items-center gap-4 rounded  bg-white px-2 text-lg lg:text-sm lg:font-normal">
         <input
-          className="size-full bg-transparent text-white outline-none placeholder:text-white "
+          className="size-full bg-transparent text-black outline-none placeholder:text-gray-800 "
           type="search"
           id="search"
           name="search"
@@ -63,7 +63,7 @@ const SearchComponent: React.FC = () => {
           }}
         />
         <button type="button" aria-label="search" onClick={handleSearchRoute}>
-          <FaSearch className="text-white" size={14} />
+          <FaSearch className="text-gray-800" size={14} />
         </button>
       </div>
 
@@ -75,6 +75,7 @@ const SearchComponent: React.FC = () => {
                 <Link
                   className="flex w-full flex-col px-2"
                   href={getSlug(property.Community, property.Slug)}
+                  onClick={() => setShowList(false)}
                 >
                   <div className="flex items-center justify-between py-2">
                     <p className="text-xs font-semibold text-primary-500">
@@ -96,6 +97,7 @@ const SearchComponent: React.FC = () => {
                 <Link
                   className="flex w-full flex-col justify-center  px-2"
                   href={`/search?tag=${searchText}`}
+                  onClick={() => setShowList(false)}
                 >
                   <div className="flex items-center justify-center py-2">
                     <p className="text-xs font-semibold text-gray-800">

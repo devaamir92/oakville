@@ -84,16 +84,15 @@ const Footer = () => {
                 <Link
                   target="_blank"
                   className={linkClass}
-                  href="/"
-                  // href="https://www.realtor.ca/agent/1736536/tariq-janjua-33-pearl-st-300-mississauga-ontario-l5m1x1#firstname=Tariq%20&amp;lastname=Janjua&amp;page=1&amp;sort=3-A"
+                  href="https://www.realtor.ca/agent/1736536/tariq-janjua-33-pearl-st-300-mississauga-ontario-l5m1x1#firstname=Tariq%20&amp;lastname=Janjua&amp;page=1&amp;sort=3-A"
                 >
-                  Shaheena Hemraj
+                  Tariq Janjua / Shaheena Hemraj
                 </Link>
               </li>
-              {/* <li className="text-lg text-white lg:text-sm">Broker</li> */}
-              {/* <li className="text-lg text-white lg:text-sm">
+              <li className="text-lg text-white lg:text-sm">Broker</li>
+              <li className="text-lg text-white lg:text-sm">
                 Janjua Real Estate Group
-              </li> */}
+              </li>
               <li className="text-lg text-white lg:mb-1 lg:mt-2 lg:text-sm">
                 <address className="not-italic">
                   SUTTON Group - SUMMIT Realty Inc, Brokerage
@@ -103,10 +102,10 @@ const Footer = () => {
               <li>
                 <div className="flex items-center gap-2">
                   <FaPhone size={14} className="inline-block text-white" />
-                  {/* <Link href="tel:416 837 2000" className={linkClass}>
+                  <Link href="tel:416 837 2000" className={linkClass}>
                     416 837 2000
                   </Link>
-                  <span className="text-white">/</span> */}
+                  <span className="text-white">/</span>
                   <Link href="tel:647 929 9072" className={linkClass}>
                     647 929 9072
                   </Link>

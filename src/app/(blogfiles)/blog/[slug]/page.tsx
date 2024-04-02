@@ -175,7 +175,7 @@ const Page = async ({ params }: any) => {
                       .toLowerCase()
                       .split(' ')
                       .join('-')}`}
-                    className="group flex h-[300px] flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
+                    className="group flex h-auto flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
                   >
                     <div className="relative aspect-[2.25]">
                       <Image

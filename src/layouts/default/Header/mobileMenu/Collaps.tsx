@@ -20,7 +20,7 @@ const CollapsItems: React.FC<CollapsItemsProps> = ({ setIsOpen, listData }) => {
         <button
           type="button"
           aria-label="mobile Menu"
-          className="flex h-10 w-full items-center justify-between px-2 text-lg text-primary-500"
+          className="flex h-12 w-full items-center justify-between px-2 text-lg text-primary-500"
         >
           Communities <FaChevronDown size={12} />
         </button>

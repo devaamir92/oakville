@@ -41,7 +41,7 @@ const ListingCard: React.FC<CardProps> = ({
   tssql,
 }) => {
   return (
-    <div className="group relative overflow-hidden rounded border border-gray-300  bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
+    <div className="group relative overflow-hidden rounded border border-gray-300 bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
       {!session && <LoginBtn status={status} isLocked={isLocked} />}
 
       {session && !session?.user.verified && (

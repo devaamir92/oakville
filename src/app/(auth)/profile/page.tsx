@@ -22,9 +22,9 @@ const Page = async ({ searchParams }: any) => {
 
   return (
     <div className="container flex flex-col gap-4 py-10">
-      <section className="flex items-center justify-between">
+      <section className="flex flex-col items-center gap-4 border-b pb-4 md:flex-row  md:justify-between">
         <div className="flex items-center gap-4">
-          <div className="relative aspect-square size-24">
+          <div className="relative aspect-square size-12 lg:size-24">
             <Image
               src={session.user?.image || '/images/webp/user.webp'}
               alt="Profile"
@@ -33,7 +33,7 @@ const Page = async ({ searchParams }: any) => {
             />
           </div>
           <div className="flex flex-col gap-1">
-            <h1 className="text-xl font-medium capitalize">
+            <h1 className="text-lg font-medium capitalize lg:text-xl">
               {session.user?.name}
             </h1>
             <p className="flex items-center gap-1 text-sm text-gray-500">

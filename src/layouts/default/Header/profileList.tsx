@@ -35,8 +35,8 @@ function ProfileList({ session }: ProfileListProps) {
 
   return (
     <Dropdown
-      icon={<FaUser />}
-      className="flex size-9 items-center justify-center rounded-full bg-primary-700"
+      icon={<FaUser className="text-gray-800" size={16} />}
+      className="flex size-9 items-center justify-center rounded-full bg-white"
       align="end"
       contentClassName="p-2"
     >

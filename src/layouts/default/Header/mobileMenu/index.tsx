@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import {
   Content,
   DropdownMenu,
+  Item,
   Portal,
   Root,
   Trigger,
@@ -40,6 +41,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   const [isOpen, setIsOpen] = useState(false);
   const { setLogin } = useLayout();
 
+  useEffect(() => {
+    if (session?.user) {
+      setLogin(false);
+    }
+  }, [session?.user, setLogin]);
+
   return (
     <div className="flex items-center lg:hidden">
       <Auth />
@@ -65,9 +72,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           </Trigger>
           <Portal>
             <Content
-              className="z-50 min-w-80 rounded-md bg-white p-2"
+              className="z-50 w-96 min-w-80 rounded-md border border-gray-300 bg-white px-2 py-1"
               sideOffset={5}
-              align="end"
+              align="start"
             >
               <nav className="flex flex-col divide-y-[1px] divide-gray-300">
                 {navLinks.map(({ name, link }) => {
@@ -95,20 +102,21 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                               setLogin(true);
                               setIsOpen(false);
                             }}
-                            className="flex h-10 items-center px-2 text-lg text-primary-500"
+                            className="flex h-12 items-center px-2 text-lg text-primary-500"
                           >
                             Login
                           </button>
                         ) : (
                           <>
-                            <Link
-                              type="button"
-                              key={name}
-                              href="/profile"
-                              className="flex h-10 items-center px-2 text-lg text-primary-500"
-                            >
-                              Profile
-                            </Link>
+                            <Item key={name} asChild>
+                              <Link
+                                type="button"
+                                href="/profile"
+                                className="flex h-12 items-center px-2 text-lg text-primary-500"
+                              >
+                                Profile
+                              </Link>
+                            </Item>
                             <SignOut />
                           </>
                         )}
@@ -123,7 +131,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                           router.push(link);
                           setIsOpen(false);
                         }}
-                        className="flex h-10 items-center px-2 text-lg text-primary-500"
+                        className="flex h-12 items-center px-2 text-lg text-primary-500"
                       >
                         {name}
                       </button>

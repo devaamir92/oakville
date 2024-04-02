@@ -47,7 +47,7 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked, status }) => {
         <button
           type="button"
           onClick={() => setLogin(true)}
-          className="flex flex-col gap-2 rounded bg-white p-2 lg:hidden"
+          className="flex flex-col gap-2 rounded border border-primary-500 bg-white p-2 shadow lg:hidden"
         >
           <p className="text-center text-sm font-semibold text-gray-700">
             {status === 'U'

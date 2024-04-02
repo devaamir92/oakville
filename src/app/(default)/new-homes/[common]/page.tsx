@@ -45,14 +45,14 @@ const Page = async (searchParams: any) => {
         </div>
         <div className="flex flex-col items-center gap-1 md:items-start">
           <div className="flex items-center gap-1">
-            {/* <Link
+            <Link
               href="
                 tel:416-837-2000"
               className="text-sm  text-gray-800"
             >
               416 837 2000
             </Link>
-            <span>/</span> */}
+            <span>/</span>
             <Link
               href="
                 tel:647-929-9072"

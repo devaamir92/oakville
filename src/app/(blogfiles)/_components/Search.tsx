@@ -15,7 +15,8 @@ function Search() {
 
   const [searchText, setSearchText] = useState('');
 
-  const handleSearchRoute = () => {
+  const handleSearchRoute = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const params = new URLSearchParams();
     params.set('search', searchText);
     params.set('page', '1');
@@ -27,11 +28,11 @@ function Search() {
     params.delete('search');
     params.set('page', '1');
     replace(`${pathname}?${params.toString()}`);
-  }, 300);
+  }, 200);
 
   return (
     <div>
-      <form className="">
+      <form onSubmit={e => handleSearchRoute(e)}>
         <label
           htmlFor="search"
           className="group flex h-[36px] items-center overflow-hidden rounded bg-white px-1.5 text-sm hover:rounded-l-none hover:rounded-r lg:min-w-96 hover:lg:rounded"
@@ -41,22 +42,22 @@ function Search() {
             id="search"
             name="search"
             placeholder="Search blogs..."
-            onInput={e => {
+            value={searchText}
+            onChange={e => {
               setSearchText(e.currentTarget.value);
-              if (e.currentTarget.value.length === 0) {
-                handleClear();
-              }
             }}
+            onInput={
+              searchText
+                ? () => {
+                    handleClear();
+                  }
+                : undefined
+            }
             className={cn(
-              'full bg-white-500 absolute right-[58px] hidden h-[36px] w-[calc(100%-72px)] rounded-l pl-2  text-black placeholder:text-gray-700 focus:outline-none group-hover:block lg:relative lg:right-0 lg:block lg:flex-1'
+              'full absolute right-[58px] hidden h-[36px] w-[calc(100%-72px)] rounded-l bg-transparent pl-2  text-black placeholder:text-gray-700 focus:outline-none group-hover:block lg:relative lg:right-0 lg:block lg:flex-1'
             )}
           />
-          <button
-            type="button"
-            aria-label="Search"
-            className=" p-2"
-            onClick={handleSearchRoute}
-          >
+          <button type="submit" aria-label="Search" className=" p-2">
             <FaSearch className="text-tertiary-500" />
           </button>
         </label>

@@ -60,7 +60,7 @@ const Search: React.FC<SearchProps> = ({
 
       <div className="flex flex-col-reverse gap-6 lg:flex-row">
         <div className="flex h-fit flex-col gap-6 lg:w-[360px]">
-          <div className="flex-1 rounded bg-secondary-400 px-8 py-4">
+          <div className="flex-1 rounded bg-secondary-400 p-4">
             <h3 className="text-center text-xl font-medium text-gray-800">
               Popular Searches
             </h3>
@@ -77,7 +77,7 @@ const Search: React.FC<SearchProps> = ({
             </div>
           </div>
 
-          <div className="flex-1 rounded bg-secondary-400 px-8 py-4">
+          <div className="flex-1 rounded bg-secondary-400 p-4">
             <h4 className="mb-2 text-center text-xl font-medium text-gray-800">
               Featured Listings
             </h4>

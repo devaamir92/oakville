@@ -1,5 +1,7 @@
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
+import selectItems from '@lib/api/properties/selectItems';
+
 export async function popupDetail(slug: string) {
   const queryBuilder = RequestQueryBuilder.create();
 
@@ -9,25 +11,7 @@ export async function popupDetail(slug: string) {
     value: slug,
   });
 
-  queryBuilder.select([
-    'Ml_num',
-    'Addr',
-    'Apt_num',
-    'Lp_dol',
-    'Br',
-    'Br_plus',
-    'Bath_tot',
-    'Park_spcs',
-    'Status',
-    'Is_locked',
-    'Slug',
-    'Community',
-    'Bsmt1_out',
-    'Lat',
-    'Lng',
-    'S_r',
-    'Dom',
-  ]);
+  queryBuilder.select(selectItems);
   const res = await fetch(
     `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
     {
