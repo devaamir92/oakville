@@ -1,9 +1,13 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { MdLocationOn } from 'react-icons/md';
 
 import moment from 'moment';
+
+import { usePropLayout } from '@context/PropertiesContext';
 
 import LikeToggle from './LikeToggle';
 import LoginBtn from './loginbtn';
@@ -23,6 +27,8 @@ interface CardProps {
   status?: string;
   dom?: string;
   tssql?: string;
+  Lat?: string;
+  Lng?: string;
 }
 
 const ListingCard: React.FC<CardProps> = ({
@@ -39,9 +45,16 @@ const ListingCard: React.FC<CardProps> = ({
   status,
   dom,
   tssql,
+  Lat = '0',
+  Lng = '0',
 }) => {
+  const { setSelectedMls } = usePropLayout();
   return (
-    <div className="group relative overflow-hidden rounded border border-gray-300 bg-white transition-all duration-200 ease-in-out hover:shadow-xl">
+    <div
+      className="group relative overflow-hidden rounded border border-gray-300 bg-white transition-all duration-200 ease-in-out hover:shadow-xl"
+      onMouseEnter={() => setSelectedMls(Lat + Lng)}
+      onMouseLeave={() => setSelectedMls('')}
+    >
       {!session && <LoginBtn status={status} isLocked={isLocked} />}
 
       {session && !session?.user.verified && (
@@ -63,7 +76,7 @@ const ListingCard: React.FC<CardProps> = ({
           </div>
           <div className="absolute right-3 top-3">
             {status !== 'U' && (
-              <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold  text-primary">
+              <span className="rounded  bg-tertiary-500 px-3 py-1.5 text-sm font-semibold  text-white">
                 {(Number(dom) === 0 && moment(tssql).fromNow(true)) ||
                   (Number(dom) === 1 && '1 day') ||
                   `${dom} days`}

@@ -64,7 +64,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
                   </div>
                 }
               >
-                <Mapbox data={rows.data} selectedMls="W8177186" />
+                <Mapbox data={rows.data} />
               </Suspense>
             </section>
           )}

@@ -11,12 +11,12 @@ import { useLayout } from '@context/LayoutContext';
 import getBedroomString from '@utils/getbedroomString';
 
 interface PopupProps {
-  item: any;
+  items: any;
   show: boolean;
   handleModalClose: () => void;
 }
 
-const Modal: React.FC<PopupProps> = ({ item, show, handleModalClose }) => {
+const Modal: React.FC<PopupProps> = ({ items, show, handleModalClose }) => {
   const [session, setSession] = useState(null);
   const { login } = useLayout();
 
@@ -38,27 +38,32 @@ const Modal: React.FC<PopupProps> = ({ item, show, handleModalClose }) => {
             onEscapeKeyDown={handleModalClose}
             className="model fixed left-1/2 top-1/2 z-[3] w-96 -translate-x-1/2 -translate-y-1/2 rounded bg-white p-4  focus:outline-none"
           >
-            {item && (
-              <Card
-                session={session}
-                mls={item.Ml_num}
-                key={item.id}
-                bathrooms={item.Bath_tot ?? 0}
-                bedrooms={getBedroomString(
-                  Number(item.Br),
-                  Number(item.Br_plus)
-                )}
-                imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
-                location={item.Addr}
-                price={Number(item.Lp_dol).toLocaleString() ?? '0'}
-                parking={item.Park_spcs ?? '0'}
-                slug={getSlug(item.Community, item.Slug)}
-                isLocked={item.Is_locked}
-                tssql={item.Timestamp_sql}
-                dom={item.Dom}
-                status={item.Status}
-              />
-            )}
+            <div className="h-80 w-full overflow-y-auto">
+              <div className="flex flex-col gap-4">
+                {items &&
+                  items.map((item: any) => (
+                    <Card
+                      session={session}
+                      mls={item.Ml_num}
+                      key={item.id}
+                      bathrooms={item.Bath_tot ?? 0}
+                      bedrooms={getBedroomString(
+                        Number(item.Br),
+                        Number(item.Br_plus)
+                      )}
+                      imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
+                      location={item.Addr}
+                      price={Number(item.Lp_dol).toLocaleString() ?? '0'}
+                      parking={item.Park_spcs ?? '0'}
+                      slug={getSlug(item.Community, item.Slug)}
+                      isLocked={item.Is_locked}
+                      tssql={item.Timestamp_sql}
+                      dom={item.Dom}
+                      status={item.Status}
+                    />
+                  ))}
+              </div>
+            </div>
           </Content>
         </Portal>
       </Root>

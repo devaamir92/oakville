@@ -65,7 +65,7 @@ const Property: React.FC<PropertyProps> = async ({
     <div className="relative">
       <div className="container flex flex-col gap-4 p-4">
         <Desktop>
-          <Toolbar type="sale" view={view} />
+          <Toolbar type="sale" view={view} rows={rows?.data} />
           <div className="mt-[48px] flex justify-between gap-2">
             <h1
               className={cn(
@@ -107,6 +107,8 @@ const Property: React.FC<PropertyProps> = async ({
               isLocked={item.Is_locked}
               dom={item.Dom}
               tssql={item.Timestamp_sql}
+              Lat={item.Lat}
+              Lng={item.Lng}
             />
           ))}
         </div>

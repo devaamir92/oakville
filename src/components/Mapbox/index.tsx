@@ -10,19 +10,19 @@ import MapGL, {
   NavigationControl,
   Source,
 } from '@urbica/react-map-gl';
+import { groupBy } from 'lodash-es';
 
 // import Cluster from '@urbica/react-map-gl-cluster';
 
-import { FaHome } from 'react-icons/fa';
-
 import mapLine from '@assets/map/map.json';
+import { usePropLayout } from '@context/PropertiesContext';
 
 import cn from '@utils/cn';
 
 import Popup from './Popup';
+import { popupDetail } from './actions';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { popupDetail } from './actions';
 
 // const ClusterMarker = dynamic(() => import('./Maker').then(mod => mod.default));
 
@@ -34,15 +34,17 @@ interface MapProps {
     Lp_dol: number;
     Slug: string;
   }[];
-  selectedMls?: string;
 }
 
 const MAPBOX_ACCESS_TOKEN =
   'pk.eyJ1IjoiaW1hdHRlaCIsImEiOiJja3J2dTZqamEwYTZpMnZsanUxcWhrcW9jIn0.c3dQrAz3T8LQNnfvP3z_Wg';
 
-const Map: React.FC<MapProps> = ({ data, selectedMls }) => {
+const Map: React.FC<MapProps> = ({ data }) => {
   const [popup, setPopup] = useState<any>(null);
   const [open, setOpen] = useState(false);
+  const { selectedMls, pageMls } = usePropLayout();
+
+  const groupData = groupBy(data, 'Lat');
 
   // const component = (props: any) => {
   //   return (
@@ -88,46 +90,106 @@ const Map: React.FC<MapProps> = ({ data, selectedMls }) => {
         >
           
         </Cluster> */}
+        {Object.values(groupData).map(item => (
+          <Marker
+            key={item[0].Ml_num}
+            latitude={parseFloat(item[0].Lat)}
+            longitude={parseFloat(item[0].Lng)}
+          >
+            <button
+              aria-label="marker"
+              type="button"
+              onClick={async () => {
+                const res = await popupDetail(
+                  item.map(property => property.Ml_num)
+                );
 
-        {data.map(item => (
+                setPopup(res);
+                setOpen(true);
+              }}
+              className={cn(
+                'relative size-4 cursor-pointer rounded-full bg-tertiary-500 text-white shadow-[3px_4px_5px_#0000008f] ring-2 ring-gray-300 transition-all duration-300 ease-in-out hover:scale-125',
+                {
+                  'bg-red-500 ring-gray-300': pageMls?.includes(item[0].Ml_num),
+                },
+                {
+                  'scale-150 bg-red-500':
+                    item[0].Lat + item[0].Lng === selectedMls,
+                }
+              )}
+            >
+              <span
+                className={cn(
+                  'absolute -left-4 top-5 flex  h-5 w-12 items-center justify-center rounded border border-primary-300 bg-white text-xs font-medium text-black shadow',
+                  {
+                    'border-white bg-red-500 text-gray-300': pageMls?.includes(
+                      item[0].Ml_num
+                    ),
+                  },
+                  {
+                    hidden: item.length === 1,
+                  }
+                )}
+              >
+                {item.length} units
+              </span>
+              {/* <span
+                className={cn(
+                  'absolute inset-x-0 z-50 size-4 cursor-pointer rounded-full bg-tertiary-500 text-white shadow-[3px_4px_5px_#0000008f] ring-2 ring-gray-300 transition-all duration-300 ease-in-out hover:scale-125',
+                  {
+                    'scale-150 bg-red-500':
+                      item[0].Lat + item[0].Lng === selectedMls,
+                  },
+                  {
+                    'bg-red-500 ring-gray-300': pageMls?.includes(
+                      item[0].Ml_num
+                    ),
+                  }
+                )}
+              >
+                {item.length > 1 && item.length}
+              </span> */}
+            </button>
+          </Marker>
+        ))}
+
+        {/* {data.map(item => (
           <Marker
             key={item.Ml_num}
             latitude={parseFloat(item.Lat)}
             longitude={parseFloat(item.Lng)}
           >
             <button
+              aria-label="marker"
               type="button"
               onClick={async () => {
                 const res = await popupDetail(item.Slug);
                 setPopup(res);
                 setOpen(true);
               }}
-              className="relative inline-block cursor-pointer select-none"
+              className={cn('relative z-0')}
             >
               <span
                 className={cn(
-                  'absolute flex items-center justify-center gap-1 rounded-md bg-green-800 p-2 text-center font-normal text-white transition-all duration-100 after:absolute after:left-1/2 after:top-full after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-transparent after:border-t-primary hover:scale-150 hover:bg-green-600',
+                  'absolute inset-x-0 z-50 size-4 cursor-pointer rounded-full bg-tertiary-500 shadow-[3px_4px_5px_#0000008f] ring-2 ring-gray-300 transition-all duration-300 ease-in-out hover:scale-125',
                   {
-                    'scale-150 bg-green-600': item.Ml_num === selectedMls,
+                    'scale-150 bg-red-500': item.Lat + item.Lng === selectedMls,
+                  },
+                  {
+                    'bg-red-500 ring-gray-300': pageMls?.includes(item.Ml_num),
                   }
                 )}
-              >
-                <FaHome />
-                {Intl.NumberFormat('en-US', {
-                  notation: 'compact',
-                  maximumFractionDigits: 2,
-                }).format(item.Lp_dol)}
-              </span>
+              />
             </button>
           </Marker>
-        ))}
+        ))} */}
 
         <NavigationControl position="top-left" />
       </MapGL>
       {popup && (
         <Popup
           show={open}
-          item={popup}
+          items={popup}
           handleModalClose={() => {
             setOpen(false);
             setPopup(null);

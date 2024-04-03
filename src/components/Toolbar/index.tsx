@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaChevronDown, FaRepeat } from 'react-icons/fa6';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -11,6 +11,8 @@ import Dropdown from '@components/ui/Dropdown';
 
 import cn from '@utils/cn';
 
+import { usePropLayout } from '@context/PropertiesContext';
+
 import Price from './Price';
 import Filters from './Filters';
 import ViewChanger from './View';
@@ -19,6 +21,7 @@ import ListAlert from './ListAlert';
 interface Props {
   type: 'sale' | 'rent';
   view?: string | null;
+  rows?: any;
 }
 
 const FiltersData = {
@@ -188,9 +191,16 @@ const FiltersData = {
 //   },
 // ];
 
-const Toolbar: React.FC<Props> = ({ type, view }) => {
+const Toolbar: React.FC<Props> = ({ type, view, rows }) => {
   const pathname = usePathname();
   const { replace } = useRouter();
+
+  const { setPageMls } = usePropLayout();
+
+  useEffect(() => {
+    const mls = rows.map((row: any) => row.Ml_num);
+    setPageMls(mls);
+  }, [rows, setPageMls]);
 
   const clearFilters = () => {
     replace(pathname);

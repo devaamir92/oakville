@@ -1,28 +1,31 @@
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import selectItems from '@lib/api/properties/selectItems';
+import { httpClient } from '@lib/httpclient';
 
-export async function popupDetail(slug: string) {
+export async function popupDetail(mls: any) {
   const queryBuilder = RequestQueryBuilder.create();
 
-  queryBuilder.setFilter({
-    field: 'Slug',
-    operator: '$eq',
-    value: slug,
+  const mlsQuery: any =
+    (mls && {
+      Ml_num: {
+        $in: mls,
+      },
+    }) ||
+    {};
+
+  queryBuilder.search({
+    ...mlsQuery,
   });
 
   queryBuilder.select(selectItems);
-  const res = await fetch(
-    `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
-    {
-      method: 'GET',
-      next: {
-        tags: [slug],
-      },
-      cache: 'no-cache',
-    }
-  );
-  const property = await res.json();
 
-  return property.data[0];
+  const res = await httpClient.get(`/api/v1/property?${queryBuilder.query()}`, {
+    next: {
+      tags: [mls],
+    },
+  });
+
+  const data: any = await res;
+  return data.data;
 }

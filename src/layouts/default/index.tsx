@@ -4,6 +4,8 @@ import { ToastContainer } from 'react-toastify';
 
 import Loader from '@components/Loader';
 
+import PropProvider from '@context/PropertiesContext';
+
 import Header from './Header';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,15 +29,17 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
           pauseOnHover
           toastClassName="text-sm"
         />
-        <Suspense
-          fallback={
-            <div className="flex h-screen items-center justify-center ">
-              <Loader />
-            </div>
-          }
-        >
-          {children}
-        </Suspense>
+        <PropProvider>
+          <Suspense
+            fallback={
+              <div className="flex h-screen items-center justify-center ">
+                <Loader />
+              </div>
+            }
+          >
+            {children}
+          </Suspense>
+        </PropProvider>
       </main>
       {/* <Footer /> */}
     </>
