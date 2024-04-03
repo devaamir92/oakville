@@ -49,11 +49,11 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked, status }) => {
           onClick={() => setLogin(true)}
           className="flex flex-col gap-2 rounded border border-primary-500 bg-white p-2 shadow lg:hidden"
         >
-          <p className="text-center text-sm font-semibold text-gray-700">
+          <p className="text-center text-sm font-semibold text-black">
             {status === 'U'
               ? 'Real estate boards require you to create an account to view sold listing.'
               : 'Real estate boards require you to be signed in to access this property.'}
-            <span className="mx-2 text-blue-500 underline">Login Here</span>
+            <span className="mx-2 text-primary-700 underline">Login Here</span>
           </p>
         </button>
       </div>
