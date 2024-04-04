@@ -23,7 +23,7 @@ const Summary: React.FC<SummaryProps> = ({ data }) => {
                     {item.name}
                   </td>
                   <td className="w-3/5 py-1.5 text-right font-medium capitalize text-gray-700 md:text-left">
-                    {item.name === 'Pricing' ? `$${item.value}` : item.value}
+                    {item.name === 'Pricing' ? `${item.value}` : item.value}
                   </td>
                 </tr>
               ))}

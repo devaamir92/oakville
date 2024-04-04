@@ -141,7 +141,9 @@ const Page = async (searchParams: any) => {
             features={rows.features}
           />
           {/* <Neighbourhood /> */}
-          <FloorPlanTable data={rows.floorPlan} />
+          {rows.floorPlan.length > 0 && (
+            <FloorPlanTable data={rows.floorPlan} />
+          )}
           {rows.lat && rows.lng ? (
             <div className="h-56 overflow-hidden rounded">
               <MapPinLocation
@@ -149,6 +151,9 @@ const Page = async (searchParams: any) => {
                   {
                     Lng: rows.lng,
                     Lat: rows.lat,
+                    address: rows.address,
+                    name: rows.name,
+                    color: '#343a4a',
                   },
                 ]}
                 icon={<FaHome />}

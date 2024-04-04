@@ -24,6 +24,7 @@ const Developments = async ({ searchParams }: any) => {
     searchParams.search,
     Number(searchParams?.page ?? 1) ?? 1
   );
+
   return (
     <div className="flex h-full flex-col pb-4">
       <div className="w-full">
@@ -75,7 +76,7 @@ const Developments = async ({ searchParams }: any) => {
                     <div className="flex items-center gap-1 text-sm font-normal">
                       <p>Est. Completion: {item.estimatedCompletionDate}</p>
                       <div className="flex h-4 w-[1px] bg-primary-500" />
-                      <p>Starting At: ${item.price}</p>
+                      <p>Starting At: {item.price}</p>
                     </div>
                     <h3 className="text-base font-medium capitalize text-primary-500">
                       {item.neighbourhood}
