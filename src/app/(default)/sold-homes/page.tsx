@@ -26,6 +26,10 @@ const Property: React.FC<PropertyProps> = async ({ searchParams }) => {
   return (
     <div className="container flex flex-col justify-center gap-4 py-4">
       <SoldTopBar />
+      <p className="text-center">
+        Real estate boards require you to be signed in to access sold prices
+        history.
+      </p>
       <hr />
 
       <Suspense

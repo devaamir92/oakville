@@ -120,11 +120,10 @@ const Map: React.FC<MapProps> = ({ data }) => {
             >
               <span
                 className={cn(
-                  'absolute -left-4 top-5 flex  h-5 w-12 items-center justify-center rounded border border-primary-300 bg-white text-xs font-medium text-black shadow',
+                  'absolute -left-[15px] top-6 flex  h-5 w-12 items-center justify-center rounded border border-primary-300 bg-white text-xs font-medium text-black shadow after:absolute after:bottom-full after:left-1/2 after:ml-[-5px] after:border-4 after:border-solid after:border-x-transparent after:border-b-primary-400 after:border-t-transparent',
                   {
-                    'border-white bg-red-500 text-gray-300': pageMls?.includes(
-                      item[0].Ml_num
-                    ),
+                    'border-white bg-red-500 text-gray-300 after:border-b-red-500':
+                      pageMls?.includes(item[0].Ml_num),
                   },
                   {
                     hidden: item.length === 1,

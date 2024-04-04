@@ -29,15 +29,15 @@ interface MapProps {
     color?: string;
   }[];
   icon?: React.ReactNode;
+  zoom?: number;
 }
 
 const MAPBOX_ACCESS_TOKEN =
   'pk.eyJ1IjoiaW1hdHRlaCIsImEiOiJja3J2dTZqamEwYTZpMnZsanUxcWhrcW9jIn0.c3dQrAz3T8LQNnfvP3z_Wg';
 
-const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
+const MapPinLocation: React.FC<MapProps> = ({ data, icon, zoom }) => {
   const [popup, setPopup] = useState<any>(null);
   const [open, setOpen] = useState(false);
-
   const styles = (color?: string) => {
     return {
       '--bg-color': color,
@@ -52,7 +52,7 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
         accessToken={MAPBOX_ACCESS_TOKEN}
         latitude={data ? Number(data[0].Lat) : 43.47151010338547}
         longitude={data ? Number(data[0].Lng) : -79.74806084049912}
-        zoom={11.9}
+        zoom={zoom || 12}
         doubleClickZoom
         onViewportChange={() => {}}
         boxZoom
@@ -87,9 +87,9 @@ const MapPinLocation: React.FC<MapProps> = ({ data, icon }) => {
                         case 'sikh':
                           return <SikhIcon />;
                         case 'christian':
-                          return <FaCross size="16" />;
+                          return <FaCross size="14" />;
                         case 'islam':
-                          return <FaStarAndCrescent size="16" />;
+                          return <FaStarAndCrescent size="14" />;
                         default:
                           return null;
                       }

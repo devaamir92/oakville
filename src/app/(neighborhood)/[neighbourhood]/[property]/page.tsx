@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 
 import { BsFillEnvelopeFill, BsFillTelephoneFill } from 'react-icons/bs';
-import { FaHome } from 'react-icons/fa';
 
 import { Share } from '@components/Share';
 
@@ -22,13 +21,13 @@ import PriceHistory from '@components/PriceHistory';
 import Demographics from '@components/Demographics';
 import VerBtn from '@components/ListingCard/verBtn';
 import BlurContainer from '@components/BlurContainer';
-import MapPinLocation from '@components/MapPinLocation';
 import ListingDetails from '@components/ListingDetails';
 import PropertyDetails from '@components/PropertyDetails';
 import ListingOverview from '@components/ListingOverview';
 import ListingHighlights from '@components/ListingHighlights';
 import LikeToggle from '@components/ListingCard/LikeToggle';
 import getPropertyDetails from '@lib/api/properties/getPropertyDetails';
+import NeighbourhoodMap from '@components/NeighbourhoodMap';
 
 interface PageProps {
   params: {
@@ -265,22 +264,21 @@ async function Page({ params }: PageProps) {
             <PropertyDetails session={session} data={property} />
 
             <Rooms session={session} data={property} />
-            {property.Lng && property.Lat ? (
-              <div className="h-56 overflow-hidden rounded">
-                <MapPinLocation
-                  data={[
-                    {
-                      Lng: property.Lng,
-                      Lat: property.Lat,
-                    },
-                  ]}
-                  icon={<FaHome />}
-                />
-              </div>
-            ) : (
-              false
+            <NeighbourhoodMap
+              location={[
+                {
+                  lng: property.Lng,
+                  lat: property.Lat,
+                  color: '#343a4a',
+                  address: property.Addr,
+                  name: property.addr,
+                },
+              ]}
+            />
+
+            {property.Lng && property.Lat && (
+              <Demographics community={property.Community} />
             )}
-            <Demographics community={property.Community} />
           </div>
         </div>
         <div className="mb-4 grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-3">

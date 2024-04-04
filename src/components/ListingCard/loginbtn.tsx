@@ -27,7 +27,7 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked, status }) => {
           }
         )}
       >
-        <div className="relative hidden size-full items-center justify-center lg:flex">
+        <div className="relative flex size-full items-center justify-center">
           <TooltipLogin
             title={
               status === 'U'
@@ -44,7 +44,7 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked, status }) => {
             </button>
           </TooltipLogin>
         </div>
-        <button
+        {/* <button
           type="button"
           onClick={() => setLogin(true)}
           className="flex flex-col gap-2 rounded border border-primary-500 bg-white p-2 shadow lg:hidden"
@@ -55,7 +55,7 @@ const LoginBtn: React.FC<LoginBtnProps> = ({ isLocked, status }) => {
               : 'Real estate boards require you to be signed in to access this property.'}
             <span className="mx-2 text-primary-700 underline">Login Here</span>
           </p>
-        </button>
+        </button> */}
       </div>
     </div>
   );
