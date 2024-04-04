@@ -9,13 +9,8 @@ import { FaDollarSign, FaHome, FaShoppingCart, FaTree } from 'react-icons/fa';
 import MapPinLocation from '@components/MapPinLocation';
 import cn from '@utils/cn';
 
-import { banks } from '@assets/banks/file.json';
-import {
-  catholicSchools,
-  montessoriSchools,
-  privateSchools,
-  publicSchools,
-} from '@assets/schools/file.json';
+import banksData from '@assets/banks/file.json';
+import schoolsData from '@assets/schools/file.json';
 import healthcare from '@assets/healthcare/file.json';
 import parks from '@assets/parks/file.json';
 import religious from '@assets/religious/file.json';
@@ -40,22 +35,22 @@ const NeighbourhoodMap: React.FC<NeighbourhoodMapProps> = ({ location }) => {
 
   const getSchools = () => {
     const schools = [
-      ...publicSchools.map(school => ({
+      ...schoolsData.publicSchools.map(school => ({
         ...school,
         type: 'Public Schools',
         color: '#e0434a',
       })),
-      ...catholicSchools.map(school => ({
+      ...schoolsData.catholicSchools.map(school => ({
         ...school,
         type: 'Catholic Schools',
         color: '#0E7AEB',
       })),
-      ...montessoriSchools.map(school => ({
+      ...schoolsData.montessoriSchools.map(school => ({
         ...school,
         type: 'Montessori Schools',
         color: '#F6AA3C',
       })),
-      ...privateSchools.map(school => ({
+      ...schoolsData.privateSchools.map(school => ({
         ...school,
         type: 'Private Schools',
         color: '#5EC976',
@@ -249,7 +244,7 @@ const NeighbourhoodMap: React.FC<NeighbourhoodMapProps> = ({ location }) => {
             data={(() => {
               if (active === 'Location') return getData(location, active);
               if (active === 'Schools') return getData(getSchools(), active);
-              if (active === 'Banks') return getData(banks, active);
+              if (active === 'Banks') return getData(banksData.banks, active);
               if (active === 'Stores') return getData(stores, active);
               if (active === 'Religious Places')
                 return getData(religious, active);
