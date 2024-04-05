@@ -5,12 +5,12 @@ import Link from 'next/link';
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import cn from '@utils/cn';
 
 const defaultClass =
-  'border rounded bg-white flex justify-center items-center text-sm w-7 h-7 text-gray-700 transition-colors duration-300 hover:border-blue-500 hover:text-blue-500';
+  'border rounded bg-white flex justify-center items-center text-sm w-7 h-7 text-gray-700 transition-colors duration-300 hover:border-primary-500 hover:text-primary-500 disabled:bg-gray-200 disabled:cursor-not-allowed disabled:hover:border-gray-200 disabled:hover:text-gray-700';
 
 interface PaginationProps {
   currentPage: number;
@@ -25,6 +25,7 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   const searchParams = useSearchParams();
   const tempQuery = searchParams.toString();
+  const { push } = useRouter();
 
   let pagesToShow = 5;
   if (currentPage === 4) {
@@ -47,13 +48,17 @@ const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <div className="flex justify-center gap-2">
-      <Link
+      <button
+        type="button"
+        title="Previous Page"
+        disabled={currentPage === 1}
         aria-label={`Previous Page ${currentPage - 1}`}
-        href={`${location}?${getQuery(currentPage - 1)}`}
+        // href={`${location}?${getQuery(currentPage - 1)}`}
+        onClick={() => push(`${location}?${getQuery(currentPage - 1)}`)}
         className={defaultClass}
       >
         <FaChevronLeft size={10} />
-      </Link>
+      </button>
       {!pages.includes(2) && (
         <>
           <Link
@@ -102,13 +107,17 @@ const Pagination: React.FC<PaginationProps> = ({
           {totalPages}
         </Link>
       )}
-      <Link
+      <button
+        disabled={currentPage === totalPages}
+        type="button"
         aria-label={`Next Page ${currentPage + 1}`}
-        href={`${location}?${getQuery(currentPage + 1)}`}
+        title="Next Page"
+        // href={`${location}?${getQuery(currentPage + 1)}`}
         className={defaultClass}
+        onClick={() => push(`${location}?${getQuery(currentPage + 1)}`)}
       >
         <FaChevronRight size={10} />
-      </Link>
+      </button>
     </div>
   );
 };

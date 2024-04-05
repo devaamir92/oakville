@@ -4,15 +4,14 @@ import moment from 'moment';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { FaRegCircleRight } from 'react-icons/fa6';
 
-import CategoryFilter from '@app/(blogfiles)/_components/CategoryFilter';
 import { Share } from '@components/Share';
 import {
   getBlogMetaData,
   getRecentBlogs,
   getSingleBlog,
 } from '@lib/api/getBlogs';
+import BlogCard from '@components/BlogCard';
 
 export async function generateMetadata({
   params,
@@ -96,40 +95,6 @@ const Page = async ({ params }: any) => {
               alt={blog.imageAlt}
               className="rounded object-cover object-center"
             />
-            <div className="absolute left-4 top-4">
-              {/* <div className="flex flex-wrap gap-1.5">
-              <Link
-                href="/"
-                className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
-              >
-                Home Sellers
-              </Link>
-              <Link
-                href="/"
-                className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
-              >
-                Real Estate and Technology
-              </Link>
-              <Link
-                href="/"
-                className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
-              >
-                Bungalows
-              </Link>
-              <Link
-                href="/"
-                className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
-              >
-                Home Buyers
-              </Link>
-              <Link
-                href="/"
-                className="rounded bg-primary-500 px-3 py-1 text-sm text-white"
-              >
-                Real Estate News
-              </Link>
-            </div> */}
-            </div>
           </div>
           <div
             className="element w-full pt-4 text-justify"
@@ -169,44 +134,7 @@ const Page = async ({ params }: any) => {
               </div>
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-1">
                 {data.map((item: any) => (
-                  <Link
-                    key={item.id}
-                    href={`/blog/${item.slug
-                      .toLowerCase()
-                      .split(' ')
-                      .join('-')}`}
-                    className="group flex h-auto flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
-                  >
-                    <div className="relative aspect-[2.25]">
-                      <Image
-                        src={`https://api.preserveoakville.ca/${item.image.images.original.url}`}
-                        fill
-                        alt={item.imageAlt}
-                        className="object-cover"
-                      />
-
-                      <CategoryFilter categories={item.categories} />
-                    </div>
-                    <div className="flex flex-col gap-1 p-3">
-                      <span className="truncate text-base font-medium">
-                        {item.title}
-                      </span>
-                      <div className="flex justify-between text-center">
-                        <p className="text-sm text-gray-500">
-                          {moment(item.createdAt).format('MMM D, YYYY')}
-                        </p>
-                        <button
-                          type="button"
-                          title="Read More"
-                          className="flex items-center gap-1 text-sm text-primary-500 transition-all duration-300 ease-in-out
-                      group-hover:font-semibold"
-                        >
-                          <span>Read More</span>
-                          <FaRegCircleRight />
-                        </button>
-                      </div>
-                    </div>
-                  </Link>
+                  <BlogCard key={item.id} blog={item} showCategory />
                 ))}
               </div>
             </div>

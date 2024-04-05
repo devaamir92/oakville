@@ -1,16 +1,11 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import moment from 'moment';
-
-import { FaRegCircleRight } from 'react-icons/fa6';
-
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next/types';
 
-import Pagination from '@components/ui/Pagination';
-
-// import CategoryFilter from '../_components/CategoryFilter';
 import { getAllBlogs } from '@lib/api/getBlogs';
+
+import Loader from '@components/Loader';
+import BlogCard from '@components/BlogCard';
+import Pagination from '@components/ui/Pagination';
 
 import BlogToolbar from '../_components/BlogToolbar';
 
@@ -23,7 +18,7 @@ export const metadata: Metadata = {
 const BlogPage = async ({ searchParams }: any) => {
   const blogs: any = await getAllBlogs(
     searchParams?.search?.toString() || '',
-    Number(searchParams?.page ?? 1) ?? 1
+    Number(searchParams?.page) || 1
   );
 
   return (
@@ -38,51 +33,27 @@ const BlogPage = async ({ searchParams }: any) => {
               </h1>
             </div>
             <div className="mb-4 h-[1px] bg-gray-300" />
-            <div className="mb-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-              {blogs.data.map((blog: any) => (
-                <Link
-                  key={blog.id}
-                  href={`/blog/${blog.slug.toLowerCase().split(' ').join('-')}`}
-                  className="group flex size-full flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
-                >
-                  <div className="relative aspect-[2.25]">
-                    <Image
-                      src={`https://api.preserveoakville.ca/${blog.image.images.small.url}`}
-                      fill
-                      alt={blog.imageAlt}
-                      className="size-full object-cover object-center"
-                    />
-                    {/* <CategoryFilter categories={blog.categories} /> */}
-                  </div>
-                  <div className="flex flex-col gap-1 p-3">
-                    <span className="truncate text-base font-medium">
-                      {blog.title}
-                    </span>
-                    <div className="flex justify-between text-center">
-                      <p className="text-sm text-gray-500">
-                        {moment(blog.createdAt).format('MMM D, YYYY')}
-                      </p>
-                      <button
-                        type="button"
-                        title="Read More"
-                        className="flex items-center gap-1 text-sm text-primary-500 transition-all duration-300 ease-in-out
-                      group-hover:font-semibold"
-                      >
-                        <span>Read More</span>
-                        <FaRegCircleRight />
-                      </button>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-            {blogs?.pageCount > 1 && (
-              <Pagination
-                totalPages={blogs.pageCount}
-                currentPage={blogs.page}
-                location="/blog"
-              />
-            )}
+            <Suspense
+              key={searchParams?.page ?? '1'}
+              fallback={
+                <div className="flex h-[calc(100vh-225px)] items-center justify-center">
+                  <Loader />
+                </div>
+              }
+            >
+              <div className="mb-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
+                {blogs.data.map((blog: any) => (
+                  <BlogCard key={blog.id} blog={blog} />
+                ))}
+              </div>
+              {blogs?.pageCount > 1 && (
+                <Pagination
+                  totalPages={blogs.pageCount}
+                  currentPage={blogs.page}
+                  location="/blog"
+                />
+              )}
+            </Suspense>
           </div>
         </section>
       </div>

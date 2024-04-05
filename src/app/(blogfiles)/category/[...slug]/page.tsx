@@ -1,19 +1,20 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import moment from 'moment';
-
-import { FaRegCircleRight } from 'react-icons/fa6';
-
-import CategoryFilter from '@app/(blogfiles)/_components/CategoryFilter';
+import React, { Suspense } from 'react';
 
 import Pagination from '@components/ui/Pagination';
 import BlogToolbar from '@app/(blogfiles)/_components/BlogToolbar';
 import { getAllBlogs } from '@lib/api/getBlogs';
+import BlogCard from '@components/BlogCard';
+import Loader from '@components/Loader';
 
-const BlogPage = async (searchParams: any) => {
+interface BlogPageProps {
+  params: { slug: string };
+  searchParams: any;
+}
+
+const BlogPage: React.FC<BlogPageProps> = async ({ params, searchParams }) => {
   const blogs: any = await getAllBlogs(
-    searchParams.params.slug.toString().split('-').join(' ')
+    params.slug.toString().split('-').join(' '),
+    Number(searchParams?.page) || 1
   );
 
   return (
@@ -32,58 +33,31 @@ const BlogPage = async (searchParams: any) => {
             <div className="container flex flex-col">
               <div className="flex items-center justify-between">
                 <h1 className="mb-3 flex-1 text-center text-xl font-semibold capitalize md:text-2xl">
-                  {searchParams.params.slug.toString().split('-').join(' ')}
+                  {params.slug.toString().split('-').join(' ')}
                 </h1>
               </div>
               <div className="mb-4 h-[1px] bg-gray-300" />
-              <div className="mb-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
-                {blogs.data.map((blog: any) => (
-                  <Link
-                    key={blog.id}
-                    href={`/blog/${blog.slug
-                      .toLowerCase()
-                      .split(' ')
-                      .join('-')}`}
-                    className="group flex h-[300px] flex-col overflow-hidden rounded border border-gray-300 bg-white transition-all duration-300 ease-in-out hover:shadow-xl"
-                  >
-                    <div className="relative h-60">
-                      <Image
-                        src={`https://api.preserveoakville.ca/${blog.image.images.medium.url}`}
-                        fill
-                        alt={blog.imageAlt}
-                        className="object-cover"
-                      />
-                      <CategoryFilter categories={blog.categories} />
-                    </div>
-                    <div className="flex flex-col gap-1 p-3">
-                      <span className="truncate text-base font-medium">
-                        {blog.title}
-                      </span>
-                      <div className="flex justify-between text-center">
-                        <p className="text-sm text-gray-500">
-                          {moment(blog.createdAt).format('MMM D, YYYY')}
-                        </p>
-                        <button
-                          type="button"
-                          title="Read More"
-                          className="flex items-center gap-1 text-sm text-primary-500 transition-all duration-300 ease-in-out
-                      group-hover:font-semibold"
-                        >
-                          <span>Read More</span>
-                          <FaRegCircleRight />
-                        </button>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-              {blogs?.pageCount > 1 && (
-                <Pagination
-                  totalPages={blogs.pageCount}
-                  currentPage={blogs.page}
-                  location="/category"
-                />
-              )}
+              <Suspense
+                key={searchParams?.page ?? '1'}
+                fallback={
+                  <div className="flex h-[calc(100vh-225px)] items-center justify-center">
+                    <Loader />
+                  </div>
+                }
+              >
+                <div className="mb-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 ">
+                  {blogs.data.map((blog: any) => (
+                    <BlogCard key={blog.id} blog={blog} />
+                  ))}
+                </div>
+                {blogs?.pageCount > 1 && (
+                  <Pagination
+                    totalPages={blogs.pageCount}
+                    currentPage={blogs.page}
+                    location="/blog"
+                  />
+                )}
+              </Suspense>
             </div>
           </section>
         )}
