@@ -53,15 +53,17 @@ export default async function Header() {
         <header className="sticky top-0 z-30 h-[70px] bg-primary-500 py-2 shadow">
           <div className="container flex h-full flex-row items-center gap-2">
             <div className="flex w-full items-center justify-between lg:w-[75px]">
-              <MobileMenu
+              {/* <MobileMenu
                 session={session}
                 navLinks={navLinks}
                 listData={listData}
-              />
+              /> */}
               <Link href="/">
                 <Image
                   src="/images/png/oakville-leaf.png"
                   alt="logo"
+                  priority
+                  // sizes="100vw"
                   width={55}
                   height={55}
                   className="size-full overflow-hidden"
@@ -113,8 +115,9 @@ export default async function Header() {
               <Image
                 src="/images/png/oakville-leaf.png"
                 alt="logo"
+                priority
                 className="size-full overflow-hidden object-contain"
-                sizes="60px"
+                // sizes="100vw"
                 width={40}
                 height={40}
               />

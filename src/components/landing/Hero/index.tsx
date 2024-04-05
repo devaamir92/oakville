@@ -14,7 +14,7 @@ function Hero() {
         fill
         className="object-cover object-right"
         priority
-        sizes="100vh"
+        sizes="150vh"
       />
       <div className="absolute inset-x-0 h-full">
         <div className="container h-[calc(100%-70px)]">
@@ -25,7 +25,7 @@ function Hero() {
               alt="Oakville Preserve logo"
               width={240}
               height={100}
-              className="lg:w-[180px] xl:w-[240px]"
+              className="overflow-hidden object-contain lg:w-[180px] xl:w-[240px]"
             />
           </div>
           {/* Oakville Preserve logo End */}

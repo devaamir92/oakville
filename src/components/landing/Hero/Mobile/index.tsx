@@ -25,6 +25,7 @@ function HeroMobile() {
                 alt="Oakville Preserve logo"
                 width={135}
                 height={74}
+                className="h-[76px] w-[135px] overflow-hidden object-contain"
                 // className="h-[74px] w-[135px] md:mt-6 md:h-[100px] md:w-[200px]"
               />
             </div>
