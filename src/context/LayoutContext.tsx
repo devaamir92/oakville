@@ -8,8 +8,6 @@ type LayoutContextType = {
   onClose: () => void;
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
   setVerify: React.Dispatch<React.SetStateAction<boolean>>;
-  searchData: any;
-  setSearchData: React.Dispatch<React.SetStateAction<any>>;
 };
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
@@ -17,7 +15,6 @@ const LayoutContext = createContext<LayoutContextType | undefined>(undefined);
 const LayoutProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [login, setLogin] = useState<boolean>(false);
   const [verify, setVerify] = useState<boolean>(false);
-  const [searchData, setSearchData] = useState<any>({});
 
   const value = useMemo(() => {
     const onClose = () => {
@@ -30,10 +27,8 @@ const LayoutProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       setLogin,
       verify,
       setVerify,
-      searchData,
-      setSearchData,
     };
-  }, [login, verify, searchData]);
+  }, [login, verify]);
 
   return (
     <LayoutContext.Provider value={value}>{children}</LayoutContext.Provider>

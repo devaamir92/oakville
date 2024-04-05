@@ -53,11 +53,11 @@ export default async function Header() {
         <header className="sticky top-0 z-30 h-[70px] bg-primary-500 py-2 shadow">
           <div className="container flex h-full flex-row items-center gap-2">
             <div className="flex w-full items-center justify-between lg:w-[75px]">
-              {/* <MobileMenu
+              <MobileMenu
                 session={session}
                 navLinks={navLinks}
                 listData={listData}
-              /> */}
+              />
               <Link href="/">
                 <Image
                   src="/images/png/oakville-leaf.png"
