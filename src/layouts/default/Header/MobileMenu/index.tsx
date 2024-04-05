@@ -20,6 +20,8 @@ import Verification from '@components/ListingCard/Verification';
 
 import { useLayout } from '@context/LayoutContext';
 
+import { useFavLayout } from '@context/FavContext';
+
 import Auth from '../auth';
 
 import SignOut from '../auth/signOut';
@@ -40,12 +42,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { setLogin } = useLayout();
+  const { setFavourite } = useFavLayout();
 
   useEffect(() => {
     if (session?.user) {
       setLogin(false);
     }
-  }, [session?.user, setLogin]);
+    if (!session?.user) {
+      setFavourite([]);
+    }
+  }, [session?.user, setLogin, setFavourite]);
 
   return (
     <div className="flex items-center lg:hidden">

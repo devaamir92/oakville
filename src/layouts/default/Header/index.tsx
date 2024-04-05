@@ -7,12 +7,11 @@ import { getSession } from '@lib/getsession';
 
 import { Desktop, Mobile } from '@components/ua';
 
-import MobileMenu from './mobileMenu';
-import CommunitiesList from './communitiesList';
-
+import Profile from './Profile';
+import MobileMenu from './MobileMenu';
+import NavDropdown from './NavDropdown';
+import MobileSearch from './MobileSearch';
 import LoginButton from './auth/LoginButton';
-import ProfileList from './profileList';
-import MobileSearch from './mobileSearch.tsx';
 
 const navLinks = [
   { name: 'Home', link: '/' },
@@ -79,14 +78,12 @@ export default async function Header() {
                   let component;
 
                   if (name === 'Communities') {
-                    component = (
-                      <CommunitiesList key={name} listData={listData} />
-                    );
+                    component = <NavDropdown key={name} listData={listData} />;
                   } else if (name === 'Auth') {
                     component = !session?.user ? (
                       <LoginButton key={name} />
                     ) : (
-                      <ProfileList key={name} session={session} />
+                      <Profile key={name} session={session} />
                     );
                   } else {
                     component = (

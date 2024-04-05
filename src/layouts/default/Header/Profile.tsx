@@ -13,11 +13,11 @@ import { getFavourite } from '@lib/api/favourite';
 
 import SignOut from './auth/signOut';
 
-interface ProfileListProps {
+interface ProfileProps {
   session: any;
 }
 
-function ProfileList({ session }: ProfileListProps) {
+function Profile({ session }: ProfileProps) {
   const { onClose } = useLayout();
   const { setFavourite } = useFavLayout();
 
@@ -65,4 +65,4 @@ function ProfileList({ session }: ProfileListProps) {
   );
 }
 
-export default ProfileList;
+export default Profile;

@@ -14,7 +14,7 @@ type Props = {
     link: string;
   }[];
 };
-const CommunitiesList: React.FC<Props> = ({ listData }) => {
+const NavDropdown: React.FC<Props> = ({ listData }) => {
   return (
     <Dropdown
       label="Community"
@@ -42,4 +42,4 @@ const CommunitiesList: React.FC<Props> = ({ listData }) => {
   );
 };
 
-export default CommunitiesList;
+export default NavDropdown;
