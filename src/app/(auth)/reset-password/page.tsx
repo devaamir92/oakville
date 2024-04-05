@@ -10,8 +10,9 @@ import { Input } from '@components/ui/Input';
 import { sendResetLink } from '@lib/api/auth/resetLink';
 import { validateHash } from '@lib/api/auth/validateHash';
 import { resetPassword } from '@lib/api/auth/resetPassword';
-import InputPassword from '@components/ui/Input/inputPassword';
 import { useLayout } from '@context/LayoutContext';
+
+import InputPassword from '@components/ui/Input/inputPassword';
 
 const restPassSchema = z.object({
   password: z

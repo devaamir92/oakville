@@ -2,6 +2,7 @@
 import React, { Suspense } from 'react';
 
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import Loader from '@components/Loader';
 import cn from '@utils/cn';
@@ -157,6 +158,14 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
     usePolygon: true,
     S_r: 'Sale',
   });
+
+  if (
+    searchParams.params.neighbourhood !== 'rural-oakville' &&
+    searchParams.params.neighbourhood !== 'uptown-core' &&
+    searchParams.params.neighbourhood !== 'iroquois-ridge-north'
+  ) {
+    return notFound();
+  }
 
   return (
     <div className="flex flex-1 flex-col">
