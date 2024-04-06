@@ -49,7 +49,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
     <div className="flex flex-1 flex-col">
       <Desktop>
         <div className="flex flex-1">
-          {searchParams?.view !== 'list' && (
+          {searchParams?.view === 'map' && (
             <section
               style={{
                 height: 'calc(100vh - 70px)',
@@ -71,11 +71,9 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
 
           <section
             className={cn(
-              'flex w-full flex-col gap-4 overflow-y-auto bg-white lg:w-1/2 2xl:w-2/5',
+              'flex  w-full flex-col gap-4 overflow-y-auto bg-transparent xl:w-full 2xl:w-full',
               {
-                'w-full bg-transparent xl:w-full 2xl:w-full':
-                  searchParams?.view === 'list',
-                'mx-auto': searchParams?.view === 'list',
+                'lg:w-1/2 xl:w-1/2 2xl:w-2/5': searchParams?.view === 'map',
               }
             )}
           >
@@ -89,7 +87,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
             >
               <Property
                 page={Number(searchParams?.page ?? 1) ?? 1}
-                view={searchParams?.view ?? 'map'}
+                view={searchParams?.view ?? 'list'}
                 max={Number(searchParams?.max ?? 25000000)}
                 min={Number(searchParams?.min ?? 0)}
                 type=".D."
@@ -122,7 +120,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
             >
               <Property
                 page={Number(searchParams?.page ?? 1) ?? 1}
-                view={searchParams?.view ?? 'map'}
+                view={searchParams?.view ?? 'list'}
                 max={Number(searchParams?.max ?? 25000000)}
                 min={Number(searchParams?.min ?? 0)}
                 type=".D."

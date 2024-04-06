@@ -70,11 +70,9 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
 
           <section
             className={cn(
-              'flex w-full flex-col gap-4 overflow-y-auto bg-white lg:w-1/2 2xl:w-2/5',
+              'flex  w-full flex-col gap-4 overflow-y-auto bg-transparent xl:w-full 2xl:w-full',
               {
-                'w-full bg-transparent xl:w-full 2xl:w-full':
-                  searchParams?.view === 'list',
-                'mx-auto': searchParams?.view === 'list',
+                'lg:w-1/2 xl:w-1/2 2xl:w-2/5': searchParams?.view !== 'list',
               }
             )}
           >

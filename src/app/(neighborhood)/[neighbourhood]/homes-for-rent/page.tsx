@@ -53,7 +53,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
     <div className="flex flex-1 flex-col">
       <Desktop>
         <div className="flex flex-1">
-          {searchParams?.searchParams.view !== 'list' && (
+          {searchParams?.searchParams.view === 'map' && (
             <section
               style={{
                 height: 'calc(100vh - 70px)',
@@ -75,11 +75,10 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
 
           <section
             className={cn(
-              'relative flex w-full flex-col gap-4 overflow-y-auto bg-white  lg:w-1/2 2xl:w-2/5',
+              'flex  w-full flex-col gap-4 overflow-y-auto bg-transparent xl:w-full 2xl:w-full',
               {
-                'w-full bg-transparent xl:w-full 2xl:w-full':
-                  searchParams?.searchParams.view === 'list',
-                'mx-auto': searchParams?.searchParams.view === 'list',
+                'lg:w-1/2 xl:w-1/2 2xl:w-2/5':
+                  searchParams?.searchParams.view === 'map',
               }
             )}
           >
@@ -93,7 +92,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
             >
               <Property
                 page={Number(searchParams?.searchParams.page ?? 1) ?? 1}
-                view={searchParams?.searchParams.view ?? 'map'}
+                view={searchParams?.searchParams.view ?? 'list'}
                 max={Number(searchParams?.searchParams.max ?? 25000000)}
                 min={Number(searchParams?.searchParams.min ?? 0)}
                 type={searchParams?.searchParams.type}
@@ -132,7 +131,7 @@ const Page: React.FC<PageProps> = async (searchParams: any) => {
             >
               <Property
                 page={Number(searchParams?.searchParams.page ?? 1) ?? 1}
-                view={searchParams?.searchParams.view ?? 'map'}
+                view={searchParams?.searchParams.view ?? 'list'}
                 max={Number(searchParams?.searchParams.max ?? 25000000)}
                 min={Number(searchParams?.searchParams.min ?? 0)}
                 type={searchParams?.searchParams.type}

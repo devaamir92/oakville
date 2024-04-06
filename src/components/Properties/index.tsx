@@ -116,8 +116,8 @@ const Property: React.FC<PropertyProps> = async ({
           <Types type={getTypes(Status, S_r)} />
         </Mobile>
         <div
-          className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {
-            'xl:grid-cols-4': view === 'list',
+          className={cn('grid grid-cols-1 gap-4 md:grid-cols-2 ', {
+            'lg:grid-cols-3 xl:grid-cols-4': view === 'list',
           })}
         >
           {rows?.data?.map((item: any) => (
