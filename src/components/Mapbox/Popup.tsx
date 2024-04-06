@@ -56,8 +56,8 @@ const Modal: React.FC<PopupProps> = ({ items, show, handleModalClose }) => {
                       price={Number(item.Lp_dol).toLocaleString() ?? '0'}
                       parking={item.Park_spcs ?? '0'}
                       slug={getSlug(item.Community, item.Slug)}
-                      isLocked={item.Is_locked}
-                      tssql={item.Timestamp_sql}
+                      isLocked={item.Status === 'U' ? true : item.Is_locked}
+                      tssql={item.Status === 'U' ? item.Cd : item.Timestamp_sql}
                       dom={item.Dom}
                       status={item.Status}
                     />

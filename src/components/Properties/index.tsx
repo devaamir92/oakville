@@ -11,23 +11,37 @@ import { Desktop, Mobile } from '@components/ua';
 import Types from '@components/Toolbar/Types';
 import { getProperties } from '@lib/api/properties/getProperties';
 import Toolbar from '@components/Toolbar';
+import SoldSorting from '@components/SoldSorting';
 
 interface PropertyProps {
   view?: 'list' | 'map';
   page: number;
   min: number;
   max: number;
-  type: any;
+  Status?: string;
+  type?: any;
   bathrooms: any;
   bedrooms: any;
   basement: any;
   sort: any;
   title?: string;
-  S_r: string;
+  S_r?: string;
   neighborhood?: string;
   location: string;
   classType?: string;
+  Lsc?: string;
+  days?: number;
 }
+
+const getTypes = (status?: string, sr?: string) => {
+  if (status === 'U') {
+    return 'Sold';
+  }
+  if (sr === 'Lease') {
+    return 'Lease';
+  }
+  return 'Sale';
+};
 
 const Property: React.FC<PropertyProps> = async ({
   page,
@@ -44,6 +58,9 @@ const Property: React.FC<PropertyProps> = async ({
   neighborhood,
   location,
   classType,
+  Status,
+  Lsc,
+  days,
 }) => {
   const rows = await getProperties({
     limit: 12,
@@ -59,33 +76,44 @@ const Property: React.FC<PropertyProps> = async ({
     sort,
     page,
     neighborhood,
+    status: Status,
+    Lsc,
+    days,
   });
   const session = await getSession();
   return (
-    <div className="relative">
+    <div className="relative min-h-[calc(100vh-70px)]">
       <div className="container flex flex-col gap-4 p-4">
         <Desktop>
           <Toolbar type="sale" view={view} rows={rows?.data} />
-          <div className="mt-[48px] flex justify-between gap-2">
-            <h1
-              className={cn(
-                'flex-1 text-start text-xl font-semibold capitalize text-gray-800 lg:text-left'
+          <div className="mt-[48px] flex items-center justify-between gap-2">
+            <div className="flex flex-col">
+              <h1
+                className={cn(
+                  'flex-1 text-start text-xl font-semibold capitalize text-gray-800 lg:text-left'
+                )}
+              >
+                {rows?.total.toLocaleString()} {title ?? 'Properties'}
+              </h1>
+              {Status === 'U' && !session && (
+                <p className="text-gray-500">
+                  Real estate boards require you to be signed in to access sold
+                  prices history.
+                </p>
               )}
-            >
-              {rows?.total.toLocaleString()} {title ?? 'Properties'}
-            </h1>
+            </div>
             <div className="flex size-fit items-center justify-end gap-2">
               <span className="w-full">Sort by:</span>
-              <Sorting />
+              {Status === 'U' ? <SoldSorting /> : <Sorting />}
             </div>
           </div>
-          <Types type={S_r === 'Lease' ? 'Lease' : 'Sale'} />
+          <Types type={getTypes(Status, S_r)} />
         </Desktop>
         <Mobile>
           <h1 className="text-lg font-semibold capitalize text-gray-800">
             {rows?.total.toLocaleString()} {title ?? 'Properties'}
           </h1>
-          <Types type={S_r === 'Lease' ? 'Lease' : 'Sale'} />
+          <Types type={getTypes(Status, S_r)} />
         </Mobile>
         <div
           className={cn('grid grid-cols-1 gap-4 md:grid-cols-2', {
@@ -99,16 +127,18 @@ const Property: React.FC<PropertyProps> = async ({
               key={item.id}
               bathrooms={item.Bath_tot ?? 0}
               bedrooms={getBedroomString(Number(item.Br), Number(item.Br_plus))}
+              // imageUrl="/images/jpg/property-sold-out.jpg"
               imageUrl={`https://api.preserveoakville.ca/api/v1/stream/${item.Ml_num}/photo_1.webp`}
               location={item.Addr}
               price={Number(item.Lp_dol).toLocaleString() ?? '0'}
               parking={item.Park_spcs ?? '0'}
               slug={getSlug(item.Community, item.Slug)}
-              isLocked={item.Is_locked}
+              isLocked={item.Status === 'U' ? true : item.Is_locked}
               dom={item.Dom}
-              tssql={item.Timestamp_sql}
+              tssql={item.Status === 'U' ? item.Cd : item.Timestamp_sql}
               Lat={item.Lat}
               Lng={item.Lng}
+              status={item.Status}
             />
           ))}
         </div>

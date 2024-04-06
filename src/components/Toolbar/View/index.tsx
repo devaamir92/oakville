@@ -6,14 +6,18 @@ import { FaList, FaLocationDot } from 'react-icons/fa6';
 
 import { Button } from '@components/ui/Button';
 
-export default function ViewChanger() {
+interface Props {
+  view?: string | null;
+}
+
+export default function ViewChanger({ view }: Props) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleViewChange = () => {
     const params = new URLSearchParams(searchParams.toString());
-    if (params.get('view') === 'list') {
+    if (view === 'list') {
       params.set('view', 'map');
     } else {
       params.set('view', 'list');
@@ -27,12 +31,8 @@ export default function ViewChanger() {
       variant="ghost"
       onClick={() => handleViewChange()}
     >
-      {searchParams.get('view') === 'list' ? (
-        <FaLocationDot size={14} />
-      ) : (
-        <FaList size={14} />
-      )}
-      {searchParams.get('view') === 'list' ? 'Map View' : 'List View'}
+      {view === 'list' ? <FaLocationDot size={14} /> : <FaList size={14} />}
+      {view === 'list' ? 'Map View' : 'List View'}
     </Button>
   );
 }

@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { RequestQueryBuilder } from '@nestjsx/crud-request';
 
 import moment from 'moment';
@@ -31,6 +32,21 @@ interface IProperties {
   Lsc?: string;
 }
 
+const validateBedrooms = (value: any) => {
+  const regex = /^\d+$/;
+
+  if (typeof value === 'string') {
+    if (!regex.test(value)) {
+      return notFound();
+    }
+  } else if (Array.isArray(value)) {
+    if (!value.every(bedroom => regex.test(bedroom))) {
+      return notFound();
+    }
+  }
+  return true;
+};
+
 export const getProperties = async ({
   page,
   max,
@@ -49,6 +65,9 @@ export const getProperties = async ({
   status = 'A',
   Lsc,
 }: IProperties) => {
+  if (Number.isNaN(min) || Number.isNaN(max)) {
+    return notFound();
+  }
   const queryBuilder = RequestQueryBuilder.create();
   const date = new Date();
   date.setDate(date.getDate() - days);
@@ -56,12 +75,14 @@ export const getProperties = async ({
   let search = {};
 
   if (bedrooms) {
+    validateBedrooms(bedrooms);
     search = {
       ...search,
       ...BedroomsParser.create(bedrooms).parse(),
     };
   }
   if (bathrooms) {
+    validateBedrooms(bathrooms);
     search = {
       ...search,
       ...BathroomsParser.create(bathrooms).parse(),

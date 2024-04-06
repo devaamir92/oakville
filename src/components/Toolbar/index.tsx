@@ -268,7 +268,7 @@ const Toolbar: React.FC<Props> = ({ type, view, rows }) => {
             />
           </li>
           <li>
-            <ViewChanger />
+            <ViewChanger view={view} />
           </li>
         </ul>
       </nav>

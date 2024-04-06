@@ -223,7 +223,7 @@ async function Page({ params }: PageProps) {
             </div>
 
             <div className="flex flex-col items-center justify-center gap-3 bg-secondary-300 p-8 shadow">
-              <p>Ready to go See it?</p>
+              <p>Ready to go see it?</p>
               <Booking
                 addr={property.Addr}
                 mls={property.Ml_num}

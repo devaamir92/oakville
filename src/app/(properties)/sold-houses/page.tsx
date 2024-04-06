@@ -11,12 +11,9 @@ import Property from '@components/Properties';
 import { Desktop, Mobile } from '@components/ua';
 
 import { getProperties } from '@lib/api/properties/getProperties';
-import Footer from '@components/Footer';
-import Tabbar from '@components/Tabbar';
 
-interface PropertyProps {
-  params: any;
-  searchParams: {
+interface PageProps {
+  searchParams?: {
     view?: 'list' | 'map';
     page?: string;
     min?: string;
@@ -27,7 +24,6 @@ interface PropertyProps {
     basement?: any;
     sort?: any;
     days?: string;
-    neighbourhood: string;
   };
 }
 
@@ -38,7 +34,7 @@ export const metadata: Metadata = {
     'Search recently sold homes, condos, land and more at The Preserve Oakville. Find sold properties from the most comprehensive source of real estate data online.',
 };
 
-const SoldPage: React.FC<PropertyProps> = async ({ params, searchParams }) => {
+const Page: React.FC<PageProps> = async ({ searchParams }) => {
   const rows = await getProperties({
     limit: 1000,
     usePolygon: true,
@@ -49,8 +45,8 @@ const SoldPage: React.FC<PropertyProps> = async ({ params, searchParams }) => {
     basement: searchParams?.basement,
     status: 'U',
     Lsc: 'Sld',
-    neighborhood: params?.neighbourhood.split('-').join(' '),
-
+    sort: 'Cd',
+    type: '.D.',
     // days: Number(searchParams?.days ?? 30) ?? 30,
   });
   return (
@@ -102,20 +98,17 @@ const SoldPage: React.FC<PropertyProps> = async ({ params, searchParams }) => {
                 bedrooms={searchParams?.bedrooms}
                 bathrooms={searchParams?.bathrooms}
                 basement={searchParams?.basement}
-                title={`Sold Homes in ${params?.neighbourhood
-                  .split('-')
-                  .join(' ')}`}
-                location={`/${params?.neighbourhood}/sold-homes`}
+                title="Sold Detached Homes in Preserve Oakville"
+                location="/sold-houses"
                 Status="U"
                 Lsc="Sld"
                 sort="Cd"
-                neighborhood={params?.neighbourhood.split('-').join(' ')}
                 // days={Number(searchParams?.days ?? 30) ?? 30}
+                type=".D."
               />
             </Suspense>
           </section>
         </div>
-        <Footer />
       </Desktop>
       <Mobile>
         <section
@@ -139,22 +132,19 @@ const SoldPage: React.FC<PropertyProps> = async ({ params, searchParams }) => {
               bedrooms={searchParams?.bedrooms}
               bathrooms={searchParams?.bathrooms}
               basement={searchParams?.basement}
-              title={`Sold Homes in ${params?.neighbourhood
-                .split('-')
-                .join(' ')}`}
-              location={`/${params?.neighbourhood}/sold-homes`}
+              title="Sold Detached Homes in Preserve Oakville"
+              location="/sold-houses"
               Status="U"
               Lsc="Sld"
               sort="Cd"
-              neighborhood={params?.neighbourhood.split('-').join(' ')}
+              // days={Number(searchParams?.days ?? 30) ?? 30}
+              type=".D."
             />
           </Suspense>
         </section>
-        <Footer />
-        <Tabbar />
       </Mobile>
     </div>
   );
 };
 
-export default SoldPage;
+export default Page;

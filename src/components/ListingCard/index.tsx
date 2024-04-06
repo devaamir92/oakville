@@ -70,20 +70,20 @@ const ListingCard: React.FC<CardProps> = ({
             className="size-full overflow-hidden object-cover "
           />
           <div className="absolute bottom-3 left-3">
-            <span className="rounded border bg-primary px-2 py-1 text-sm font-semibold uppercase text-white">
+            <span className="rounded border bg-primary px-3 py-1.5 text-sm font-semibold uppercase text-white">
               $ {price}
             </span>
           </div>
           <div className="absolute right-3 top-3">
             {status !== 'U' && (
-              <span className="rounded  border bg-tertiary-500 px-2 py-1 text-sm font-semibold  text-white">
+              <span className="rounded  border bg-tertiary-500 px-3 py-1.5 text-sm font-semibold  text-white">
                 {(Number(dom) === 0 && moment(tssql).fromNow(true)) ||
                   (Number(dom) === 1 && '1 day') ||
                   `${dom} days`}
               </span>
             )}
             {status === 'U' && (
-              <span className="rounded bg-white px-3 py-1.5 text-sm font-semibold  text-primary">
+              <span className="rounded border bg-tertiary-500 px-3 py-1.5 text-sm font-semibold  text-white">
                 Sold {moment(tssql).format('MMM Do')}
               </span>
             )}
