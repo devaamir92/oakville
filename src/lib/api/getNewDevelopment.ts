@@ -54,17 +54,17 @@ export async function getNewDevelopment(
               ...statusQuery,
               ...occupancyQuery,
             },
+            {
+              publish: {
+                $eq: true,
+              },
+            },
           ],
         },
       ],
     })
     .setJoin({
       field: 'gallery',
-    })
-    .setFilter({
-      field: 'publish',
-      operator: '$eq',
-      value: true,
     })
     .sortBy({
       field: 'createdAt',

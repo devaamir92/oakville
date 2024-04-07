@@ -23,6 +23,7 @@ const Developments = async ({ searchParams }: any) => {
     searchParams.search,
     Number(searchParams?.page ?? 1) ?? 1
   );
+
   return (
     <div className="flex h-full flex-col pb-4">
       <div className="w-full">
