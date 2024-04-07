@@ -15,14 +15,21 @@ export const metadata: Metadata = {
 function page() {
   return (
     <div className="flex flex-col gap-4 bg-white pb-4 md:gap-10 md:pb-10">
-      <section className="relative h-[250px] items-center justify-center lg:h-[calc(100vh-70px)]">
-        <Image
+      <section
+        className="relative h-[250px] items-center justify-center lg:h-[calc(100vh-70px)]"
+        style={{
+          backgroundImage: "url('/images/webp/sell/mainEvalHeader.webp')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* <Image
           fill
           src="/images/webp/sell/mainEvalHeader.webp"
           alt="banner"
           priority
           className="object-cover object-center"
-        />
+        /> */}
         <div className="absolute inset-0 bg-black opacity-30" />
 
         <InfoForm />
