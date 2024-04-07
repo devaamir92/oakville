@@ -10,9 +10,15 @@ interface RegisterProps {
   switchForm: (step: string) => void;
   setState: (state: any) => void;
   state: any;
+  title?: string;
 }
 
-const Register: React.FC<RegisterProps> = ({ switchForm, setState, state }) => {
+const Register: React.FC<RegisterProps> = ({
+  switchForm,
+  setState,
+  state,
+  title = 'Create a Free Account',
+}) => {
   const [error, setError] = useState<string>('');
 
   const handleExists = async () => {
@@ -56,7 +62,7 @@ const Register: React.FC<RegisterProps> = ({ switchForm, setState, state }) => {
   return (
     <div>
       <div className="mx-auto flex justify-center py-5">
-        <h4 className="text-2xl font-medium">Create a Free Account</h4>
+        <h4 className="text-2xl font-medium">{title}</h4>
       </div>
       {error && (
         <div className="flex h-full items-center rounded border border-red-300 bg-red-100 px-2 text-sm">
@@ -90,7 +96,7 @@ const Register: React.FC<RegisterProps> = ({ switchForm, setState, state }) => {
         <Button
           variant="link"
           onClick={() => switchForm('SIGN_IN')}
-          className=" font-medium text-gray-700 hover:underline"
+          className=" font-medium text-primary-500 hover:underline"
         >
           Login
         </Button>

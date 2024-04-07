@@ -27,7 +27,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -43,7 +43,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -54,7 +54,14 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
               {data.Drive && (
                 <tr className="text-sm">
                   <td className=" py-1.5 font-medium text-gray-500">Drive</td>
-                  <td className=" py-1.5 text-right font-medium text-gray-700 md:text-left">
+                  <td className="relative py-1.5 text-right font-medium text-gray-700 md:text-left">
+                    {(!session || (session && !session.user.verified)) && (
+                      <VerBtn
+                        status={data.Status}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
+                        showBtn={false}
+                      />
+                    )}
                     {data.Drive}
                   </td>
                 </tr>
@@ -67,7 +74,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -81,7 +88,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -98,7 +105,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -119,7 +126,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -135,7 +142,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -149,7 +156,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -165,7 +172,7 @@ const ListingHighlights: React.FC<ListingHighlightsProps> = ({
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}

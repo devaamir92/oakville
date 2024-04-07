@@ -51,7 +51,7 @@ const SoldPage: React.FC<PropertyProps> = async ({ params, searchParams }) => {
     Lsc: 'Sld',
     neighborhood: params?.neighbourhood.split('-').join(' '),
 
-    // days: Number(searchParams?.days ?? 30) ?? 30,
+    days: Number(searchParams?.days ?? 0),
   });
   return (
     <div className="flex flex-1 flex-col">
@@ -110,7 +110,7 @@ const SoldPage: React.FC<PropertyProps> = async ({ params, searchParams }) => {
                 Lsc="Sld"
                 sort="Cd"
                 neighborhood={params?.neighbourhood.split('-').join(' ')}
-                // days={Number(searchParams?.days ?? 30) ?? 30}
+                days={Number(searchParams?.days ?? 0)}
               />
             </Suspense>
           </section>
@@ -147,6 +147,7 @@ const SoldPage: React.FC<PropertyProps> = async ({ params, searchParams }) => {
               Lsc="Sld"
               sort="Cd"
               neighborhood={params?.neighbourhood.split('-').join(' ')}
+              days={Number(searchParams?.days ?? 0)}
             />
           </Suspense>
         </section>

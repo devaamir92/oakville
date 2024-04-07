@@ -47,7 +47,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
     Lsc: 'Sld',
     sort: 'Cd',
     type: '.T.',
-    // days: Number(searchParams?.days ?? 30) ?? 30,
+    days: Number(searchParams?.days ?? 0),
   });
   return (
     <div className="flex flex-1 flex-col">
@@ -103,7 +103,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
                 Status="U"
                 Lsc="Sld"
                 sort="Cd"
-                // days={Number(searchParams?.days ?? 30) ?? 30}
+                days={Number(searchParams?.days ?? 0)}
                 type=".T."
               />
             </Suspense>
@@ -137,7 +137,7 @@ const Page: React.FC<PageProps> = async ({ searchParams }) => {
               Status="U"
               Lsc="Sld"
               sort="Cd"
-              // days={Number(searchParams?.days ?? 30) ?? 30}
+              days={Number(searchParams?.days ?? 0)}
               type=".T."
             />
           </Suspense>

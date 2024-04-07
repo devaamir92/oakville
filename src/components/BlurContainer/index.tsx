@@ -36,27 +36,42 @@ const BlurContainer: React.FC<Props> = ({ isLocked, session, Lsc }) => {
                 Login Required
               </h3>
             </div>
-            {Lsc === 'Sld' ? (
+            {Lsc === 'Sld' && (
               <p>
                 Real estate boards require you to create an account to view sold
                 listing.
               </p>
-            ) : (
+            )}
+            {Lsc !== 'Sld' && isLocked && (
               <p>
                 Real estate boards require you to be signed in to access this
                 property.
               </p>
             )}
-            <p className="flex flex-wrap items-center">
-              <Button
-                variant="link"
-                className="px-1 text-base font-bold text-primary-500 underline"
-                onClick={() => setLogin(true)}
-              >
-                Log in
-              </Button>
-              to see all the details.
-            </p>
+            {Lsc !== 'Sld' && !isLocked ? (
+              <p>
+                Create an account or{' '}
+                <Button
+                  variant="link"
+                  className="px-1 text-base font-bold text-primary-500 underline"
+                  onClick={() => setLogin(true)}
+                >
+                  Log in
+                </Button>{' '}
+                to view all Images.
+              </p>
+            ) : (
+              <p className="flex flex-wrap items-center">
+                <Button
+                  variant="link"
+                  className="px-1 text-base font-bold text-primary-500 underline"
+                  onClick={() => setLogin(true)}
+                >
+                  Log in
+                </Button>
+                to see all the details .
+              </p>
+            )}
           </>
         )}
 
@@ -85,6 +100,7 @@ const BlurContainer: React.FC<Props> = ({ isLocked, session, Lsc }) => {
           </>
         )}
       </div>
+      {/* <GetAccess session={session} /> */}
     </div>
   );
 };

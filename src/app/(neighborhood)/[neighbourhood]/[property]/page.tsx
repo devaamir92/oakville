@@ -144,7 +144,7 @@ async function Page({ params }: PageProps) {
             {(!session || (session && !session.user.verified)) && (
               <VerBtn
                 status={property.Status}
-                isLocked={property.Is_locked}
+                isLocked={property.Lsc === 'Sld' ? true : property.Is_locked}
                 showBtn={false}
               />
             )}
@@ -177,7 +177,7 @@ async function Page({ params }: PageProps) {
           />
           <BlurContainer
             Lsc={property.Lsc}
-            isLocked={property.Is_locked}
+            isLocked={property.Lsc === 'Sld' ? true : property.Is_locked}
             session={session}
           />
         </div>
@@ -237,7 +237,7 @@ async function Page({ params }: PageProps) {
                 href="/home-evaluation"
                 className="flex h-9  w-full items-center justify-center rounded bg-primary-400 text-sm text-white transition-colors duration-300 ease-in-out hover:bg-primary-500"
               >
-                Get Free Evaluation
+                Get A Free Home Evaluation
               </Link>
             </div>
           </div>
@@ -248,7 +248,7 @@ async function Page({ params }: PageProps) {
                 ' ',
                 '-'
               )}`}
-              isLocked={property.Is_locked}
+              isLocked={property.Lsc === 'Sld' ? true : property.Is_locked}
               status={property.Status}
               session={session}
             />
@@ -257,7 +257,7 @@ async function Page({ params }: PageProps) {
             <ListingDetails
               Ad_text={property.Ad_text}
               Extras={property.Extras}
-              isLocked={property.Is_locked}
+              isLocked={property.Lsc === 'Sld' ? true : property.Is_locked}
               status={property.Status}
               session={session}
             />

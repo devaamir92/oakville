@@ -25,7 +25,7 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({ data, session }) => {
                 {(!session || (session && !session.user.verified)) && (
                   <VerBtn
                     status={data.Status}
-                    isLocked={data.Is_locked}
+                    isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                     showBtn={false}
                   />
                 )}
@@ -38,7 +38,7 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({ data, session }) => {
                 {(!session || (session && !session.user.verified)) && (
                   <VerBtn
                     status={data.Status}
-                    isLocked={data.Is_locked}
+                    isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                     showBtn={false}
                   />
                 )}
@@ -53,7 +53,7 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({ data, session }) => {
                 {(!session || (session && !session.user.verified)) && (
                   <VerBtn
                     status={data.Status}
-                    isLocked={data.Is_locked}
+                    isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                     showBtn={false}
                   />
                 )}
@@ -69,7 +69,7 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({ data, session }) => {
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -102,7 +102,7 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({ data, session }) => {
             {(!session || (session && !session.user.verified)) && (
               <VerBtn
                 status={data.Status}
-                isLocked={data.Is_locked}
+                isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                 showBtn={false}
               />
             )}
@@ -121,7 +121,7 @@ const ListingOverview: React.FC<ListingOverviewProps> = ({ data, session }) => {
               {(!session || (session && !session.user.verified)) && (
                 <VerBtn
                   status={data.Status}
-                  isLocked={data.Is_locked}
+                  isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                   showBtn={false}
                 />
               )}

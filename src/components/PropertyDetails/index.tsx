@@ -34,7 +34,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -49,7 +49,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -62,7 +62,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -75,7 +75,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -89,7 +89,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -104,7 +104,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -120,7 +120,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -136,7 +136,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -150,7 +150,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                   <td className="relative py-1.5 text-right font-medium text-gray-700 md:text-left">
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                     {data.Uffi}
@@ -165,7 +165,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                   {(!session || (session && !session.user.verified)) && (
                     <VerBtn
                       status={data.Status}
-                      isLocked={data.Is_locked}
+                      isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                       showBtn={false}
                     />
                   )}
@@ -187,7 +187,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -202,7 +202,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -219,7 +219,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -234,7 +234,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -251,7 +251,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -268,7 +268,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -285,7 +285,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -300,7 +300,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -317,7 +317,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}
@@ -334,7 +334,7 @@ const PropertyDetails: React.FC<PropertyDetailsProps> = ({ data, session }) => {
                     {(!session || (session && !session.user.verified)) && (
                       <VerBtn
                         status={data.Status}
-                        isLocked={data.Is_locked}
+                        isLocked={data.Lsc === 'Sld' ? true : data.Is_locked}
                         showBtn={false}
                       />
                     )}

@@ -16,6 +16,7 @@ import Filters from '@components/Toolbar/Filters';
 import ListAlert from '@components/Toolbar/ListAlert';
 
 import Mobsort from './MobShort';
+import DaySort from './DayShort';
 
 const FiltersData = {
   bedrooms: [
@@ -111,9 +112,11 @@ const FiltersData = {
     },
   ],
 };
+
 const Tabbar = () => {
   const pathname = usePathname();
   const { replace } = useRouter();
+  const status = pathname.includes('sold') ? 'Sld' : '';
   const clearFilters = () => {
     replace(pathname);
   };
@@ -140,7 +143,13 @@ const Tabbar = () => {
           </Dropdown>
         </div>
         <div className="flex flex-col items-center justify-center gap-1">
-          <Mobsort />
+          {status === 'Sld' ? (
+            <DaySort />
+          ) : (
+            <span className="text-sm text-white">
+              <Mobsort />
+            </span>
+          )}
         </div>
         <button
           type="button"
