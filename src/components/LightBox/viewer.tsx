@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   Close,
@@ -15,6 +15,7 @@ import { BsImages } from 'react-icons/bs';
 import { FaChevronLeft, FaChevronRight, FaTimes } from 'react-icons/fa';
 
 import { Button } from '@components/ui/Button';
+import Loader from '@components/Loader';
 
 interface Props {
   PropertyName?: string;
@@ -39,6 +40,11 @@ const Viewer: React.FC<Props> = ({
   mls,
   type,
 }) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [imageUrl, setImageUrl] = useState<string>('');
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  const [error, setError] = useState<any>('');
+
   const handleNext = () => {
     setCurrentImage(prev => {
       return {
@@ -56,6 +62,30 @@ const Viewer: React.FC<Props> = ({
       };
     });
   };
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          type === 'property'
+            ? `https://api.preserveoakville.ca/api/v1/stream/${mls}/${currentImage.image}`
+            : `https://api.preserveoakville.ca/public/gallery/${
+                Images[currentImage.index].name
+              }/${Images[currentImage.index].image}`
+        );
+        const blob = await response.blob();
+        // alert(JSON.stringify(URL.createObjectURL(blob)));
+        setImageUrl(URL.createObjectURL(blob));
+      } catch (err) {
+        setError(err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchImage();
+  }, [Images, currentImage, mls, type]);
 
   return (
     <Dialog>
@@ -98,7 +128,7 @@ const Viewer: React.FC<Props> = ({
                 </div>
               </Close>
               <div className="relative top-1/2 mx-auto size-full max-h-[80vh] max-w-7xl -translate-y-1/2">
-                <Image
+                {/* <Image
                   src={
                     type === 'property'
                       ? `https://api.preserveoakville.ca/api/v1/stream/${mls}/${currentImage.image}`
@@ -110,7 +140,20 @@ const Viewer: React.FC<Props> = ({
                   fill
                   sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
                   className="object-contain"
-                />
+                /> */}
+                {isLoading ? (
+                  <div className="flex size-full items-center justify-center">
+                    <Loader />
+                  </div>
+                ) : (
+                  <Image
+                    src={imageUrl}
+                    alt={currentImage.toString()}
+                    fill
+                    sizes="(min-width: 320px) 320w, (max-width: 640px) 640w, (min-width: 641px) 768w, (max-width: 1023px) 1024w, (min-width: 1024px) 1280w"
+                    className="object-contain"
+                  />
+                )}
               </div>
               <Button
                 type="button"

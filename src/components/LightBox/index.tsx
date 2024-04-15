@@ -25,6 +25,7 @@ const LightBox: React.FC<Props> = ({
     image: string;
   }>({ index: 0, image: Images[0] });
   const [isopen, setIsopen] = useState(false);
+
   return (
     <div
       id="description"
