@@ -22,6 +22,7 @@ const ParksPage = async () => {
         address: park.address,
         Lat: park.lat,
         Lng: park.lng,
+        color: '#3E7D3B',
       };
     });
   };

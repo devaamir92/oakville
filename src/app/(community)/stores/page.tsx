@@ -22,6 +22,7 @@ const StoresPage = async () => {
         address: store.address,
         Lat: store.lat,
         Lng: store.lng,
+        color: '#F5A623',
       };
     });
   };

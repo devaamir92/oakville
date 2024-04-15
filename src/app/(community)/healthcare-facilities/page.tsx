@@ -22,6 +22,7 @@ const HealthcarePage = async () => {
         address: health.address,
         Lat: health.lat,
         Lng: health.lng,
+        color: '#006080',
       };
     });
   };

@@ -81,6 +81,7 @@ const Property: React.FC<PropertyProps> = async ({
     days,
   });
   const session = await getSession();
+
   return (
     <div className="relative min-h-[calc(100vh-70px)]">
       <div className="container flex flex-col gap-4 p-4">
@@ -93,7 +94,8 @@ const Property: React.FC<PropertyProps> = async ({
                   'flex-1 text-start text-xl font-semibold capitalize text-gray-800 lg:text-left'
                 )}
               >
-                {rows?.total.toLocaleString()} {title ?? 'Properties'}
+                {Status !== 'U' && rows?.total.toLocaleString()}{' '}
+                {title ?? 'Properties'}
               </h1>
               {Status === 'U' && !session && (
                 <p className="text-gray-500">

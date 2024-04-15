@@ -77,7 +77,8 @@ const ListingCard: React.FC<CardProps> = ({
           <div className="absolute right-3 top-3">
             {status !== 'U' && (
               <span className="rounded  border bg-tertiary-500 px-3 py-1.5 text-sm font-semibold  text-white">
-                {(Number(dom) === 0 && moment(tssql).fromNow(true)) ||
+                {/* {(Number(dom) === 0 && moment(tssql).fromNow(true)) || */}
+                {(Number(dom) === 0 && 'Just Now') ||
                   (Number(dom) === 1 && '1 day') ||
                   `${dom} days`}
               </span>

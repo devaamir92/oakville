@@ -215,7 +215,7 @@ const NeighbourhoodMap: React.FC<NeighbourhoodMapProps> = ({ location }) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex h-9 space-x-4 border-b border-gray-300 text-sm">
+      <div className="flex  flex-wrap gap-x-4 gap-y-3 border-b border-gray-300 text-sm">
         {neighbourhoods.map(neighbourhood => {
           return (
             <button

@@ -21,6 +21,7 @@ const ReligiousPage = async () => {
         Lat: reg.lat,
         Lng: reg.lng,
         religion: reg.religion,
+        color: '#8B0000',
       };
     });
   };

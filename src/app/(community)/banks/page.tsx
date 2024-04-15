@@ -21,6 +21,7 @@ const getdata = () => {
       address: bank.address,
       Lat: bank.lat,
       Lng: bank.lng,
+      color: '#007BFF',
     };
   });
 };

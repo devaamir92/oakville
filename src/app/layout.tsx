@@ -12,7 +12,7 @@ import FavProvider from '@context/FavContext';
 
 export const metadata: Metadata = {
   title: {
-    default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
+    default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
     template: '%s | The Preserve Oakville',
   },
   description: 'Oakville The Preserve',

@@ -22,14 +22,15 @@ import Footer from '@components/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
+    default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
     template: '%s | The Preserve Oakville',
   },
   description:
-    "Explore The Preserve Oakville for luxury property for sale in Canada. Discover serene living in one of Oakville's best neighborhoods. Find your dream home today!",
+    "Explore The Preserve Oakville for luxury property for sale in Oakville. Discover serene living in one of Oakville's best neighborhoods. Find your dream home today!",
   openGraph: {
     title: {
-      default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
+      default:
+        'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
       template: '%s | The Preserve Oakville',
     },
     description:
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
       },
     ],
     card: 'summary_large_image',
-    title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Canada',
+    title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
     description:
       'Luxury real estate listings in Oakville, Ontario. Discover your dream home with The Preserve Oakville.',
   },
