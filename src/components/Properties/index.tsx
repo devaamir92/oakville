@@ -141,6 +141,7 @@ const Property: React.FC<PropertyProps> = async ({
               Lat={item.Lat}
               Lng={item.Lng}
               status={item.Status}
+              soldPrice={Number(item.Sp_dol).toLocaleString() ?? '0'}
             />
           ))}
         </div>

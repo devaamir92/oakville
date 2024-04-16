@@ -20,6 +20,7 @@ const selectItems = [
   'Cd',
   'Lat',
   'Lng',
+  'Sp_dol',
 ];
 
 export default selectItems;

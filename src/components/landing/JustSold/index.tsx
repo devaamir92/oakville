@@ -44,6 +44,7 @@ const JustSold: React.FC<JustSoldProps> = ({ rows, session }) => {
                 isLocked
                 status={item.Status}
                 tssql={item.Cd}
+                soldPrice={Number(item.Sp_dol).toLocaleString() ?? '0'}
               />
             ))}
           </div>
@@ -68,6 +69,7 @@ const JustSold: React.FC<JustSoldProps> = ({ rows, session }) => {
                 isLocked
                 status={item.Status}
                 tssql={item.Cd}
+                soldPrice={Number(item.Sp_dol).toLocaleString() ?? '0'}
               />
             ))}
           </div>

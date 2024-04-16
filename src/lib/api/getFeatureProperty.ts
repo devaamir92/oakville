@@ -15,11 +15,11 @@ const getFeatureProperty = async (page: number) => {
   }
   queryBuilder.search({
     $and: [
-      {
-        Status: {
-          $eq: 'A',
-        },
-      },
+      // {
+      //   Status: {
+      //     $eq: 'A',
+      //   },
+      // },
       {
         Ml_num: {
           $in: favourite,

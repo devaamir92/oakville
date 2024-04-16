@@ -12,6 +12,7 @@ interface PropertyProps {
 
 const Favourites: React.FC<PropertyProps> = async ({ page, location }) => {
   const rows = await getFeatureProperty(page);
+
   const session = await getSession();
 
   return (

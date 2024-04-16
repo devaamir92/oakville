@@ -9,6 +9,8 @@ import moment from 'moment';
 
 import { usePropLayout } from '@context/PropertiesContext';
 
+import cn from '@utils/cn';
+
 import LikeToggle from './LikeToggle';
 import LoginBtn from './loginbtn';
 import VerBtn from './verBtn';
@@ -19,6 +21,7 @@ interface CardProps {
   bedrooms?: string;
   bathrooms?: string;
   price: string;
+  soldPrice?: string;
   imageUrl: string;
   parking?: string;
   slug: string;
@@ -37,6 +40,7 @@ const ListingCard: React.FC<CardProps> = ({
   bedrooms,
   bathrooms,
   price,
+  soldPrice,
   imageUrl,
   parking,
   slug,
@@ -69,11 +73,24 @@ const ListingCard: React.FC<CardProps> = ({
             alt={location}
             className="size-full overflow-hidden object-cover "
           />
-          <div className="absolute bottom-3 left-3">
-            <span className="rounded border bg-primary px-3 py-1.5 text-sm font-semibold uppercase text-white">
+          <div className="absolute bottom-3 left-3 flex items-center gap-2">
+            <span
+              className={cn(
+                'rounded border bg-primary px-3 py-1.5 text-sm font-semibold uppercase text-white',
+                {
+                  'line-through': status === 'U',
+                }
+              )}
+            >
               $ {price}
             </span>
+            {status === 'U' && (
+              <span className="rounded border bg-red-500 px-3 py-1.5 text-sm font-semibold  text-white">
+                $ {soldPrice}
+              </span>
+            )}
           </div>
+
           <div className="absolute right-3 top-3">
             {status !== 'U' && (
               <span className="rounded  border bg-tertiary-500 px-3 py-1.5 text-sm font-semibold  text-white">
