@@ -51,7 +51,7 @@ export default async function Header() {
       <Desktop>
         <header className="sticky top-0 z-30 h-[70px] bg-primary-500 py-2 shadow">
           <div className="container flex h-full flex-row items-center gap-2">
-            <div className="flex w-full items-center justify-between lg:w-[75px]">
+            <div className="flex w-full items-center justify-between lg:w-[220px]">
               <MobileMenu
                 session={session}
                 navLinks={navLinks}
@@ -59,12 +59,12 @@ export default async function Header() {
               />
               <Link href="/">
                 <Image
-                  src="/images/png/oakville-leaf.png"
+                  src="/images/png/preserveOakville.png"
                   alt="logo"
                   priority
                   // sizes="100vw"
-                  width={55}
-                  height={55}
+                  width={100}
+                  height={70}
                   className="size-full overflow-hidden"
                 />
               </Link>
@@ -110,12 +110,12 @@ export default async function Header() {
             />
             <Link href="/">
               <Image
-                src="/images/png/oakville-leaf.png"
+                src="/images/png/preserveOakville.png"
                 alt="logo"
                 priority
                 className="size-full overflow-hidden object-contain"
                 // sizes="100vw"
-                width={40}
+                width={80}
                 height={40}
               />
             </Link>

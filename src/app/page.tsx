@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     phoneNumbers: ['+1-416-837-2000', '+1-647-929-9072'],
     images: [
       {
-        url: 'https://preserveoakville.ca/images/png/oakville-logo.png',
+        url: 'https://preserveoakville.ca/images/png/preserveOakville.png',
         width: 800,
         height: 600,
         alt: 'The Preserve Oakville',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     site: '@preserveoakville',
     images: [
       {
-        url: 'https://preserveoakville.ca/images/png/oakville-logo.png',
+        url: 'https://preserveoakville.ca/images/png/preserveOakville.png',
         width: 800,
         height: 600,
         alt: 'The Preserve Oakville',

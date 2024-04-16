@@ -31,7 +31,7 @@ const jsonLd: WithContext<WebPage> = {
     '@type': 'LocalBusiness',
     name: 'The Preserve Oakville',
     url: 'https://preserveoakville.ca/',
-    logo: 'https://preserveoakville.ca/images/png/oakville-logo.png',
+    logo: 'https://preserveoakville.ca/images/png/preserveOakville.png',
     description:
       'Luxury real estate listings in Oakville, Ontario. Discover your dream home with The Preserve Oakville.',
     address: {

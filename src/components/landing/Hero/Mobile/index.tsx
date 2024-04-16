@@ -18,10 +18,10 @@ function HeroMobile() {
       <div className="absolute inset-x-0 h-full">
         <div className="container h-full">
           {/* Oakville Preserve logo */}
-          <div className="flex justify-end">
+          {/* <div className="flex justify-end">
             <div className="mt-2">
               <Image
-                src="/images/png/oakville-logo.png"
+                src="/images/png/preserveOakville.png"
                 alt="Oakville Preserve logo"
                 width={135}
                 height={74}
@@ -29,7 +29,7 @@ function HeroMobile() {
                 // className="h-[74px] w-[135px] md:mt-6 md:h-[100px] md:w-[200px]"
               />
             </div>
-          </div>
+          </div> */}
           {/* Oakville Preserve logo End */}
           <div className="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">
             <div className="ml-[20px] flex w-[50%] flex-col sm:w-[40%]">

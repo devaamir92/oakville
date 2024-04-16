@@ -8,8 +8,11 @@ interface NewHomeCardProps extends React.HTMLAttributes<HTMLAnchorElement> {
 
 const NewHomeCard: React.FC<NewHomeCardProps> = ({ item }) => {
   return (
-    <Link href={`/new-homes/${item.slug}`} className="flex h-fit flex-col">
-      <div className="flex flex-col overflow-hidden rounded border border-gray-300 bg-white">
+    <Link
+      href={`/new-homes/${item.slug}`}
+      className="flex h-fit flex-col transition-all duration-200 ease-in-out hover:shadow-xl"
+    >
+      <div className="flex flex-col overflow-hidden rounded border border-gray-300 bg-white ">
         <div className="relative h-[250px] w-full">
           <Image
             src={`https://api.preserveoakville.ca/public/gallery/${item?.gallery[0].name}/${item?.gallery[0].image}`}

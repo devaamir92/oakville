@@ -12,6 +12,11 @@ export const getFeaturedListing = async () => {
       field: 'property',
       select: selectItems,
     })
+    .setFilter({
+      field: 'property.Status',
+      operator: '$eq',
+      value: 'A',
+    })
     .setLimit(4);
 
   try {

@@ -37,14 +37,37 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
   const [state, fromAction] = useFormState(login, null);
   const [fieldErrors, setFieldErrors] = useState<User | undefined>(undefined);
   const [isRemembered, setIsRemembered] = useState(false);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   useEffect(() => {
     setFieldErrors({});
+    if (state?.email && isRemembered) {
+      const userData = {
+        email: state?.email,
+        password,
+        isRemembered: true,
+      };
+      localStorage.setItem('userData', JSON.stringify(userData));
+    }
+    if (state === null) {
+      const userData = localStorage.getItem('userData');
+      if (userData) {
+        const data = JSON.parse(userData);
+        setEmail(data.email);
+        setPassword(data.password);
+        setIsRemembered(data.isRemembered);
+      }
+    }
+
+    if (state?.email && !isRemembered) {
+      localStorage.removeItem('userData');
+    }
 
     if (state?.status === 400) {
       setFieldErrors(state?.errors);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
   return (
@@ -64,7 +87,10 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
           id="email"
           type="email"
           name="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
           placeholder="Email Address"
+          required
         />
         {fieldErrors?.email && (
           <span className="text-sm capitalize text-red-500">

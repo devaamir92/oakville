@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { BsFillEnvelopeFill, BsFillTelephoneFill } from 'react-icons/bs';
 
@@ -187,9 +188,16 @@ async function Page({ params }: PageProps) {
         <div className="flex flex-col gap-3 lg:flex-row-reverse">
           <div className="order-2 flex h-fit flex-col gap-10 rounded md:w-full lg:sticky lg:top-[100px] lg:order-1 lg:w-[360px]">
             <div className="flex flex-col gap-3 bg-secondary-300 px-8 py-4 shadow">
-              <h3 className="text-center text-2xl font-medium text-gray-800">
+              {/* <h3 className="text-center text-2xl font-medium text-gray-800">
                 The Preserve Oakville
-              </h3>
+              </h3> */}
+              <div className="relative mb-4 h-16 w-auto">
+                <Image
+                  src="/images/svg/oakville-black-logo.svg"
+                  alt="The Oakville Preserve Logo"
+                  fill
+                />
+              </div>
               <div className="flex flex-col items-center justify-center gap-2">
                 <div className="flex items-center gap-1">
                   <BsFillTelephoneFill className="mr-1 inline-block" />

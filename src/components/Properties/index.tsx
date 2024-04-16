@@ -87,7 +87,7 @@ const Property: React.FC<PropertyProps> = async ({
       <div className="container flex flex-col gap-4 p-4">
         <Desktop>
           <Toolbar type="sale" view={view} rows={rows?.data} />
-          <div className="mt-[48px] flex items-center justify-between gap-2">
+          <div className="mt-[48px] flex items-center justify-between gap-4">
             <div className="flex flex-col">
               <h1
                 className={cn(
@@ -105,7 +105,7 @@ const Property: React.FC<PropertyProps> = async ({
               )}
             </div>
             <div className="flex size-fit items-center justify-end gap-2">
-              <span className="w-full">Sort by:</span>
+              <span className="w-24">Sort by:</span>
               {Status === 'U' ? <SoldSorting /> : <Sorting />}
             </div>
           </div>

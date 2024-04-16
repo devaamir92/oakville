@@ -3,5 +3,7 @@ export interface ErrorResponse {
 
   message?: string;
 
+  email?: string;
+
   errors?: any;
 }

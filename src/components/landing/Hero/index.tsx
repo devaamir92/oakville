@@ -21,7 +21,7 @@ function Hero() {
           {/* Oakville Preserve logo */}
           <div className="flex justify-end lg:mt-8 xl:mt-16">
             <Image
-              src="/images/png/oakville-logo.png"
+              src="/images/png/preserveOakville.png"
               alt="Oakville Preserve logo"
               width={240}
               height={100}
