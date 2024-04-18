@@ -43,7 +43,7 @@ function ListingTypes() {
             <Link
               href={listing.href}
               key={listing.id}
-              className="flex items-center justify-center rounded bg-secondary-400 px-6 py-1.5 md:py-3"
+              className="flex items-center justify-center rounded bg-[#ECDBC7] px-6 py-1.5 md:py-3"
             >
               <p className="leading-0 font-semibold xl:text-base 2xl:text-lg">
                 {listing.title}

@@ -7,7 +7,7 @@ function HeroMobile() {
   return (
     <section className="relative h-[250px] overflow-hidden sm:h-[375px]">
       <Image
-        src="/images/jpg/oakville-preserve-banner.jpg"
+        src="/images/jpg/oakville-preserve-banner-mob.jpg"
         alt="oakville preserve banner"
         priority
         width={800}

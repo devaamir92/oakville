@@ -12,11 +12,7 @@ const HelloText: React.FC = () => {
     animationData: hello,
   };
 
-  return (
-    <div className="flex-1">
-      <Lottie ariaLabel="Hello" options={defaultOptions} />
-    </div>
-  );
+  return <Lottie ariaLabel="Hello" options={defaultOptions} />;
 };
 
 export default HelloText;
