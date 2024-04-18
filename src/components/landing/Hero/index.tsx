@@ -7,7 +7,7 @@ import HelloText from './hello';
 
 function Hero() {
   return (
-    <section className="relative aspect-[16/6.1] w-full">
+    <section className="relative aspect-[16/5] w-full">
       <Image
         src="/images/jpg/oakville-preserve-banner.jpg"
         alt="Hero background image"
