@@ -27,9 +27,9 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Homes for Rent in The Preserve Oakville: Find Property for Rent',
+  title: 'Homes for Rent in Oakville The Preserve | Find Houses For Rent',
   description:
-    'Browse our listings for homes for rent in The Preserve Oakville. Find homes for rent in this coveted Canadian neighborhood. Start your search today. ',
+    'Browse our listings for homes for rent in The Preserve Oakville. Find dream houses for rent in this coveted Canadian neighborhood. Start your search today. ',
 };
 
 const Page: React.FC<PageProps> = async ({ searchParams }) => {

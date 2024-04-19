@@ -28,8 +28,7 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title:
-    'Sold Homes | Recently Sold Homes and Sold Properties| Preserve Oakville',
+  title: 'Recently Sold Homes and Sold Properties | Preserve Oakville',
   description:
     'Search recently sold homes, condos, land and more at The Preserve Oakville. Find sold properties from the most comprehensive source of real estate data online.',
 };

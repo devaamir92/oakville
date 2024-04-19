@@ -27,7 +27,7 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Homes for Sale in The Preserve Oakville: Luxury Property for Sale',
+  title: 'Detached Houses in The Preserve Oakville | Homes for Sale',
   description:
     'Explore homes for sale in The Preserve Oakville, featuring luxury properties for every lifestyle. Find your dream home in this desirable Canadian neighborhood.',
 };

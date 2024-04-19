@@ -27,9 +27,9 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Homes for Sale in The Preserve Oakville: Luxury Property for Sale',
+  title: 'Townhouses For Rent in Preserve Oakville | Homes For Rent',
   description:
-    'Explore homes for sale in The Preserve Oakville, featuring luxury properties for every lifestyle. Find your dream home in this desirable Canadian neighborhood.',
+    'Explore Townhouses for rent in Preserve Oakville, luxury properties for various lifestyles. Find your dream homes in this desirable Oakville community.',
 };
 
 const Page: React.FC<PageProps> = async ({ searchParams }) => {

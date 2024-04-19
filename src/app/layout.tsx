@@ -11,10 +11,7 @@ import LayoutProvider from '@context/LayoutContext';
 import FavProvider from '@context/FavContext';
 
 export const metadata: Metadata = {
-  title: {
-    default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
-    template: '%s | The Preserve Oakville',
-  },
+  title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
   description: 'Oakville The Preserve',
   formatDetection: {
     email: true,

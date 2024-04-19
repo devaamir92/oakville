@@ -28,10 +28,9 @@ interface PageProps {
 }
 
 export const metadata: Metadata = {
-  title:
-    'Sold Homes | Recently Sold Homes and Sold Properties| Preserve Oakville',
+  title: 'Sold Condos in Preserve Oakville | Best Sold Homes in Oakville',
   description:
-    'Search recently sold homes, condos, land and more at The Preserve Oakville. Find sold properties from the most comprehensive source of real estate data online.',
+    'Explore recently sold Condos, land and more at Oakville The Preserve. Find sold homes & properties from the most comprehensive source of real estate data online.',
 };
 
 const Page: React.FC<PageProps> = async ({ searchParams }) => {

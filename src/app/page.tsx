@@ -21,10 +21,7 @@ import { getFeaturedListing } from '@lib/api/properties/getFeaturedListing';
 import Footer from '@components/Footer';
 
 export const metadata: Metadata = {
-  title: {
-    default: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
-    template: '%s | The Preserve Oakville',
-  },
+  title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
   description:
     "Explore The Preserve Oakville for luxury property for sale in Oakville. Discover serene living in one of Oakville's best neighborhoods. Find your dream home today!",
   openGraph: {

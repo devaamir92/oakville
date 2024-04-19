@@ -10,7 +10,7 @@ import Toolbar from './_components/toolbar';
 import NewHomeCard from './_components/NewHomeCard';
 
 export const metadata: Metadata = {
-  title: 'New Homes in The Preserve Oakville | Discover Homes for Sale',
+  title: 'New Homes in Oakville The Preserve | latest Homes for Sale',
   description:
     'Explore New Homes in The Preserve Oakville, featuring luxury properties and homes. Stay updated on the latest properties by Mattamy Homes, Fernbrook, & more.',
 };
