@@ -65,13 +65,15 @@ const InquireForm: React.FC<InquireFormProps> = ({ title }) => {
       lastName,
       email,
       phone,
-      message,
       realtor,
     });
 
     if (result.success) {
       setErrors(null);
-      const res = await handleInquiry(result.data);
+      const res = await handleInquiry({
+        ...result.data,
+        message,
+      });
 
       if (res.status === 500) {
         setErrors([{ message: 'Unauthorized' }]);
