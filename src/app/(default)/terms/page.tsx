@@ -1,5 +1,13 @@
 import React from 'react';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Preserveoakville.ca Privacy Policy',
+  description:
+    'Search new homes for sale & new condos for sale in Preserve Oakville. Find new home builders, compare new developments listing floor plans, and prices. Register online for priority preview.',
+};
+
 const Terms = () => {
   return (
     <div>
@@ -12,7 +20,7 @@ const Terms = () => {
           be heard at the courts located in Toronto, Ontario, Canada.
         </p>
         <br />
-        <h3 className="text-3xl font-semibold text-gray-700">Privacy Policy</h3>
+        <h1 className="text-3xl font-semibold text-gray-700">Privacy Policy</h1>
         <p>At Preserve Oakville your privacy is always protected.</p>
         <p>
           At no time will we ask you for personal information unless we require

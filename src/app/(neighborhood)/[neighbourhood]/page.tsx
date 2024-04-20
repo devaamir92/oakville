@@ -32,116 +32,24 @@ interface PageProps {
   };
 }
 
-export const metadata: Metadata = {
-  title: 'Homes for Sale in The Preserve Oakville Neighbourhood',
-  description:
-    "Discover luxury homes for sale in The Preserve Oakville neighbourhood. Find your ideal Oakville house or condo for sale in Canada's sought-after location.",
-};
-
-// const getProperties = async (
-//   max: number,
-//   min: number,
-//   type: string | string[],
-//   bedrooms: any,
-//   bathrooms: any,
-//   basement: string | string[],
-//   sort: string,
-//   neighborhood: string
-// ) => {
-//   const queryBuilder = RequestQueryBuilder.create();
-
-//   let search = {};
-
-//   if (bedrooms) {
-//     search = {
-//       ...search,
-//       ...BedroomsParser.create(bedrooms).parse(),
-//     };
-//   }
-//   if (bathrooms) {
-//     search = {
-//       ...search,
-//       ...BathroomsParser.create(bathrooms).parse(),
-//     };
-//   }
-//   const propType = Array.isArray(type) ? type : [type];
-//   const propsBsmt = Array.isArray(basement) ? basement : [basement];
-
-//   const typeQuery: any =
-//     (type && {
-//       Type_own_srch: {
-//         $in: propType,
-//       },
-//     }) ||
-//     {};
-
-//   const bsmtQuery: any =
-//     (basement && {
-//       Bsmt1_out: {
-//         $in: propsBsmt,
-//       },
-//     }) ||
-//     {};
-
-//   queryBuilder
-//     .search({
-//       $and: [
-//         {
-//           Status: {
-//             $eq: 'A',
-//           },
-//           Community: {
-//             $eqL: neighborhood,
-//           },
-//           S_r: {
-//             $eq: 'Sale',
-//           },
-//           Lp_dol: {
-//             $gte: min,
-//             $lte: max,
-//           },
-//           ...typeQuery,
-//           ...bsmtQuery,
-//           ...search,
-//         },
-//       ],
-//     })
-//     .sortBy(sortlisting(sort))
-//     .setLimit(1000);
-
-//   queryBuilder.select([
-//     'Ml_num',
-//     'Addr',
-//     'Apt_num',
-//     'Lp_dol',
-//     'Br',
-//     'Br_plus',
-//     'Bath_tot',
-//     'Park_spcs',
-//     'Status',
-//     'Is_locked',
-//     'Slug',
-//     'Community',
-//     'Bsmt1_out',
-//     'Lat',
-//     'Lng',
-//     'Dom',
-//   ]);
-
-//   const res = await fetch(
-//     `${process.env.API_HOST}/api/v1/property?${queryBuilder.query()}`,
-//     {
-//       method: 'GET',
-//       next: {
-//         tags: ['property'],
-//       },
-//       cache: 'no-cache',
-//     }
-//   );
-//   const data = await res.json();
-//   const responce = inPolygon(data.data);
-//   return responce;
-// };
+export async function generateMetadata({
+  params,
+}: {
+  params: any;
+}): Promise<Metadata> {
+  return {
+    title: `${
+      params?.neighbourhood === 'uptown-core' ? 'Top' : 'Best'
+    } Homes For Sale In ${params?.neighbourhood
+      .split('-')
+      .join(' ')} | The Preserve Oakville`,
+    description: `Discover luxury homes for sale in ${params?.neighbourhood
+      .split('-')
+      .join(
+        ' '
+      )},  neighborhood. Find your ideal houses or condos for sale in The Preserve Oakville sought-after location.`,
+  };
+}
 
 const Page: React.FC<PageProps> = async (searchParams: any) => {
   const rows = await getProperties({

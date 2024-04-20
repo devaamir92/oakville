@@ -31,12 +31,22 @@ interface PropertyProps {
   };
 }
 
-export const metadata: Metadata = {
-  title:
-    'Sold Homes | Recently Sold Homes and Sold Properties| Preserve Oakville',
-  description:
-    'Search recently sold homes, condos, land and more at The Preserve Oakville. Find sold properties from the most comprehensive source of real estate data online.',
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: any;
+}): Promise<Metadata> {
+  return {
+    title: `Recently Sold Homes In ${params?.neighbourhood
+      .split('-')
+      .join(' ')} | The Preserve Oakville`,
+    description: `Search recently sold homes in ${params?.neighbourhood
+      .split('-')
+      .join(
+        ' '
+      )}, at The Preserve Oakville. Find sold properties from the most comprehensive source of real estate data online.`,
+  };
+}
 
 const SoldPage: React.FC<PropertyProps> = async ({ params, searchParams }) => {
   const rows = await getProperties({

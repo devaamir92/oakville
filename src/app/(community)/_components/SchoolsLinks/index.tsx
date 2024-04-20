@@ -9,33 +9,33 @@ const SchoolsLinks = () => {
             href="#publicschools"
             className="flex flex-1 items-center justify-center rounded bg-[#E0434A] px-6 py-3 text-white"
           >
-            <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
+            <h2 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
               Public
-            </h3>
+            </h2>
           </Link>
           <Link
             href="#catholicschools"
             className="flex flex-1 items-center justify-center rounded bg-[#0E7AEB] px-6 py-3 text-white"
           >
-            <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
+            <h2 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
               Catholic
-            </h3>
+            </h2>
           </Link>
           <Link
             href="#montessorischools"
             className="flex flex-1 items-center justify-center rounded bg-[#F6AA3C] px-6 py-3 text-white"
           >
-            <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
+            <h2 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
               Montessori
-            </h3>
+            </h2>
           </Link>
           <Link
             href="#privateschools"
             className="flex flex-1 items-center justify-center rounded bg-[#5EC976] px-6 py-3 text-white"
           >
-            <h3 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
+            <h2 className="leading-0  font-semibold xl:text-base 2xl:text-lg">
               Private
-            </h3>
+            </h2>
           </Link>
         </div>
       </div>

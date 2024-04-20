@@ -28,9 +28,9 @@ const ReligiousPage = async () => {
 
   return (
     <div className=" mx-auto flex max-w-[1140px] flex-col gap-8 py-4">
-      <h3 className="text-center text-xl font-medium">
+      <h1 className="text-center text-xl font-medium">
         The Preserve Oakville Religious Places
-      </h3>
+      </h1>
       <section className="-mt-4 flex flex-col gap-8">
         <div
           className="overflow-hidden rounded"

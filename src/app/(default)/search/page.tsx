@@ -1,7 +1,15 @@
+import type { Metadata } from 'next';
+
 import { getSession } from '@lib/getsession';
 import { getFeaturedListing } from '@lib/api/properties/getFeaturedListing';
 
 import Search from './_components/Search';
+
+export const metadata: Metadata = {
+  title: 'All New Modern listings Homes for Sale in Preserve Oakville',
+  description:
+    'Search all New Modern listings Homes for sale in The Preserve Oakville. Find your new houses & condos for sale in Oakville and surrounding area. Get Now!',
+};
 
 const popularSearches = [
   {

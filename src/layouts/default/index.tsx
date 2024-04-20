@@ -20,7 +20,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
       <Header />
       <main className="h-full">
         <ToastContainer
-          position="bottom-right"
+          position="top-right"
           autoClose={5000}
           hideProgressBar={false}
           newestOnTop={false}

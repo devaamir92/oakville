@@ -13,7 +13,7 @@ const BankCard: React.FC<BankCardProps> = ({ id, data }) => {
       {data.map((bank: any) => (
         <article className="" key={bank.id}>
           <div className="flex flex-col gap-4">
-            <p className="text-md font-medium">{bank.name}</p>
+            <h3 className="text-md font-medium">{bank.name}</h3>
             <table className="w-full">
               <tbody className="divide-y divide-gray-300 bg-white">
                 {bank.intersection && (

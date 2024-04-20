@@ -1,10 +1,9 @@
 import type { Metadata } from 'next/types';
 
 export const metadata: Metadata = {
-  title:
-    'Mortgage Calculator for The Preserve Oakville: Estimate Your Home Loan',
+  title: 'Land Transfer Tax - The Preserve Oakville ',
   description:
-    'Use our mortgage calculator for The Preserve Oakville to estimate your home loan. Calculate your monthly payments and find the right mortgage for your property.',
+    'Learn about the land transfer tax in The Preserve Oakville. Get information on property transfer costs and regulations in this neighborhood. Contact us today!',
 };
 
 const Index = () => {
@@ -33,9 +32,9 @@ const Index = () => {
           property transfer process. Let&apos;s delve into the details of the
           Land Transfer Tax in Ontario and how it affects homebuyers.
         </p>
-        <h3 className="text-xl font-normal text-primary">
+        <h2 className="text-xl font-normal text-primary">
           Land Transfer Tax in Ontario: Key Information
-        </h3>
+        </h2>
         <p>
           Unless certain exemptions apply, the Land Transfer Tax is imposed on
           anyone acquiring land in Ontario, including property transfers between

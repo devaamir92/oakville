@@ -27,11 +27,22 @@ interface PageProps {
   };
 }
 
-export const metadata: Metadata = {
-  title: 'Discover Best Homes for Rent in The Preserve Oakville',
-  description:
-    'Browse our listings for homes for rent in The Preserve Oakville neighbourhood. Find luxury properties and homes for rent - Start your search today.',
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: any;
+}): Promise<Metadata> {
+  return {
+    title: `Homes For Rent In  ${params?.neighbourhood
+      .split('-')
+      .join(' ')} | The Preserve Oakville`,
+    description: `Discover luxury homes for rent in ${params?.neighbourhood
+      .split('-')
+      .join(
+        ' '
+      )},  Oakville neighborhood. Find your ideal houses or condos for rent in The Preserve Oakville sought-after location.`,
+  };
+}
 
 const Page: React.FC<PageProps> = async (searchParams: any) => {
   const rows = await getProperties({

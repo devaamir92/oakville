@@ -10,7 +10,7 @@ const SchoolTable: React.FC<SchoolTableProps> = ({ id, schoolType, data }) => {
   return (
     <article id={id} className="flex flex-col gap-8">
       <div className="mt-4 flex flex-col justify-center gap-3">
-        <h2 className="text-center text-2xl font-medium">{schoolType}</h2>
+        <h3 className="text-center text-2xl font-medium">{schoolType}</h3>
         <hr className="border-gray-300" />
       </div>
       <div className="grid gap-8 pb-10  md:grid-cols-2 lg:gap-16">
