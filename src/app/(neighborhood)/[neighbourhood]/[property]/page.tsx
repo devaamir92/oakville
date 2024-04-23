@@ -4,6 +4,8 @@ import Image from 'next/image';
 
 import { BsFillEnvelopeFill, BsFillTelephoneFill } from 'react-icons/bs';
 
+import { headers } from 'next/headers';
+
 import { Share } from '@components/Share';
 
 import cn from '@utils/cn';
@@ -29,6 +31,7 @@ import ListingHighlights from '@components/ListingHighlights';
 import LikeToggle from '@components/ListingCard/LikeToggle';
 import getPropertyDetails from '@lib/api/properties/getPropertyDetails';
 import NeighbourhoodMap from '@components/NeighbourhoodMap';
+import { pageVisit } from '@lib/api/pageVisit';
 
 interface PageProps {
   params: {
@@ -133,6 +136,9 @@ async function Page({ params }: PageProps) {
 
   const images: string[] = await getImages(property.Ml_num);
   const session = await getSession();
+  const currentUrl = headers().get('next-url');
+  await pageVisit(currentUrl ?? '');
+
   return (
     <>
       <div

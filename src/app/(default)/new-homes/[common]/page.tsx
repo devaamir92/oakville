@@ -8,11 +8,15 @@ import { FaEnvelope, FaLocationDot } from 'react-icons/fa6';
 
 import { FaHome } from 'react-icons/fa';
 
+import { headers } from 'next/headers';
+
 import LightBox from '@components/LightBox';
 
 import Demographics from '@components/Demographics';
 
 import MapPinLocation from '@components/MapPinLocation';
+
+import { pageVisit } from '@lib/api/pageVisit';
 
 import Summary from '../_components/Summary';
 import Information from '../_components/Information';
@@ -36,6 +40,8 @@ const getSingleProjext = async (slug: string) => {
 
 const Page = async (searchParams: any) => {
   const rows = await getSingleProjext(searchParams.params.common);
+  const currentUrl = headers().get('next-url');
+  await pageVisit(currentUrl ?? '');
 
   return (
     <div className="container flex max-w-[1140px] flex-col gap-3 py-3">

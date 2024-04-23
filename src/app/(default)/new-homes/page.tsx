@@ -1,10 +1,14 @@
 import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 
+import { headers } from 'next/headers';
+
 import { getNewDevelopment } from '@lib/api/getNewDevelopment';
 
 import Loader from '@components/Loader';
 import Pagination from '@components/ui/Pagination';
+
+import { pageVisit } from '@lib/api/pageVisit';
 
 import Toolbar from './_components/toolbar';
 import NewHomeCard from './_components/NewHomeCard';
@@ -23,6 +27,8 @@ const Developments = async ({ searchParams }: any) => {
     searchParams.search,
     Number(searchParams?.page ?? 1) ?? 1
   );
+  const currentUrl = headers().get('next-url');
+  await pageVisit(currentUrl ?? '');
 
   return (
     <div className="flex h-full flex-col pb-4">

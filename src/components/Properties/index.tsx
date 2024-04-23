@@ -1,3 +1,5 @@
+import { headers } from 'next/headers';
+
 import Sorting from '@components/Sorting';
 import Card from '@components/ListingCard';
 import Pagination from '@components/ui/Pagination';
@@ -12,6 +14,7 @@ import Types from '@components/Toolbar/Types';
 import { getProperties } from '@lib/api/properties/getProperties';
 import Toolbar from '@components/Toolbar';
 import SoldSorting from '@components/SoldSorting';
+import { pageVisit } from '@lib/api/pageVisit';
 
 interface PropertyProps {
   view?: 'list' | 'map';
@@ -81,7 +84,8 @@ const Property: React.FC<PropertyProps> = async ({
     days,
   });
   const session = await getSession();
-
+  const currentUrl = headers().get('next-url');
+  await pageVisit(currentUrl ?? '');
   return (
     <div className="relative min-h-[calc(100vh-70px)]">
       <div className="container flex flex-col gap-4 p-4">
