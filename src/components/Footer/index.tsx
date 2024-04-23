@@ -65,7 +65,7 @@ const usefulLinks = [
     href: '/land-transfer-tax-calculator',
   },
   { name: 'Contact Us', href: '/contact-us' },
-  { name: 'Privacy Policy', href: '/terms' },
+  { name: 'Privacy Policy', href: '/privacy' },
 ];
 
 const linkClass =

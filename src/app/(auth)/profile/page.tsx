@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation';
 
 import { BsEnvelopeFill } from 'react-icons/bs';
 
-import { getSession } from '@lib/auth';
+import { getSession } from '@lib/getsession';
 
 import Loader from '@components/Loader';
 

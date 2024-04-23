@@ -72,8 +72,20 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
 
   return (
     <div>
-      <div className="mx-auto flex justify-center py-5">
-        <h4 className="text-2xl font-medium">Log in to Your Account</h4>
+      <div className="mx-auto flex justify-center py-4">
+        <div>
+          <h4 className="text-2xl font-medium">Preserve Oakville</h4>
+          <p className="flex items-center justify-center text-base">
+            Login or
+            <button
+              type="button"
+              className="ml-1.5 text-blue-500 underline"
+              onClick={() => switchForm('SIGN_UP')}
+            >
+              Create one
+            </button>
+          </p>
+        </div>
       </div>
       {state?.message && (
         <div className="flex h-full items-center rounded border border-red-300 bg-red-100 px-2 text-sm">
@@ -128,7 +140,7 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
 
             <Link
               href="/reset-password"
-              className="text-sm text-gray-800 hover:underline  "
+              className="text-sm text-blue-500 hover:underline  "
             >
               Forget Password?
             </Link>
@@ -138,7 +150,7 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
           <LoginButton />
         </div>
       </form>
-      <div className="mt-2 flex items-center justify-center">
+      {/* <div className="mt-2 flex items-center justify-center">
         <Button
           variant="link"
           className=" font-medium text-gray-700 hover:underline"
@@ -146,7 +158,7 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
         >
           Create an account
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

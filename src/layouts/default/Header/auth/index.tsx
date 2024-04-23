@@ -67,14 +67,15 @@ const Auth: React.FC<LinkProps> = ({ isLogin }) => {
           />
         )}
 
-        <p className="mt-2 text-center text-sm font-light text-gray-600">
-          By creating an account, you acknowledge that you have read and agreed
-          to our{' '}
+        <p className="mt-4 text-center text-sm font-light text-gray-600">
+          By creating an account you acknowledge that you have read and agree to
+          {/* the By creating an account, you acknowledge that you have read and
+          agreed to our{' '} */}
           <Link
-            href="/terms"
-            className="font-medium text-gray-700 hover:underline"
+            href="/privacy"
+            className="ml-1 font-medium text-blue-500 hover:underline"
           >
-            Terms of Service
+            Privacy Policy
           </Link>
         </p>
       </DialogBox>
