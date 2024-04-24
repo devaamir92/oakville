@@ -13,6 +13,9 @@ import FavProvider from '@context/FavContext';
 export const metadata: Metadata = {
   title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
   description: 'Oakville The Preserve',
+  verification: {
+    google: 'RvIN5c5EB83P6UoG729cT_8pl8aDXuENACJwpMtgQ4w',
+  },
   formatDetection: {
     email: true,
     address: true,
