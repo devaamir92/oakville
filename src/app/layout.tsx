@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import type { Metadata } from 'next';
-import type { WebPage, WithContext } from 'schema-dts';
+import type { WebSite, WithContext } from 'schema-dts';
 
 import fonts from '@fonts';
 
@@ -23,10 +23,13 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd: WithContext<WebPage> = {
+const jsonLd: WithContext<WebSite> = {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
+  '@type': 'WebSite',
+  name: 'The Preserve Oakville',
+  alternateName: ['Preserve Oakville', 'Oakville The Preserve'],
   url: 'https://preserveoakville.ca/',
+
   mainEntity: {
     '@type': 'LocalBusiness',
     name: 'The Preserve Oakville',
@@ -41,16 +44,35 @@ const jsonLd: WithContext<WebPage> = {
       addressLocality: 'Mississauga',
       addressRegion: 'ON',
       postalCode: 'L5M 1X1',
-      addressCountry: 'Canada',
+      addressCountry: {
+        '@type': 'Country',
+        name: 'CA',
+      },
     },
+    openingHours: '24/7',
+    priceRange: '$$$',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Agent',
       telephone: ['+1-416-837-2000', '+1-647-929-9072'],
       email: 'info@preserveoakville.ca',
+      availableLanguage: 'English',
     },
     areaServed: 'oakville, ontario, canada',
+    telephone: ['+1-416-837-2000', '+1-647-929-9072'],
+    email: 'info@preserveoakville.ca',
   },
+
+  image: 'https://preserveoakville.ca/images/png/preserveOakville.png',
+  // author: {
+  //   '@type': 'Person',
+  //   name: 'John Doe',
+  // },
+  // sameAs: [
+  //   "https://www.facebook.com/yourbusiness",
+  //   "https://twitter.com/yourbusiness",
+  //   "https://www.instagram.com/yourbusiness"
+  // ],
 };
 
 export default function RootLayout({

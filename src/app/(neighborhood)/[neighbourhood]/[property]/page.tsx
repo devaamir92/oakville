@@ -6,6 +6,8 @@ import { BsFillEnvelopeFill, BsFillTelephoneFill } from 'react-icons/bs';
 
 import { headers } from 'next/headers';
 
+import type { Product, WithContext } from 'schema-dts';
+
 import { Share } from '@components/Share';
 
 import cn from '@utils/cn';
@@ -139,8 +141,53 @@ async function Page({ params }: PageProps) {
   const currentUrl = headers().get('next-url');
   await pageVisit(currentUrl ?? '');
 
+  const jsonLd: WithContext<Product> = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: `${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+      property.Addr
+    } ${property.Ml_num}`,
+    description: `${
+      property.Ad_text
+        ? property.Ad_text.slice(0, 160)
+        : `${property.Addr} is a beautiful luxury property in ${property.Community}. It contains ${property.Br} Bedrooms,${property.Bath_tot} bathrooms,${property.Tot_park_spcs} Parking.`
+    }`,
+    logo: 'https://preserveoakville.ca/images/png/preserveOakville.png',
+    brand: {
+      '@type': 'Brand',
+      name: 'Preserve Oakville',
+    },
+    category: property.Type_own1_out,
+    sku: property.Ml_num,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'CAD',
+      price: property.Lp_dol,
+      url: `https://preserveoakville.ca${getSlug(
+        property.Community,
+        property.Slug
+      )}`,
+      sku: property.Ml_num,
+      businessFunction: property.S_r,
+      availability:
+        property.Status === 'U'
+          ? 'https://schema.org/SoldOut'
+          : 'https://schema.org/InStock',
+    },
+    url: `https://preserveoakville.ca${getSlug(
+      property.Community,
+      property.Slug
+    )}`,
+    image: `https://api.preserveoakville.ca/api/v1/stream/og/${property.Ml_num}/photo_1.png`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div
         className={cn(
           'container relative flex flex-col gap-3 bg-white py-3 lg:max-w-[1140px]'
