@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import type { Metadata } from 'next';
-import type { WebPage, WithContext } from 'schema-dts';
+import type { SearchAction, WebSite, WithContext } from 'schema-dts';
 
 import { Desktop, Mobile } from '@components/ua';
 
@@ -19,6 +19,17 @@ import { getRecentlySold } from '@lib/api/properties/getRecentlySold';
 import { getDailyListing } from '@lib/api/properties/getDailyListing';
 import { getFeaturedListing } from '@lib/api/properties/getFeaturedListing';
 import Footer from '@components/Footer';
+
+type QueryAction = SearchAction & {
+  'query-input': string;
+};
+
+const EXPLORE_ACTION: QueryAction = {
+  '@id': 'https://preserveoakville.ca/search',
+  '@type': 'SearchAction',
+  target: 'https://preserveoakville.ca/search?tag={search_term_string}',
+  'query-input': 'required name=search_term_string',
+};
 
 export const metadata: Metadata = {
   title: 'The Preserve Oakville | Luxury Homes for Sale, Homes in Oakville',
@@ -66,10 +77,11 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd: WithContext<WebPage> = {
+const jsonLd: WithContext<WebSite> = {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
+  '@type': 'WebSite',
   url: 'https://preserveoakville.ca/',
+  potentialAction: EXPLORE_ACTION,
   name: 'The Preserve Oakville',
   description:
     'Luxury real estate listings in Oakville, Ontario. Discover your dream home with The Preserve Oakville.',
