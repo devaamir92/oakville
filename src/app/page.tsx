@@ -3,8 +3,6 @@ import React from 'react';
 import type { Metadata } from 'next';
 import type { SearchAction, WebSite, WithContext } from 'schema-dts';
 
-import Head from 'next/head';
-
 import { Desktop, Mobile } from '@components/ua';
 
 import Hero from '@components/landing/Hero';
