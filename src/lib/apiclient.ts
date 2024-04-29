@@ -39,8 +39,17 @@ apiClient.interceptors.response.use(
       return Promise.reject(new ApiError(400, errr.response.data.errors));
     }
 
+    if (errr.response?.status === 429) {
+      return Promise.reject(
+        new ApiError(429, 'You have reached the maximum number of attempts')
+      );
+    }
+
     if (errr.response?.status === 401) {
       return Promise.reject(new ApiError(401, null, 'Invalid credentials'));
+    }
+    if (errr.response?.status === 404) {
+      return Promise.reject(new ApiError(404, null, 'Not Found'));
     }
     return Promise.reject(new ApiError(500, null, 'Internal Server Error'));
   }

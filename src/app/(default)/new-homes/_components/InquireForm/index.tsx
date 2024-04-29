@@ -135,7 +135,7 @@ const InquireForm: React.FC<InquireFormProps> = ({ title }) => {
             className="bg-white py-1"
           />
           <Input
-            type="text"
+            type="number"
             name="phone"
             placeholder="Phone"
             className="bg-white py-1"

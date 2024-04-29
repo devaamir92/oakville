@@ -22,8 +22,6 @@ import { useLayout } from '@context/LayoutContext';
 
 import { useFavLayout } from '@context/FavContext';
 
-import Auth from '../auth';
-
 import SignOut from '../auth/signOut';
 
 import CollapsItems from './Collaps';
@@ -45,9 +43,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   const { setFavourite } = useFavLayout();
 
   useEffect(() => {
-    if (session?.user) {
-      setLogin(false);
-    }
     if (!session?.user) {
       setFavourite([]);
     }
@@ -55,9 +50,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
 
   return (
     <div className="flex items-center lg:hidden">
-      <Auth />
+      {/* <Auth /> */}
       <div className="hidden">
-        <Verification />
+        <Verification session={session} />
       </div>
       <DropdownMenu>
         <Root

@@ -1,11 +1,12 @@
 'use client';
 
 import { z } from 'zod';
-import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
+
+import Link from 'next/link';
 
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
@@ -39,10 +40,6 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
       message: 'Password must be at least 8 characters',
     }),
   });
-  const notify = () =>
-    toast.success(
-      'The verification email has been successfully sent. Please check your inbox.'
-    );
 
   const handleRegister = async () => {
     try {
@@ -72,9 +69,9 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
         const formdata = new FormData();
         formdata.append('email', state.email);
         formdata.append('password', state.password);
-        notify();
         await login(null, formdata);
         setPending(false);
+        switchForm('VER_STEP');
       }
     } catch (err) {
       setErrors([{ message: 'Something went wrong' }]);
@@ -101,7 +98,7 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
   return (
     <div>
       <div className="mx-auto flex justify-center py-5">
-        <h4 className="text-2xl font-medium">Just One Step Away</h4>
+        <h4 className="text-2xl font-medium">Signup Form</h4>
       </div>
       {errors && (
         <div className="flex h-full items-center rounded border border-red-300 bg-red-100 px-2 text-sm">
@@ -164,7 +161,7 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
             disabled={pending}
           >
             {pending && <Loading />}
-            Submit
+            Signup
           </Button>
         </div>
       </form>
@@ -177,6 +174,16 @@ const FinalStep: React.FC<Props> = ({ switchForm, setState, state }) => {
           Login
         </Button>
       </div>
+
+      <p className="mt-4 text-center text-sm font-light text-gray-600">
+        By creating an account you acknowledge that you have read and agree to
+        <Link
+          href="/privacy"
+          className="ml-1 font-medium text-blue-500 hover:underline"
+        >
+          Privacy Policy
+        </Link>
+      </p>
     </div>
   );
 };

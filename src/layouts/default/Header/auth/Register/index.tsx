@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { z } from 'zod';
 
+import Link from 'next/link';
+
 import { Input } from '@components/ui/Input';
 import { Button } from '@components/ui/Button';
 
@@ -101,6 +103,15 @@ const Register: React.FC<RegisterProps> = ({
           Login
         </Button>
       </div>
+      <p className="mt-4 text-center text-sm font-light text-gray-600">
+        By creating an account you acknowledge that you have read and agree to
+        <Link
+          href="/privacy"
+          className="ml-1 font-medium text-blue-500 hover:underline"
+        >
+          Privacy Policy
+        </Link>
+      </p>
     </div>
   );
 };

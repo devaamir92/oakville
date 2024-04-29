@@ -7,11 +7,14 @@ import { getSession } from '@lib/getsession';
 
 import { Desktop, Mobile } from '@components/ua';
 
+import Verification from '@components/ListingCard/Verification';
+
 import Profile from './Profile';
 import MobileMenu from './MobileMenu';
 import NavDropdown from './NavDropdown';
 import MobileSearch from './MobileSearch';
 import LoginButton from './auth/LoginButton';
+import Auth from './auth';
 
 const navLinks = [
   { name: 'Home', link: '/' },
@@ -48,21 +51,19 @@ export default async function Header() {
 
   return (
     <>
+      <Auth />
+      <div className="hidden">
+        <Verification session={session} />
+      </div>
       <Desktop>
         <header className="sticky top-0 z-30 h-[70px] bg-primary-500 py-2 shadow">
           <div className="container flex h-full flex-row items-center gap-2">
             <div className="flex w-full items-center justify-between lg:w-[220px]">
-              <MobileMenu
-                session={session}
-                navLinks={navLinks}
-                listData={listData}
-              />
               <Link href="/">
                 <Image
                   src="/images/png/preserveOakville.png"
                   alt="logo"
                   priority
-                  // sizes="100vw"
                   width={100}
                   height={70}
                   className="size-full overflow-hidden"

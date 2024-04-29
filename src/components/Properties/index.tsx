@@ -85,7 +85,9 @@ const Property: React.FC<PropertyProps> = async ({
   });
   const session = await getSession();
   const currentUrl = headers().get('next-url');
-  await pageVisit(currentUrl ?? '');
+  if (currentUrl) {
+    await pageVisit(currentUrl);
+  }
   return (
     <div className="relative min-h-[calc(100vh-70px)]">
       <div className="container flex flex-col gap-4 p-4">

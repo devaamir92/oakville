@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { useLayout } from '@context/LayoutContext';
@@ -9,12 +8,13 @@ import Login from './Login';
 import Register from './Register';
 import FinalStep from './Final';
 import DialogBox from './Dailog';
+import Verification from './Verification';
 
 interface LinkProps {
   isLogin?: boolean;
 }
 
-type FormState = 'SIGN_IN' | 'SIGN_UP' | 'FINAL_STEP';
+type FormState = 'SIGN_IN' | 'SIGN_UP' | 'FINAL_STEP' | 'VER_STEP';
 
 const Auth: React.FC<LinkProps> = ({ isLogin }) => {
   const { login, setLogin } = useLayout();
@@ -29,26 +29,24 @@ const Auth: React.FC<LinkProps> = ({ isLogin }) => {
     lastName: '',
     phone: '',
     password: '',
+    key: null,
   });
 
   const switchForm = (step: string) => {
     setFormState(step as FormState);
   };
 
-  const onClose = () => {
-    setFormState('SIGN_IN');
-    setState({
-      email: '',
-      firstName: '',
-      lastName: '',
-      phone: '',
-      password: '',
-    });
-  };
-
   useEffect(() => {
+    switchForm('SIGN_IN');
     if (login) {
-      onClose();
+      setState({
+        email: '',
+        firstName: '',
+        lastName: '',
+        phone: '',
+        password: '',
+        key: null,
+      });
     }
   }, [login]);
 
@@ -66,18 +64,13 @@ const Auth: React.FC<LinkProps> = ({ isLogin }) => {
             state={state}
           />
         )}
-
-        <p className="mt-4 text-center text-sm font-light text-gray-600">
-          By creating an account you acknowledge that you have read and agree to
-          {/* the By creating an account, you acknowledge that you have read and
-          agreed to our{' '} */}
-          <Link
-            href="/privacy"
-            className="ml-1 font-medium text-blue-500 hover:underline"
-          >
-            Privacy Policy
-          </Link>
-        </p>
+        {formState === 'VER_STEP' && (
+          <Verification
+            switchForm={switchForm}
+            setState={setState}
+            state={state}
+          />
+        )}
       </DialogBox>
     </div>
   );

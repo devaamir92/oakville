@@ -12,6 +12,7 @@ import type { User } from '@lib/auth';
 import { login } from '@lib/auth';
 import InputPassword from '@components/ui/Input/inputPassword';
 import Loading from '@components/ui/Loading';
+import { useLayout } from '@context/LayoutContext';
 
 interface LoginProps {
   switchForm: (step: string) => void;
@@ -39,6 +40,7 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
   const [isRemembered, setIsRemembered] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { onClose } = useLayout();
 
   useEffect(() => {
     setFieldErrors({});
@@ -67,6 +69,9 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
     if (state?.status === 400) {
       setFieldErrors(state?.errors);
     }
+    if (state?.email) {
+      onClose();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
@@ -74,17 +79,7 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
     <div>
       <div className="mx-auto flex justify-center py-4">
         <div>
-          <h4 className="text-2xl font-medium">Preserve Oakville</h4>
-          <p className="flex items-center justify-center text-base">
-            Login or
-            <button
-              type="button"
-              className="ml-1.5 text-blue-500 underline"
-              onClick={() => switchForm('SIGN_UP')}
-            >
-              Create one
-            </button>
-          </p>
+          <h4 className="text-2xl font-medium">Log in to Your Account</h4>
         </div>
       </div>
       {state?.message && (
@@ -149,16 +144,14 @@ const Login: React.FC<LoginProps> = ({ switchForm }) => {
         <div className="mt-2">
           <LoginButton />
         </div>
-      </form>
-      {/* <div className="mt-2 flex items-center justify-center">
-        <Button
-          variant="link"
-          className=" font-medium text-gray-700 hover:underline"
+        <button
+          type="button"
+          className="ml-1.5 text-blue-500 hover:underline"
           onClick={() => switchForm('SIGN_UP')}
         >
-          Create an account
-        </Button>
-      </div> */}
+          Create one
+        </button>
+      </form>
     </div>
   );
 };

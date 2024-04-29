@@ -23,7 +23,7 @@ function Profile({ session }: ProfileProps) {
 
   useEffect(() => {
     if (session) {
-      onClose();
+      // onClose();
       const fetchFavourite = async () => {
         const res = await getFavourite();
         setFavourite(res);
