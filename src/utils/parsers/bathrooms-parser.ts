@@ -2,10 +2,10 @@ export class BathroomsParser {
   private constructor(private Bathrooms: string | string[]) {}
 
   private onlyString() {
-    if (this.Bathrooms === '5') {
+    if (this.Bathrooms === '4') {
       return {
         Bath_tot: {
-          $gte: 5,
+          $gte: 4,
         },
       };
     }
@@ -18,9 +18,9 @@ export class BathroomsParser {
   }
 
   private onlyArray() {
-    if ((this.Bathrooms as string[]).includes('5')) {
+    if ((this.Bathrooms as string[]).includes('4')) {
       if ((this.Bathrooms as string[]).length === 1) {
-        this.Bathrooms = '5';
+        this.Bathrooms = '4';
         return this.onlyString();
       }
 
@@ -28,12 +28,12 @@ export class BathroomsParser {
         $or: [
           {
             Bath_tot: {
-              $gte: 5,
+              $gte: 4,
             },
           },
           {
             Bath_tot: {
-              $in: (this.Bathrooms as string[]).filter((b: any) => b !== '5'),
+              $in: (this.Bathrooms as string[]).filter((b: any) => b !== '4'),
             },
           },
         ],

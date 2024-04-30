@@ -55,17 +55,17 @@ const FiltersData = {
   bathrooms: [
     {
       id: 1,
-      name: '1BTH+',
+      name: '1BTH',
       value: '1',
     },
     {
       id: 2,
-      name: '2BTH+',
+      name: '2BTH',
       value: '2',
     },
     {
       id: 3,
-      name: '3BTH+',
+      name: '3BTH',
       value: '3',
     },
     {
@@ -73,11 +73,11 @@ const FiltersData = {
       name: '4BTH+',
       value: '4',
     },
-    {
-      id: 5,
-      name: '5BTH+',
-      value: '5',
-    },
+    // {
+    //   id: 5,
+    //   name: '5BTH+',
+    //   value: '5',
+    // },
   ],
   basement: [
     {
