@@ -9,7 +9,6 @@ import { Button } from '@components/ui/Button';
 import { apiClient } from '@lib/apiclient';
 import { useLayout } from '@context/LayoutContext';
 import { updateUser } from '@lib/api/auth/updateUser';
-import { httpClient } from '@lib/httpclient';
 import { getSession } from '@lib/getsession';
 
 interface VerificationProps {

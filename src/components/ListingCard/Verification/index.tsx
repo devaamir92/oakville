@@ -10,7 +10,6 @@ import { useLayout } from '@context/LayoutContext';
 import { Input } from '@components/ui/Input';
 import { updateUser } from '@lib/api/auth/updateUser';
 import { apiClient } from '@lib/apiclient';
-import { httpClient } from '@lib/httpclient';
 
 interface Props {
   session?: any;
