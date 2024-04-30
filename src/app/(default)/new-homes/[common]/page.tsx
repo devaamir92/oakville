@@ -1,28 +1,22 @@
 import React from 'react';
-
-// import type { Metadata } from 'next';
-
 import Image from 'next/image';
 import Link from 'next/link';
+import { headers } from 'next/headers';
+import { FaHome } from 'react-icons/fa';
 import { FaEnvelope, FaLocationDot } from 'react-icons/fa6';
 
-import { FaHome } from 'react-icons/fa';
-
-import { headers } from 'next/headers';
-
-import LightBox from '@components/LightBox';
-
-import Demographics from '@components/Demographics';
-
-import MapPinLocation from '@components/MapPinLocation';
+import type { Metadata } from 'next';
 
 import { pageVisit } from '@lib/api/pageVisit';
 
+import LightBox from '@components/LightBox';
+import Demographics from '@components/Demographics';
+import MapPinLocation from '@components/MapPinLocation';
+
 import Summary from '../_components/Summary';
 import Information from '../_components/Information';
-
-import FloorPlanTable from '../_components/FloorPlanTable';
 import InquireForm from '../_components/InquireForm';
+import FloorPlanTable from '../_components/FloorPlanTable';
 
 const getSingleProjext = async (slug: string) => {
   const res = await fetch(
@@ -38,8 +32,44 @@ const getSingleProjext = async (slug: string) => {
   return res.json();
 };
 
-const Page = async (searchParams: any) => {
-  const rows = await getSingleProjext(searchParams.params.common);
+export async function generateMetadata({
+  params,
+}: {
+  params: any;
+}): Promise<Metadata> {
+  const data: any = await getSingleProjext(params.common);
+  return {
+    title: data.metaTitle,
+    description: data.metaDescription,
+    keywords: data.metaKeywords,
+    openGraph: {
+      title: data.metaTitle,
+      description: data.metaDescription,
+      type: 'website',
+      images: [
+        {
+          url: `https://api.preserveoakville.ca/public/gallery/${data?.gallery[0]?.name}/${data?.gallery[0].image}`,
+          width: 800,
+          height: 600,
+          alt: data.name,
+        },
+      ],
+    },
+    twitter: {
+      title: data.metaTitle,
+      description: data.metaDescription,
+      images: [
+        {
+          url: `https://api.preserveoakville.ca/public/gallery/${data?.gallery[0]?.name}/${data?.gallery[0].image}`,
+          alt: data.name,
+        },
+      ],
+    },
+  };
+}
+
+const Page = async ({ params }: any) => {
+  const rows = await getSingleProjext(params.common);
   const currentUrl = headers().get('next-url');
   await pageVisit(currentUrl ?? '');
 

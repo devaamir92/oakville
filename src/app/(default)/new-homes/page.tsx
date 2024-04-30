@@ -32,6 +32,40 @@ const Developments = async ({ searchParams }: any) => {
 
   return (
     <div className="flex h-full flex-col pb-4">
+      {data?.data.map((property: any) => (
+        <script
+          key={property.id}
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Product',
+              name: property.name,
+              description: property.description,
+              logo: 'https://preserveoakville.ca/images/png/preserveOakville.png',
+              brand: {
+                '@type': 'Brand',
+                name: 'Preserve Oakville',
+              },
+              category: property.Type_own1_out,
+              sku: property.id,
+              offers: {
+                '@type': 'Offer',
+                priceCurrency: 'CAD',
+                price: 0,
+                url: `https://preserveoakville.ca/new-homes/${property.slug}`,
+                sku: property.id,
+                businessFunction: property.type,
+                availability: property.Status,
+              },
+              url: `https://preserveoakville.ca/new-homes/${property.slug}`,
+              image: `https://api.preserveoakville.ca/public/gallery/${property?.gallery[0].name}/${property?.gallery[0].image}`,
+              // Add other property details as needed
+            }),
+          }}
+        />
+      ))}
       <div className="w-full">
         <Toolbar />
       </div>

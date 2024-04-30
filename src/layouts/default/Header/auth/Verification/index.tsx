@@ -10,6 +10,7 @@ import { apiClient } from '@lib/apiclient';
 import { useLayout } from '@context/LayoutContext';
 import { updateUser } from '@lib/api/auth/updateUser';
 import { httpClient } from '@lib/httpclient';
+import { getSession } from '@lib/getsession';
 
 interface VerificationProps {
   switchForm: (step: string) => void;
@@ -54,17 +55,24 @@ const Verification: React.FC<VerificationProps> = ({
   };
 
   const handleResend = async () => {
+    const session = await getSession();
     try {
-      const res: any = await httpClient.get('/api/v1/auth/send-otp');
-      if (res.statusCode === 200) {
+      const res = await fetch(`${process.env.API_HOST}/api/v1/auth/send-otp`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session?.user?.token}`,
+        },
+      });
+      if (res.status === 200) {
         toast.success('Verification code resent. Please check your email.');
       }
-      if (res.statusCode === 429) {
+      if (res.status === 429) {
         setError('You have reached the maximum number of attempts');
       }
     } catch (err: any) {
       // eslint-disable-next-line no-console
-      console.log(err);
+      console.error(err);
     }
   };
 

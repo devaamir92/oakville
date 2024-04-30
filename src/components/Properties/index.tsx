@@ -90,6 +90,54 @@ const Property: React.FC<PropertyProps> = async ({
   }
   return (
     <div className="relative min-h-[calc(100vh-70px)]">
+      {rows?.data.map((property: any) => (
+        <script
+          key={property.Ml_num}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Product',
+              name: `${property.Apt_num ? `${property.Apt_num} - ` : ''} ${
+                property.Addr
+              } ${property.Ml_num}`,
+              description: `${
+                property.Ad_text
+                  ? property.Ad_text.slice(0, 160)
+                  : `${property.Addr} is a beautiful luxury property in ${property.Community}. It contains ${property.Br} Bedrooms,${property.Bath_tot} bathrooms,${property.Tot_park_spcs} Parking.`
+              }`,
+              logo: 'https://preserveoakville.ca/images/png/preserveOakville.png',
+              brand: {
+                '@type': 'Brand',
+                name: 'Preserve Oakville',
+              },
+              category: property.Type_own1_out,
+              sku: property.Ml_num,
+              offers: {
+                '@type': 'Offer',
+                priceCurrency: 'CAD',
+                price: property.Lp_dol,
+                url: `https://preserveoakville.ca${getSlug(
+                  property.Community,
+                  property.Slug
+                )}`,
+                sku: property.Ml_num,
+                businessFunction: property.S_r,
+                availability:
+                  property.Status === 'U'
+                    ? 'https://schema.org/SoldOut'
+                    : 'https://schema.org/InStock',
+              },
+              url: `https://preserveoakville.ca${getSlug(
+                property.Community,
+                property.Slug
+              )}`,
+              image: `https://api.preserveoakville.ca/api/v1/stream/og/${property.Ml_num}/photo_1.png`,
+              // Add other property details as needed
+            }),
+          }}
+        />
+      ))}
       <div className="container flex flex-col gap-4 p-4">
         <Desktop>
           <Toolbar type="sale" view={view} rows={rows?.data} />

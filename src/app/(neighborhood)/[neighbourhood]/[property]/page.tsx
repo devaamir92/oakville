@@ -6,7 +6,7 @@ import { BsFillEnvelopeFill, BsFillTelephoneFill } from 'react-icons/bs';
 
 import { headers } from 'next/headers';
 
-import type { Product, WithContext } from 'schema-dts';
+import type { BreadcrumbList, Product, WithContext } from 'schema-dts';
 
 import { Share } from '@components/Share';
 
@@ -181,12 +181,37 @@ async function Page({ params }: PageProps) {
     image: `https://api.preserveoakville.ca/api/v1/stream/og/${property.Ml_num}/photo_1.png`,
   };
 
+  const jsonLdBreadcrumbList: WithContext<BreadcrumbList> = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: property.Community,
+        item: {
+          '@type': 'Thing',
+          '@id': `${
+            process.env.NEXT_PUBLIC_SITE_URL
+          }/${property.Community.toLowerCase().replaceAll(' ', '-')}`,
+        },
+      },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdBreadcrumbList),
+        }}
       />
       <div
         className={cn(
